@@ -1,16 +1,76 @@
 import styled from 'styled-components';
-import WelcomeBG from '../../img/start-page/BGStartPageMob.png';
-import WelcomeBG2x from '../../img/start-page/BGStartPageMob@2x.png';
+import bgImgMob1x from '../../img/start-page/BGStartPageMob@1x.png';
+import bgImgMob2x from '../../img/start-page/BGStartPageMob@2x.png';
+import bgImgTablet1x from '../../img/start-page/BGStartPageMob@1x.png';
+import bgImgTablet2x from '../../img/start-page/BGStartPageMob@2x.png';
+import bgImgDesctop1x from '../../img/start-page/BGStartPageDesctop@1x.png';
+import bgImgDesctop2x from '../../img/start-page/BGStartPageDesctop@2x.png';
 export const StartSection = styled.section`
-  background-image: url(${WelcomeBG});
-  background-size: cover; /* Adjust as needed */
+  padding-top: 304px;
+  padding-bottom: 304px;
+  padding-right: 28px;
+  padding-left: 28px;
+
+  background-image: url(${bgImgMob1x});
+  background-size: cover;
   background-repeat: no-repeat;
-@media
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi) {
-    background-image: url(${WelcomeBG2x});
-    }
-`
+  @media (-webkit-min-device-pixel-ratio: 1) and (max-width: 767.98px),
+    (min-resolution: 192dpi) and (max-width: 767.98px) {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(10, 10, 17, 0.2) 0%,
+        rgba(10, 10, 17, 0.2) 100%
+      ),
+      linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+      linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
+      url(${bgImgMob1x}),
+      lightgray -3px -13.319px / 100.511% 101.679% no-repeat;
+  }
+
+  /* Для ретина-дисплеев с разрешением 2x и шириной до 768px */
+  @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
+    (min-resolution: 192dpi) and (max-width: 767.98px) {
+    background-image: url(${bgImgMob2x});
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  /* Для экранов с разрешением 1x и шириной от 768px до 1440px */
+  @media (min-width: 768px) and (max-width: 1339.98px) {
+    background-image: url(${bgImgTablet1x});
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  /* Для ретина-дисплеев с разрешением 2x и шириной от 769px до 1440px */
+  @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1339.98px),
+    (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1339.98px) {
+    background-image: url(${bgImgTablet2x});
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  /* Для экранов с разрешением 1x и шириной больше 1440px */
+  @media (min-width: 1440px) {
+    
+      background-image: url(${bgImgDesctop1x});
+      background-size: cover;
+      background-repeat: no-repeat;
+     
+  }
+
+  /* Для ретина-дисплеев с разрешением 2x и шириной больше 1440px */
+  @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1440px),
+    (min-resolution: 192dpi) and (min-width: 1440px) {
+
+      background-image: url(${bgImgDesctop2x});
+
+      background-size: cover;
+      background-repeat: no-repeat;
+     
+  }
+`;
 
 export const H1 = styled.h1`
   color: #fafafa;
@@ -48,8 +108,7 @@ export const SignUPButton = styled.button`
 export const SignInButton = styled.button`
   border-radius: 42px;
   border: 1px solid rgba(243, 243, 243, 0.2);
-  background:
-    transparent;
+  background: transparent;
   color: #f3f3f3;
   font-family: Manrope;
   font-size: 16px;

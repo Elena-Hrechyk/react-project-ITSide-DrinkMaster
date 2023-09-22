@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
-import { H1, P, SignInButton, SignUPButton, StartSection } from './StartPage.styled';
+import { H1, P, SignInButton,  StartSection } from './StartPage.styled';
+import { SignUpButton } from '../../components/SignUpPageComponents/SignUpButton';
 
 
 const StartPage = () => {
-  const HandleClick =() => {
   
-  };
   return (
     <StartSection>
       <H1>Welcome to the app!</H1>
@@ -14,9 +13,11 @@ const StartPage = () => {
         to be your very own digital cookbook. You can easily save and retrieve
         your own recipes at any time.
       </P>
-      <SignUPButton onClick={HandleClick}>
-        <Link to="/signup">Sign Up</Link>
-      </SignUPButton>
+
+      <Link to="/signup">
+        <SignUpButton />
+      </Link>
+
       <SignInButton>
         <Link to="/signin">Sign In</Link>
       </SignInButton>

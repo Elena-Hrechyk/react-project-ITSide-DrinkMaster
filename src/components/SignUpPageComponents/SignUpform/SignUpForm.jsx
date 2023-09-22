@@ -3,17 +3,19 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import {
   Field,
-  Label,
-  ButtonAddContacts,
-  Form,
-  Title,
-} from './SignUpForm.styled.js';
-// import flatpickr from 'flatpickr';
 
-import { CalendarContainer } from 'react-datepicker';
+ 
+  Form,
+  
+} from './SignUpForm.styled.js';
+
+
+
+import { SignUpButton } from '../SignUpButton.jsx';
+import ReactDatePicker from 'react-datepicker';
 // import * as authOperation from 'redux/auth/auth-operation';
 //початкові значення форміка
-const initialValues = { name: '', email: '', password: '' };
+const initialValues = { name: '', email: '', password: '',  startDate: new Date(),};
 
 export const SignUpForm = () => {
   //виклик диспечера
@@ -46,6 +48,7 @@ export const SignUpForm = () => {
     name: yup.string().required().min(4),
     email: yup.string().required().min(4),
     password: yup.string().required().min(4),
+    
   });
   return (
     <Formik
@@ -55,31 +58,26 @@ export const SignUpForm = () => {
       displayName="MyForm"
     >
       <Form>
-        <Title>Registaration</Title>
-        <Label htmlFor="name">Name</Label>
-        <Field name="name" type="name" />
+        <Field name="name" type="name" placeholder="Name" />
         <ErrorMessage name="name" component="div" />
 
-        {/* <Field style={{background:"pink"}} name="selectedDate">
-          {({ field }) => (
-            <Flatpickr
+        <Field name="startDate" placeholder="startDate">
+          {({ field, form }) => (
+            <ReactDatePicker
               {...field}
-              options={{
-                dateFormat: 'Y-m-d', // Формат даты
-              }}
+              selected={field.value}
+              onChange={(date) => form.setFieldValue('startDate', date)}
+              // showIcon
             />
           )}
-        </Field> */}
-        <CalendarContainer>1212</CalendarContainer>
+        </Field>
 
-        <Label htmlFor="email">E-mail</Label>
-        <Field name="email" type="email" />
+        <Field name="email" type="email" placeholder="Email" />
         <ErrorMessage name="email" component="div" />
 
-        <Label htmlFor="password">Password</Label>
-        <Field name="password" type="password" />
+        <Field name="password" type="password" placeholder="Password" />
         <ErrorMessage name="password" component="div" />
-        <ButtonAddContacts type="submit">sign in</ButtonAddContacts>
+        <SignUpButton type="sabmit"></SignUpButton>
       </Form>
     </Formik>
   );
