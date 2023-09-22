@@ -1,7 +1,15 @@
 import styled from 'styled-components';
+import { Link} from 'react-router-dom';
+
 import { importImgBg } from '../StartPage/StartPage.styled';
 export const SignInSection = styled.section`
-  
+  /* padding-top: 191px;
+  padding-bottom: 191px; */
+  /* padding-right: 20px;
+  padding-left: 20px; */
+  /* display: flex;
+  flex-direction: column    ; */
+  text-align: center;
   padding: 191px 20px 191px 20px;
   background-image: url(${importImgBg.bgImgMob1x});
   background-size: cover;
@@ -63,17 +71,26 @@ export const SignInSection = styled.section`
 
 
 export const H2 = styled.h2`
-  @font-face {
-    font-family: 'Manrope';
-    src: url('./assets/fonts/Manrope-Regular.ttf');
-    
-  }
+  margin-bottom: 28px;
+  text-align: left;
+
   color: #f3f3f3;
-  /* font-feature-settings: 'liga' off; */
+  font-feature-settings: 'liga' off;
   font-family: Manrope;
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
   line-height: 114.286%;
   letter-spacing: -0.56px;
+`;
+
+export const RouteLink = styled(Link)`
+
+  color: #f3f3f3;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 133.333% */
+  text-decoration-line: underline;
 `;
