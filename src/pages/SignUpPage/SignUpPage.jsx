@@ -1,8 +1,14 @@
+// import { Link } from 'react-router-dom';
+import { SignUpForm } from '../../components/SignUpPageComponents/SignUpform/SignUpForm';
+import { H2, SignInSection, RouteLink } from './SignUpPage.styled';
+
 const SignUpPage = () => {
   return (
-    <section>
-      <h2>Registration Page</h2>
-    </section>
+    <SignInSection>
+      <H2>Sign Up</H2>
+      <SignUpForm />
+      <RouteLink to="/signin">Sign In</RouteLink>
+    </SignInSection>
   );
 };
 
