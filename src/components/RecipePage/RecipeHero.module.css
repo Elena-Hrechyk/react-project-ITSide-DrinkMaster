@@ -1,0 +1,40 @@
+.RecipeContainer {
+    display: flex;
+    margin: 0, auto;
+    flex-direction: column;
+}
+
+.glass {
+font-size: 16px;
+font-weight: 400;
+color:black;
+line-height: 1.2;
+}
+
+.RecipeDescription {
+font-size: 14px;
+line-height: 1.3;
+color:black ;
+width: 337px;
+text-align: justify;
+margin-bottom: 40px;
+}
+
+.RecipeImg {
+    margin-bottom: 80px;
+    width: 335px;
+    height: 400px;
+}
+
+@media screen and (min-width: 1440px) {
+    .HeroRecipeContainer {
+    margin-right: auto;
+    }
+    .RecipeContainer {
+    flex-direction: unset;
+    }
+    .RecipeImg {
+    width: 400px;
+    height: 400px;
+    }
+}
