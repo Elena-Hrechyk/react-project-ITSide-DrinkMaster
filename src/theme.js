@@ -16,20 +16,16 @@ export const theme = {
   },
   space: [0, 2, 4, 8, 16, 18, 32, 40, 44, 128, 256],
   font: 'Manrope',
-  fontSizes: {
-    xs: '14px',
-    s: '16px',
-    m: '18px',
-    l: '32px',
-    xl: '64px',
-  },
+  fontSizes: [12, 14, 16, 18, 32, 64],
   fontWeights: {
     normal: 400,
-    bold: 700,
+    medium: 500,
+    bold: 600,
   },
   lineHeights: {
-    body: 1.5,
-    heading: 1.125,
+    body: 1.286,
+    heading: 1.143,
+    logo: 1.125,
   },
   borders: {
     none: 'none',
