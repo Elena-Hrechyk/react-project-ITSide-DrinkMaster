@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import { SignUpForm } from '../../components/SignUpPageComponents/SignUpform/SignUpForm';
+import { H2, SignInSection } from './SignUpPage.styled';
 
 const SignUpPage = () => {
   return (
-    <section>
-      <h2>Sign Up</h2>
+    <SignInSection>
+      <H2>Sign Up</H2>
       <SignUpForm />
       <Link to="/signin">Sign In</Link>
-    </section>
+    </SignInSection>
   );
 };
 
