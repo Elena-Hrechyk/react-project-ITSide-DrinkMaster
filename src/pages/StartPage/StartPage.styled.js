@@ -5,11 +5,15 @@ import bgImgTablet1x from '../../img/start-page/BGStartPageMob@1x.png';
 import bgImgTablet2x from '../../img/start-page/BGStartPageMob@2x.png';
 import bgImgDesctop1x from '../../img/start-page/BGStartPageDesctop@1x.png';
 import bgImgDesctop2x from '../../img/start-page/BGStartPageDesctop@2x.png';
+
+export const importImgBg= {bgImgMob1x,bgImgMob2x,bgImgTablet1x,bgImgTablet2x,bgImgDesctop1x,bgImgDesctop2x}
 export const StartSection = styled.section`
   padding-top: 304px;
   padding-bottom: 304px;
   padding-right: 28px;
   padding-left: 28px;
+
+  /* padding: 304px 28px 304px 28px */
 
   background-image: url(${bgImgMob1x});
   background-size: cover;
@@ -120,3 +124,5 @@ export const SignInButton = styled.button`
   align-items: flex-start;
   gap: 10px;
 `;
+
+

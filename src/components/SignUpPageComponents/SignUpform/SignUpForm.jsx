@@ -77,7 +77,7 @@ export const SignUpForm = () => {
 
         <Field name="password" type="password" placeholder="Password" />
         <ErrorMessage name="password" component="div" />
-        <SignUpButton type="sabmit"></SignUpButton>
+        <SignUpButton type="sabmit" ></SignUpButton>
       </Form>
     </Formik>
   );
