@@ -14,6 +14,8 @@ function App() {
   console.log(test);
   return (
     <AppWrapper>
+     
+
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
