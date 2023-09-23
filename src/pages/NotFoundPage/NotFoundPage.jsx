@@ -1,9 +1,12 @@
+import { Container, Title } from "./NotFoundPage.styled";
+
 const NotFoundPage = () => {
   return (
-    <section>
-      <h2>404</h2>
-    </section>
+    <Container>
+      <Title>404</Title>
+    </Container>
   );
 };
+
 
 export default NotFoundPage;
