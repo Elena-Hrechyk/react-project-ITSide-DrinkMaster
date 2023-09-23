@@ -73,7 +73,7 @@ export const StartSection = styled.section`
 export const H1 = styled.h1`
   color: #fafafa;
   font-feature-settings: 'liga' off;
-  font-family: Manrope;
+  
   font-size: 40px;
   font-style: normal;
   font-weight: 600;
@@ -82,7 +82,7 @@ export const H1 = styled.h1`
 `;
 export const P = styled.p`
   color: #fafafa;
-  font-family: Manrope;
+  
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -93,7 +93,7 @@ export const SignUPButton = styled.button`
   border-radius: 42px;
   background: #f3f3f3;
   color: #161f37;
-  font-family: Manrope;
+  /* font-family: Manrope; */
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
