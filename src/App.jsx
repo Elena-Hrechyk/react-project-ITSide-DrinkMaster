@@ -6,6 +6,7 @@ import { AppWrapper } from './App.styled';
 import SignInPage from './pages/SignInPage/SignInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import StartPage from './pages/StartPage/StartPage';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage'
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/start" element={<StartPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
