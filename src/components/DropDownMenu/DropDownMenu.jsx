@@ -3,6 +3,7 @@
 import { useState } from 'react';
 // import styled from '@emotion/styled';
 import Select from 'react-select';
+// import styled from 'styled-components';
 
 
 const DropDownMenu = ({category}) => {
@@ -22,11 +23,17 @@ const DropDownMenu = ({category}) => {
   // };
   const [isOpen, setIsOpen] = useState(false);
   
-  const handleChange = ({value}) => {
-    category(value)
-  };
+
+  // const handleChange = (customStyles) => {
+  //   console.log("selectedOption",customStyles)
+
+  //   category(customStyles); // Call the category function with the selected value
+  // };
+  // const handleChange = ({value}) => {
+  //   category(value)
+  // };
   const customStyles = {
-    width:"300px",
+    // width:"300px",
     control: (provided) => ({
       ...provided,
       backgroundColor: 'transparent',
@@ -78,8 +85,9 @@ const DropDownMenu = ({category}) => {
 <div style={selectContainer}>
       <Select
         options={optionValue}
+        // name="category"
         placeholder=""
-        onChange={handleChange}
+        onChange={category}
         styles={customStyles}
         // colorStyles
         // customStyles
