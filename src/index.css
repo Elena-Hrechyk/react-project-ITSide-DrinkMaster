@@ -4,7 +4,9 @@ body {
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
+
   @font-face {   
+
     src: url('./assets/fonts/Manrope-Regular.ttf');
     src: url('./assets/fonts/Manrope-Medium.ttf');
     src: url('./assets/fonts/Manrope-SemiBold.ttf');
@@ -15,8 +17,10 @@ body {
   font-style: normal;
   color: #111111;
   width: 100%;
+
   margin: 0;
   /* height: 100vh; */
+
 
 }
 h1,
