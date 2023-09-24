@@ -1,5 +1,4 @@
-
-import { Title } from "./PageTitle.styled";
+import { Title } from './PageTitle.styled';
 
 const PageTitle = ({ title }) => {
   return (

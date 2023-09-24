@@ -1,12 +1,17 @@
-import DrinksItem from '../DrinksItem/DrinksItem'
+import DrinksItem from '../DrinksItem/DrinksItem';
 import { Wrap } from './DrinksList.styled';
 
 const DrinksList = () => {
-
   return (
-      <Wrap>
-          <DrinksItem></DrinksItem>
-      </Wrap>
+    <Wrap>
+      <li><DrinksItem></DrinksItem></li>
+      <li><DrinksItem></DrinksItem></li>
+      <li><DrinksItem></DrinksItem></li>
+      <li><DrinksItem></DrinksItem></li>
+      <li><DrinksItem></DrinksItem></li>
+      <li><DrinksItem></DrinksItem></li>
+      <li><DrinksItem></DrinksItem></li>
+    </Wrap>
   );
 };
 
