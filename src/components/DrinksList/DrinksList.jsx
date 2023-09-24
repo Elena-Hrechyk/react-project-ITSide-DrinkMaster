@@ -8,7 +8,7 @@ import {
   DrinksPageA,
   DrinksPageB,
   DrinksPageText,
-} from './DrinksPage.styled';
+} from './DrinksList.styled';
 
 export function DrinksListPage() {
 
