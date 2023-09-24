@@ -14,7 +14,7 @@ export const theme = {
     borderColor: '#F3F3F380',
     accentBorderColor: '#4070CD80',
   },
-  space: [0, 2, 4, 8, 16, 18, 32, 40, 44, 128, 256],
+  space: [0, 2, 4, 8, 16, 18, 20, 32, 40, 44, 80, 128, 256],
   font: 'Manrope',
   fontSizes: [12, 14, 16, 18, 32, 64],
   fontWeights: {
@@ -25,6 +25,7 @@ export const theme = {
   lineHeights: {
     body: 1.286,
     heading: 1.143,
+    mobile: 1.188,
     logo: 1.125,
   },
   borders: {
@@ -33,6 +34,7 @@ export const theme = {
   },
   radii: {
     none: '0',
+    small: '8px',
     normal: '42px',
     round: '50%',
   },
