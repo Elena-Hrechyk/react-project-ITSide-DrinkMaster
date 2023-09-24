@@ -22,22 +22,18 @@ const AddDrinkPage = () => {
 
   const handleFieldChange = (fieldName, value) => {
     formik.setFieldValue(fieldName, value); // Use the correct field name here
-};
+  };
 
   const handleCategoryChange = (value) => {
     formik.setFieldValue('category', value);
   };
 
   return (
-    <AddPageSection >
-      
-      
-      <form style={ {margin:"auto"}} onSubmit={formik.handleSubmit}>
+    <AddPageSection>
+      <form style={{ margin: 'auto' }} onSubmit={formik.handleSubmit}>
         <DrinkDescription
-          
           category={handleCategoryChange}
           onFieldChange={handleFieldChange}
-          
         />
         <DrinkIngredients />
         <RecipePreparation />
@@ -47,6 +43,5 @@ const AddDrinkPage = () => {
     </AddPageSection>
   );
 };
-
 
 export default AddDrinkPage;
