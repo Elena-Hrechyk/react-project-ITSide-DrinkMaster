@@ -11,15 +11,16 @@ import * as yup from 'yup';
 import {
   Field,
   ErrorMessage,
-  
+  SignUpBTN,
   Form,
   Label,
   DoneMessage,
 } from './SignUpForm.styled.js';
 import  Icon from './SvgComponents.jsx';
-import { SignUpButton } from '../SignUpButton.jsx';
-import ReactDatePicker from 'react-datepicker';
+// import { SignUpButton } from '../SignUpButton.jsx';
+
 import { useState } from 'react';
+import StyledDatepicker from './StyledDatepicker.jsx';
 // import * as authOperation from 'redux/auth/auth-operation';
 
 
@@ -29,7 +30,7 @@ const initialValues = {
   name: '',
   email: '',
   password: '',
-  startDate: new Date(),
+  // startDate: new Date(),
 };
 
   
@@ -115,16 +116,9 @@ const handleFocus = () => setDidFocus(true);
             <DoneMessage>This is an CORRECT name</DoneMessage>
           )}
           <ErrorMessage name="name" component="div" />
-          <Field name="startDate" placeholder="startDate">
-            {({ field, form }) => (
-              <ReactDatePicker
-                {...field}
-                selected={field.value}
-                onChange={(date) => form.setFieldValue('startDate', date)}
-                // showIcon
-              />
-            )}
-          </Field>
+
+          <StyledDatepicker />
+
           <Label style={{ position: 'relative' }}>
             <Field
               name="email"
@@ -144,7 +138,7 @@ const handleFocus = () => setDidFocus(true);
               ''
             )}
           </Label>
-          {!errors.email && values.email.length > 2  && (
+          {!errors.email && values.email.length > 2 && (
             <DoneMessage>This is an CORRECT email</DoneMessage>
           )}
           <ErrorMessage name="email" component="div" />
@@ -170,7 +164,7 @@ const handleFocus = () => setDidFocus(true);
             <DoneMessage>This is an CORRECT password</DoneMessage>
           )}
           <ErrorMessage name="password" component="div" />
-          <SignUpButton type="sabmit"></SignUpButton>
+          <SignUpBTN type="sabmit" >Sign Up</SignUpBTN>
         </Form>
       )}
     </Formik>

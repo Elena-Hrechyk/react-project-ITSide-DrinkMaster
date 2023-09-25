@@ -45,12 +45,12 @@ export const Input = styled.input`
 export const Field = styled(FormikField)`
   /* position: relative; */
   display: block;
-  width: 287px;
+  width: 335px;
   height: 54px;
   padding-left: 18px;
   padding-right: 18px;
 
-  max-width: 335px;
+  /* max-width: 335px; */
   /* padding: 18px 24px 18px 24px; */
   color: #f3f3f3;
   /* text-align: center; */
@@ -94,28 +94,20 @@ export const Field = styled(FormikField)`
     color: rgba(243, 243, 243, 1);
   }
 `;
-export const ButtonAddContacts = styled.button`
-  /* display: inline-block;
-  background-color: rgb(99, 99, 255);
-  border-radius: 4px;
-  border: 2px solid black;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-right: 32px;
-  padding-left: 32px;
-  min-width: 100%;
+export const SignUpBTN = styled.button`
+  width: 372px;
+  height: auto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  border-radius: 42px;
 
-  text-decoration: none;
-  text-align: center;
-  font-weight: bold;
-  font-size: 32px;
-  &:hover,
-  :focus,
-  :active {
-    outline: 5px solid rgb(255, 255, 0);
-    border: none;
-    background-color: fuchsia;
-  } */
+  padding: 18px 44px;
+ 
+  background: #f3f3f3;
+  color: #161f37;
+
 `;
 export const ErrorMessage = styled(FormikErrorMessage)`
   width: 268px;
