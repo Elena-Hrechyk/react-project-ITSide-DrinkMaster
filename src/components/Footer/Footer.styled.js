@@ -3,6 +3,38 @@ import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Form as FormikForm, ErrorMessage as FormikError } from 'formik';
 
+
+export const FooterSection = styled.footer`
+  font-family: 'Manrope', Arial, sans-serif;
+  max-width: 480px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 60px;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #f3f3f3;
+  background-color: #0a0a11;
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 60px;
+  padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 60px;
+  }
+`;
+
+
 export const FooterContainer = styled.div`
   display: block;
   padding: 10px;
