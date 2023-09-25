@@ -72,6 +72,8 @@ export const СocktailRecipe = styled.p`
 `;
 
 export const Wraper = styled.div`
+  display: flex;
+  align-items: center;
   margin-top: 18px;
 
   @media screen and (min-width: 768px) {
@@ -113,8 +115,10 @@ export const ButtonSeeMore = styled.button`
 `
 
 export const ButtonDelete = styled.button`
-  width: 46px;
-  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
   padding: 11px;
   border: none;
   border-radius: 42px;
@@ -127,10 +131,28 @@ export const ButtonDelete = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    width: 56px;
-    height: 56px;
-    padding: 15px;
-  };
+    /* font-family: 'Manrope', Arial, sans-serif; */
+    /* width: 56px; */
+    /* height: 56px; */
+    
+    
+    /* font-style: inherit; */
 
-  
+    /* font-weight: normal; */
+    padding: 15px;
+    /* line-height: 0; */
+    /* width: 100%; */
+    /* font-size: 24px;
+    font-family: 'Manrope';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  /* display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: 2tr; */ 
+  };  
 `;

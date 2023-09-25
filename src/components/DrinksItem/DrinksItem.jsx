@@ -1,4 +1,5 @@
 import Coctaile from "../../img/drink-master/cocktail/berry-deadly.jpg"
+import {RiDeleteBinLine} from "react-icons/ri";
 import {
   Image,
   СocktailName,
@@ -24,7 +25,9 @@ const DrinksItem = () => {
       </СocktailRecipe>
       <Wraper>
         <ButtonSeeMore>See more</ButtonSeeMore>
-        <ButtonDelete>x</ButtonDelete>
+        <ButtonDelete>
+          <RiDeleteBinLine />
+        </ButtonDelete>
       </Wraper>
     </Wrap>
   );
