@@ -1,16 +1,20 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 500px
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 500px;  
     `;
 
-export const Title = styled.h1`
-  color: #F3F3F3;
-  text-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
+export const ErrorContainer = styled.div`
+  display: flex;
+`;
+
+export const Title = styled.span`
+  font-weight:600;
+  font-family: Manrope;
+  font-size:120px;
+  color: #363535;
 
 `;
