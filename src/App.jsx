@@ -13,14 +13,12 @@ function App() {
   console.log(test);
   return (
     <AppWrapper>
-     
-
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/signin" element={<SignInPage />} />
-          <Route path="/start" element={<StartPage />} />
+          <Route path="/welcome" element={<StartPage />}/>
+          <Route path="signup" element={<SignUpPage />} />
+          <Route path="signin" element={<SignInPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

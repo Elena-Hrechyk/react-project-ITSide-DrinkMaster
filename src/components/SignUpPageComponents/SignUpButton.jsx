@@ -4,7 +4,7 @@ export const SignUpButtonSt = styled.button`
   border-radius: 42px;
   background: #f3f3f3;
   color: #161f37;
-  font-family: Manrope;
+  
   font-size: 16px;
   font-style: normal;
   font-weight: 600;

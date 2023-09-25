@@ -14,7 +14,7 @@ export const StartSection = styled.section`
   padding-right: 28px;
   padding-left: 28px;
   /* overflow: hidden; */
-/* z-index:100; */
+  /* z-index:100; */
   /* padding: 304px 28px 304px 28px */
 
   /* background-image: url(${bgImgMob1x});
@@ -22,12 +22,16 @@ export const StartSection = styled.section`
   background-repeat: no-repeat;
   @media (-webkit-min-device-pixel-ratio: 1) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) { */
+  /* border-radius: 257px;
+  background: rgba(188, 230, 210, 0.4);
+  filter: blur(104.8543701171875px); */
   background:
     linear-gradient(0deg, rgba(10, 10, 17, 0.2) 0%, rgba(10, 10, 17, 0.2) 100%),
     linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
     linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
     url(${bgImgMob1x}),
     lightgray -3px -13.319px / 100.511% 101.679% no-repeat;
+
   /* }
 
   /* Для ретина-дисплеев с разрешением 2x и шириной до 768px */
