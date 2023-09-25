@@ -8,6 +8,5 @@ export const AppWrapper = styled.div`
   
   background-repeat: no-repeat;
   background-position: center bottom;
-
-
 `;
+

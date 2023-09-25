@@ -21,7 +21,9 @@
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.4.5",
     "react-router-dom": "^6.15.0",
+    "react-select": "^5.7.5",
     "styled-components": "^6.0.7",
+    "styled-system": "^5.1.5",
     "vite-plugin-svgr": "^3.2.0",
     "yup": "^1.2.0"
   },
@@ -38,7 +40,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "3.0.3",
+    "prettier": "^3.0.3",
     "vite": "^4.4.5"
   },
   "lint-staged": {
