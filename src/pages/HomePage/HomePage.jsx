@@ -1,6 +1,12 @@
 // DrinkMaster page like HomePage
 
-import { AddDrinkContainer, StyledLink, HomeSection } from './HomePage.styled';
+import {
+  AddDrinkContainer,
+  StyledLink,
+  HomeSection,
+  CategoryDrinkContainer,
+  LinkBox,
+} from './HomePage.styled';
 import DrinksListHomePage from '../../components/Drinks_list_home_page/drinksListHomePage';
 
 const HomePage = () => {
@@ -15,23 +21,25 @@ const HomePage = () => {
         </p>
         <StyledLink to="add">Add drink</StyledLink>
       </AddDrinkContainer>
-      <div>
+      <CategoryDrinkContainer>
         <h2>Ordinary Drink</h2>
         <DrinksListHomePage />
-      </div>
-      <div>
+      </CategoryDrinkContainer>
+      <CategoryDrinkContainer>
         <h2>Cocktail</h2>
         <DrinksListHomePage />
-      </div>
-      <div>
+      </CategoryDrinkContainer>
+      <CategoryDrinkContainer>
         <h2>Shake</h2>
         <DrinksListHomePage />
-      </div>
-      <div>
+      </CategoryDrinkContainer>
+      <CategoryDrinkContainer>
         <h2>Other/Unknow</h2>
         <DrinksListHomePage />
-      </div>
-      <StyledLink to="/drinks">Other drinks</StyledLink>
+      </CategoryDrinkContainer>
+      <LinkBox>
+        <StyledLink to="/drinks">Other drinks</StyledLink>
+      </LinkBox>
     </HomeSection>
   );
 };
