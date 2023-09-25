@@ -7,7 +7,6 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #191d34;
 `;
 
 export const Navigation = styled.nav`
@@ -59,7 +58,7 @@ export const StyledLink = styled(NavLink)`
   color: #f3f3f3;
 
   &.active {
-    background-color: blue;
+    background-color: #191d34;
   }
 `;
 
