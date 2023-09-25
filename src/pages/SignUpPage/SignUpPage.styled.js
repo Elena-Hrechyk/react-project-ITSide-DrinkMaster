@@ -76,7 +76,7 @@ export const H2 = styled.h2`
 
   color: #f3f3f3;
   font-feature-settings: 'liga' off;
-  font-family: Manrope;
+  /* font-family: Manrope; */
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
@@ -87,7 +87,7 @@ export const H2 = styled.h2`
 export const RouteLink = styled(Link)`
 
   color: #f3f3f3;
-  font-family: Manrope;
+  /* font-family: Manrope; */
   font-size: 12px;
   font-style: normal;
   font-weight: 600;

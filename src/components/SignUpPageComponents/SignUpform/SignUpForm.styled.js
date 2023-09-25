@@ -1,17 +1,18 @@
-import { Field as FormikField, Form as FormikForm } from 'formik';
+import {
+  Field as FormikField,
+  Form as FormikForm,
+  ErrorMessage as FormikErrorMessage,
+} from 'formik';
 import styled from 'styled-components';
 
 export const Form = styled(FormikForm)`
-  /* max-width: 700px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 0 20px 0 20px; */
   max-width: 335px;
-  gap:14px;
-  /* margin: 0 auto; */
-    margin-bottom: 14px;
+  gap: 14px;
+  margin-bottom: 14px;
 `;
 export const DivForInput = styled.div`
   /* margin-bottom: 1rem; */
@@ -42,17 +43,18 @@ export const Input = styled.input`
   /* } */
 `;
 export const Field = styled(FormikField)`
-  /* /* display: block; */
-  /* width: 100%; */
+  /* position: relative; */
+  display: block;
+  width: 287px;
   height: 54px;
   padding-left: 18px;
   padding-right: 18px;
 
-  max-width: 335px; 
+  max-width: 335px;
   /* padding: 18px 24px 18px 24px; */
   color: #f3f3f3;
   /* text-align: center; */
-  font-family: Manrope;
+  /* font-family: Manrope; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -61,17 +63,36 @@ export const Field = styled(FormikField)`
   /* margin-top: 10px;
   margin-bottom: 32px;
   padding: 0.5rem;
-  font-size: 2rem;
-  /* border: 1px solid black; */
+  font-size: 2rem; */
+  border: 1px solid rgba(243, 243, 243, 0.2);
   outline: transparent;
   border-radius: 200px;
   /* transition: box-shadow 0.3s ease; */
-  /* background-color: rgb(99, 99, 255); */
-  /* &:hover {
-    outline: 5px solid rgb(255, 255, 0);
-    border: none;
+  background-color: transparent;
+  /* &:valid {
+    
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 20px 20px;
+  } */
+  &:hover {
+    border: 1px solid rgba(243, 243, 243, 0.5);
+    opacity: 0.8;
+    border-radius: 200px;
+    /* outline: 5px solid green; */
     /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
-  /* } */
+  }
+
+  &:focus {
+    border: 1px solid rgba(243, 243, 243, 0.5);
+    opacity: 0.8;
+    border-radius: 200px;
+    /* outline: 5px solid green; */
+    /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
+  }
+  &:hover::placeholder {
+    color: rgba(243, 243, 243, 1);
+  }
 `;
 export const ButtonAddContacts = styled.button`
   /* display: inline-block;
@@ -96,4 +117,35 @@ export const ButtonAddContacts = styled.button`
     background-color: fuchsia;
   } */
 `;
-export const Title = styled.h3`margin-bottom: 20px`
+export const ErrorMessage = styled(FormikErrorMessage)`
+  width: 268px;
+  color: rgba(218, 20, 20, 1);
+  /* font-family: Manrope; */
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+`;
+// export const ErrorSvg = styled(ErrorSVG)`
+//   position: absolute;
+//   top: 16px;
+//   right: 16px;
+// `;
+export const Title = styled.h3`
+  margin-bottom: 20px;
+`;
+// export const DoneSvg = styled(DoneSVG)`
+
+//   position: absolute;
+//   top: 16px;
+//   right: 16px;
+// `;
+
+export const DoneMessage = styled.span`
+  color: #3cbc81;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+`;

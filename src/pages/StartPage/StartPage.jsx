@@ -4,9 +4,9 @@ import {
   P,
   SignInButton,
   StartSection,
-  // BGElipse1,
-  // BGElipse2,
-  // BGElipse3,
+  BGElipse1,
+  BGElipse2,
+  BGElipse3,
 } from './StartPage.styled';
 import { SignUpButton } from '../../components/SignUpPageComponents/SignUpButton';
 
@@ -15,9 +15,9 @@ const StartPage = () => {
   
   return (
     <>
-      {/* <BGElipse1 />
+      <BGElipse1 />
       <BGElipse2 />
-       <BGElipse3 /> */}
+       <BGElipse3 />
       <StartSection>
         <H1>Welcome to the app!</H1>
         <P>

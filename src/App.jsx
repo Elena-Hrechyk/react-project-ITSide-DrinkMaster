@@ -16,15 +16,16 @@ function App() {
   console.log(test);
   return (
     <AppWrapper>
-     
-
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
+
+          <Route path="/welcome" element={<StartPage />} />
+
           <Route path="/addDrink" element={<AddDrinkPage />} />
-          <Route path="/start" element={<StartPage />} />
+
           <Route path="/favorites" element={<FavoritesPage />} />
           {/* <Route path="/drinks" element={<DrinksPage />} /> */}
           <Route path="/my" element={<MyDrinksPage />} />
