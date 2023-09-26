@@ -13,19 +13,28 @@ import {
   XImg,
 } from './DrinkIngredients.styled';
 import Xicon from "../../../img/svg/Xicon.svg"
+import { Field, FieldArray } from 'formik';
 
-const DrinkIngredients = () => {
+const DrinkIngredients = ({ formik }) => {
   const [counter, setCounter] = useState(0);
   const renderIngredientsContainers = () => {
     const containers = [];
+    const removeIngredient = (arrayHelpers, index) => {
+      arrayHelpers.remove(index);
+    };
     for (let i = 0; i < counter; i++) {
       containers.push(
         <IngridientsContainer key={i}>
           <Ingridient>
-            <DropDownMenu
+            <Field
+              as={DropDownMenu}
               id={`category-${i}`}
               name={`category-${i}`}
               // onChange={formik.handleChange}
+              onChange={(selectedOption) => {
+                // Update Formik values with the selected option
+                formik.setFieldValue(`category-${i}`, selectedOption.value);
+              }}
               style={{
                 color: 'red',
               }}
@@ -33,9 +42,9 @@ const DrinkIngredients = () => {
             />
           </Ingridient>
           <Portion width="150px">
-            <Input placeholder="Portion" marginBottom="0" />
+            <Field as={Input} placeholder="Portion" marginBottom="0" />
           </Portion>
-          <XButton>
+          <XButton onClick={() => removeIngredient(i)}>
             <XImg src={Xicon} alt={`Xicon-${i}`} />
           </XButton>
         </IngridientsContainer>
@@ -55,7 +64,21 @@ const DrinkIngredients = () => {
           <CountButton onClick={() => setCounter(counter + 1)}>+</CountButton>
         </CountBlock>
       </TitleContainer>
-      {renderIngredientsContainers()}
+      <FieldArray name="ingridients">
+            {({ insert, remove, push }) => (
+          <div>             
+            {renderIngredientsContainers({ insert, remove, push })}
+
+              </div>
+              )}
+            </FieldArray>
+      
+
+    </DrinkIngredientsContainer>
+  );
+};
+
+export default DrinkIngredients;
       {/* <IngridientsContainer>
         
         <Ingridient >
@@ -77,8 +100,3 @@ const DrinkIngredients = () => {
           <XImg src={Xicon} alt="Xicon"  /> 
           </XButton>
       </IngridientsContainer> */}
-    </DrinkIngredientsContainer>
-  );
-};
-
-export default DrinkIngredients;

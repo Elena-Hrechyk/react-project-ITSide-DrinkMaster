@@ -25,7 +25,7 @@ export const Header = () => {
           <NavigationList>
             <StyledLink to="/">Home</StyledLink>
             <StyledLink to="/drinks">Drinks</StyledLink>
-            <StyledLink to="add">Add drink</StyledLink>
+            <StyledLink to="/addDrink">Add drink</StyledLink>
             <StyledLink to="my">My drinks</StyledLink>
             <StyledLink to="favorites">Favorites</StyledLink>
           </NavigationList>

@@ -28,8 +28,10 @@ function App() {
 
           <Route path="/addDrink" element={<AddDrinkPage />} />
 
+
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/my" element={<MyDrinksPage />} />
+
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

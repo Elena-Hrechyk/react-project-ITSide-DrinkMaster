@@ -11,8 +11,8 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlise';
-import { coctailsReducer } from './coctails/coctailsSlise';
-import { filterReducer } from './coctails/filterSlise';
+import { addDrinksReducer } from './drinks/drinksSlise';
+// import { filterReducer } from './drinks/filterSlise';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -31,11 +31,11 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    coctails: coctailsReducer,
-    filter: filterReducer,
+    coctails: addDrinksReducer,
+    // filter: filterReducer,
   },
   middleware,
-  devTools: process.env.NODE_ENV === 'development',
+  // devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);

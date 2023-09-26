@@ -135,15 +135,16 @@ export const RadioInput = styled.input`
   &:checked {
     + .radio-label {
       &:after {
-        background-color: #6b3232;
-        border: 2px solid #ed1515;
-        box-shadow: inset 0 0 0 4px #d61313;
+        opacity: 1;
+        /* background-color: #6b3232;
+        border: 2px solid #ffffff;
+        box-shadow: inset 0 0 0 4px #000000; */
       }
     }
   }
   &:focus {
     + .radio-label {
-      color: #d9d9d9;
+      /* color: #d9d9d9; */
       &:before {
         outline: none;
         box-shadow: inset 0 0 0 4px #000000;
@@ -161,6 +162,7 @@ export const RadioInput = styled.input`
       }
     }
   }
+
   /* &:disabled {
     + .radio-label {
       &:before {
