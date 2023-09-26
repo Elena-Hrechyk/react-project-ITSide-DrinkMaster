@@ -1,7 +1,7 @@
 import css from "./RecipeHero.module.css"
 import RecipeButton from "./RecipeButton";
 import RecipeTitle from "./RecipeTitle";
-import img from "../../img/drink-master/cocktail/berry-deadly.jpg"
+import img from "../../img/my-drinks/high-angle-tasty-caipirinha-with-raspberry@2x.jpg"
 const RecipeHero = ({data}) => {
 
 
@@ -9,9 +9,8 @@ const RecipeHero = ({data}) => {
     <section className={css.RecipeContainer}>
     <div className={css.HeroRecipeContainer}>
     <RecipeTitle/>
-    <p className={css.glass}>type of drink</p>
-    <p className={css.RecipeDescription}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum excepturi, in illo obcaecati possimus accusantium hic perferendis, provident, fugit explicabo quaerat? Culpa odio magnam maxime facere unde facilis praesentium. Distinctio.
-    Consectetur esse molestias odio accusamus pariatur voluptatibus dicta quidem. Deserunt, enim quis consequuntur minus velit sit reiciendis suscipit quo ad voluptate ipsam culpa neque aspernatur autem porro doloremque quam cum?</p>
+    <p className={css.glass}>Highball glass / Non alcoholic</p>
+    <p className={css.RecipeDescription}>Just a Moonmint is a refreshing and minty cocktail that combines the flavors of vodka, lime juice, and mint syrup. It is made by shaking vodka, lime juice, mint syrup, and ice together and straining it into a glass.</p>
     <RecipeButton/>
     </div>
     <img className={css.RecipeImg} src={img}/>
