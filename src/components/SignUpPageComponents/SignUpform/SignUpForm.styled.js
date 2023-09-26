@@ -104,10 +104,27 @@ export const SignUpBTN = styled.button`
   border-radius: 42px;
 
   padding: 18px 44px;
- 
+  outline: transparent;
   background: #f3f3f3;
   color: #161f37;
+  border: 1px solid rgba(243, 243, 243, 0.2);
 
+  &:hover {
+    border-radius: 42px;
+    background: #161f37;
+    color: #f3f3f3;
+    /* font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px; 112.5% */
+  }
+  &:active {
+    border-radius: 42px;
+    border: 2px solid rgba(64, 112, 205, 0.5);
+    background: #f3f3f3;
+    color: #161f37;
+  }
 `;
 export const ErrorMessage = styled(FormikErrorMessage)`
   width: 268px;

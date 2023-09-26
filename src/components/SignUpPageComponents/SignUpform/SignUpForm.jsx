@@ -3,7 +3,7 @@
 import {
   Formik,
   // useField,
-  
+
   // ErrorMessage
 } from 'formik';
 // import { useDispatch } from 'react-redux';
@@ -16,38 +16,33 @@ import {
   Label,
   DoneMessage,
 } from './SignUpForm.styled.js';
-import  Icon from './SvgComponents.jsx';
+import Icon from './SvgComponents.jsx';
 // import { SignUpButton } from '../SignUpButton.jsx';
 
 import { useState } from 'react';
 import StyledDatepicker from './StyledDatepicker.jsx';
 // import * as authOperation from 'redux/auth/auth-operation';
 
-
-
 //початкові значення форміка
 const initialValues = {
   name: '',
   email: '',
   password: '',
+  birthday: null,
   // startDate: new Date(),
 };
 
-  
- 
- 
-
 export const SignUpForm = () => {
-// const [field, meta] = useField();  
+  // const [field, meta] = useField();
 
-// Show inline feedback if EITHER
-// - the input is focused AND value is longer than 2 characters
-// - or, the has been visited (touched === true)
-const [didFocus, setDidFocus] = useState(false);
-const handleFocus = () => setDidFocus(true);
-// const handleBlur = () => setDidFocus(false);
-// const showFeedback =
-//   (!!didFocus && field.value.trim().length > 2)
+  // Show inline feedback if EITHER
+  // - the input is focused AND value is longer than 2 characters
+  // - or, the has been visited (touched === true)
+  const [didFocus, setDidFocus] = useState(false);
+  const handleFocus = () => setDidFocus(true);
+  // const handleBlur = () => setDidFocus(false);
+  // const showFeedback =
+  //   (!!didFocus && field.value.trim().length > 2)
   // || meta.touched;
 
   //виклик диспечера
@@ -55,11 +50,13 @@ const handleFocus = () => setDidFocus(true);
   //отримання даних з редакс
 
   //додавання контакту при сабміті
-  const handleSabmit = (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
     console.log('values', values);
+    console.log('Выбранная дата:', values.birthday);
     // виклик диспечера для відправки даних в редакс
     const reg = JSON.stringify({
       name: values.name.trim(),
+      birthday: values.birthday,
       email: values.email.trim(),
       password: values.password.trim(),
     });
@@ -78,6 +75,7 @@ const handleFocus = () => setDidFocus(true);
   //схема валідації
   const schema = yup.object().shape({
     name: yup.string().required().min(4),
+    
     email: yup.string().required().min(4),
     password: yup.string().required().min(4),
   });
@@ -85,12 +83,11 @@ const handleFocus = () => setDidFocus(true);
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
-      onSubmit={handleSabmit}
+      onSubmit={handleSubmit}
       displayName="MyForm"
     >
-      {({ errors, touched, values, handleChange }) => (
+      {({ errors, touched, values, handleChange, handleSubmit }) => (
         <Form>
-          {/* <MyTextField name="firstName" type="text" label="First Name"></MyTextField> */}
           <Label style={{ position: 'relative' }}>
             <Field
               name="name"
@@ -117,8 +114,11 @@ const handleFocus = () => setDidFocus(true);
           )}
           <ErrorMessage name="name" component="div" />
 
-          <StyledDatepicker />
-
+          <Field
+            name="birthday"
+            component={StyledDatepicker}
+            value={values.birthday}
+          />
           <Label style={{ position: 'relative' }}>
             <Field
               name="email"
@@ -164,7 +164,9 @@ const handleFocus = () => setDidFocus(true);
             <DoneMessage>This is an CORRECT password</DoneMessage>
           )}
           <ErrorMessage name="password" component="div" />
-          <SignUpBTN type="sabmit" >Sign Up</SignUpBTN>
+          <SignUpBTN type="submit" >
+            Sign Up
+          </SignUpBTN>
         </Form>
       )}
     </Formik>
