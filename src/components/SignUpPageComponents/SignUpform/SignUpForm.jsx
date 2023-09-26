@@ -86,7 +86,7 @@ export const SignUpForm = () => {
       onSubmit={handleSubmit}
       displayName="MyForm"
     >
-      {({ errors, touched, values, handleChange, handleSubmit }) => (
+      {({ errors, touched, values, handleChange,  }) => (
         <Form>
           <Label style={{ position: 'relative' }}>
             <Field
