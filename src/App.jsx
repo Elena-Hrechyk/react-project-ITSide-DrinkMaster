@@ -17,10 +17,10 @@ function App() {
   return (
     <AppWrapper>
       <Routes>
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/signin" element={<SignInPage />} />
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/signin" element={<SignInPage />} />
 
           <Route path="/welcome" element={<StartPage />} />
 

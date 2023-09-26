@@ -1,8 +1,12 @@
+import { SignInForm } from '../../components/SignInPageComponents/SignInForm';
+import { H2, SignInSection, RouteLink } from '../SignUpPage/SignUpPage.styled';
 const SignIpPage = () => {
   return (
-    <section>
-      <h2>Login Page</h2>
-    </section>
+    <SignInSection>
+      <H2>Sign In</H2>
+      <SignInForm />
+      <RouteLink to="/signin">Sign Up</RouteLink>
+    </SignInSection>
   );
 };
 
