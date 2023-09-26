@@ -24,8 +24,8 @@ function App() {
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/addDrink" element={<AddDrinkPage />} />
           <Route path="/start" element={<StartPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/drinks" element={<DrinksPage />} />
+          {/* <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/drinks" element={<DrinksPage />} /> */}
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

@@ -1,6 +1,8 @@
 
 // import * as React from 'react';
+import React from 'react';
 import { useState } from 'react';
+import { Field, ErrorMessage } from 'formik'; 
 // import styled from '@emotion/styled';
 import Select from 'react-select';
 // import styled from 'styled-components';
@@ -9,12 +11,20 @@ import Select from 'react-select';
 const DropDownMenu = ({category}) => {
   const optionValue = [
     { label: 'Cocktail glass', value: 'Cocktail glass' },
-    { label: ' glass', value: ' glass' },
+    { label: "Shake", value: "Shake" },
     { label: 'Cocktail ', value: 'Cocktail ' },
-    { label: 'Cocktail glass', value: 'Cocktail glass' },
-    { label: ' glass', value: ' glass' },
-    { label: 'Cocktail ', value: 'Cocktail ' },
-  ];
+    { label: 'glass', value: 'glass' },
+    { label: "Other/Unknown", value: "Other/Unknown" },
+    { label: "Ordinary Drink", value: "Ordinary Drink" },
+    { label: "Cocoa",  value: "Cocoa" },
+    
+    // "Shot",
+    // "Coffee/Tea",
+    // "Homemade Liqueur",
+    // "Punch/Party Drink",
+    // "Beer",
+    // "Soft Drink"
+  ]
   // const [value, setValue] = useState('');
   // const colorStyles = {
   //   dropdownIndicator: (styles) => {
@@ -51,6 +61,8 @@ const DropDownMenu = ({category}) => {
       backgroundColor: '#161F37',
       borderRadius:20,
       color: isFocused ? '#F3F3F3' : '#F3F3F366',
+      display: "flex",
+          alignItems: "flex-start"
     }),
     menu: (provided) => ({
       ...provided,
@@ -66,7 +78,8 @@ const DropDownMenu = ({category}) => {
       cursor: 'pointer',
         '&:hover': {
         // Define styles for when the control is hovered (optional)
-        color: '#F3F3F3',
+          color: '#F3F3F3',
+          
       },
       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
     }),
@@ -77,18 +90,19 @@ const DropDownMenu = ({category}) => {
   };
 
   const selectContainer = {
-    // width: '126px',
+    width: '166px',
     // flex:1
   }
   return (
 
-<div style={selectContainer}>
+    <div style={selectContainer}>
+      
       <Select
         options={optionValue}
-        // name="category"
+        name="category"
         placeholder=""
         onChange={category}
-        styles={customStyles}
+        styles={{ ...customStyles }}
         // colorStyles
         // customStyles
         onMenuOpen={() => setIsOpen(true)}
