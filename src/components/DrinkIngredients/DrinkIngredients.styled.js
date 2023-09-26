@@ -22,7 +22,11 @@ margin-left: 77px;
   }
 
 `;
-export const CountButton = styled.div`
+export const CountButton = styled.button`
+/* cursor: pointer; */
+color: white;
+background-color: transparent;
+border: transparent;
   padding: 5px;
   :hover {
     cursor: pointer;
@@ -37,7 +41,10 @@ export const TitleContainer = styled.div`
 export const IngridientsContainer = styled.div`
   display: flex;
   align-items: center;
-  /* gap: 10px; */
+  margin-bottom: 18px;
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
 `;
 export const Ingridient = styled.div`
 width:200px;
@@ -75,6 +82,7 @@ width: 90%;
 `;
 
 export const XButton = styled.button`
+
 width: 16px;
 background-color: transparent;
 border: none;
