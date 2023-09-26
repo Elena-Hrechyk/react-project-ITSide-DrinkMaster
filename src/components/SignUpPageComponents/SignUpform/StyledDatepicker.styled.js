@@ -20,6 +20,7 @@ export const DataBtn = styled.div`
 export const CalendarGlobalStyles = createGlobalStyle`
   .react-datepicker__wrapper {
     position: relative;
+   
 
   }
   .react-datepicker {
@@ -228,4 +229,10 @@ export const TitleWrapper = styled.button`
   opacity: 0.8;
   display: flex;
   justify-content: space-between;
+
+  .react-datepicker__navigation .react-datepicker__navigation--next {
+    font-weight: 700;
+    width: 30px;
+    height: 30px;
+color: white;  }
 `;

@@ -1,11 +1,4 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-import {
-  Formik,
-  // useField,
-
-  // ErrorMessage
-} from 'formik';
+import {  Formik} from 'formik';
 // import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import {
@@ -17,10 +10,10 @@ import {
   DoneMessage,
 } from './SignUpForm.styled.js';
 import Icon from './SvgComponents.jsx';
-// import { SignUpButton } from '../SignUpButton.jsx';
-
 import { useState } from 'react';
 import StyledDatepicker from './StyledDatepicker.jsx';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
+
 // import * as authOperation from 'redux/auth/auth-operation';
 
 //початкові значення форміка
@@ -40,10 +33,8 @@ export const SignUpForm = () => {
   // - or, the has been visited (touched === true)
   const [didFocus, setDidFocus] = useState(false);
   const handleFocus = () => setDidFocus(true);
-  // const handleBlur = () => setDidFocus(false);
-  // const showFeedback =
-  //   (!!didFocus && field.value.trim().length > 2)
-  // || meta.touched;
+
+  const [showPassword, setShowPassword] = useState(false);
 
   //виклик диспечера
   // const dispatch = useDispatch();
@@ -86,7 +77,7 @@ export const SignUpForm = () => {
       onSubmit={handleSubmit}
       displayName="MyForm"
     >
-      {({ errors, touched, values, handleChange,  }) => (
+      {({ errors, touched, values, handleChange }) => (
         <Form>
           <Label style={{ position: 'relative' }}>
             <Field
@@ -145,28 +136,34 @@ export const SignUpForm = () => {
           <Label style={{ position: 'relative' }}>
             <Field
               name="password"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={values.password}
               onChange={handleChange}
             />
-            {didFocus && values.password.length > 2 ? (
-              !!errors.password && touched.password ? (
-                <Icon.SvgError />
-              ) : (
-                <Icon.SvgDone />
-              )
-            ) : (
-              ''
-            )}
+            <div
+              type="button"
+              onClick={() => setShowPassword(!showPassword)} // Изменяем состояние showPassword при клике на кнопку
+              style={{
+                position: 'absolute',
+                right: '24px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'transparent',
+                color: 'white',
+                outline: 'transparent',
+              }}
+            >
+              {!showPassword ? <FiEyeOff /> : <FiEye />}
+            </div>
           </Label>
-          {!errors.password && touched.password && (
-            <DoneMessage>This is an CORRECT password</DoneMessage>
-          )}
-          <ErrorMessage name="password" component="div" />
-          <SignUpBTN type="submit" >
-            Sign Up
-          </SignUpBTN>
+          {!errors.password &&
+            touched.password &&
+            showPassword &&(
+              <DoneMessage>This is an CORRECT password</DoneMessage>,
+            )}
+          {showPassword && <ErrorMessage name="password" component="div" />}
+          <SignUpBTN type="submit">Sign Up</SignUpBTN>
         </Form>
       )}
     </Formik>
