@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import { SignUpForm } from '../../components/SignUpPageComponents/SignUpform/SignUpForm';
 import { H2, SignInSection, RouteLink } from './SignUpPage.styled';
 
