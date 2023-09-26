@@ -20,6 +20,7 @@ import {
   FooterBox,
   Copyright,
   CopyrightPrivasy,
+  FooterSection
 } from '../Footer/Footer.styled';
 
 const PhonebookSchema = Yup.object().shape({
@@ -33,7 +34,7 @@ const PhonebookSchema = Yup.object().shape({
 
 export const Footer = () => {
   return (
-    <footer>
+    <FooterSection>
       <FooterContainer>
         <FooterBox>
           <SocialsBox>
@@ -119,6 +120,6 @@ export const Footer = () => {
           </CopyrightPrivasy>
         </Copyright>
       </FooterContainer>
-    </footer>
+    </FooterSection>
   );
 };
