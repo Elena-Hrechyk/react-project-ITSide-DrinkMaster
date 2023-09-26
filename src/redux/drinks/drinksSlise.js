@@ -3,11 +3,13 @@ import { newDrink } from './drinksOperations';
 
 const handlePending = state => {
   state.isLoading = true;
+  
 };
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+  
 };
 
 const drinksSlice = createSlice({
@@ -32,7 +34,6 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
-        console.log(action.payload);
       })
       .addCase(newDrink.rejected, handleRejected)
     //   .addCase(deleteDrinksnewDrink.pending, handlePending)
