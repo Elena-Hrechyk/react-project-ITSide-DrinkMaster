@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { Formik } from 'formik';
-// import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { signIn } from '../../redux/auth/authOperations.js';
+import { selectIsLogin } from '../../redux/auth/authSelectors.js';
 import * as yup from 'yup';
 import {
   Field,
@@ -13,19 +15,19 @@ import {
 } from './SignInForm.styled.js';
 import Icon from '../SignUpPageComponents/SignUpform/SvgComponents.jsx';
 
-
 // import * as authOperation from 'redux/auth/auth-operation';
 
 //початкові значення форміка
 const initialValues = {
- 
   email: '',
   password: '',
- 
+
   // startDate: new Date(),
 };
 
 export const SignInForm = () => {
+  const dispatch = useDispatch();
+  const isLogin = useSelector(selectIsLogin);
   // const [field, meta] = useField();
 
   // Show inline feedback if EITHER
@@ -43,25 +45,25 @@ export const SignInForm = () => {
   //додавання контакту при сабміті
   const handleSubmit = (values, { resetForm }) => {
     console.log('values', values);
-    
+
     // виклик диспечера для відправки даних в редакс
     const reg = JSON.stringify({
-      
       email: values.email.trim(),
       password: values.password.trim(),
     });
     console.log('reg', reg);
 
-    // dispatch(
-    //   authOperation.register({
-    //     name: values.name.trim(),
-    //     email: values.email.trim(),
-    //     password: values.password.trim(),
-    //   })
-    // );
+    dispatch(
+      signIn({
+        email: values.email.toLowerCase().trim(),
+        password: values.password.trim(),
+      }),
+    );
 
     resetForm();
   };
+
+  console.log(isLogin);
   //схема валідації
   const schema = yup.object().shape({
     email: yup.string().required().min(4),
@@ -76,9 +78,6 @@ export const SignInForm = () => {
     >
       {({ errors, touched, values, handleChange }) => (
         <Form>
-          
-
-         
           <Label style={{ position: 'relative' }}>
             <Field
               name="email"
@@ -126,11 +125,9 @@ export const SignInForm = () => {
               {!showPassword ? <FiEyeOff /> : <FiEye />}
             </div>
           </Label>
-          {!errors.password &&
-            touched.password &&
-            showPassword &&(
-              <DoneMessage>This is an CORRECT password</DoneMessage>
-            )}
+          {!errors.password && touched.password && showPassword && (
+            <DoneMessage>This is an CORRECT password</DoneMessage>
+          )}
           {showPassword && <ErrorMessage name="password" component="div" />}
           <SignUpBTN type="submit">Sign In</SignUpBTN>
         </Form>
