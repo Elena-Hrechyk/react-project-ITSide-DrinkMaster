@@ -10,11 +10,12 @@ import {
   StyledLink,
   UserBarName,
   UserBarImg,
+  Head
 } from './Header.styled';
 
 export const Header = () => {
   return (
-    <header>
+    <Head>
       <HeaderContainer>
         <LinkLogo to={'/'}>
           <Logo />
@@ -37,6 +38,6 @@ export const Header = () => {
           <BurgerMenu />
         </BurgerMenuBtn>
       </HeaderContainer>
-    </header>
+    </Head>
   );
 };

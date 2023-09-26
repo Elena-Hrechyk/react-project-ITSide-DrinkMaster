@@ -1,4 +1,6 @@
-import {  Formik} from 'formik';
+import { useState } from 'react';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { Formik } from 'formik';
 // import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import {
@@ -8,24 +10,22 @@ import {
   Form,
   Label,
   DoneMessage,
-} from './SignUpForm.styled.js';
-import Icon from './SvgComponents.jsx';
-import { useState } from 'react';
-import StyledDatepicker from './StyledDatepicker.jsx';
-import { FiEye, FiEyeOff } from 'react-icons/fi';
+} from './SignInForm.styled.js';
+import Icon from '../SignUpPageComponents/SignUpform/SvgComponents.jsx';
+
 
 // import * as authOperation from 'redux/auth/auth-operation';
 
 //початкові значення форміка
 const initialValues = {
-  name: '',
+ 
   email: '',
   password: '',
-  birthday: null,
+ 
   // startDate: new Date(),
 };
 
-export const SignUpForm = () => {
+export const SignInForm = () => {
   // const [field, meta] = useField();
 
   // Show inline feedback if EITHER
@@ -43,11 +43,10 @@ export const SignUpForm = () => {
   //додавання контакту при сабміті
   const handleSubmit = (values, { resetForm }) => {
     console.log('values', values);
-    console.log('Выбранная дата:', values.birthday);
+    
     // виклик диспечера для відправки даних в редакс
     const reg = JSON.stringify({
-      name: values.name.trim(),
-      birthday: values.birthday,
+      
       email: values.email.trim(),
       password: values.password.trim(),
     });
@@ -65,8 +64,6 @@ export const SignUpForm = () => {
   };
   //схема валідації
   const schema = yup.object().shape({
-    name: yup.string().required().min(4),
-    
     email: yup.string().required().min(4),
     password: yup.string().required().min(4),
   });
@@ -79,37 +76,9 @@ export const SignUpForm = () => {
     >
       {({ errors, touched, values, handleChange }) => (
         <Form>
-          <Label style={{ position: 'relative' }}>
-            <Field
-              name="name"
-              type="text"
-              placeholder="Name"
-              value={values.name}
-              onChange={handleChange}
-              onFocus={handleFocus}
-            ></Field>
+          
 
-            {didFocus && values.name.length > 2 ? (
-              errors.name && touched.name ? (
-                <Icon.SvgError />
-              ) : (
-                <Icon.SvgDone />
-              )
-            ) : (
-              ''
-            )}
-          </Label>
-
-          {!errors.name && touched.name && (
-            <DoneMessage>This is an CORRECT name</DoneMessage>
-          )}
-          <ErrorMessage name="name" component="div" />
-
-          <Field
-            name="birthday"
-            component={StyledDatepicker}
-            value={values.birthday}
-          />
+         
           <Label style={{ position: 'relative' }}>
             <Field
               name="email"
@@ -163,7 +132,7 @@ export const SignUpForm = () => {
               <DoneMessage>This is an CORRECT password</DoneMessage>
             )}
           {showPassword && <ErrorMessage name="password" component="div" />}
-          <SignUpBTN type="submit">Sign Up</SignUpBTN>
+          <SignUpBTN type="submit">Sign In</SignUpBTN>
         </Form>
       )}
     </Formik>

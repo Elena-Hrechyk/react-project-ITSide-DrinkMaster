@@ -4,18 +4,23 @@ export const SignUpButtonSt = styled.button`
   border-radius: 42px;
   background: #f3f3f3;
   color: #161f37;
-  font-family: Manrope;
+  width: ${(props) => props.width || '132px'};
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 18px; /* 112.5% */
   display: inline-flex;
   padding: 18px 44px;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 10px;
 `;
-export const SignUpButton = () => {
+
+
+export const SignUpButton = ({ width, textColor }) => {
   return (
-    <SignUpButtonSt>Sign Up</SignUpButtonSt>
+    <SignUpButtonSt  width={width} textColor={textColor}>
+      Sign Up
+    </SignUpButtonSt>
   );
 };

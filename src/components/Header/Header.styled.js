@@ -2,12 +2,43 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+export const Head = styled.header`
+  border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+`;
+
 export const HeaderContainer = styled.div`
-  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #191d34;
+  font-family: 'Manrope', Arial, sans-serif;
+
+  max-width: 480px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
+  color: #f3f3f3;
+  background-color: #0a0a11;
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -17,7 +48,7 @@ export const Navigation = styled.nav`
   margin-left: auto;
   margin-rigth: auto;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     display: flex;
   }
 `;
@@ -36,7 +67,7 @@ export const BurgerMenuBtn = styled.button`
   border: 0;
   background-color: rgba(0, 0, 0, 0);
 
-  @media screen and (max-width: 1199.5px) {
+  @media screen and (max-width: 1279.5px) {
     display: flex;
   }
 `;
@@ -59,7 +90,7 @@ export const StyledLink = styled(NavLink)`
   color: #f3f3f3;
 
   &.active {
-    background-color: blue;
+    background-color: #191d34;
   }
 `;
 

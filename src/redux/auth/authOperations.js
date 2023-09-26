@@ -1,7 +1,7 @@
 // import axios from 'axios';
 // import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://drinkmaster.onrender.com';
+// axios.defaults.baseURL = 'https://drinkmaster.onrender.com/api';
 
 // const token = {
 //   set(token) {
@@ -16,7 +16,7 @@
 //   'auth/signup',
 //   async (user, thunkAPI) => {
 //     try {
-//       const resp = await axios.post('/users/signup', user);
+//       const resp = await axios.post('/auth/signup', user);
 //       console.log(resp.data);
 //       token.set(resp.data.token);
 //       return resp.data;
@@ -30,7 +30,7 @@
 //   'auth/signin',
 //   async (user, thunkAPI) => {
 //     try {
-//       const resp = await axios.post('/users/signin', user);
+//       const resp = await axios.post('/auth/signin', user);
 //       token.set(resp.data.token);
 //       return resp.data;
 //     } catch (err) {
@@ -41,7 +41,7 @@
 
 // export const signOut = createAsyncThunk('auth/signout', async (_, thunkAPI) => {
 //   try {
-//     await axios.post('/users/signout');
+//     await axios.post('/auth/signout');
 //     token.unset();
 //   } catch (err) {
 //     return thunkAPI.rejectWithValue(err.message);
@@ -49,7 +49,7 @@
 // });
 
 // export const fetchCurrentUser = createAsyncThunk(
-//   'auth/refresh',
+//   'uaers/update',
 //   async (_, thunkAPI) => {
 //     const state = thunkAPI.getState();
 //     const persistToken = state.auth.token;
