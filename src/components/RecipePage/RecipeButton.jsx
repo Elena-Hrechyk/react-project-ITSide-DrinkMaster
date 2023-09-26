@@ -4,7 +4,7 @@ const RecipeButton = () => {
 
 
     return (
-        <button className={css.button}>Add to favorite recipe</button>
+        <button className={css.button}>Add to favorite drinks</button>
     )
 }
 
