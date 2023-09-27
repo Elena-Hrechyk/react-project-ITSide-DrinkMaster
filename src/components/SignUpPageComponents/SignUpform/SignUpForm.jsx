@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signUp } from '../../../redux/auth/authOperations.js';
 // import { selectIsLogin } from '../../../redux/auth/authSlise.js';
 import { Formik } from 'formik';
