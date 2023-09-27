@@ -1,4 +1,4 @@
-import{n,j as t}from"./index-08ecdbb4.js";import{P as d,D as s}from"./Drinks_List-b7969546.js";import{G as o}from"./iconBase-3311e0f4.js";import"./DrinksItem-d375fc5e.js";const p=n.main`
+import{n,j as t}from"./index-b381d213.js";import{P as d,D as s}from"./Drinks_List-fdb4b3ab.js";import{G as o}from"./iconBase-5f7a3772.js";import"./DrinksItem-58243814.js";const p=n.main`
   font-family: 'Manrope',Arial,sans-serif;
   max-width: 480px;
   padding-left: 20px;
