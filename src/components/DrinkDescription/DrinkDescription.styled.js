@@ -136,9 +136,9 @@ export const RadioInput = styled.input`
     + .radio-label {
       &:after {
         opacity: 1;
-        /* background-color: #6b3232;
+        background-color: #red;
         border: 2px solid #ffffff;
-        box-shadow: inset 0 0 0 4px #000000; */
+        box-shadow: inset 0 0 0 4px #000000;
       }
     }
   }

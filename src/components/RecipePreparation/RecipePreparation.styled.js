@@ -15,17 +15,20 @@ export const PreparationContainer = styled.div`
 export const TextArea = styled.textarea`
 width: 335px;
 min-height: 184px;
-background-color:transparent; 
+background-color:transparent;
 border-radius: 14px;
 border: 1px solid #f3f3f380;
 display: flex;
 flex: start;
+padding-top: 16px;
+padding-left: 18px;
 &:focus{
     outline: transparent;
+    color: white;
   }
-  @media (min-width: 768px) and (max-width: 1439.98px) {
+  @media (min-width: 768px)  {
     width: 480px;
+    padding-top: 14px;
+padding-left: 24px;
   }
-
-
 `
