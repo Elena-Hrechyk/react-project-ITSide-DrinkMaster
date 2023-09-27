@@ -1,5 +1,4 @@
-import {  useState } from 'react';
-// import DropDownMenu from '../../../components/DropDownMenu/DropDownMenu';
+import { useState } from 'react';
 import {
   CountBlock,
   CountButton,
@@ -12,16 +11,13 @@ import {
   XButton,
   XImg,
 } from './DrinkIngredients.styled';
-import Xicon from "../../img/svg/Xicon.svg"
+import Xicon from '../../img/svg/Xicon.svg';
 import { Field, FieldArray } from 'formik';
 import DropDownMenu from '../DropDownMenu/DropDownMenu';
-
+import { nanoid } from 'nanoid';
 const DrinkIngredients = () => {
-
   const [counter, setCounter] = useState(0);
 
-    
-  
   const optionValueIngrients = [
     { label: 'Cocktail glass', value: 'Cocktail glass' },
     { label: 'Shake', value: 'Shake' },
@@ -37,8 +33,7 @@ const DrinkIngredients = () => {
     { label: 'Beer', value: 'Beer' },
     { label: 'Soft Drink', value: 'Soft Drink' },
   ];
-  const renderIngredientsContainers = ({ remove }) => {
-    
+  const renderIngredientsContainers = (arrayHelpers ) => {
     const containers = [];
     // const removeIngredient = (arrayHelpers, index) => {
     //   arrayHelpers.remove(index);
@@ -47,61 +42,76 @@ const DrinkIngredients = () => {
       containers.push(
         <IngridientsContainer key={i}>
           <Ingridient>
-
-          <Field name={`ingredients.${i}.ingredient`}>{({ form}) => (
+            <Field name={`ingredients.${i}.title`}>
+              {({ form }) => (
                 <DropDownMenu
-                optionValue={optionValueIngrients}
-                  onChange={(selectedOption) => form.setFieldValue(`ingredients.${i}.ingredient`, selectedOption)}
+                  optionValue={optionValueIngrients}
+                  onChange={(selectedOption) => {
+                    form.setFieldValue(
+                      `ingredients.${i}.ingredient`,
+                      selectedOption,
+                    );
+                    form.setFieldValue(
+                      `ingredients.${i}.ingredientId`,
+                      nanoid(),
+                    );
+                  }}
                 />
-              )}</Field>
-
+              )}
+            </Field>
           </Ingridient>
           <Portion width="150px">
-            <Field name={`ingredients.${i}.portion`}as={Input} placeholder="Portion" marginBottom="0" />
+            <Field
+              name={`ingredients.${i}.measure`}
+              as={Input}
+              placeholder="Measure"
+              marginBottom="0"
+            />
           </Portion>
-          <XButton type="button" onClick={() => {
-            remove(i)
-
-            containers.splice(i, 1)
-            console.log(containers)
-            
-          }}>
+          <XButton
+            type="button"
+            onClick={() => arrayHelpers.remove(i)}
+            // onClick={() => {
+              
+            //   remove(i);
+            //   containers.splice(i, 1);
+            //   console.log(containers);
+            // }}
+          >
             <XImg src={Xicon} alt={`Xicon-${i}`} />
           </XButton>
-        </IngridientsContainer>
+        </IngridientsContainer>,
       );
-   
     }
     return containers;
-  }
+  };
 
   return (
     <DrinkIngredientsContainer>
       <TitleContainer>
         <h1 style={{ marginBottom: '0px', marginTop: '0px' }}>Ingredients</h1>
         <CountBlock>
-          <CountButton onClick={() => {
-            if (counter === 0) {
-              return
-            }
-            setCounter(counter - 1)
-          }}>-</CountButton>
+          <CountButton
+            onClick={() => {
+              if (counter === 0) {
+                return;
+              }
+              setCounter(counter - 1);
+            }}
+          >
+            -
+          </CountButton>
           <p>{counter}</p>
-          <CountButton onClick={()=>setCounter(counter + 1)}>+</CountButton>
+          <CountButton onClick={() => setCounter(counter + 1)}>+</CountButton>
         </CountBlock>
       </TitleContainer>
-      <FieldArray name="ingredients">
-            {({ insert, remove, push }) => (
-          <div>             
-            {renderIngredientsContainers({ insert, remove, push })}
-
-              </div>
-              )}
-            </FieldArray>
-      
-
+      <FieldArray name="ingredients"
+        render = {(arrayHelpers ) => (
+          <div>{renderIngredientsContainers(arrayHelpers )}</div>
+        )}
+      />
     </DrinkIngredientsContainer>
   );
 };
-
+// { insert, remove, push, arrayHelpers }
 export default DrinkIngredients;

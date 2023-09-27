@@ -5,42 +5,48 @@ import DrinkDescription from '../../components/DrinkDescription/DrinkDescription
 
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 import { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
+
 import { newDrink } from '../../redux/drinks/drinksOperations';
 import DrinkIngredients from '../../components/DrinkIngredients/DrinkIngredients';
-
+import { selectDrinks } from '../../redux/drinks/drinksSelectors';
+import { AddImageButton } from '../../components/DrinkDescription/DrinkDescription.styled';
+import plus from "../../img/svg/plus.svg";
 const AddDrinkPage = () => {
+  const drink = useSelector(selectDrinks);
+  console.log('useSelector drink:', drink);
   const dispatch = useDispatch();
   const fileRef = useRef(null);
   return (
     <AddPageSection>
       <Formik
         initialValues={{
-          photo: '',
-          title: '',
-          aboutRecipe: '',
+          drinkThumb: '',
+          drink: '',
+          shortDescription: '',
           category: '',
           glass: '',
           alcoholic: '',
-          preparation: '',
-          ingredients: [],
+          description: '',
+          ingredients: []    
         }}
         onSubmit={(values) => {
           console.log('Form values:', values);
-          console.log('all selected files', fileRef.current.files);
+          // console.log('fileRef', fileRef.current.files);
           const formData = new FormData();
           for (let value in values) {
             formData.append(value, values[value]);
           }
           dispatch(newDrink(values));
-
-          console.log('formData:', formData);
+          
+          
+          // console.log('formData:', formData);
           // return formData
           // resetForm()
         }}
       >
         <Form style={{ margin: 'auto' }} encType="multipart/form-data">
-          <FileUpload name="photo" fileRef={fileRef} />
+          <FileUpload name="drinkThumb" fileRef={fileRef} />
           <DrinkDescription />
           <DrinkIngredients />
           <RecipePreparation />
@@ -56,9 +62,8 @@ export default AddDrinkPage;
 const FileUpload = ({ fileRef, ...props }) => {
   const [field, meta] = useField(props);
   return (
-    <div>
-      {/* <label htmlFor="files">Choose files</label>{" "} */}
-      <input
+<AddImageButton style={{ backgroundColor: "white" }}>
+  <input
         style={{ backgroundColor: 'blue' }}
         ref={fileRef}
         multiple={true}
@@ -68,6 +73,8 @@ const FileUpload = ({ fileRef, ...props }) => {
       {meta.touched && meta.error ? (
         <div style={{ color: 'red' }}>{meta.error}</div>
       ) : null}
-    </div>
+<img src={plus} alt="SVG Image" width={16}  style={{ filter: 'invert(1)', fill: 'black' }} />
+
+</AddImageButton>
   );
 };

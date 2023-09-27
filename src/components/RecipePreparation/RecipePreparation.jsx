@@ -8,7 +8,7 @@ const RecipePreparation = () => {
       <h1>Recipe Preparation</h1>
       <Field
         as={TextArea}
-        name="preparation"
+        name="description"
         placeholder="Enter the recipe"
         className="text-area"
       />

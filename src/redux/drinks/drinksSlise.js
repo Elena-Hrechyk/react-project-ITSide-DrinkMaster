@@ -3,13 +3,13 @@ import { newDrink } from './drinksOperations';
 
 const handlePending = state => {
   state.isLoading = true;
-  
+  console.log("Hello handlePending")
 };
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  
+  console.log("Hello handleRejected")
 };
 
 const drinksSlice = createSlice({
@@ -31,9 +31,11 @@ const drinksSlice = createSlice({
       // .addCase(fetchAllcoctails.rejected, handleRejected)
       .addCase(newDrink.pending, handlePending)
       .addCase(newDrink.fulfilled, (state, action) => {
+        console.log("fulfilled")
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
+        
       })
       .addCase(newDrink.rejected, handleRejected)
     //   .addCase(deleteDrinksnewDrink.pending, handlePending)

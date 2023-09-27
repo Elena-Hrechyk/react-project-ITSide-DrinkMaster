@@ -23,7 +23,6 @@ const DrinkDescription = () => {
     { label: 'Cocktail glass', value: 'Cocktail glass' },
     { label: 'Shake', value: 'Shake' },
     { label: 'Cocktail ', value: 'Cocktail ' },
-    { label: 'glass', value: 'glass' },
     { label: 'Other/Unknown', value: 'Other/Unknown' },
     { label: 'Ordinary Drink', value: 'Ordinary Drink' },
     { label: 'Cocoa', value: 'Cocoa' },
@@ -85,17 +84,17 @@ const DrinkDescription = () => {
       <InputsContainer >
           <Field
             as={Input}
-          id="title"
-          name="title"
+          id="drink"
+          name="drink"
           type="text"
-          placeholder="Enter item title"
+          placeholder="Enter item drink"
         />
           <UnderlinedElement />
           
           <Field
             as={Input}
-          id="aboutRecipe"
-          name="aboutRecipe"
+          id="shortDescription"
+          name="shortDescription"
           type="text"
           placeholder="Enter about recipe"
         />
@@ -137,7 +136,7 @@ const DrinkDescription = () => {
               type="radio"
               id="radio-1"
               name="alcoholic"
-              value={true}
+              value={"Alcoholic"}
             />
             <RadioLabel htmlFor="radio-1" className="radio-label">
               Alcoholic
@@ -150,7 +149,7 @@ const DrinkDescription = () => {
               type="radio"
               id="radio-2"
               name="alcoholic"
-              value={false}
+              value={"Non alcoholic"}
             />
             <RadioLabel htmlFor="radio-2" className="radio-label">
               Non-alcoholic
