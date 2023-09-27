@@ -1,4 +1,4 @@
-import{s as e}from"./index-fef557b4.js";const a="/react-project-ITSide-DrinkMaster/assets/BGStartPageMob@1x-e2865337.png",t="/react-project-ITSide-DrinkMaster/assets/BGStartPageMob@2x-1de70a79.png",i="/react-project-ITSide-DrinkMaster/assets/BGStartPageDesctop@1x-44c22cb2.png",r="/react-project-ITSide-DrinkMaster/assets/BGStartPageDesctop@2x-ede0a8cc.png",n={bgImgMob1x:a,bgImgMob2x:t,bgImgTablet1x:a,bgImgTablet2x:t,bgImgDesctop1x:i,bgImgDesctop2x:r},p=e.section`
+import{s as e}from"./index-24d963c0.js";const a="/react-project-ITSide-DrinkMaster/assets/BGStartPageMob@1x-e2865337.png",t="/react-project-ITSide-DrinkMaster/assets/BGStartPageMob@2x-1de70a79.png",i="/react-project-ITSide-DrinkMaster/assets/BGStartPageDesctop@1x-44c22cb2.png",r="/react-project-ITSide-DrinkMaster/assets/BGStartPageDesctop@2x-ede0a8cc.png",n={bgImgMob1x:a,bgImgMob2x:t,bgImgTablet1x:a,bgImgTablet2x:t,bgImgDesctop1x:i,bgImgDesctop2x:r},p=e.section`
   /* position: relative; */
   padding-top: 304px;
   padding-bottom: 304px;
