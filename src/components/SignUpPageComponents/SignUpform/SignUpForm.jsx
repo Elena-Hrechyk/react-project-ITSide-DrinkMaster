@@ -118,11 +118,8 @@ CustomInput.displayName = 'CustomInput';
                 ) : (
                   <Icon.SvgDone />
                 )
-              ) : (
-
-                <Icon.SvgDone />
-              )
-            ) : (
+              ) : 
+             (
               ''
             )}
           </Label>
@@ -153,12 +150,6 @@ CustomInput.displayName = 'CustomInput';
          
           <Label style={{ position: 'relative' }}>
 
-            <Field
-              name="birthday"
-              // type="calendar"
-              component={StyledDatepicker}
-              value={values.birthday}
-            />
             <Label style={{ position: 'relative' }}>
               <Field
                 name="email"
