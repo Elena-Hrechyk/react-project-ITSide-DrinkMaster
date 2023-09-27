@@ -1,19 +1,33 @@
+import { useEffect, useState } from 'react';
 import { ReactComponent as Logo } from '../../img/svg/logo.svg';
-import { ReactComponent as BurgerMenu } from '../../img/svg/burger-menu.svg';
 import {
   HeaderContainer,
   Navigation,
   NavigationList,
   LinkLogo,
-  BurgerMenuBtn,
   UserBarBtn,
   StyledLink,
   UserBarName,
   UserBarImg,
-  Head
+  Head,
 } from './Header.styled';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export const Header = () => {
+  const [isOpenBurgerMenu, setisOpenBurgerMenu] = useState(false);
+
+  const toggleMenu = () => setisOpenBurgerMenu(!isOpenBurgerMenu);
+
+  if (isOpenBurgerMenu) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+
+  useEffect(() => {
+    setisOpenBurgerMenu(false);
+  }, [location.pathname]);
+
   return (
     <Head>
       <HeaderContainer>
@@ -34,9 +48,10 @@ export const Header = () => {
           <UserBarImg src="" alt="User" />
           <UserBarName>User</UserBarName>
         </UserBarBtn>
-        <BurgerMenuBtn type="button">
-          <BurgerMenu />
-        </BurgerMenuBtn>
+        <BurgerMenu
+          toggleMenu={toggleMenu}
+          isOpenBurgerMenu={isOpenBurgerMenu}
+        />
       </HeaderContainer>
     </Head>
   );
