@@ -17,36 +17,36 @@ html {
     --button-hover-color: #F3F3F3;
   }
 }
-/* @font-face {
+@font-face {
   font-family: 'Manrope';
   src:
     local('Manrope-Bold'),
     url('./src/assets/fonts/Manrope-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
-} */
+}
 
 
-/* @font-face {
+@font-face {
   font-family: 'Manrope';
   src: local('Manrope-SemiBold'), url('./src/assets/fonts/Manrope-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
-} */
+}
 
-/* @font-face {
+@font-face {
   font-family: 'Manrope';
   src: local('Manrope-Regular'), url('./src/assets/fonts/Manrope-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-} */
+}
 
-/* @font-face {
+@font-face {
   font-family: 'Manrope';
   src: local('Manrope-Medium'), url('./src/assets/fonts/Manrope-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
-} */
+}
 
 
 *,
