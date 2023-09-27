@@ -34,7 +34,7 @@ html {
 
 @font-face {
   font-family: 'Manrope';
-  src: local('Manrope-Regular'), url('https://github.com/Elena-Hrechyk/react-project-ITSide-DrinkMaster/blob/main/src/assets/fonts/Manrope-Regular.ttf') format('truetype');
+  src: local('Manrope-Regular'), url('./src/assets/fonts/Manrope-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
