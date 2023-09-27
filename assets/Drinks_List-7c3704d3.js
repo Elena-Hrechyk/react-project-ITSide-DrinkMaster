@@ -1,4 +1,4 @@
-import{n,j as i}from"./index-ff152b2f.js";import{D as e}from"./DrinksItem-bbe4f518.js";const r=n.h1`
+import{n,j as i}from"./index-e0bc93b4.js";import{D as e}from"./DrinksItem-e07ed7e6.js";const r=n.h1`
   font-size: 32px;
   font-weight: 600;
   line-height: 1.188;
