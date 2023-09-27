@@ -1,5 +1,6 @@
-import { DrinksList } from 'components/DrinksList/DrinksList';
-import { SearchDrinks } from 'components/SearchDrinks';
+
+import { DrinksList } from '../../components/DrinksList/DrinksList'
+import { SearchDrinks } from '../../components/SearchDrinks/SearchDrinks';
 
 import { DrinksPageTitle } from './DrinksPage.styled';
 

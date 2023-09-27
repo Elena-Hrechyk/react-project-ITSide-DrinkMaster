@@ -13,6 +13,7 @@ export const StartSection = styled.section`
   padding-bottom: 304px;
   padding-right: 28px;
   padding-left: 28px;
+  height: 100vh;
   /* overflow: hidden; */
   /* z-index:100; */
   /* padding: 304px 28px 304px 28px */

@@ -1,4 +1,11 @@
+@font-face {
+  font-family: 'ManropeSemiBold';
+  src: url(../../assets/fonts/Manrope-SemiBold.ttf);
+}
+
+
 .button {
+    font-family: 'ManropeSemiBold';
     font-weight: 600;
     font-size: 14px;
     line-height: calc(18 / 14);
@@ -10,6 +17,7 @@
     border-color: transparent;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    text-align: justify;
 }
 .button:focus,
 .button:hover {

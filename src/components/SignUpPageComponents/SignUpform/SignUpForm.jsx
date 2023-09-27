@@ -1,4 +1,7 @@
-import {  Formik} from 'formik';
+import { useDispatch } from 'react-redux';
+import { signUp } from '../../../redux/auth/authOperations.js';
+// import { selectIsLogin } from '../../../redux/auth/authSlise.js';
+import { Formik } from 'formik';
 // import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import {
@@ -10,9 +13,13 @@ import {
   DoneMessage,
 } from './SignUpForm.styled.js';
 import Icon from './SvgComponents.jsx';
-import { useState } from 'react';
-import StyledDatepicker from './StyledDatepicker.jsx';
+import { useState, forwardRef } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { AiOutlineCalendar } from 'react-icons/ai';
+import { format } from 'date-fns';
+import DatePicker from 'react-datepicker';
+import { CalendarGlobalStyles, TitleWrapper } from './StyledDatepicker.styled';
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 // import * as authOperation from 'redux/auth/auth-operation';
 
@@ -26,6 +33,8 @@ const initialValues = {
 };
 
 export const SignUpForm = () => {
+  const dispatch = useDispatch();
+  // const isLogin = useSelector(selectIsLogin);
   // const [field, meta] = useField();
 
   // Show inline feedback if EITHER
@@ -35,7 +44,18 @@ export const SignUpForm = () => {
   const handleFocus = () => setDidFocus(true);
 
   const [showPassword, setShowPassword] = useState(false);
-
+const [selectedDate, setSelectedDate] = useState(Date.now());
+const CustomInput = forwardRef(({ value, onClick }, ref) => {
+  // const nowDate =  format(Date.now(), 'dd/MM/yyyy')
+  return (
+    <TitleWrapper onClick={onClick} ref={ref}>
+      {format(selectedDate, 'dd/MM/yyyy')} <AiOutlineCalendar />
+      {/* {value ?? nowDate }
+        <AiOutlineCalendar /> */}
+    </TitleWrapper>
+  );
+});
+CustomInput.displayName = 'CustomInput';
   //виклик диспечера
   // const dispatch = useDispatch();
   //отримання даних з редакс
@@ -43,41 +63,43 @@ export const SignUpForm = () => {
   //додавання контакту при сабміті
   const handleSubmit = (values, { resetForm }) => {
     console.log('values', values);
-    console.log('Выбранная дата:', values.birthday);
+    console.log('Выбранная дата:', values.date);
     // виклик диспечера для відправки даних в редакс
     const reg = JSON.stringify({
       name: values.name.trim(),
-      birthday: values.birthday,
+      date: values.date1,
       email: values.email.trim(),
       password: values.password.trim(),
     });
     console.log('reg', reg);
 
-    // dispatch(
-    //   authOperation.register({
-    //     name: values.name.trim(),
-    //     email: values.email.trim(),
-    //     password: values.password.trim(),
-    //   })
-    // );
+    dispatch(
+      signUp({
+        name: values.name.trim(),
+        birthday: values.birthday.trim(),
+        email: values.email.toLowerCase().trim(),
+        password: values.password.trim(),
+      }),
+    );
 
     resetForm();
   };
   //схема валідації
   const schema = yup.object().shape({
     name: yup.string().required().min(4),
-    
+
     email: yup.string().required().min(4),
     password: yup.string().required().min(4),
   });
   return (
+
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={handleSubmit}
       displayName="MyForm"
     >
-      {({ errors, touched, values, handleChange }) => (
+      {({ errors, touched, values, handleChange, setFieldValue }) => (
         <Form>
           <Label style={{ position: 'relative' }}>
             <Field
@@ -89,45 +111,68 @@ export const SignUpForm = () => {
               onFocus={handleFocus}
             ></Field>
 
-            {didFocus && values.name.length > 2 ? (
-              errors.name && touched.name ? (
-                <Icon.SvgError />
-              ) : (
-                <Icon.SvgDone />
-              )
-            ) : (
+
+              {didFocus && values.name.length > 2 ? (
+                errors.name && touched.name ? (
+                  <Icon.SvgError />
+                ) : (
+                  <Icon.SvgDone />
+                )
+              ) : 
+             (
               ''
             )}
           </Label>
-
           {!errors.name && touched.name && (
             <DoneMessage>This is an CORRECT name</DoneMessage>
           )}
           <ErrorMessage name="name" component="div" />
+        
 
-          <Field
-            name="birthday"
-            component={StyledDatepicker}
-            value={values.birthday}
+          <DatePicker   
+            selected={selectedDate}
+           
+            
+            // onChange={(date) => {
+            //   setFieldValue(name, date);
+            // }}
+            onChange={(date) => {
+              setSelectedDate(date);
+              setFieldValue('date', date);
+            }}
+            customInput={<CustomInput />}
+            dateFormat={'dd/MM/yyyy'}
+            calendarStartDay={1}
+            formatWeekDay={(day) => day.substr(0, 2)}
+             
           />
+          <CalendarGlobalStyles />
+         
           <Label style={{ position: 'relative' }}>
-            <Field
-              name="email"
-              type="text"
-              placeholder="Email"
-              onFocus={handleFocus}
-              value={values.email}
-              onChange={handleChange}
-            />
-            {didFocus && values.email.length > 2 ? (
-              !!errors.email && touched.email ? (
-                <Icon.SvgError />
+
+            <Label style={{ position: 'relative' }}>
+              <Field
+                name="email"
+                type="text"
+                placeholder="Email"
+                onFocus={handleFocus}
+                value={values.email}
+                onChange={handleChange}
+              />
+              {didFocus && values.email.length > 2 ? (
+                !!errors.email && touched.email ? (
+                  <Icon.SvgError />
+                ) : (
+                  <Icon.SvgDone />
+                )
               ) : (
-                <Icon.SvgDone />
-              )
-            ) : (
-              ''
+                ''
+              )}
+            </Label>
+            {!errors.email && values.email.length > 2 && (
+              <DoneMessage>This is an CORRECT email</DoneMessage>
             )}
+
           </Label>
           {!errors.email && values.email.length > 2 && (
             <DoneMessage>This is an CORRECT email</DoneMessage>
@@ -157,15 +202,14 @@ export const SignUpForm = () => {
               {!showPassword ? <FiEyeOff /> : <FiEye />}
             </div>
           </Label>
-          {!errors.password &&
-            touched.password &&
-            showPassword &&(
-              <DoneMessage>This is an CORRECT password</DoneMessage>
-            )}
+          {!errors.password && touched.password && showPassword && (
+            <DoneMessage>This is an CORRECT password</DoneMessage>
+          )}
           {showPassword && <ErrorMessage name="password" component="div" />}
           <SignUpBTN type="submit">Sign Up</SignUpBTN>
         </Form>
       )}
     </Formik>
+
   );
 };

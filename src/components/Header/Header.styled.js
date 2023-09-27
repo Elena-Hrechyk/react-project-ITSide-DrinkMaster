@@ -71,6 +71,7 @@ export const BurgerMenuBtn = styled.button`
     display: flex;
   }
 `;
+
 export const UserBarBtn = styled.button`
   margin-left: auto;
   width: 116px;
@@ -107,7 +108,6 @@ export const UserBarImg = styled.img`
 
 export const LinkLogo = styled(Link)`
   display: inline-flex;
-  width: 151px;
   height: 28px;
   align-items: center;
   justify-content: center;
@@ -119,17 +119,3 @@ export const LinkLogo = styled(Link)`
 
   text-decoration: none;
 `;
-
-// export const IconWrapper = styled.svg`
-//   width: ${(props) => props.size || '12px'};
-//   height: ${(props) => props.size || '12px'};
-//   fill: ${(props) => props.color || '#ffffff'};
-//   display: inline-block;
-//   margin-right: 5px;
-//   box-shadow:
-//     0 0 5px #00baff,
-//     0 0 10px #00baff,
-//     0 0 20px #00baff,
-//     0 0 40px #00baff,
-//     0 0 80px #00baff;
-// `;
