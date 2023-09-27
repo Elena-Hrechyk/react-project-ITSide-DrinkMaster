@@ -2,10 +2,7 @@ import {
   forwardRef, useState,
   // useState
 } from 'react';
-import {
-  // Formik,
-  setFieldValue
-} from 'formik';
+
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
@@ -13,16 +10,14 @@ import { CalendarGlobalStyles, TitleWrapper } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 
-const StyledDatepicker = () => {
+const StyledDatepicker = (setFieldValue) => {
   // const { name, value } = field;
   // const { setFieldValue } = form;
-const [selectedDate, setSelectedDate] = useState(Date.now());
+  const [selectedDate, setSelectedDate] = useState(Date.now());
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
-    
     return (
       <TitleWrapper onClick={onClick} ref={ref}>
         {format(selectedDate, 'dd/MM/yyyy')} <AiOutlineCalendar />
-        
       </TitleWrapper>
     );
   });
@@ -30,12 +25,10 @@ const [selectedDate, setSelectedDate] = useState(Date.now());
   return (
     <>
       <DatePicker
-       
         selected={selectedDate}
-       
         onChange={(date) => {
           setSelectedDate(date);
-          setFieldValue('date', date);
+         setFieldValue;
         }}
         customInput={<CustomInput />}
         dateFormat={'dd/MM/yyyy'}

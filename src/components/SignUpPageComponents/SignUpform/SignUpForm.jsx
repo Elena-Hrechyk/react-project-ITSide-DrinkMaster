@@ -11,13 +11,13 @@ import {
 } from './SignUpForm.styled.js';
 import Icon from './SvgComponents.jsx';
 import { useState, forwardRef } from 'react';
-// import StyledDatepicker from './StyledDatepicker.jsx';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import { CalendarGlobalStyles, TitleWrapper } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
 // import * as authOperation from 'redux/auth/auth-operation';
 
 //початкові значення форміка
@@ -62,7 +62,7 @@ CustomInput.displayName = 'CustomInput';
     // виклик диспечера для відправки даних в редакс
     const reg = JSON.stringify({
       name: values.name.trim(),
-      date: values.date,
+      date: values.date1,
       email: values.email.trim(),
       password: values.password.trim(),
     });
@@ -118,16 +118,12 @@ CustomInput.displayName = 'CustomInput';
             <DoneMessage>This is an CORRECT name</DoneMessage>
           )}
           <ErrorMessage name="name" component="div" />
-          {/* <Field
-            name="birthday"
-            component={StyledDatepicker}
-            value={values.birthday}
-          /> */}
+        
 
-          <DatePicker
-            // {...field}
-           
+          <DatePicker   
             selected={selectedDate}
+           
+            
             // onChange={(date) => {
             //   setFieldValue(name, date);
             // }}
@@ -139,8 +135,10 @@ CustomInput.displayName = 'CustomInput';
             dateFormat={'dd/MM/yyyy'}
             calendarStartDay={1}
             formatWeekDay={(day) => day.substr(0, 2)}
+             
           />
           <CalendarGlobalStyles />
+         
           <Label style={{ position: 'relative' }}>
             <Field
               name="email"
