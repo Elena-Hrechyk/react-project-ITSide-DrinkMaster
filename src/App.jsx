@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 // import { currentUser } from './redux/auth/authOperations';
 // import { selectIsUpdating } from './redux/auth/authSelectors';
 import { AppWrapper } from './App.styled';
+import { GlobalStyle } from './components/GlobalStyled/global.styled';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 
 const StartPage = lazy(() => import('./pages/StartPage/StartPage'));
@@ -30,16 +31,16 @@ function App() {
   console.log(test);
   return (
     <AppWrapper>
+      <GlobalStyle />
       <Routes>
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/signin" element={<SignInPage />} />
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
 
           <Route path="/welcome" element={<StartPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signin" element={<SignInPage />} />
 
           <Route path="/addDrink" element={<AddDrinkPage />} />
-
 
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/my" element={<MyDrinksPage />} />
