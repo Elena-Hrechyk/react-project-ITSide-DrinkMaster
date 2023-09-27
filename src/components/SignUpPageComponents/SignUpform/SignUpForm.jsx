@@ -45,7 +45,7 @@ export const SignUpForm = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 const [selectedDate, setSelectedDate] = useState(Date.now());
-const CustomInput = forwardRef(({ value, onClick }, ref) => {
+const CustomInput = forwardRef(({  onClick }, ref) => {
   // const nowDate =  format(Date.now(), 'dd/MM/yyyy')
   return (
     <TitleWrapper onClick={onClick} ref={ref}>
@@ -64,10 +64,14 @@ CustomInput.displayName = 'CustomInput';
   const handleSubmit = (values, { resetForm }) => {
     console.log('values', values);
     console.log('Выбранная дата:', values.date);
+
+     const formattedDate = values.date
+       ? format(values.date, 'dd-MM-yyyy')
+       : null;
     // виклик диспечера для відправки даних в редакс
     const reg = JSON.stringify({
       name: values.name.trim(),
-      date: values.date1,
+      birthday: formattedDate,
       email: values.email.trim(),
       password: values.password.trim(),
     });
@@ -76,7 +80,7 @@ CustomInput.displayName = 'CustomInput';
     dispatch(
       signUp({
         name: values.name.trim(),
-        birthday: values.birthday.trim(),
+        birthday: formattedDate,
         email: values.email.toLowerCase().trim(),
         password: values.password.trim(),
       }),
@@ -87,12 +91,11 @@ CustomInput.displayName = 'CustomInput';
   //схема валідації
   const schema = yup.object().shape({
     name: yup.string().required().min(4),
-
-    email: yup.string().required().min(4),
+ 
+    email: yup.string().email().required().min(4),
     password: yup.string().required().min(4),
   });
   return (
-
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
@@ -111,15 +114,13 @@ CustomInput.displayName = 'CustomInput';
               onFocus={handleFocus}
             ></Field>
 
-
-              {didFocus && values.name.length > 2 ? (
-                errors.name && touched.name ? (
-                  <Icon.SvgError />
-                ) : (
-                  <Icon.SvgDone />
-                )
-              ) : 
-             (
+            {didFocus && values.name.length > 2 ? (
+              errors.name && touched.name ? (
+                <Icon.SvgError />
+              ) : (
+                <Icon.SvgDone />
+              )
+            ) : (
               ''
             )}
           </Label>
@@ -127,12 +128,9 @@ CustomInput.displayName = 'CustomInput';
             <DoneMessage>This is an CORRECT name</DoneMessage>
           )}
           <ErrorMessage name="name" component="div" />
-        
 
-          <DatePicker   
+          <DatePicker
             selected={selectedDate}
-           
-            
             // onChange={(date) => {
             //   setFieldValue(name, date);
             // }}
@@ -142,15 +140,15 @@ CustomInput.displayName = 'CustomInput';
             }}
             customInput={<CustomInput />}
             dateFormat={'dd/MM/yyyy'}
+            maxDate={new Date()}
+            showYearDropdown
             calendarStartDay={1}
             formatWeekDay={(day) => day.substr(0, 2)}
-             
           />
           <CalendarGlobalStyles />
-         
-          <Label style={{ position: 'relative' }}>
 
-            <Label style={{ position: 'relative' }}>
+          <Label style={{ position: 'relative' }}>
+            
               <Field
                 name="email"
                 type="text"
@@ -172,11 +170,7 @@ CustomInput.displayName = 'CustomInput';
             {!errors.email && values.email.length > 2 && (
               <DoneMessage>This is an CORRECT email</DoneMessage>
             )}
-
-          </Label>
-          {!errors.email && values.email.length > 2 && (
-            <DoneMessage>This is an CORRECT email</DoneMessage>
-          )}
+         
           <ErrorMessage name="email" component="div" />
           <Label style={{ position: 'relative' }}>
             <Field
@@ -210,6 +204,5 @@ CustomInput.displayName = 'CustomInput';
         </Form>
       )}
     </Formik>
-
   );
 };

@@ -14,7 +14,7 @@ const StyledDatepicker = (setFieldValue) => {
   // const { name, value } = field;
   // const { setFieldValue } = form;
   const [selectedDate, setSelectedDate] = useState(Date.now());
-  const CustomInput = forwardRef(({ value, onClick }, ref) => {
+  const CustomInput = forwardRef(({  onClick }, ref) => {
 
     return (
       <TitleWrapper onClick={onClick} ref={ref}>
