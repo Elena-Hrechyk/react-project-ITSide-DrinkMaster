@@ -21,6 +21,7 @@ export function DrinksListPage() {
             <DrinksPageText>
               <DrinksPageA>{drink}</DrinksPageA>
               <DrinksPageB>See more</DrinksPageB>
+              
             </DrinksPageText>
           </li>
         ))}

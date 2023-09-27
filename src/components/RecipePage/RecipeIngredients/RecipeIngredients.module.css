@@ -1,12 +1,21 @@
-
+@font-face {
+    font-family: 'ManropeSemiBold';
+    src: url(../../../assets//fonts//Manrope-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'ManropeRegular';
+    src: url(../../../assets//fonts/Manrope-Regular.ttf);
+}
 /* LIST */
 .title {
-    font-size: 16px;
+    font-family: 'ManropeSemiBold';
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.25;
     color: black;
-    margin-bottom: 20px;
+    margin-bottom: 42px;
     display: flex;
+    color: rgba(22, 31, 55, 0.5);
 }
 
 .ingredientsList {
@@ -14,14 +23,14 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
-    gap: 22px;
+    gap: 21px;
     margin-bottom: 80px;
-    flex-wrap: wrap;
 }
 
 @media screen and (min-width:768px) {
     .title {
         margin-bottom: 24px;
+        font-size: 16px;
     }
 
     .ingredientsList {
@@ -32,6 +41,7 @@
 @media screen and (min-width:1440px) {
     .ingredientsList {
         gap: 35px;
+        margin-bottom: 100px;
     }
 }
 /* LIST */
@@ -45,7 +55,7 @@ list-style: none;
 }
 
 .ingredientsContainer {
-width: 157px;
+width: 149px;
 height: 157px;
 margin-bottom: 8px;
 position: relative;
@@ -67,10 +77,11 @@ transform: translate(-50%, -50%);
 .ingredientsDescription {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+
 }
 
 .ingredientsTitle {
+    font-family: 'ManropeSemiBold';
     margin-right: auto;
     font-size: 14px;
     font-weight: 500;
@@ -82,10 +93,11 @@ transform: translate(-50%, -50%);
 }
 
 .ingredientsMeasures {
+    font-family: 'ManropeSemiBold';
     font-size: 14px;
     font-weight: 500;
     line-height: 0.8;
-    color: black;
+    color: rgba(22, 31, 55, 0.5);
     text-align: right;
     white-space: nowrap;
     text-overflow: ellipsis;

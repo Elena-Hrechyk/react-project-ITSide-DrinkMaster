@@ -1,4 +1,7 @@
-import {  Formik} from 'formik';
+import { useDispatch } from 'react-redux';
+import { signUp } from '../../../redux/auth/authOperations.js';
+// import { selectIsLogin } from '../../../redux/auth/authSlise.js';
+import { Formik } from 'formik';
 // import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import {
@@ -30,6 +33,8 @@ const initialValues = {
 };
 
 export const SignUpForm = () => {
+  const dispatch = useDispatch();
+  // const isLogin = useSelector(selectIsLogin);
   // const [field, meta] = useField();
 
   // Show inline feedback if EITHER
@@ -68,24 +73,26 @@ CustomInput.displayName = 'CustomInput';
     });
     console.log('reg', reg);
 
-    // dispatch(
-    //   authOperation.register({
-    //     name: values.name.trim(),
-    //     email: values.email.trim(),
-    //     password: values.password.trim(),
-    //   })
-    // );
+    dispatch(
+      signUp({
+        name: values.name.trim(),
+        birthday: values.birthday.trim(),
+        email: values.email.toLowerCase().trim(),
+        password: values.password.trim(),
+      }),
+    );
 
     resetForm();
   };
   //схема валідації
   const schema = yup.object().shape({
     name: yup.string().required().min(4),
-    
+
     email: yup.string().required().min(4),
     password: yup.string().required().min(4),
   });
   return (
+
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
@@ -104,10 +111,15 @@ CustomInput.displayName = 'CustomInput';
               onFocus={handleFocus}
             ></Field>
 
-            {didFocus && values.name.length > 2 ? (
-              errors.name && touched.name ? (
-                <Icon.SvgError />
+
+              {didFocus && values.name.length > 2 ? (
+                errors.name && touched.name ? (
+                  <Icon.SvgError />
+                ) : (
+                  <Icon.SvgDone />
+                )
               ) : (
+
                 <Icon.SvgDone />
               )
             ) : (
@@ -140,23 +152,36 @@ CustomInput.displayName = 'CustomInput';
           <CalendarGlobalStyles />
          
           <Label style={{ position: 'relative' }}>
+
             <Field
-              name="email"
-              type="text"
-              placeholder="Email"
-              onFocus={handleFocus}
-              value={values.email}
-              onChange={handleChange}
+              name="birthday"
+              // type="calendar"
+              component={StyledDatepicker}
+              value={values.birthday}
             />
-            {didFocus && values.email.length > 2 ? (
-              !!errors.email && touched.email ? (
-                <Icon.SvgError />
+            <Label style={{ position: 'relative' }}>
+              <Field
+                name="email"
+                type="text"
+                placeholder="Email"
+                onFocus={handleFocus}
+                value={values.email}
+                onChange={handleChange}
+              />
+              {didFocus && values.email.length > 2 ? (
+                !!errors.email && touched.email ? (
+                  <Icon.SvgError />
+                ) : (
+                  <Icon.SvgDone />
+                )
               ) : (
-                <Icon.SvgDone />
-              )
-            ) : (
-              ''
+                ''
+              )}
+            </Label>
+            {!errors.email && values.email.length > 2 && (
+              <DoneMessage>This is an CORRECT email</DoneMessage>
             )}
+
           </Label>
           {!errors.email && values.email.length > 2 && (
             <DoneMessage>This is an CORRECT email</DoneMessage>
@@ -194,5 +219,6 @@ CustomInput.displayName = 'CustomInput';
         </Form>
       )}
     </Formik>
+
   );
 };

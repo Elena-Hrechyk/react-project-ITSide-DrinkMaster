@@ -15,9 +15,11 @@ const StyledDatepicker = (setFieldValue) => {
   // const { setFieldValue } = form;
   const [selectedDate, setSelectedDate] = useState(Date.now());
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
+
     return (
       <TitleWrapper onClick={onClick} ref={ref}>
         {format(selectedDate, 'dd/MM/yyyy')} <AiOutlineCalendar />
+
       </TitleWrapper>
     );
   });

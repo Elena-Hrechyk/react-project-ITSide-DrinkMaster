@@ -1,25 +1,33 @@
 // DrinkMaster page like HomePage
-
 import {
   AddDrinkContainer,
   StyledLink,
   HomeSection,
   CategoryDrinkContainer,
   LinkBox,
+  Title,
+  Discribe,
+  HeroImg,
+  LeftSideHero,
 } from './HomePage.styled';
+import HeroImage from '../../img/drink-master/hero/hero-drink-master.png';
+
 import DrinksListHomePage from '../../components/Drinks_list_home_page/drinksListHomePage';
 
 const HomePage = () => {
   return (
     <HomeSection>
       <AddDrinkContainer>
-        <h1>Craft Your Perfect Drink with Drink Master</h1>
-        <p>
-          Unlock your inner mixologist with Drink Master, your one-stop
-          destination for exploring, crafting, and mastering the world's finest
-          beverages.
-        </p>
-        <StyledLink to="add">Add drink</StyledLink>
+        <LeftSideHero>
+          <Title>Craft Your Perfect Drink with Drink Master</Title>
+          <Discribe>
+            Unlock your inner mixologist with Drink Master, your one-stop
+            destination for exploring, crafting, and mastering the world's
+            finest beverages.
+          </Discribe>
+          <StyledLink to="add">Add drink</StyledLink>
+        </LeftSideHero>
+        <HeroImg src={HeroImage} alt="Coctail" />
       </AddDrinkContainer>
       <CategoryDrinkContainer>
         <h2>Ordinary Drink</h2>
