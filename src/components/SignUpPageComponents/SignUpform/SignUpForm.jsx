@@ -10,10 +10,14 @@ import {
   DoneMessage,
 } from './SignUpForm.styled.js';
 import Icon from './SvgComponents.jsx';
-import { useState } from 'react';
-import StyledDatepicker from './StyledDatepicker.jsx';
+import { useState, forwardRef } from 'react';
+// import StyledDatepicker from './StyledDatepicker.jsx';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-
+import { AiOutlineCalendar } from 'react-icons/ai';
+import { format } from 'date-fns';
+import DatePicker from 'react-datepicker';
+import { CalendarGlobalStyles, TitleWrapper } from './StyledDatepicker.styled';
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 // import * as authOperation from 'redux/auth/auth-operation';
 
 //початкові значення форміка
@@ -35,7 +39,18 @@ export const SignUpForm = () => {
   const handleFocus = () => setDidFocus(true);
 
   const [showPassword, setShowPassword] = useState(false);
-
+const [selectedDate, setSelectedDate] = useState(Date.now());
+const CustomInput = forwardRef(({ value, onClick }, ref) => {
+  // const nowDate =  format(Date.now(), 'dd/MM/yyyy')
+  return (
+    <TitleWrapper onClick={onClick} ref={ref}>
+      {format(selectedDate, 'dd/MM/yyyy')} <AiOutlineCalendar />
+      {/* {value ?? nowDate }
+        <AiOutlineCalendar /> */}
+    </TitleWrapper>
+  );
+});
+CustomInput.displayName = 'CustomInput';
   //виклик диспечера
   // const dispatch = useDispatch();
   //отримання даних з редакс
@@ -43,11 +58,11 @@ export const SignUpForm = () => {
   //додавання контакту при сабміті
   const handleSubmit = (values, { resetForm }) => {
     console.log('values', values);
-    console.log('Выбранная дата:', values.birthday);
+    console.log('Выбранная дата:', values.date);
     // виклик диспечера для відправки даних в редакс
     const reg = JSON.stringify({
       name: values.name.trim(),
-      birthday: values.birthday,
+      date: values.date,
       email: values.email.trim(),
       password: values.password.trim(),
     });
@@ -77,7 +92,7 @@ export const SignUpForm = () => {
       onSubmit={handleSubmit}
       displayName="MyForm"
     >
-      {({ errors, touched, values, handleChange }) => (
+      {({ errors, touched, values, handleChange, setFieldValue }) => (
         <Form>
           <Label style={{ position: 'relative' }}>
             <Field
@@ -99,17 +114,33 @@ export const SignUpForm = () => {
               ''
             )}
           </Label>
-
           {!errors.name && touched.name && (
             <DoneMessage>This is an CORRECT name</DoneMessage>
           )}
           <ErrorMessage name="name" component="div" />
-
-          <Field
+          {/* <Field
             name="birthday"
             component={StyledDatepicker}
             value={values.birthday}
+          /> */}
+
+          <DatePicker
+            // {...field}
+           
+            selected={selectedDate}
+            // onChange={(date) => {
+            //   setFieldValue(name, date);
+            // }}
+            onChange={(date) => {
+              setSelectedDate(date);
+              setFieldValue('date', date);
+            }}
+            customInput={<CustomInput />}
+            dateFormat={'dd/MM/yyyy'}
+            calendarStartDay={1}
+            formatWeekDay={(day) => day.substr(0, 2)}
           />
+          <CalendarGlobalStyles />
           <Label style={{ position: 'relative' }}>
             <Field
               name="email"
@@ -157,11 +188,9 @@ export const SignUpForm = () => {
               {!showPassword ? <FiEyeOff /> : <FiEye />}
             </div>
           </Label>
-          {!errors.password &&
-            touched.password &&
-            showPassword &&(
-              <DoneMessage>This is an CORRECT password</DoneMessage>
-            )}
+          {!errors.password && touched.password && showPassword && (
+            <DoneMessage>This is an CORRECT password</DoneMessage>
+          )}
           {showPassword && <ErrorMessage name="password" component="div" />}
           <SignUpBTN type="submit">Sign Up</SignUpBTN>
         </Form>

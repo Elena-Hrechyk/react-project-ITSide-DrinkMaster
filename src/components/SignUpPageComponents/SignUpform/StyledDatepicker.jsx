@@ -1,24 +1,28 @@
 import {
-  forwardRef,
+  forwardRef, useState,
   // useState
 } from 'react';
+import {
+  // Formik,
+  setFieldValue
+} from 'formik';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import { CalendarGlobalStyles, TitleWrapper } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-const StyledDatepicker = ({ field, form }) => {
-  const { name, value } = field;
-  const { setFieldValue } = form;
 
+const StyledDatepicker = () => {
+  // const { name, value } = field;
+  // const { setFieldValue } = form;
+const [selectedDate, setSelectedDate] = useState(Date.now());
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
-    const nowDate =  format(Date.now(), 'dd/MM/yyyy')
+    
     return (
       <TitleWrapper onClick={onClick} ref={ref}>
-        {/* {format(new Date(value), 'dd/MM/yyyy')} <AiOutlineCalendar /> */}
-        {value ?? nowDate }
-        <AiOutlineCalendar />
+        {format(selectedDate, 'dd/MM/yyyy')} <AiOutlineCalendar />
+        
       </TitleWrapper>
     );
   });
@@ -26,13 +30,15 @@ const StyledDatepicker = ({ field, form }) => {
   return (
     <>
       <DatePicker
-        {...field}
-        selected={value ? new Date(value) : null}
+       
+        selected={selectedDate}
+       
         onChange={(date) => {
-          setFieldValue(name, date);
+          setSelectedDate(date);
+          setFieldValue('date', date);
         }}
         customInput={<CustomInput />}
-        dateFormat={'dd MM yyyy'}
+        dateFormat={'dd/MM/yyyy'}
         calendarStartDay={1}
         formatWeekDay={(day) => day.substr(0, 2)}
       />
