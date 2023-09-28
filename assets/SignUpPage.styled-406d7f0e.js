@@ -1,4 +1,4 @@
-import{s as n,j as i,L as r}from"./index-73217f46.js";import{G as a}from"./iconBase-3a882c4c.js";import{i as t}from"./StartPage.styled-7696f86c.js";const o=n.svg`
+import{s as n,j as i,L as r}from"./index-96f07276.js";import{G as a}from"./iconBase-5e9ac0a6.js";import{i as t}from"./StartPage.styled-d31e58c1.js";const o=n.svg`
   position: absolute;
   top: 16px;
   right: 16px;
