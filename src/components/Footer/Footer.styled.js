@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Form as FormikForm, ErrorMessage as FormikError } from 'formik';
 
-
 export const FooterSection = styled.footer`
   font-family: 'Manrope', Arial, sans-serif;
   max-width: 480px;
@@ -21,7 +20,7 @@ export const FooterSection = styled.footer`
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 60px;
-  padding-bottom: 20px;
+    padding-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -33,7 +32,6 @@ export const FooterSection = styled.footer`
     padding-top: 60px;
   }
 `;
-
 
 export const FooterContainer = styled.div`
   display: block;
@@ -67,25 +65,6 @@ export const LinkLogo = styled(Link)`
   color: #f3f3f3;
 
   text-decoration: none;
-`;
-
-export const FollowUsContainer = styled.div`
-  width: 164px;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-`;
-
-export const SvgContainer = styled.div`
-  width: 44px;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid rgba(243, 243, 243, 0.2);
-  border-radius: 10px;
 `;
 
 export const Navigation = styled.nav`
