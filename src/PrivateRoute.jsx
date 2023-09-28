@@ -2,12 +2,12 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { selectIsLogin, selectIsUpdating } from './redux/auth/authSelectors';
 
-const PrivateRoute = ({ component: SomePage, redirectTo = '/' }) => {
+export const PrivateRoute = ({ component: SomePage, redirectTo = '/' }) => {
   const isLogin = useSelector(selectIsLogin);
   const isUpdating = useSelector(selectIsUpdating);
+  console.log('isLogin', isLogin);
+  console.log('isUpdating', isUpdating);
   const shoudRedirect = !isLogin && !isUpdating;
 
-  return shoudRedirect ? <Navigate to={redirectTo} /> : <SomePage />;
+  return shoudRedirect ? <Navigate to={redirectTo} /> : SomePage;
 };
-
-export default PrivateRoute;

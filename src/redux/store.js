@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { authReducer } from './auth/authSlise';
+import { authReducer } from './auth/authSlice';
 import { addDrinksReducer } from './drinks/drinksSlise';
 // import { filterReducer } from './drinks/filterSlise';
 

@@ -22,8 +22,8 @@ const HomePage = () => {
           <Title>Craft Your Perfect Drink with Drink Master</Title>
           <Discribe>
             Unlock your inner mixologist with Drink Master, your one-stop
-            destination for exploring, crafting, and mastering the world's
-            finest beverages.
+            destination for exploring, crafting, and mastering the words finest
+            beverages.
           </Discribe>
           <StyledLink to="add">Add drink</StyledLink>
         </LeftSideHero>
