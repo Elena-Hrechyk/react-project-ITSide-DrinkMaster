@@ -1,13 +1,15 @@
 import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
-// import PublicRoute from './PublicRoute';
-// import PrivateRoute from './PrivateRoute';
-// import { currentUser } from './redux/auth/authOperations';
-// import { selectIsUpdating } from './redux/auth/authSelectors';
+import { useEffect } from 'react';
+import { Route, Routes, redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { PublicRoute } from './PublicRoute';
+import { PrivateRoute } from './PrivateRoute';
+import { currentUser } from './redux/auth/authOperations';
+import { selectIsUpdating } from './redux/auth/authSelectors';
 import { AppWrapper } from './App.styled';
 import { GlobalStyle } from './components/GlobalStyled/global.styled';
 import SharedLayout from './components/SharedLayout/SharedLayout';
+import { Loader } from './components/Loader/Loader';
 
 const StartPage = lazy(() => import('./pages/StartPage/StartPage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
@@ -18,80 +20,94 @@ const MyDrinksPage = lazy(() => import('./pages/MyDrinkPage/MyDrinkPage'));
 const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
-const test = import.meta.env.VITE_API_TEST;
+// const test = import.meta.env.VITE_API_TEST;
 
 function App() {
-  // const dispatch = useDispatch();
-  // const isUpdatind = useSelector(selectIsUpdating);
+  const dispatch = useDispatch();
+  const isUpdatind = useSelector(selectIsUpdating);
 
-  // useEffect(() => {
-  //   dispatch(currentUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
 
-  console.log(test);
   return (
     <AppWrapper>
       <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
-
-          <Route path="/welcome" element={<StartPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/signin" element={<SignInPage />} />
-
-          <Route path="/addDrink" element={<AddDrinkPage />} />
-
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/my" element={<MyDrinksPage />} />
-
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
-
-      {/* {isUpdatind && (
+      {isUpdatind ? (
+        <Loader />
+      ) : (
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route
-              index
-              element={
-                <PrivateRoute component={HomePage} redirectTo="/login" />
-              }
-            />
-
             <Route path="/welcome" element={<StartPage />} />
             <Route
               path="/signup"
-              element={<PublicRoute component={SignUpPage} redirectTo="/" />}
+              element={
+                <PublicRoute component={<SignUpPage />} redirectTo="/" />
+              }
             />
             <Route
               path="/signin"
-              element={<PublicRoute component={SignInPage} redirectTo="/" />}
+              element={
+                <PublicRoute component={<SignInPage />} redirectTo="/" />
+              }
+            />
+            <Route
+              index
+              element={
+                <PrivateRoute component={<HomePage />} redirectTo="/welcome" />
+              }
             />
             <Route
               path="/addDrink"
               element={
-                <PrivateRoute component={AddDrinkPage} redirectTo="/login" />
+                <PrivateRoute
+                  component={<AddDrinkPage />}
+                  redirectTo="/signin"
+                />
               }
             />
-
             <Route
               path="/favorites"
               element={
-                <PrivateRoute component={FavoritesPage} redirectTo="/login" />
+                <PrivateRoute
+                  component={<FavoritesPage />}
+                  redirectTo="/signin"
+                />
               }
             />
             <Route
               path="/my"
               element={
-                <PrivateRoute component={MyDrinksPage} redirectTo="/login" />
+                <PrivateRoute
+                  component={<MyDrinksPage />}
+                  redirectTo="/signin"
+                />
               }
             />
             <Route path="*" element={<NotFoundPage />} />
+
+            {/* <Route index element={<HomePage />} />
+          <Route path="/addDrink" element={<AddDrinkPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/my" element={<MyDrinksPage />} />
+          <Route path="*" element={<NotFoundPage />} /> */}
           </Route>
         </Routes>
+      )}
+
+      {/* {isUpdatind && (
+
       )} */}
     </AppWrapper>
   );
 }
 export default App;
+
+// import StartPage from './pages/StartPage/StartPage';
+// import SignUpPage from './pages/SignUpPage/SignUpPage';
+// import SignInPage from './pages/SignInPage/SignInPage';
+// import HomePage from './pages/HomePage/HomePage';
+// import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
+// import MyDrinksPage from './pages/MyDrinkPage/MyDrinkPage';
+// import AddDrinkPage from './pages/AddDrinkPage/AddDrinkPage';
+// import NotFoundPage from './pages/NotFoundPage/NotFoundPage';

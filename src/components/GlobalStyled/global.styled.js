@@ -64,7 +64,8 @@ body {
   color: #111111;
   width: 100%;
   height: 100vh;
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  background-color: #0A0A11;
   scroll-behavior: smooth;
 }
 

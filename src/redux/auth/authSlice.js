@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { currentUser, signUp, signIn, signOut } from './authOperations';
 
+
 const initialState = {
   user: { username: '', birthday: '', email: '' },
   token: null,
@@ -31,7 +32,7 @@ const authSlice = createSlice({
       state.isUpdating = true;
     },
     [currentUser.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user = action.payload.user;
       state.isLogin = true;
       state.isUpdating = false;
     },
@@ -42,3 +43,5 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
+
+// export default authSlice.reducer;
