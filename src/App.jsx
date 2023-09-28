@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { useEffect } from 'react';
-import { Route, Routes, redirect } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';

@@ -4,7 +4,6 @@ import { selectIsLogin } from './redux/auth/authSelectors';
 
 export const PublicRoute = ({ component: StartPage, redirectTo = '/' }) => {
   const isLogin = useSelector(selectIsLogin);
-  console.log('isLogin', isLogin);
 
   return isLogin ? <Navigate to={redirectTo} /> : StartPage;
 };
