@@ -2,15 +2,13 @@ import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { FormLabel, Form, ErrorMessage, Button } from './Footer.styled';
 
+import { FollowUs } from '../FollowUsContainer/FollowUsContainer';
+
 import { ReactComponent as Logo } from '../../img/svg/logo.svg';
-import { ReactComponent as FacebookLogoLink } from '../../img/svg/facebook.svg';
-import { ReactComponent as InstagramSvg } from '../../img/svg/instagram.svg';
-import { ReactComponent as YoutubeSvg } from '../../img/svg/youtube.svg';
+
 import {
   LinkLogo,
   FooterContainer,
-  FollowUsContainer,
-  SvgContainer,
   Navigation,
   NavigationList,
   StyledLink,
@@ -20,15 +18,12 @@ import {
   FooterBox,
   Copyright,
   CopyrightPrivasy,
-  FooterSection
+  FooterSection,
 } from '../Footer/Footer.styled';
 
-const PhonebookSchema = Yup.object().shape({
+const EmailSchema = Yup.object().shape({
   email: Yup.string()
-    .matches(
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      'Email may be in this format: test@mail.com',
-    )
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email...')
     .required('Input email...'),
 });
 
@@ -42,39 +37,7 @@ export const Footer = () => {
               <Logo />
               <span>Drink Master</span>
             </LinkLogo>
-            <FollowUsContainer>
-              <a
-                href="https://www.facebook.com/goITclub/"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="link to Facebook"
-              >
-                {' '}
-                <SvgContainer>
-                  <FacebookLogoLink />
-                </SvgContainer>
-              </a>
-              <a
-                href="https://www.instagram.com/goitclub/"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="link to Instagram"
-              >
-                <SvgContainer>
-                  <InstagramSvg />
-                </SvgContainer>
-              </a>
-              <a
-                href="https://www.youtube.com/c/GoIT"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="link to Youtube"
-              >
-                <SvgContainer>
-                  <YoutubeSvg />
-                </SvgContainer>
-              </a>
-            </FollowUsContainer>
+            <FollowUs />
           </SocialsBox>
           <NavigationBox>
             <Navigation>
@@ -91,12 +54,9 @@ export const Footer = () => {
             <Formik
               initialValues={{
                 name: '',
-                number: '',
               }}
-              validationSchema={PhonebookSchema}
-              onSubmit={({ name, number }, actions) =>
-                handleSubmit({ name, number }, actions)
-              }
+              validationSchema={EmailSchema}
+              onSubmit={({ name }, actions) => handleSubmit({ name }, actions)}
             >
               <Form>
                 <FormLabel>
