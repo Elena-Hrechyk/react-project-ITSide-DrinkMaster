@@ -1,4 +1,4 @@
-import{s as Te,F as Va,a as za,E as Xa,_ as gt,b as x,g as $r,r as F,c as ra,e as v,d as Ga,f as Za,j as R,h as Ja,i as vr,k as eo,l as to}from"./index-6c740661.js";import{I as Ht,F as ro,a as no,S as ao,H as oo,R as io}from"./SignUpPage.styled-e4d18d9c.js";import{G as so}from"./iconBase-c613a7e1.js";import{_ as uo,a as L,b as A,c as Y,d as C,e as I}from"./createClass-1959835b.js";import{u as co}from"./useDispatch-1c9ab0ff.js";import"./StartPage.styled-204b4ae9.js";const lo=Te(Va)`
+import{s as Te,F as Va,a as za,E as Xa,_ as gt,b as x,g as $r,r as F,c as ra,e as v,d as Ga,f as Za,j as R,h as Ja,i as vr,k as eo,l as to}from"./index-96e62db4.js";import{I as Ht,F as ro,a as no,S as ao,H as oo,R as io}from"./SignUpPage.styled-434afdc0.js";import{G as so}from"./iconBase-c780e595.js";import{_ as uo,a as L,b as A,c as Y,d as C,e as I}from"./createClass-cbb69b9f.js";import{u as co}from"./useDispatch-30d57d36.js";import"./StartPage.styled-f6e52e75.js";const lo=Te(Va)`
   display: flex;
   flex-direction: column;
   justify-content: center;
