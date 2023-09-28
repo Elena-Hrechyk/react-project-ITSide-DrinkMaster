@@ -1,4 +1,4 @@
-import{s,F as S,a as k,E as F,u as v,r as p,h as E,i as l,j as o,k as I,m as z}from"./index-d39bbfa6.js";import{I as d,F as C,a as M,S as R,H as L,R as T}from"./SignUpPage.styled-54c95d54.js";import{u as $}from"./useDispatch-3042bea3.js";import"./iconBase-f049d43c.js";import"./StartPage.styled-ad0f7d66.js";const D=n=>n.auth.isLogin,O=s(S)`
+import{s,F as S,a as k,E as F,u as v,m as E,n as I,r as a,h as z,i as p,j as o,k as C,o as M}from"./index-73217f46.js";import{I as l,F as R,a as L,S as T,H as $,R as D}from"./SignUpPage.styled-4a05de0f.js";import"./iconBase-3a882c4c.js";import"./StartPage.styled-7696f86c.js";const O=s(S)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +8,7 @@ import{s,F as S,a as k,E as F,u as v,r as p,h as E,i as l,j as o,k as I,m as z}f
   margin-bottom: 14px;
 `;s.div`
   /* margin-bottom: 1rem; */
-`;const x=s.label`
+`;const d=s.label`
   /* display: block;
 
   margin-bottom: 2rem;
@@ -30,7 +30,7 @@ import{s,F as S,a as k,E as F,u as v,r as p,h as E,i as l,j as o,k as I,m as z}f
     border: none;
     /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
   /* } */
-`;const c=s(k)`
+`;const x=s(k)`
   /* position: relative; */
   display: block;
   width: 335px;
@@ -112,7 +112,7 @@ import{s,F as S,a as k,E as F,u as v,r as p,h as E,i as l,j as o,k as I,m as z}f
     background: #f3f3f3;
     color: #161f37;
   }
-`,g=s(F)`
+`,c=s(F)`
   width: 268px;
   color: rgba(218, 20, 20, 1);
   /* font-family: Manrope; */
@@ -122,11 +122,11 @@ import{s,F as S,a as k,E as F,u as v,r as p,h as E,i as l,j as o,k as I,m as z}f
   line-height: 14px; /* 116.667% */
 `;s.h3`
   margin-bottom: 20px;
-`;const m=s.span`
+`;const g=s.span`
   color: #3cbc81;
 
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
-`,N={email:"",password:""},q=()=>{const n=$(),h=v(D),[b,f]=p.useState(!1),u=()=>f(!0),[t,w]=p.useState(!1),y=(e,{resetForm:r})=>{console.log("values",e);const i=JSON.stringify({email:e.email.trim(),password:e.password.trim()});console.log("reg",i),n(z({email:e.email.toLowerCase().trim(),password:e.password.trim()})),r()};console.log(h);const j=E().shape({email:l().required().min(4),password:l().required().min(4)});return o.jsx(I,{initialValues:N,validationSchema:j,onSubmit:y,displayName:"MyForm",children:({errors:e,touched:r,values:i,handleChange:a})=>o.jsxs(O,{children:[o.jsxs(x,{style:{position:"relative"},children:[o.jsx(c,{name:"email",type:"text",placeholder:"Email",onFocus:u,value:i.email,onChange:a}),b&&i.email.length>2?e.email&&r.email?o.jsx(d.SvgError,{}):o.jsx(d.SvgDone,{}):""]}),!e.email&&i.email.length>2&&o.jsx(m,{children:"This is an CORRECT email"}),o.jsx(g,{name:"email",component:"div"}),o.jsxs(x,{style:{position:"relative"},children:[o.jsx(c,{name:"password",type:t?"text":"password",placeholder:"Password",value:i.password,onChange:a}),o.jsx("div",{type:"button",onClick:()=>w(!t),style:{position:"absolute",right:"24px",top:"50%",transform:"translateY(-50%)",background:"transparent",color:"white",outline:"transparent"},children:t?o.jsx(M,{}):o.jsx(C,{})})]}),!e.password&&r.password&&t&&o.jsx(m,{children:"This is an CORRECT password"}),t&&o.jsx(g,{name:"password",component:"div"}),o.jsx(P,{type:"submit",children:"Sign In"})]})})},Y=()=>o.jsxs(R,{children:[o.jsx(L,{children:"Sign In"}),o.jsx(q,{}),o.jsx(T,{to:"/signin",children:"Sign Up"})]});export{Y as default};
+`,N={email:"",password:""},q=()=>{const m=v(),h=E(I),[b,f]=a.useState(!1),u=()=>f(!0),[r,w]=a.useState(!1),y=(e,{resetForm:t})=>{console.log("values",e);const i=JSON.stringify({email:e.email.trim(),password:e.password.trim()});console.log("reg",i),m(M({email:e.email.toLowerCase().trim(),password:e.password.trim()})),t()};console.log(h);const j=z().shape({email:p().required().min(4),password:p().required().min(4)});return o.jsx(C,{initialValues:N,validationSchema:j,onSubmit:y,displayName:"MyForm",children:({errors:e,touched:t,values:i,handleChange:n})=>o.jsxs(O,{children:[o.jsxs(d,{style:{position:"relative"},children:[o.jsx(x,{name:"email",type:"text",placeholder:"Email",onFocus:u,value:i.email,onChange:n}),b&&i.email.length>2?e.email&&t.email?o.jsx(l.SvgError,{}):o.jsx(l.SvgDone,{}):""]}),!e.email&&i.email.length>2&&o.jsx(g,{children:"This is an CORRECT email"}),o.jsx(c,{name:"email",component:"div"}),o.jsxs(d,{style:{position:"relative"},children:[o.jsx(x,{name:"password",type:r?"text":"password",placeholder:"Password",value:i.password,onChange:n}),o.jsx("div",{type:"button",onClick:()=>w(!r),style:{position:"absolute",right:"24px",top:"50%",transform:"translateY(-50%)",background:"transparent",color:"white",outline:"transparent"},children:r?o.jsx(L,{}):o.jsx(R,{})})]}),!e.password&&t.password&&r&&o.jsx(g,{children:"This is an CORRECT password"}),r&&o.jsx(c,{name:"password",component:"div"}),o.jsx(P,{type:"submit",children:"Sign In"})]})})},V=()=>o.jsxs(T,{children:[o.jsx($,{children:"Sign In"}),o.jsx(q,{}),o.jsx(D,{to:"/signin",children:"Sign Up"})]});export{V as default};

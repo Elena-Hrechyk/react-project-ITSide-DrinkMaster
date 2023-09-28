@@ -1,4 +1,4 @@
-import{s as n,N as o,n as d,j as i}from"./index-d39bbfa6.js";import{D as r}from"./DrinksItem-329f8fcc.js";import"./iconBase-f049d43c.js";const s=n.section`
+import{s as n,N as o,p as d,j as i}from"./index-73217f46.js";import{D as r}from"./DrinksItem-ae18a5fb.js";import"./iconBase-3a882c4c.js";const s=n.section`
   font-family: 'Manrope', Arial, sans-serif;
   max-width: 480px;
   padding-left: 20px;
@@ -131,4 +131,4 @@ import{s as n,N as o,n as d,j as i}from"./index-d39bbfa6.js";import{D as r}from"
   @media screen and (min-width: 768px) {
     gap: 80px 20px;
   };
-`,e=()=>i.jsxs(f,{children:[i.jsx("li",{children:i.jsx(r,{})}),i.jsx("li",{children:i.jsx(r,{})}),i.jsx("li",{children:i.jsx(r,{})})]}),k=()=>i.jsxs(s,{children:[i.jsxs(p,{children:[i.jsxs(x,{children:[i.jsx(m,{children:"Craft Your Perfect Drink with Drink Master"}),i.jsx(h,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the world's finest beverages."}),i.jsx(a,{to:"add",children:"Add drink"})]}),i.jsx(l,{src:c,alt:"Coctail"})]}),i.jsxs(t,{children:[i.jsx("h2",{children:"Ordinary Drink"}),i.jsx(e,{})]}),i.jsxs(t,{children:[i.jsx("h2",{children:"Cocktail"}),i.jsx(e,{})]}),i.jsxs(t,{children:[i.jsx("h2",{children:"Shake"}),i.jsx(e,{})]}),i.jsxs(t,{children:[i.jsx("h2",{children:"Other/Unknow"}),i.jsx(e,{})]}),i.jsx(g,{children:i.jsx(a,{to:"/drinks",children:"Other drinks"})})]});export{k as default};
+`,e=()=>i.jsxs(f,{children:[i.jsx("li",{children:i.jsx(r,{})}),i.jsx("li",{children:i.jsx(r,{})}),i.jsx("li",{children:i.jsx(r,{})})]}),k=()=>i.jsxs(s,{children:[i.jsxs(p,{children:[i.jsxs(x,{children:[i.jsx(m,{children:"Craft Your Perfect Drink with Drink Master"}),i.jsx(h,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the words finest beverages."}),i.jsx(a,{to:"add",children:"Add drink"})]}),i.jsx(l,{src:c,alt:"Coctail"})]}),i.jsxs(t,{children:[i.jsx("h2",{children:"Ordinary Drink"}),i.jsx(e,{})]}),i.jsxs(t,{children:[i.jsx("h2",{children:"Cocktail"}),i.jsx(e,{})]}),i.jsxs(t,{children:[i.jsx("h2",{children:"Shake"}),i.jsx(e,{})]}),i.jsxs(t,{children:[i.jsx("h2",{children:"Other/Unknow"}),i.jsx(e,{})]}),i.jsx(g,{children:i.jsx(a,{to:"/drinks",children:"Other drinks"})})]});export{k as default};
