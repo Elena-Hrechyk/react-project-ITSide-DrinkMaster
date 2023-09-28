@@ -1,18 +1,19 @@
-import { Container, ErrorContainer, Title } from "./NotFoundPage.styled";
+import { Container, ErrorContainer,  NotFoundImage,  Picture,  PictureContainer,  TitleLeft, TitleRigth } from "./NotFoundPage.styled";
 
 const NotFoundPage = () => {
   return (
     <Container>
       <ErrorContainer>
-        <Title>4</Title>
+        <TitleLeft>4</TitleLeft>
           <picture>
-            <img
-              src="src/img/drink-master/hero/hero-drink-master.png"
-              srcSet="src/img/drink-master/hero/hero-drink-master@2x.png"
+            <NotFoundImage
+              src="./src/img/drink-master/hero/hero-drink-master.png"
+              srcSet="./src/img/drink-master/hero/hero-drink-master@2x.png"
               alt="cocktail"
               loading="lazy"/>
           </picture>
-         <Title>4</Title>
+          <TitleRigth>4</TitleRigth>
+        
         </ErrorContainer>
     </Container>
 
