@@ -1,4 +1,4 @@
-import{p as i,j as t}from"./index-50ae83d3.js";import{C as e,M as n}from"./hero-drink-master-74eb8c5c.js";const s="/react-project-ITSide-DrinkMaster/assets/hero-drink-master@2x-b1e9fb80.png",o=i.section`
+import{p as i,j as t}from"./index-28e72e15.js";import{C as e,M as n}from"./hero-drink-master-c7228643.js";const s="/react-project-ITSide-DrinkMaster/assets/hero-drink-master@2x-b1e9fb80.png",o=i.section`
   padding-top: 188px;
   padding-bottom: 260px;
 `,a=i.div`

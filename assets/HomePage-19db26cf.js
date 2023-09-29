@@ -1,4 +1,4 @@
-import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}from"./index-50ae83d3.js";import{s as y,a as b,b as k}from"./drinksSelectors-566d8060.js";import{C as w,M as u}from"./hero-drink-master-74eb8c5c.js";const j=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],D=n.section`
+import{s as n,N as d,p as e,m as s,j as i,u as m,n as g,r as h,q as x,t as f}from"./index-28e72e15.js";import{s as y,a as b,b as u}from"./drinksSelectors-566d8060.js";import{C as k,M as w}from"./hero-drink-master-c7228643.js";const j=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],D=n.section`
   font-family: var(--font-main);
   padding-top: 80px;
   padding-bottom: 80px;
@@ -11,7 +11,7 @@ import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}fro
   @media screen and (min-width: 1280px) {
     padding-top: 185px;
   }
-`,z=n.div`
+`,v=n.div`
   display: block;
   margin-bottom: 112px;
 
@@ -23,11 +23,11 @@ import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}fro
     position: relative;
     margin-bottom: 218px;
   }
-`,L=n.div`
+`,z=n.div`
   @media screen and (min-width: 1280px) {
     width: 715px;
   }
-`,C=n.h1`
+`,L=n.h1`
   margin-bottom: 16px;
   font-size: 32px;
   font-style: normal;
@@ -45,7 +45,7 @@ import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}fro
     font-size: 64px;
     line-height: 1.06;
   }
-`,v=n.p`
+`,C=n.p`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -60,9 +60,9 @@ import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}fro
   @media screen and (min-width: 1280px) {
     margin-bottom: 40px;
   }
-`,S=n(s)`
+`,S=n(d)`
   display: inline-block;
-  width: auto;
+  width: 165px;
   margin-right: auto;
   padding: 8px 16px;
   border: 1px solid rgba(243, 243, 243, 0.2);
@@ -70,10 +70,17 @@ import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}fro
   background: #f3f3f3;
   margin-bottom: 47px;
   color: #161f37;
+  text-align: center;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.23;
+  transition: outline var(--transition-dur-and-func);
+
+  &:hover,
+  &:focus {
+    outline: 2px solid rgba(64, 112, 205, 0.5);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 18px 44px;
@@ -99,8 +106,10 @@ import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}fro
     right: 36px;
   }
 `,I=n.ul`
+  font-family: var(--font-main);
   margin-bottom: 40;
 `,M=n.li`
+  font-family: var(--font-main);
   margin-bottom: 40px;
 
   &:nth-child(n + 5) {
@@ -128,7 +137,7 @@ import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}fro
     display: flex;
     grid-gap: 20px;
   }
-`,E=n(s)`
+`,E=n(d)`
   display: block;
   width: 165px;
   padding: 14px 40px;
@@ -142,6 +151,12 @@ import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}fro
   font-size: 14px;
   font-weight: 600;
   line-height: 1.23;
+  transition: outline var(--transition-dur-and-func);
+
+  &:hover,
+  &:focus {
+    outline: 2px solid rgba(64, 112, 205, 0.5);
+  }
 
   @media screen and (min-width: 768px) {
     width: 185px;
@@ -201,9 +216,9 @@ import{s as n,N as s,p as e,m as d,j as i,u as l,n as h,r as g,q as x,t as f}fro
   font-size: 16px;
   font-weight: 500;
   line-height: 1.13;
-`,B=e(s)`
+`,B=e(d)`
   color: rgba(243, 243, 243, 0.5);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.23;
-`,N=({type:o})=>{const r=d(y).data;let a=[];return r&&(a=r.filter(t=>o===t.category)),i.jsx(i.Fragment,{children:a.map(({_id:t,drink:p,drinkThumb:m})=>i.jsxs(O,{children:[i.jsx(T,{src:m,alt:p,loading:"lazy"}),i.jsxs(F,{children:[i.jsx(q,{children:p}),i.jsx(B,{to:"/drinks",children:"See more"})]})]},t))})},W=()=>{const o=l(),c=d(b),r=d(h),a=d(k);return g.useEffect(()=>{o(x())},[o]),i.jsx(i.Fragment,{children:r&&i.jsx(D,{children:i.jsxs(w,{children:[i.jsxs(z,{children:[i.jsxs(L,{children:[i.jsx(C,{children:"Craft Your Perfect Drink with Drink Master"}),i.jsx(v,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the words finest beverages."}),i.jsx(S,{to:"/addDrink",children:"Add drink"})]}),i.jsx(H,{src:u,alt:"Coctail",loading:"lazy"})]}),c&&!a?i.jsx(f,{}):i.jsxs(i.Fragment,{children:[i.jsx(I,{children:j.map(t=>i.jsxs(M,{children:[i.jsx(P,{children:t.category}),i.jsx(A,{children:i.jsx(N,{type:t.category})})]},t.id))}),i.jsx(E,{to:"/drinks",children:"Other drinks"})]})]})})})};export{W as default};
+`,N=({type:o})=>{const r=s(y).data;let a=[];return r&&(a=r.filter(t=>o===t.category)),i.jsx(i.Fragment,{children:a.map(({_id:t,drink:p,drinkThumb:l})=>i.jsxs(O,{children:[i.jsx(T,{src:l,alt:p,loading:"lazy"}),i.jsxs(F,{children:[i.jsx(q,{children:p}),i.jsx(B,{to:"/drinks",children:"See more"})]})]},t))})},W=()=>{const o=m(),c=s(b),r=s(g),a=s(u);return h.useEffect(()=>{o(x())},[o]),i.jsx(i.Fragment,{children:r&&i.jsx(D,{children:i.jsxs(k,{children:[i.jsxs(v,{children:[i.jsxs(z,{children:[i.jsx(L,{children:"Craft Your Perfect Drink with Drink Master"}),i.jsx(C,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the words finest beverages."}),i.jsx(S,{to:"/addDrink",children:"Add drink"})]}),i.jsx(H,{src:w,alt:"Coctail",loading:"lazy"})]}),c&&!a?i.jsx(f,{}):i.jsxs(i.Fragment,{children:[i.jsx(I,{children:j.map(t=>i.jsxs(M,{children:[i.jsx(P,{children:t.category}),i.jsx(A,{children:i.jsx(N,{type:t.category})})]},t.id))}),i.jsx(E,{to:"/drinks",children:"Other drinks"})]})]})})})};export{W as default};

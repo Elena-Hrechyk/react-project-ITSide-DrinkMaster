@@ -1,4 +1,4 @@
-import{s as t}from"./index-50ae83d3.js";const d=t.div`
+import{s as t}from"./index-28e72e15.js";const d=t.div`
   position: ${({position:i})=>i||"static"};
   padding-left: 20px;
   padding-right: 20px;

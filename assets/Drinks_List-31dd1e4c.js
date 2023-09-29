@@ -1,4 +1,4 @@
-import{p as e,j as i}from"./index-50ae83d3.js";import{G as r}from"./iconBase-f9f8d178.js";const o=e.h1`
+import{p as e,j as i}from"./index-28e72e15.js";import{G as r}from"./iconBase-848b5c19.js";const o=e.h1`
   font-size: 32px;
   font-weight: 600;
   line-height: 1.188;
