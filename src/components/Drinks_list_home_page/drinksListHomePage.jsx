@@ -7,7 +7,6 @@ import {
   SeemoreLink,
   Box,
 } from './drinksListHomePage.styled';
-// import img from '../../img/drink-master/odinary-drink/atlantic-sun.jpg';
 
 const DrinksListHomePage = ({ type }) => {
   const allDrinks = useSelector(selectDrinks);
@@ -26,21 +25,14 @@ const DrinksListHomePage = ({ type }) => {
       {filterDrinks.map(({ _id, drink, drinkThumb }) => {
         return (
           <ItemDrink key={_id}>
-            <ImgDrink src={drinkThumb} alt={drink} width={400} />
+            <ImgDrink src={drinkThumb} alt={drink} loading="lazy" />
             <Box>
               <TitleDrink>{drink}</TitleDrink>
-              <SeemoreLink href="">See more</SeemoreLink>
+              <SeemoreLink to="/drinks">See more</SeemoreLink>
             </Box>
           </ItemDrink>
         );
       })}
-
-      {/* <li>
-        <DrinksItem></DrinksItem>
-      </li>
-      <li>
-        <DrinksItem></DrinksItem>
-      </li> */}
     </>
   );
 };

@@ -52,7 +52,7 @@ const HomePage = () => {
                 </Discribe>
                 <LinkAddDrink to="/addDrink">Add drink</LinkAddDrink>
               </LeftSideHero>
-              <HeroImg src={HeroImage} alt="Coctail" />
+              <HeroImg src={HeroImage} alt="Coctail" loading="lazy" />
             </AddDrinkContainer>
             {isLoading && !error ? (
               <Loader />

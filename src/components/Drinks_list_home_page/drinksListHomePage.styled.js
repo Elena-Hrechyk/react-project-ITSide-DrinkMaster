@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const Wrap = styled.ul`
   display: flex;
@@ -70,7 +71,7 @@ export const TitleDrink = styled.h4`
   line-height: 1.13; /* 112.5% */
 `;
 
-export const SeemoreLink = styled.a`
+export const SeemoreLink = styled(NavLink)`
   color: rgba(243, 243, 243, 0.5);
   font-size: 14px;
   font-weight: 500;
