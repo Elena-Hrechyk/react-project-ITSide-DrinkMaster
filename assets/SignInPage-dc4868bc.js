@@ -1,4 +1,4 @@
-import{s,F as S,a as k,E as F,u as v,m as E,n as I,r as a,h as z,i as p,j as o,k as C,o as M}from"./index-1e2e3b70.js";import{I as l,F as R,a as L,S as T,H as $,R as D}from"./SignUpPage.styled-e38acfdc.js";import"./iconBase-f536ddf7.js";import"./StartPage.styled-7b571c9f.js";const O=s(S)`
+import{s,F as S,a as k,E as F,u as v,m as E,n as I,r as a,h as z,i as p,j as o,k as C,o as M}from"./index-827a414d.js";import{I as l,F as R,a as L,S as T,H as $,R as D}from"./SignUpPage.styled-a200a534.js";import"./iconBase-b18d5a3e.js";import"./StartPage.styled-edfe9551.js";const O=s(S)`
   display: flex;
   flex-direction: column;
   justify-content: center;
