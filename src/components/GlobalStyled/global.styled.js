@@ -1,4 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import ManropeBolt from '../../assets/fonts/Manrope-Bold.ttf';
+import ManropeSemiBold from '../../assets/fonts/Manrope-SemiBold.ttf';
+import ManropeRegular from '../../assets/fonts/Manrope-Regular.ttf';
+import ManropeMedium from '../../assets/fonts/Manrope-Medium.ttf';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
@@ -19,9 +23,7 @@ html {
 }
 @font-face {
   font-family: 'Manrope';
-  src:
-    local('Manrope-Bold'),
-    url('./src/assets/fonts/Manrope-Bold.ttf') format('truetype');
+  src: local('Manrope-Bold'), url(${ManropeBolt}) format('truetype');
   font-weight: bold;
   font-style: normal;
 }
@@ -29,21 +31,21 @@ html {
 
 @font-face {
   font-family: 'Manrope';
-  src: local('Manrope-SemiBold'), url('./src/assets/fonts/Manrope-SemiBold.ttf') format('truetype');
+  src: local("Manrope-SemiBold"), url(${ManropeSemiBold}) format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Manrope';
-  src: local('Manrope-Regular'), url('./src/assets/fonts/Manrope-Regular.ttf') format('truetype');
+  src: local('Manrope-Regular'), url(${ManropeRegular}) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Manrope';
-  src: local('Manrope-Medium'), url('./src/assets/fonts/Manrope-Medium.ttf') format('truetype');
+  src: local('Manrope-Medium'), url(${ManropeMedium}) format('truetype');
   font-weight: 500;
   font-style: normal;
 }
