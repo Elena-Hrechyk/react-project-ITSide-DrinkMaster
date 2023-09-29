@@ -1,4 +1,21 @@
-import{p as e,j as i}from"./index-e0d50ca8.js";import{G as t}from"./iconBase-d1c8c14a.js";const o="/react-project-ITSide-DrinkMaster/assets/berry-deadly-1ab90eb7.jpg";function r(n){return t({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"}}]})(n)}const a=e.div`
+import{p as e,j as i}from"./index-1e2e3b70.js";import{G as r}from"./iconBase-f536ddf7.js";const o=e.h1`
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.188;
+  color:  #F3F3F3;
+  padding: 0;
+  margin: 0;
+
+  @media screen and (min-width: 768px) {
+    font-size: 56px;
+    line-height: 1.071
+  };
+
+  @media screen and (min-width: 1280px) {
+    font-size: 64px;
+    line-height: 1.063;
+  }
+`,b=({title:t})=>i.jsx(i.Fragment,{children:i.jsx(o,{children:t})}),a="/react-project-ITSide-DrinkMaster/assets/berry-deadly-1ab90eb7.jpg";function p(t){return r({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"}}]})(t)}const d=e.div`
   max-width: 440px;
   
   @media screen and (min-width: 768px) {
@@ -8,16 +25,16 @@ import{p as e,j as i}from"./index-e0d50ca8.js";import{G as t}from"./iconBase-d1c
   @media screen and (min-width: 1280px) {
     max-width: 400px;
   }
-`,p=e.div`
+`,s=e.div`
 
-`,d=e.img`
+`,l=e.img`
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
   border: none;
   border-radius: 8px;
-`,s=e.h3`
+`,x=e.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.286;
@@ -31,7 +48,7 @@ import{p as e,j as i}from"./index-e0d50ca8.js";import{G as t}from"./iconBase-d1c
     margin-top: 24px;
   };
   
-`,l=e.p`
+`,c=e.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -45,7 +62,7 @@ import{p as e,j as i}from"./index-e0d50ca8.js";import{G as t}from"./iconBase-d1c
     line-height: 1.125;
   };
 
-`,c=e.p`
+`,h=e.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -58,7 +75,7 @@ import{p as e,j as i}from"./index-e0d50ca8.js";import{G as t}from"./iconBase-d1c
     line-height: 1.375;
     margin-top: 24px;
   };
-`,x=e.div`
+`,g=e.div`
   display: flex;
   align-items: center;
   margin-top: 18px;
@@ -67,7 +84,7 @@ import{p as e,j as i}from"./index-e0d50ca8.js";import{G as t}from"./iconBase-d1c
     margin-top: 24px;
   };
   
-`,h=e.button`
+`,m=e.button`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -97,7 +114,7 @@ import{p as e,j as i}from"./index-e0d50ca8.js";import{G as t}from"./iconBase-d1c
     margin-right: 8px;
     
   };
-`,g=e.button`
+`,f=e.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -138,4 +155,15 @@ import{p as e,j as i}from"./index-e0d50ca8.js";import{G as t}from"./iconBase-d1c
   white-space: nowrap;
   direction: 2tr; */ 
   };  
-`,w=()=>i.jsxs(a,{children:[i.jsx(p,{children:i.jsx(d,{src:o,alt:""})}),i.jsx(s,{children:"Pornstar Martini"}),i.jsx(l,{children:"Alcoholic"}),i.jsxs(c,{children:["The porn star martini is a passion-fruit-flavoured cocktail made with vanilla-flavoured vodka, Passoã, passion fruit juice, and lime juice. It is traditionally accompanied by a chilled shot glass of prosecco."," "]}),i.jsxs(x,{children:[i.jsx(h,{children:"See more"}),i.jsx(g,{children:i.jsx(r,{})})]})]});export{w as D};
+`,n=()=>i.jsxs(d,{children:[i.jsx(s,{children:i.jsx(l,{src:a,alt:""})}),i.jsx(x,{children:"Pornstar Martini"}),i.jsx(c,{children:"Alcoholic"}),i.jsxs(h,{children:["The porn star martini is a passion-fruit-flavoured cocktail made with vanilla-flavoured vodka, Passoã, passion fruit juice, and lime juice. It is traditionally accompanied by a chilled shot glass of prosecco."," "]}),i.jsxs(g,{children:[i.jsx(m,{children:"See more"}),i.jsx(f,{children:i.jsx(p,{})})]})]}),j=e.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  margin-top: 40px;
+  gap: 40px 0px;
+
+  @media screen and (min-width: 768px) {
+    gap: 80px 20px;
+  };
+`,F=()=>i.jsxs(j,{children:[i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})})]});export{F as D,b as P};
