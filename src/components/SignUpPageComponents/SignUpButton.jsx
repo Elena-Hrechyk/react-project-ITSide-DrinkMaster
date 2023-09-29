@@ -17,10 +17,10 @@ export const SignUpButtonSt = styled.button`
 `;
 
 
-export const SignUpButton = ({ width, textColor }) => {
+export const SignUpButton = ({ width, textColor, value="Sign Up" }) => {
   return (
     <SignUpButtonSt  width={width} textColor={textColor}>
-      Sign Up
+      {value}
     </SignUpButtonSt>
   );
 };

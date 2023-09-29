@@ -4,13 +4,14 @@ export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 100;
-
+margin-top: 40px;
   @media (min-width: 768px) and (max-width: 1439.98px) {
     flex-direction: row;
+    margin-top: 60px;
   }
   @media (min-width: 1440px) {
     flex-direction: row;
-
+    margin-top: 60px;
     width: 100%;
   }
 `;
@@ -86,13 +87,25 @@ export const AddImage = styled.div`
     height: 400px;
   }
 `;
-export const AddImageButton = styled.button`
+export const AddImageButton = styled.label`
   background-color: white;
   width: 50px;
   height: 50px;
   border: none;
   padding: 18px;
   border-radius: 6px;
+
+  display: inline-block;
+    /* padding: 6px 12px; */
+    cursor: pointer;
+    
+    /* color: white; */
+    /* border: 1px solid #ccc; */
+    /* border-radius: 4px; */
+    text-align: center;
+
+
+
 `;
 export const RadioContainer = styled.div`
   margin-top: 42px;
@@ -172,4 +185,19 @@ export const RadioInput = styled.input`
       }
     }
   } */
+`;
+
+export const CustomFileLabel = styled.label`
+  display: inline-block;
+      background-color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  /* background-color: blue; */
+  color: red;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+`;
+export const FieldInput = styled.input`
+  display: none;
 `;

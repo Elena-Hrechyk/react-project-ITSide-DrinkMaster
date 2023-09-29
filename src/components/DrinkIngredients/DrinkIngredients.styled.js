@@ -3,6 +3,15 @@ import { styled } from 'styled-components';
 export const DrinkIngredientsContainer = styled.div`
   background-color: transparent;
   margin-top: 80px;
+  /* width: 309px; */
+  @media (min-width: 768px) and (max-width: 1439.98px) {
+    /* width:496px; */
+  } 
+  @media (min-width: 1440px) {
+    width: 540px;
+  }
+
+
 `;
 export const CountBlock = styled.div`
   display: flex;
@@ -36,11 +45,13 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+      justify-content: space-between;
 
 `;
 export const IngridientsContainer = styled.div`
   display: flex;
   align-items: center;
+  
   margin-bottom: 18px;
   @media (min-width: 768px) {
     margin-bottom: 24px;
@@ -53,9 +64,12 @@ display: flex;
   border: 1px solid #f3f3f380;
   border-radius: 200px;
   height: 2.5rem;
-
+justify-content: flex-end;
   @media (min-width: 768px) and (max-width: 1439.98px) {
     width:332px;
+  }
+   @media (min-width: 1440px) {
+    width: 540px;
   }
 `;
 export const Portion = styled.div`
@@ -76,6 +90,7 @@ export const Input = styled.input`
   background-color: transparent;
   border: transparent;
 width: 90%;
+color:white;
 &:focus{
     outline: transparent;
   }
@@ -83,12 +98,12 @@ width: 90%;
 
 export const XButton = styled.button`
 
-width: 16px;
+/* width: 16px; */
 background-color: transparent;
 border: none;
 `
 
 export const XImg = styled.img`
-width:16px;
+/* width:16px; */
 fill: white;
 `

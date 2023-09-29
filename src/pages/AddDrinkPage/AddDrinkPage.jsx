@@ -1,4 +1,4 @@
-import { Formik, Form, useField } from 'formik';
+import { Formik, Form } from 'formik';
 import { AddPageSection } from './AddDrinkPage.styled';
 import { SignUpButton } from '../../components/SignUpPageComponents/SignUpButton';
 import DrinkDescription from '../../components/DrinkDescription/DrinkDescription';
@@ -10,12 +10,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { newDrink } from '../../redux/drinks/drinksOperations';
 import DrinkIngredients from '../../components/DrinkIngredients/DrinkIngredients';
 import { selectDrinks } from '../../redux/drinks/drinksSelectors';
-import { AddImageButton } from '../../components/DrinkDescription/DrinkDescription.styled';
-import plus from "../../img/svg/plus.svg";
+// import { AddImageButton } from '../../components/DrinkDescription/DrinkDescription.styled';
+// import plus from "../../img/svg/plus.svg";
+import PopularDrinks from '../../components/PopularDrinks/PopularDrinks';
+import { selectUserData } from '../../redux/auth/authSelectors';
 const AddDrinkPage = () => {
   const drink = useSelector(selectDrinks);
-  console.log('useSelector drink:', drink);
+  
   const dispatch = useDispatch();
+  const user = useSelector(selectUserData);
+  console.log(user.id)
+
   const fileRef = useRef(null);
   return (
     <AddPageSection>
@@ -32,25 +37,31 @@ const AddDrinkPage = () => {
         }}
         onSubmit={(values) => {
           console.log('Form values:', values);
+         
           // console.log('fileRef', fileRef.current.files);
           const formData = new FormData();
           for (let value in values) {
             formData.append(value, values[value]);
           }
+          console.log("formData", formData)
           dispatch(newDrink(values));
-          
+          console.log('state drink:', drink);
           
           // console.log('formData:', formData);
           // return formData
           // resetForm()
         }}
       >
+        {/* encType="multipart/form-data" - дает возможность отправлять в форме текст и файлы */}
         <Form style={{ margin: 'auto' }} encType="multipart/form-data">
-          <FileUpload name="drinkThumb" fileRef={fileRef} />
-          <DrinkDescription />
+          {/* <FileUpload name="drinkThumb" fileRef={fileRef} /> */}
+
+          <DrinkDescription fileRef={fileRef} />
           <DrinkIngredients />
           <RecipePreparation />
-          <SignUpButton type="submit">Add</SignUpButton>
+          <SignUpButton type="submit" width={"107px"} value={"Add"}>Add</SignUpButton>
+          {/* FolofUs */}
+          <PopularDrinks/>
         </Form>
       </Formik>
     </AddPageSection>
@@ -59,22 +70,21 @@ const AddDrinkPage = () => {
 
 export default AddDrinkPage;
 
-const FileUpload = ({ fileRef, ...props }) => {
-  const [field, meta] = useField(props);
-  return (
-<AddImageButton style={{ backgroundColor: "white" }}>
-  <input
-        style={{ backgroundColor: 'blue' }}
-        ref={fileRef}
-        multiple={true}
-        type="file"
-        {...field}
-      />
-      {meta.touched && meta.error ? (
-        <div style={{ color: 'red' }}>{meta.error}</div>
-      ) : null}
-<img src={plus} alt="SVG Image" width={16}  style={{ filter: 'invert(1)', fill: 'black' }} />
+// const FileUpload = ({ fileRef, ...props }) => {
+//   const [field, meta] = useField(props);
+//   return (
+// <AddImageButton style={{ backgroundColor: "white" }}>
+//   <input
+//         ref={fileRef}
+//         multiple={true}
+//         type="file"
+//         {...field}
+//       />
+//       {meta.touched && meta.error ? (
+//         <div style={{ color: 'red' }}>{meta.error}</div>
+//       ) : null}
+// <img src={plus} alt="SVG Image" width={16}  style={{ filter: 'invert(1)', fill: 'black' }} />
 
-</AddImageButton>
-  );
-};
+// </AddImageButton>
+//   );
+// };
