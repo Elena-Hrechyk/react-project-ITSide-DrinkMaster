@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { PublicRoute } from './PublicRoute';
-import { PrivateRoute } from './PrivateRoute';
+// import { PrivateRoute } from './PrivateRoute';
 import { currentUser } from './redux/auth/authOperations';
 import { selectIsUpdating } from './redux/auth/authSelectors';
 import { AppWrapper } from './App.styled';
@@ -51,13 +51,16 @@ function App() {
                 <PublicRoute component={<SignInPage />} redirectTo="/" />
               }
             />
-            <Route
+            <Route index element={<HomePage />} />
+            {/* <Route
               index
               element={
                 <PrivateRoute component={<HomePage />} redirectTo="/welcome" />
               }
-            />
-            <Route
+            /> */}
+
+            <Route path="/addDrink" element={<AddDrinkPage />} />
+            {/* <Route
               path="/addDrink"
               element={
                 <PrivateRoute
@@ -65,8 +68,10 @@ function App() {
                   redirectTo="/signin"
                 />
               }
-            />
-            <Route
+            /> */}
+
+            <Route path="/favorites" element={<FavoritesPage />} />
+            {/* <Route
               path="/favorites"
               element={
                 <PrivateRoute
@@ -74,8 +79,10 @@ function App() {
                   redirectTo="/signin"
                 />
               }
-            />
-            <Route
+            /> */}
+
+            <Route path="/my" element={<MyDrinksPage />} />
+            {/* <Route
               path="/my"
               element={
                 <PrivateRoute
@@ -83,14 +90,8 @@ function App() {
                   redirectTo="/signin"
                 />
               }
-            />
+            /> */}
             <Route path="*" element={<NotFoundPage />} />
-
-            {/* <Route index element={<HomePage />} />
-          <Route path="/addDrink" element={<AddDrinkPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/my" element={<MyDrinksPage />} />
-          <Route path="*" element={<NotFoundPage />} /> */}
           </Route>
         </Routes>
       )}
