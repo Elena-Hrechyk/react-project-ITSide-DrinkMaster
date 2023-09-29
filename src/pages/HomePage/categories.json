@@ -1,0 +1,13 @@
+[
+  { "id": "1", "category": "Ordinary Drink" },
+  { "id": "2", "category": "Cocktail" },
+  { "id": "3", "category": "Shake" },
+  { "id": "4", "category": "Other/Unknown" },
+  { "id": "5", "category": "Cocoa" },
+  { "id": "6", "category": "Shot" },
+  { "id": "7", "category": "Coffee/Tea" },
+  { "id": "8", "category": "Homemade Liqueur" },
+  { "id": "9", "category": "Punch/Party Drink" },
+  { "id": "10", "category": "Beer" },
+  { "id": "11", "category": "Soft Drink" }
+]

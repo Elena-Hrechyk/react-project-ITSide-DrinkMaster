@@ -12,7 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { addDrinksReducer } from './drinks/drinksSlise';
-// import { filterReducer } from './drinks/filterSlise';
+// import { filterReducer } from './filters/filtersSlice';
 
 const middleware = [
   ...getDefaultMiddleware({
