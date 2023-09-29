@@ -1,83 +1,198 @@
-import { Formik, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { getCategories } from '../../redux/filters/filters-operation';
+import { getIngredients } from '../../redux/filters/filters-operation';
+import { getRequestedDrink } from '../../redux/drinks/drinks-operations';
 
 import {
-  SearchDrinksForm,
-  SearchDrinksField,
-  SearchDrinksOption,
-} from './SearchDrinks.styled';
-import { styled } from 'styled-components';
+  selectCategories,
+  selectIngredients,
+} from '../../redux/filters/selectors';
+import { toast } from 'react-toastify';
+import Select from 'react-select';
+import { Formik, Field } from 'formik';
+import * as Yup from 'yup';
 
-const categorys = [
-  { id: '1', category: 'Ordinary Drink' },
-  { id: '2', category: 'Cocktail' },
-  { id: '3', category: 'Shake' },
-  { id: '4', category: 'Other/Unknown' },
-  { id: '5', category: 'Cocoa' },
-  { id: '6', category: 'Shot' },
-  { id: '7', category: 'Coffee/Tea' },
-  { id: '8', category: 'Homemade Liqueur' },
-  { id: '9', category: 'Punch/Party Drink' },
-  { id: '10', category: 'Beer' },
-  { id: '11', category: 'Soft Drink' },
-];
+import { colourStyles } from './colourStyles';
+
+import {
+  FileInputWrapper,
+  SearchDrinksForm,
+  EditIconWrapper,
+  SearchDrinksInput,
+} from './SearchDrinks.styled';
+
 
 const initialValues = {
-  name: '',
-  category: '',
+  searchQuery: '',
+  categories: '',
+  ingredients: '',
 };
-const validationSchema = Yup.object({
-  category: Yup.string().required('Please select a category').oneOf(categorys),
+const validationSchema = Yup.object().shape({
+  // searchQuery: Yup.string().required('searchQuery is required!'),
+  // categories: Yup.string().required('Please select a categories'),
+  // ingredients: Yup.string().required('Please select a ingredients'),
+  searchQuery: Yup.string(),
+  categories: Yup.string(),
+  ingredients: Yup.string(),
 });
 
-const ErrorText = styled.p`
-  color: red;
-`;
 
-const FormError = ({ name }) => {
-  return (
-    <ErrorMessage
-      name={name}
-      render={(message) => <ErrorText>{message}</ErrorText>}
-    />
-  );
-};
 
-export const SearchDrinks = () => {
+export const SearchDrinks = ({ page, limit }) => {
+  // const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('');
+  const [ingredient, setIngredient] = useState('');
+
+  const dispatch = useDispatch();
+
+  const categories = useSelector(selectCategories);
+
+  const ingredients = useSelector(selectIngredients);
+
+  const handleSubmit = (values) => {
+    if (query.trim() === '') {
+      toast('🦄 Type a name of picture.', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+      return;
+    }
+    setQuery(values.searchQuery);
+    setCategory(values.categories);
+    setIngredient(values.ingredients);
+
+    console.log(category);
+
+
+    setQuery('');
   };
+
+
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getIngredients());
+
+
+    dispatch(getRequestedDrink({ query, category, ingredient, page, limit }));
+  }, [dispatch, query, category, ingredient, page, limit]);
+
+
+  console.log(category);
+
+  const handleSearchChange = (event) => setQuery(event.target.value);
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <SearchDrinksForm>
-        <div>
-          <label htmlFor="name">
-            <Field name="name" type="text" />
-            <FormError name="name" />
-          </label>
-        </div>
-
-        <div>
-          <label htmlFor="categoty"></label>
+      {(props) => (
+        <SearchDrinksForm onSubmit={props.handleSubmit}>
           <div>
-            <SearchDrinksField name="categoty" as="select">
-              <option value="">All categories</option>
-              {categorys.map(({ id, category }) => (
-                <SearchDrinksOption value={category} key={id}>
-                  {category}
-                </SearchDrinksOption>
-              ))}
-            </SearchDrinksField>
+            <FileInputWrapper>
+              <label htmlFor="searchQuery">
+                <SearchDrinksInput
+                  name="searchQuery"
+                  type="text"
+                  // className={searchQuery ? "active" : ""}
+                  placeholder="Enter the text"
+                  // autoCorrect="off"
+                  // autoComplete="name"
+                  onChange={handleSearchChange}
+                  // valid={touched.fullname && !errors.fullname}
+                  // error={touched.fullname && errors.fullname}
+                />
+                <EditIconWrapper>
+                </EditIconWrapper>
+              </label>
+            </FileInputWrapper>
           </div>
-        </div>
-        <button type="submit">submit</button>
-      </SearchDrinksForm>
+          <div>
+            <label htmlFor="categories">
+              <Field name="categories">
+                {({ field, form }) => (
+                  <Select
+                    styles={colourStyles}
+                    closeMenuOnSelect={true}
+                    isClearable={true}
+                    classNames={{
+                      control: (state) =>
+                        state.isFocused
+                          ? 'border-orange-600'
+                          : 'border-grey-300',
+                    }}
+                    options={categories.map((category) => ({
+                      value: category,
+                      label: category,
+                    }))}
+                    name={field.name}
+                    id="categories"
+                    {...field}
+                    value={category ? { value: category, label: category } : ''}
+                    onChange={(selectedOption) => {
+                      setCategory(selectedOption ? selectedOption.value : '');
+                      form.setFieldValue(
+                        'categories',
+                        selectedOption ? selectedOption.value : '',
+                      );
+                    }}
+                    handleGategory
+                    placeholder="All categories"
+                  />
+                )}
+              </Field>
+            </label>
+          </div>
+          <div>
+            <label htmlFor="ingredients">
+              <Field name="ingredients">
+                {({ field, form }) => (
+                  <Select
+                    styles={colourStyles}
+                    closeMenuOnSelect={true}
+                    isClearable={true}
+                    classNames={{
+                      control: (state) =>
+                        state.isFocused
+                          ? 'border-orange-600'
+                          : 'border-grey-300',
+                    }}
+                    options={ingredients.map((ingredient) => ({
+                      value: ingredient.title,
+                      label: ingredient.title,
+                    }))}
+                    name={field.name}
+                    id="ingredients"
+                    {...field}
+                    value={
+                      ingredient ? { value: ingredient, label: ingredient } : ''
+                    }
+                    onChange={(selectedOption) => {
+                      setIngredient(selectedOption ? selectedOption.value : '');
+                      form.setFieldValue(
+                        'ingredient',
+                        selectedOption ? selectedOption.value : '',
+                      );
+                    }}
+                    placeholder="Ingredients"
+                  />
+                )}
+              </Field>
+            </label>
+          </div>
+        </SearchDrinksForm>
+      )}
     </Formik>
   );
 };
