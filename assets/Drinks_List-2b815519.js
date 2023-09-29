@@ -1,4 +1,4 @@
-import{p as e,j as i}from"./index-28e72e15.js";import{G as r}from"./iconBase-848b5c19.js";const o=e.h1`
+import{n as e,j as i,G as r}from"./index-e6513676.js";const o=e.h1`
   font-size: 32px;
   font-weight: 600;
   line-height: 1.188;
@@ -15,7 +15,7 @@ import{p as e,j as i}from"./index-28e72e15.js";import{G as r}from"./iconBase-848
     font-size: 64px;
     line-height: 1.063;
   }
-`,b=({title:t})=>i.jsx(i.Fragment,{children:i.jsx(o,{children:t})}),a="/react-project-ITSide-DrinkMaster/assets/berry-deadly-1ab90eb7.jpg";function p(t){return r({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"}}]})(t)}const d=e.div`
+`,u=({title:t})=>i.jsx(i.Fragment,{children:i.jsx(o,{children:t})}),a="/react-project-ITSide-DrinkMaster/assets/berry-deadly-1ab90eb7.jpg";function d(t){return r({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"}}]})(t)}const s=e.div`
   max-width: 440px;
   
   @media screen and (min-width: 768px) {
@@ -25,7 +25,7 @@ import{p as e,j as i}from"./index-28e72e15.js";import{G as r}from"./iconBase-848
   @media screen and (min-width: 1280px) {
     max-width: 400px;
   }
-`,s=e.div`
+`,p=e.div`
 
 `,l=e.img`
   display: block;
@@ -155,7 +155,7 @@ import{p as e,j as i}from"./index-28e72e15.js";import{G as r}from"./iconBase-848
   white-space: nowrap;
   direction: 2tr; */ 
   };  
-`,n=()=>i.jsxs(d,{children:[i.jsx(s,{children:i.jsx(l,{src:a,alt:""})}),i.jsx(x,{children:"Pornstar Martini"}),i.jsx(c,{children:"Alcoholic"}),i.jsxs(h,{children:["The porn star martini is a passion-fruit-flavoured cocktail made with vanilla-flavoured vodka, Passoã, passion fruit juice, and lime juice. It is traditionally accompanied by a chilled shot glass of prosecco."," "]}),i.jsxs(g,{children:[i.jsx(m,{children:"See more"}),i.jsx(f,{children:i.jsx(p,{})})]})]}),j=e.ul`
+`,n=()=>i.jsxs(s,{children:[i.jsx(p,{children:i.jsx(l,{src:a,alt:""})}),i.jsx(x,{children:"Pornstar Martini"}),i.jsx(c,{children:"Alcoholic"}),i.jsxs(h,{children:["The porn star martini is a passion-fruit-flavoured cocktail made with vanilla-flavoured vodka, Passoã, passion fruit juice, and lime juice. It is traditionally accompanied by a chilled shot glass of prosecco."," "]}),i.jsxs(g,{children:[i.jsx(m,{children:"See more"}),i.jsx(f,{children:i.jsx(d,{})})]})]}),j=e.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -166,4 +166,4 @@ import{p as e,j as i}from"./index-28e72e15.js";import{G as r}from"./iconBase-848
   @media screen and (min-width: 768px) {
     gap: 80px 20px;
   };
-`,F=()=>i.jsxs(j,{children:[i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})})]});export{F as D,b as P};
+`,b=()=>i.jsxs(j,{children:[i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})})]});export{b as D,u as P};

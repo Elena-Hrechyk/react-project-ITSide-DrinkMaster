@@ -1,4 +1,4 @@
-import{p as n,j as t}from"./index-28e72e15.js";import{P as d,D as s}from"./Drinks_List-31dd1e4c.js";import{G as o}from"./iconBase-848b5c19.js";const p=n.main`
+import{n,G as o,j as t}from"./index-e6513676.js";import{P as d,D as s}from"./Drinks_List-2b815519.js";const p=n.main`
   font-family: 'Manrope',Arial,sans-serif;
   max-width: 480px;
   padding-left: 20px;
@@ -70,4 +70,4 @@ import{p as n,j as t}from"./index-28e72e15.js";import{P as d,D as s}from"./Drink
     :hover {
     background-color: #161F37;
     }
-`;function l(a){return o({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{fill:"none",d:"M0 0h24v24H0z"}},{tag:"path",attr:{d:"M17.77 3.77L16 2 6 12l10 10 1.77-1.77L9.54 12z"}}]})(a)}function g(a){return o({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{fill:"none",d:"M0 0h24v24H0V0z"}},{tag:"path",attr:{d:"M6.23 20.23L8 22l10-10L8 2 6.23 3.77 14.46 12z"}}]})(a)}const h=()=>t.jsxs(x,{children:[t.jsx(e,{type:"button",children:t.jsx(l,{})}),t.jsxs(c,{children:[t.jsx(r,{children:t.jsx(i,{children:"12"})}),t.jsx(r,{children:t.jsx(i,{children:"13"})}),t.jsx(r,{children:t.jsx(i,{children:"14"})}),t.jsx(r,{children:t.jsx(i,{children:"15"})}),t.jsx(r,{children:t.jsx(i,{children:"16"})})]}),t.jsx(e,{type:"button",children:t.jsx(g,{})})]}),f=()=>t.jsxs(p,{children:[t.jsx(d,{title:"Favorites"}),t.jsx(s,{}),t.jsx(h,{})]});export{f as FavoritesPage,f as default};
+`;function l(a){return o({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{fill:"none",d:"M0 0h24v24H0z"}},{tag:"path",attr:{d:"M17.77 3.77L16 2 6 12l10 10 1.77-1.77L9.54 12z"}}]})(a)}function g(a){return o({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{fill:"none",d:"M0 0h24v24H0V0z"}},{tag:"path",attr:{d:"M6.23 20.23L8 22l10-10L8 2 6.23 3.77 14.46 12z"}}]})(a)}const h=()=>t.jsxs(x,{children:[t.jsx(e,{type:"button",children:t.jsx(l,{})}),t.jsxs(c,{children:[t.jsx(r,{children:t.jsx(i,{children:"12"})}),t.jsx(r,{children:t.jsx(i,{children:"13"})}),t.jsx(r,{children:t.jsx(i,{children:"14"})}),t.jsx(r,{children:t.jsx(i,{children:"15"})}),t.jsx(r,{children:t.jsx(i,{children:"16"})})]}),t.jsx(e,{type:"button",children:t.jsx(g,{})})]}),j=()=>t.jsxs(p,{children:[t.jsx(d,{title:"Favorites"}),t.jsx(s,{}),t.jsx(h,{})]});export{j as FavoritesPage,j as default};
