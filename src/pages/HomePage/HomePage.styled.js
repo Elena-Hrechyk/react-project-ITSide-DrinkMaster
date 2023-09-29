@@ -75,7 +75,7 @@ export const Discribe = styled.p`
 
 export const LinkAddDrink = styled(NavLink)`
   display: inline-block;
-  width: auto;
+  width: 165px;
   margin-right: auto;
   padding: 8px 16px;
   border: 1px solid rgba(243, 243, 243, 0.2);
@@ -83,10 +83,17 @@ export const LinkAddDrink = styled(NavLink)`
   background: #f3f3f3;
   margin-bottom: 47px;
   color: #161f37;
+  text-align: center;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.23;
+  transition: outline var(--transition-dur-and-func);
+
+  &:hover,
+  &:focus {
+    outline: 2px solid rgba(64, 112, 205, 0.5);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 18px 44px;
@@ -116,10 +123,12 @@ export const HeroImg = styled.img`
 `;
 
 export const CategoryDrinkList = styled.ul`
+  font-family: var(--font-main);
   margin-bottom: 40;
 `;
 
 export const ItemCategory = styled.li`
+  font-family: var(--font-main);
   margin-bottom: 40px;
 
   &:nth-child(n + 5) {
@@ -166,6 +175,12 @@ export const LinkOtherDrink = styled(NavLink)`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.23;
+  transition: outline var(--transition-dur-and-func);
+
+  &:hover,
+  &:focus {
+    outline: 2px solid rgba(64, 112, 205, 0.5);
+  }
 
   @media screen and (min-width: 768px) {
     width: 185px;
