@@ -3,7 +3,7 @@ import DrinksList from '../../components/Drinks_List/Drinks_List';
 
 import { Wrap } from './MyDrinkPage.styled';
 
-export const MyDrinksPage  = () => {
+export const MyDrinksPage = () => {
   return (
     <Wrap>
       <PageTitle title={'My drinks'}></PageTitle>
@@ -12,7 +12,7 @@ export const MyDrinksPage  = () => {
   );
 };
 
-export default MyDrinksPage ;
+export default MyDrinksPage;
 
 // FavoritesPage.propTypes = {
 //   onClick: PropTypes.func,

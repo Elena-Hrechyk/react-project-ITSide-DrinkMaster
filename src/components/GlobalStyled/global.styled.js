@@ -1,4 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import ManropeBolt from '../../assets/fonts/Manrope-Bold.ttf';
+import ManropeSemiBold from '../../assets/fonts/Manrope-SemiBold.ttf';
+import ManropeRegular from '../../assets/fonts/Manrope-Regular.ttf';
+import ManropeMedium from '../../assets/fonts/Manrope-Medium.ttf';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
@@ -19,9 +23,7 @@ html {
 }
 @font-face {
   font-family: 'Manrope';
-  src:
-    local('Manrope-Bold'),
-    url('./src/assets/fonts/Manrope-Bold.ttf') format('truetype');
+  src: local('Manrope-Bold'), url(${ManropeBolt}) format('truetype');
   font-weight: bold;
   font-style: normal;
 }
@@ -29,21 +31,21 @@ html {
 
 @font-face {
   font-family: 'Manrope';
-  src: local('Manrope-SemiBold'), url('./src/assets/fonts/Manrope-SemiBold.ttf') format('truetype');
+  src: local("Manrope-SemiBold"), url(${ManropeSemiBold}) format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Manrope';
-  src: local('Manrope-Regular'), url('./src/assets/fonts/Manrope-Regular.ttf') format('truetype');
+  src: local('Manrope-Regular'), url(${ManropeRegular}) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Manrope';
-  src: local('Manrope-Medium'), url('./src/assets/fonts/Manrope-Medium.ttf') format('truetype');
+  src: local('Manrope-Medium'), url(${ManropeMedium}) format('truetype');
   font-weight: 500;
   font-style: normal;
 }
@@ -55,16 +57,24 @@ html {
   box-sizing: border-box;
 }
 
+:root {
+  --font-main: 'Manrope', sans-serif;
+  --color-main-darktheme: #F3F3F3;
+  --bg-color-main-darktheme: #0A0A11;
+  --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
-  font-family: 'Manrope';
+  font-family: var(--font-main);
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
-  color: #111111;
+  color: var(--color-main-darktheme);
   width: 100%;
   height: 100vh;
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  background-color: var(--bg-color-main-darktheme);
   scroll-behavior: smooth;
 }
 

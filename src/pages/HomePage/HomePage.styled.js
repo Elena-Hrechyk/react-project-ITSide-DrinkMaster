@@ -2,37 +2,21 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const HomeSection = styled.section`
-  font-family: 'Manrope', Arial, sans-serif;
-  max-width: 480px;
-  padding-left: 20px;
-  padding-right: 20px;
+  font-family: var(--font-main);
   padding-top: 80px;
   padding-bottom: 80px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #f3f3f3;
-  background-color: #0a0a11;
 
   @media screen and (min-width: 768px) {
-    max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
     padding-top: 120px;
     padding-bottom: 140px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-    padding-left: 20px;
-    padding-right: 20px;
     padding-top: 185px;
   }
 `;
 
 export const AddDrinkContainer = styled.div`
-  padding: 10px;
   display: block;
   margin-bottom: 112px;
 
@@ -89,9 +73,9 @@ export const Discribe = styled.p`
   }
 `;
 
-export const StyledLink = styled(NavLink)`
+export const LinkAddDrink = styled(NavLink)`
   display: inline-block;
-  width: auto;
+  width: 165px;
   margin-right: auto;
   padding: 8px 16px;
   border: 1px solid rgba(243, 243, 243, 0.2);
@@ -99,10 +83,17 @@ export const StyledLink = styled(NavLink)`
   background: #f3f3f3;
   margin-bottom: 47px;
   color: #161f37;
+  text-align: center;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.23;
+  transition: outline var(--transition-dur-and-func);
+
+  &:hover,
+  &:focus {
+    outline: 2px solid rgba(64, 112, 205, 0.5);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 18px 44px;
@@ -131,12 +122,71 @@ export const HeroImg = styled.img`
   }
 `;
 
-export const CategoryDrinkContainer = styled.div`
-  margin-bottom: 60px;
+export const CategoryDrinkList = styled.ul`
+  font-family: var(--font-main);
+  margin-bottom: 40;
 `;
 
-export const LinkBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const ItemCategory = styled.li`
+  font-family: var(--font-main);
+  margin-bottom: 40px;
+
+  &:nth-child(n + 5) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+  }
+`;
+
+export const TitleCategory = styled.h3`
+  margin-bottom: 24px;
+  color: #f3f3f3;
+  font-family: Manrope;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.14;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+    font-size: 40px;
+    line-height: 1.1;
+  }
+`;
+export const Wrap = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    grid-gap: 20px;
+  }
+`;
+
+export const LinkOtherDrink = styled(NavLink)`
+  display: block;
+  width: 165px;
+  padding: 14px 40px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 42px;
+  background: #f3f3f3;
+  margin-bottom: 47px;
+  color: #161f37;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.23;
+  transition: outline var(--transition-dur-and-func);
+
+  &:hover,
+  &:focus {
+    outline: 2px solid rgba(64, 112, 205, 0.5);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 185px;
+    padding: 18px 44px;
+    margin-bottom: 54px;
+    font-size: 16px;
+    line-height: 1.13;
+  }
 `;

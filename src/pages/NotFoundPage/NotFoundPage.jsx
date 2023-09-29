@@ -1,24 +1,34 @@
-import { Container, ErrorContainer, Title } from "./NotFoundPage.styled";
+import { Container } from '../../components/GlobalStyled/container.styled';
+import MainGlass from '../../img/drink-master/hero/hero-drink-master.png';
+import MainGlassBig from '../../img/drink-master/hero/hero-drink-master@2x.png';
+
+import {
+  Section,
+  ErrorContainer,
+  NotFoundImage,
+  TitleLeft,
+  TitleRigth,
+} from './NotFoundPage.styled';
 
 const NotFoundPage = () => {
   return (
-    <Container>
-      <ErrorContainer>
-        <Title>4</Title>
+    <Section>
+      <Container>
+        <ErrorContainer>
+          <TitleLeft>4</TitleLeft>
           <picture>
-            <img
-              src="src/img/drink-master/hero/hero-drink-master.png"
-              srcSet="src/img/drink-master/hero/hero-drink-master@2x.png"
+            <NotFoundImage
+              src={MainGlass}
+              srcSet={MainGlassBig}
               alt="cocktail"
-              loading="lazy"/>
+              loading="lazy"
+            />
           </picture>
-         <Title>4</Title>
+          <TitleRigth>4</TitleRigth>
         </ErrorContainer>
-    </Container>
-
-
+      </Container>
+    </Section>
   );
 };
-
 
 export default NotFoundPage;
