@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { newDrink, getAllDrinks } from './drinksOperations';
+import { newDrink, getAllDrinks, fetchDrinksPopular } from './drinksOperations';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -18,6 +18,7 @@ const drinksSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
+    popular: []
   },
 
   extraReducers: (builder) => {
@@ -37,7 +38,14 @@ const drinksSlice = createSlice({
         state.error = null;
         state.items.push(action.payload);
       })
-      .addCase(newDrink.rejected, handleRejected);
+      .addCase(newDrink.rejected, handleRejected)
+    .addCase(fetchDrinksPopular.rejected, handleRejected)
+      .addCase(fetchDrinksPopular.pending, handlePending)
+      .addCase(fetchDrinksPopular.fulfilled,  (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.popular.push(action.payload);
+      })
     //   .addCase(deleteDrinksnewDrink.pending, handlePending)
     //   .addCase(deleteDrinksnewDrink.fulfilled, (state, action) => {
     //     state.isLoading = false;

@@ -7,7 +7,7 @@ align-items: flex-start;
 margin-top: 90px;
 `
 
-export const PopularDrinkCont = styled.div`
+export const PopularDrinkCont = styled.li`
 display: flex;
 flex-direction: row;
 margin-top: 28px;

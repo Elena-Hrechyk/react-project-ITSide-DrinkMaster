@@ -4,10 +4,10 @@ import { SignUpButton } from '../../components/SignUpPageComponents/SignUpButton
 import DrinkDescription from '../../components/DrinkDescription/DrinkDescription';
 
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
-import { newDrink } from '../../redux/drinks/drinksOperations';
+import { fetchDrinksPopular, newDrink } from '../../redux/drinks/drinksOperations';
 import DrinkIngredients from '../../components/DrinkIngredients/DrinkIngredients';
 import { selectDrinks } from '../../redux/drinks/drinksSelectors';
 // import { AddImageButton } from '../../components/DrinkDescription/DrinkDescription.styled';
@@ -15,13 +15,29 @@ import { selectDrinks } from '../../redux/drinks/drinksSelectors';
 import PopularDrinks from '../../components/PopularDrinks/PopularDrinks';
 import { selectUserData } from '../../redux/auth/authSelectors';
 const AddDrinkPage = () => {
+  
+  
+
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+    dispatch(fetchDrinksPopular());
+    }, []);
+  
   const drink = useSelector(selectDrinks);
   
-  const dispatch = useDispatch();
   const user = useSelector(selectUserData);
   console.log(user.id)
 
+
   const fileRef = useRef(null);
+  const { _id } = useSelector(selectUserData);
+
+  // const [popular, setPopular] = useState([])
+    // const popular = (fetchDrinksPopular()); // Call the function to fetch popular drinks
+  // console.log(popular)
+
+
   return (
     <AddPageSection>
       <Formik
@@ -36,7 +52,7 @@ const AddDrinkPage = () => {
           ingredients: []    
         }}
         onSubmit={(values) => {
-          console.log('Form values:', values);
+          values.owner= _id
          
           // console.log('fileRef', fileRef.current.files);
           const formData = new FormData();
