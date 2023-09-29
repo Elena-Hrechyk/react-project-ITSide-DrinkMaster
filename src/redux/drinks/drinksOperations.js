@@ -20,15 +20,16 @@ export const newDrink = createAsyncThunk(
         return thunkAPI.rejectWithValue(e.message);
       }
     }
-  
 );
   
 export const fetchDrinksPopular = createAsyncThunk(
   "drinks/popular",
   async (_, thunkAPI) => {
       try {
-        const response = await axios.get("drinks/popular");
+        const response = await axios.get("/drinks/popular");
+        console.log(response.data)
         return response.data;
+        
       } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
       }

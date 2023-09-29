@@ -1,23 +1,39 @@
-
-import { DescriptionContainer, DrinksContainer, PopularDrinkCont, Text,  } from './PopularDrinks.styled';
+// import { useSelector } from 'react-redux';
+// import { selectPopular } from '../../redux/drinks/drinksSelectors';
+import {
+  DescriptionContainer,
+  DrinksContainer,
+  PopularDrinkCont,
+//   Text,
+} from './PopularDrinks.styled';
 
 const PopularDrinks = () => {
-
+//   const popularData = useSelector(selectPopular);
+    // const popular = popularData[0].data;
+    const ddd = [
+    {favorites: Array(0), popular: 0, _id: '639b6de9ff77d221f190c556', drink: 'Pysch Vitamin Light', drinkThumb: 'http://res.cloudinary.com/dec1shvoo/image/upload/v1689167144/cocktails-v1/drinks/Apello.jpg'},
+    
+    {favorites: Array(0), popular: 0, _id: '639b6de9ff77d221f190c559', drink: 'Pineapple Gingerale Smoothie', drinkThumb: 'http://res.cloudinary.com/dec1shvoo/image/upload/v1689167144/cocktails-v1/drinks/Apello.jpg'}
+    ]
+    
+//   console.log("popular",popular)
   return (
     <DrinksContainer>
-      <h4>PopularDrinks</h4>
-          
-          <PopularDrinkCont>
-              <img src={"https://neonsignsusainc.com/wp-content/uploads/2022/05/COCKTAILS_MARTINI_GLASS_LOGO_BEER_BAR_REAL_NEON_SIGN_XMAS_GIFT_FAST_SHIP_fec6f388-b2da-4e13-bb2c-4a12787f490c-510x510.jpg"} alt="SVG Image" width={90} height={90} />
-              
-              <DescriptionContainer>
-                  <h4>Gin Lemon</h4>
-                  <Text style={{}}>A gin and tonic is a highball cocktail made with gin and tonic water poured over a large amount of ice. The ratio of gin to tonic varies according to taste, strength of the gin, other drink mixers being added, etc., with most recipes calling for a ratio between 1:1 and 1:3.</Text>
-              </DescriptionContainer>
+          <h4>PopularDrinks</h4>
+          <ul>
+      {ddd.map((item) => {
+        return (
+          <PopularDrinkCont key={item._id}>
+            <img src={item.drinkThumb} alt="SVG Image" width={90} height={90} />
 
+            <DescriptionContainer>
+              <h4>{item.drink}</h4>
+              {/* <Text style={{}}>{item.shortDescription}</Text> */}
+            </DescriptionContainer>
           </PopularDrinkCont>
-         
-          
+        );
+      })}
+          </ul>
     </DrinksContainer>
   );
 };
