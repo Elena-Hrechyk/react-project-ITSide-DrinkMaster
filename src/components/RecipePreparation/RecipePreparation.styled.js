@@ -6,6 +6,7 @@ export const PreparationContainer = styled.div`
   align-items: flex-start;
   
   margin-top: 80px;
+  margin-bottom: 20px;
   max-width: 335px; 
   @media (min-width: 768px){
   width: 480px;
@@ -22,10 +23,8 @@ display: flex;
 flex: start;
 padding-top: 16px;
 padding-left: 18px;
-&:focus{
-    outline: transparent;
-    color: white;
-  }
+color: white;
+margin-top: 40px;
   @media (min-width: 768px)  {
     width: 480px;
     padding-top: 14px;

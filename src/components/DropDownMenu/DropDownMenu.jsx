@@ -48,7 +48,7 @@ const DropDownMenu = ({onChange, optionValue }) => {
   };
 
   const selectContainer = {
-    width: '166px',
+    width: "100%",
   };
   return (
     <div style={selectContainer}>

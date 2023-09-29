@@ -46,3 +46,21 @@ export const AddPageSection = styled.section`
     (min-resolution: 192dpi) and (min-width: 1440px) {
   }
 `;
+
+
+
+export const Custom = styled.label`
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: white;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+
+`
+export const CustomFileInput = styled.input`
+  display: none;
+
+`;
