@@ -24,7 +24,7 @@ import {
   Wrap,
 } from './HomePage.styled';
 import HeroImage from '../../img/drink-master/hero/hero-drink-master.png';
-import DrinksListHomePage from '../../components/Drinks_list_home_page/drinksListHomePage';
+import DrinksListHomePage from '../../components/DrinksListHomePage/DrinksListHomePage';
 import { Loader } from '../../components/Loader/Loader';
 
 const HomePage = () => {

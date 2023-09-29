@@ -6,7 +6,7 @@ import {
   TitleDrink,
   SeemoreLink,
   Box,
-} from './drinksListHomePage.styled';
+} from './DrinksListHomePage.styled';
 
 const DrinksListHomePage = ({ type }) => {
   const allDrinks = useSelector(selectDrinks);
