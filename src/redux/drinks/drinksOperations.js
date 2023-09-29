@@ -20,7 +20,7 @@ export const newDrink = createAsyncThunk(
         return thunkAPI.rejectWithValue(e.message);
       }
     }
-  },
+  
 );
   
 export const fetchDrinksPopular = createAsyncThunk(
