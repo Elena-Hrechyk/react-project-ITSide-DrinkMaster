@@ -57,7 +57,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Manrope';
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;

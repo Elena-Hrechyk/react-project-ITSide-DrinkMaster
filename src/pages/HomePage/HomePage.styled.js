@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const HomeSection = styled.section`
+  font-family: 'Manrope', sans-serif;
   padding-top: 80px;
   padding-bottom: 80px;
 
