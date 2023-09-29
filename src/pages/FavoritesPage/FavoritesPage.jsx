@@ -8,8 +8,8 @@ export const FavoritesPage = () => {
   return (
     <Wrap>
       <PageTitle title={'Favorites'}></PageTitle>
-      <Drinks_List/>
-      <Paginator/>
+      <Drinks_List />
+      <Paginator />
     </Wrap>
   );
 };
