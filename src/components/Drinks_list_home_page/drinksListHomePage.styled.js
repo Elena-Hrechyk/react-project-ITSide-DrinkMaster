@@ -1,28 +1,16 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const Wrap = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0;
-  margin-top: 40px;
-  gap: 40px 0px;
-
-  @media screen and (min-width: 768px) {
-    gap: 80px 20px;
-  }
-`;
-
 export const ItemDrink = styled.li`
-  width: 335px;
+  font-family: var(--font-main);
+  max-width: 335px;
 
   &:not(:first-child) {
     display: none;
   }
 
   @media screen and (min-width: 768px) {
-    width: 342px;
+    min-width: 342px;
 
     &:not(:first-child) {
       display: block;
@@ -34,7 +22,7 @@ export const ItemDrink = styled.li`
   }
 
   @media screen and (min-width: 1280px) {
-    width: 400px;
+    min-width: 400px;
 
     &:nth-child(n + 3) {
       display: block;
@@ -47,7 +35,8 @@ export const ItemDrink = styled.li`
 `;
 
 export const ImgDrink = styled.img`
-  width: auto;
+  width: 100%;
+  object-fit: contain;
   margin-bottom: 14px;
   border-radius: 8px;
   background:
@@ -68,7 +57,7 @@ export const Box = styled.div`
 export const TitleDrink = styled.h4`
   font-size: 16px;
   font-weight: 500;
-  line-height: 1.13; /* 112.5% */
+  line-height: 1.13;
 `;
 
 export const SeemoreLink = styled(NavLink)`

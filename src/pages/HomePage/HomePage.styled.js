@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const HomeSection = styled.section`
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-main);
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -154,7 +154,7 @@ export const Wrap = styled.div`
 
 export const LinkOtherDrink = styled(NavLink)`
   display: block;
-  width: 163px;
+  width: 165px;
   padding: 14px 40px;
   margin-left: auto;
   margin-right: auto;
@@ -168,7 +168,7 @@ export const LinkOtherDrink = styled(NavLink)`
   line-height: 1.23;
 
   @media screen and (min-width: 768px) {
-    width: 183px;
+    width: 185px;
     padding: 18px 44px;
     margin-bottom: 54px;
     font-size: 16px;

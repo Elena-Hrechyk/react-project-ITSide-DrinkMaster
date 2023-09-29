@@ -55,17 +55,24 @@ html {
   box-sizing: border-box;
 }
 
+:root {
+  --font-main: 'Manrope', sans-serif;
+  --color-main-darktheme: #F3F3F3;
+  --bg-color-main-darktheme: #0A0A11;
+  --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   margin: 0;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-main);
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
-  color: #111111;
+  color: var(--color-main-darktheme);
   width: 100%;
   height: 100vh;
   /* background-color: var(--background-color); */
-  background-color: #0A0A11;
+  background-color: var(--bg-color-main-darktheme);
   scroll-behavior: smooth;
 }
 
