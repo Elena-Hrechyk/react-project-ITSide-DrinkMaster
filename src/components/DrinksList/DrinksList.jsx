@@ -1,31 +1,37 @@
 
 
-import recipes from './recipes.json';
-
 import {
   DrinksPageImg,
   DrinksPageList,
-  DrinksPageA,
-  DrinksPageB,
+  DrinksPageH,
+  DrinksPageLink,
   DrinksPageText,
+  DrinksPageItem,
 } from './DrinksList.styled';
 
-export function DrinksListPage() {
+export const DrinksListPage = ({ drinks }) => {
 
-  return (
-    <div>
+ return (
+    <>
       <DrinksPageList>
-        {recipes.map(({ id, drink, drinkThumb }) => (
-          <li key={id}>
-            <DrinksPageImg src={drinkThumb} alt={drink} />
-            <DrinksPageText>
-              <DrinksPageA>{drink}</DrinksPageA>
-              <DrinksPageB>See more</DrinksPageB>
-              
-            </DrinksPageText>
-          </li>
-        ))}
+        {drinks.length > 0 ? (
+          drinks.map(({ _id, drink, drinkThumb }) => (
+            <DrinksPageItem key={_id}>
+              <DrinksPageImg src={drinkThumb} />
+              <DrinksPageText>
+                <DrinksPageH>{drink}</DrinksPageH>
+                <DrinksPageLink to={`/drinks/${_id}`}>
+                  See more
+                </DrinksPageLink>
+              </DrinksPageText>
+            </DrinksPageItem>
+          ))
+        ) : drinks.length === 0 ? (
+          <p>
+           Sorry. There are no coctails ... 
+          </p>
+        ) : null}
       </DrinksPageList>
-    </div>
+    </>
   );
-}
+};

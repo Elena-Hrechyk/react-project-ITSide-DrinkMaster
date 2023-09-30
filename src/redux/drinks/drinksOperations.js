@@ -48,6 +48,29 @@ export const getAllDrinks = createAsyncThunk(
   },
 );
 
+export const getRequestedDrink = createAsyncThunk(
+  'drinks/search',
+  async ({ query, category, ingredient, limit, page }, thunkAPI) => {
+    const urlParams = {
+      params: {
+        query,
+        category,
+        ingredient,
+        limit,
+        page,
+      },
+    };
+
+    try {
+      const response = await axios.get('/api/drinks/search', urlParams);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+
 // export const fetchDrinksFavorite = createAsyncThunk(
 //   "drinks/fetchFavorite",
 //   async (_, thunkAPI) => {
