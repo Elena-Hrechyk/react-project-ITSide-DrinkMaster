@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
+
 import { ReactComponent as Logo } from '../../img/svg/logo.svg';
 import {
   HeaderContainer,
   Navigation,
   NavigationList,
   LinkLogo,
-  UserBarBtn,
   StyledLink,
-  UserBarName,
-  UserBarImg,
   Head,
 } from './Header.styled';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { UserBarMenu } from '../UserBarMenu/UserBarMenu';
+import { selectUsername } from '../../redux/auth/authSelectors';
 
 export const Header = () => {
   const [isOpenBurgerMenu, setisOpenBurgerMenu] = useState(false);
@@ -44,10 +44,8 @@ export const Header = () => {
             <StyledLink to="favorites">Favorites</StyledLink>
           </NavigationList>
         </Navigation>
-        <UserBarBtn type="button">
-          <UserBarImg src="" alt="User" />
-          <UserBarName>User</UserBarName>
-        </UserBarBtn>
+        <UserBarMenu />
+
         <BurgerMenu
           toggleMenu={toggleMenu}
           isOpenBurgerMenu={isOpenBurgerMenu}
