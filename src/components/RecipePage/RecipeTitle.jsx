@@ -1,8 +1,8 @@
 import css from "./RecipeTitle.module.css";
 
-const RecipeTitle = ({title}) => {
+const RecipeTitle = ({drink}) => {
     return (
-        <h2 className={css.title}>Just a Moonmint</h2>
+        <h2 className={css.title}>{drink}</h2>
     )
 }
 
