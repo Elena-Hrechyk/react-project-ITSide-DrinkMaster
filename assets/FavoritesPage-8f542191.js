@@ -1,4 +1,4 @@
-import{n,G as o,j as t}from"./index-dca34c9e.js";import{P as d,D as s}from"./Drinks_List-2b11f549.js";const p=n.main`
+import{n,G as o,j as t}from"./index-c06c9abb.js";import{P as d,D as s}from"./Drinks_List-6a4534c4.js";const p=n.main`
   font-family: 'Manrope',Arial,sans-serif;
   max-width: 480px;
   padding-left: 20px;
