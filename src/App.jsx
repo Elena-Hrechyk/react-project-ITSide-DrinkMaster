@@ -15,6 +15,7 @@ import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SignInPage from './pages/SignInPage/SignInPage';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const DrinksPage = lazy(() => import('./pages/DrinksPage/DrinksPage'));
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
 const MyDrinksPage = lazy(() => import('./pages/MyDrinkPage/MyDrinkPage'));
 const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
@@ -52,6 +53,11 @@ function App() {
             element={<PrivateRoute component={<SharedLayout />} />}
           >
             <Route index element={<PrivateRoute component={<HomePage />} />} />
+
+            <Route
+              path="drinks"
+              element={<PrivateRoute component={<DrinksPage />} />}
+            />
 
             <Route
               path="addDrink"

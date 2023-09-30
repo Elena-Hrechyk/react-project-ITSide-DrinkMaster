@@ -12,7 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { addDrinksReducer } from './drinks/drinksSlise';
-// import { filterReducer } from './filters/filtersSlice';
+import { filtersReducer } from './filters/filtersSlice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -32,7 +32,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     drinks: addDrinksReducer,
-    // filter: filterReducer,
+    filter: filtersReducer,
   },
   middleware,
   // devTools: process.env.NODE_ENV === 'development',

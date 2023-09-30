@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCategories } from '../../redux/filters/filters-operation';
-import { getIngredients } from '../../redux/filters/filters-operation';
-import { getRequestedDrink } from '../../redux/drinks/drinks-operations';
+import { getCategories } from '../../redux/filters/filtersOperation';
+import { getIngredients } from '../../redux/filters/filtersOperation';
+import { getRequestedDrink } from '../../redux/drinks/drinksOperations';
 
 import {
   selectCategories,
@@ -23,7 +23,6 @@ import {
   SearchDrinksInput,
 } from './SearchDrinks.styled';
 
-
 const initialValues = {
   searchQuery: '',
   categories: '',
@@ -37,8 +36,6 @@ const validationSchema = Yup.object().shape({
   categories: Yup.string(),
   ingredients: Yup.string(),
 });
-
-
 
 export const SearchDrinks = ({ page, limit }) => {
   // const [searchParams, setSearchParams] = useSearchParams();
@@ -73,19 +70,15 @@ export const SearchDrinks = ({ page, limit }) => {
 
     console.log(category);
 
-
     setQuery('');
   };
-
 
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getIngredients());
 
-
     dispatch(getRequestedDrink({ query, category, ingredient, page, limit }));
   }, [dispatch, query, category, ingredient, page, limit]);
-
 
   console.log(category);
 
@@ -113,8 +106,7 @@ export const SearchDrinks = ({ page, limit }) => {
                   // valid={touched.fullname && !errors.fullname}
                   // error={touched.fullname && errors.fullname}
                 />
-                <EditIconWrapper>
-                </EditIconWrapper>
+                <EditIconWrapper></EditIconWrapper>
               </label>
             </FileInputWrapper>
           </div>
