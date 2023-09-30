@@ -1,38 +1,30 @@
 import css from "./RecipeIngredients.module.css"
-import imgTest from "../../../img/my-drinks/ingridiens/mobile/lime.png"
-import imgTestSec from "../../../img/my-drinks/ingridiens/mobile/passion-fruit-juice.png"
+// import imgTest from "../../../img/my-drinks/ingridiens/mobile/lime.png"
+// import imgTestSec from "../../../img/my-drinks/ingridiens/mobile/passion-fruit-juice.png"
 
-export const RecipeIngredientsList = () => {
+export const RecipeIngredientsList = ({children}) => {
     return (
     <section>
         <p className={css.title}>Ingredients</p>
+        <ul className={css.ingredientsList}>{children}</ul>
     </section>
     )
 };
 
 
-export const RecipeIngredientsItems = () => {
-    return (
-    <ul className={css.ingredientsList}>
-    <li className={css.ingredientsItem}>
-    <div className={css.ingredientsContainer}>
-    <img className={css.imgIngredients} src={imgTest} />
-    </div>
-    <div className={css.ingredientsDescription}>
-    <p className={css.ingredientsTitle}>Lime</p>
-    <p className={css.ingredientsMeasures}>1 cl</p>
-    </div>
-    </li>
+export const RecipeIngredientsItems = ({data}) => {
 
-    <li className={css.ingredientsItem}>
+    const { ingredients } = data;
+
+    return (
+    <li className={css.ingredientsItem} id={ingredients.ingredientId} title={`${ingredients.title}  ${ingredients.measure ? ingredients.measure : ''}`}>
     <div className={css.ingredientsContainer}>
-    <img className={css.imgIngredients} src={imgTestSec} />
+    <img className={css.imgIngredients} src={ingredients.ingredientThumb} alt={ingredients.title} />
     </div>
     <div className={css.ingredientsDescription}>
-    <p className={css.ingredientsTitle}>Passion fruit juice</p>
-    <p className={css.ingredientsMeasures}>1 cl</p>
+    <p className={css.ingredientsTitle}>{ingredients.title}</p>
+    <p className={css.ingredientsMeasures}>{ingredients.measure}</p>
     </div>
     </li>
-    </ul>
     )
 };
