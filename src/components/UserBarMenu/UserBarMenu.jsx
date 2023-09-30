@@ -2,15 +2,23 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useSelector } from 'react-redux';
 
-import { UserBarBtn, UserBarName, UserBarImg } from './UserBarMenu.styled';
+import { selectUserData } from '../../redux/auth/authSelectors';
 
-import { ReactComponent as CloseSvg } from '../../img/svg/delete.svg';
+import {
+  UserBarBtn,
+  UserBarName,
+  UserBarImg,
+  UserBar,
+} from './UserBarMenu.styled';
+
+
 
 import { UserLogoPopup } from './UserLogoPopup/UserLogoPopup';
 import { UserInfoModal } from './UserInfoModal/UserInfoModal';
+import { LogOutBtnModal } from './LogoutBtn/LogoutBtn';
 
 export const UserBarMenu = () => {
-
+  const { name, avatarURL } = useSelector(selectUserData);
 
   const [isOpenLogoPopup, setIsOpenLogoPopup] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -41,10 +49,10 @@ export const UserBarMenu = () => {
   };
 
   return (
-    <div>
+    <UserBar>
       <UserBarBtn type="button" onClick={openDropDownModal}>
-        <UserBarImg src="" alt="User" />
-        <UserBarName>User</UserBarName>
+        <UserBarImg src={avatarURL} alt={name} />
+        <UserBarName>{name}</UserBarName>
       </UserBarBtn>
 
       <UserLogoPopup
@@ -57,23 +65,14 @@ export const UserBarMenu = () => {
       <UserInfoModal
         isEditModalOpen={isEditModalOpen}
         closeEditModal={closeEditModal}
+        avatarUser={avatarURL}
+        nameUser={name}
       />
 
-      <Modal
-        isOpen={isLogoutModal}
-        onRequestClose={closeLogoutModal}
-        contentLabel="Log out modal"
-        appElement={document.getElementById('root')}
-      >
-        <button onClick={closeLogoutModal}>
-          <CloseSvg />
-        </button>
-        <p>Are you sure you want to log out?</p>
-        <div>
-          <button>Log out</button>
-          <button>Cancel</button>
-        </div>
-      </Modal>
-    </div>
+      <LogOutBtnModal
+        isLogoutModal={isLogoutModal}
+        isCloseLogoutModal={closeLogoutModal}
+      />
+    </UserBar>
   );
 };

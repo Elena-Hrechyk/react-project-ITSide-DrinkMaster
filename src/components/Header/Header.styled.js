@@ -50,6 +50,7 @@ export const Navigation = styled.nav`
 
   @media screen and (min-width: 1280px) {
     display: flex;
+  
   }
 `;
 

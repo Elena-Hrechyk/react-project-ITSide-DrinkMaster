@@ -95,26 +95,31 @@ top: 235px;
 
 export const EditAvatarContainer = styled.div`
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  
 `;
 
 export const FieldEditAvatar = styled(FormikField)`
-  width: 400px;
-  height: 56px;
-  padding: 14px 24px;
-  margin-top: auto;
-  margin-bottom: 25px;
-  border-radius: 56px;
-  border: 1px solid #F3F3F380;
+
+position: absolute;
+top: 132px;
+left: 233px;
   background-color: transparent;
-  color: #f3f3f3
 
 `;
 
 
 export const AvatarFormLabel = styled.label`
   display: none;
+`;
+
+export const UserImg = styled.img`
+display: block;
+margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
 `;
 
 

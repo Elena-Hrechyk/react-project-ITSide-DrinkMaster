@@ -2,7 +2,6 @@ import { Formik } from 'formik';
 
 import { ReactComponent as CloseSvg } from '../../../img/svg/delete.svg';
 import { ReactComponent as EditSvg } from '../../../img/svg/edit-01.svg';
-import { ReactComponent as UserSvg } from '../../../img/svg/user.svg';
 import { ReactComponent as UserAddSvg } from '../../../img/svg/add-photo.svg';
 import {
   FormLabel,
@@ -12,14 +11,13 @@ import {
   ButtonClose,
   FieldEditName,
   SvgContainer,
-    EditAvatarContainer,
-    FieldEditAvatar,
-    AvatarFormLabel,
-    
-  
+  EditAvatarContainer,
+  FieldEditAvatar,
+  AvatarFormLabel,
+  UserImg
 } from './UserInfoModal.styled';
 
-export const UserInfoModal = ({ isEditModalOpen, closeEditModal }) => {
+export const UserInfoModal = ({ isEditModalOpen, closeEditModal, avatarUser, nameUser }) => {
   return (
     <ModalUserLogoInfo
       isOpen={isEditModalOpen}
@@ -37,15 +35,12 @@ export const UserInfoModal = ({ isEditModalOpen, closeEditModal }) => {
       >
         <Form>
           <EditAvatarContainer>
-                      <UserSvg />
-                      <FieldEditAvatar />
-                      <AvatarFormLabel>
-
-                      </AvatarFormLabel>
-                       
+            <UserImg src={avatarUser} alt="" />
+            <FieldEditAvatar component={UserAddSvg}/>
+            <AvatarFormLabel></AvatarFormLabel>
           </EditAvatarContainer>
           <FormLabel>
-            <FieldEditName name="name" placeholder="name" />
+            <FieldEditName name="name" placeholder={nameUser} />
             <SvgContainer>
               <EditSvg />
             </SvgContainer>

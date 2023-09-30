@@ -11,7 +11,6 @@ import {
 } from './Header.styled';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { UserBarMenu } from '../UserBarMenu/UserBarMenu';
-import { selectUsername } from '../../redux/auth/authSelectors';
 
 export const Header = () => {
   const [isOpenBurgerMenu, setisOpenBurgerMenu] = useState(false);

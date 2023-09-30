@@ -25,3 +25,8 @@ export const UserBarImg = styled.img`
 `;
 
 
+export const UserBar = styled.div`
+  margin-left: auto;
+`;
+
+
