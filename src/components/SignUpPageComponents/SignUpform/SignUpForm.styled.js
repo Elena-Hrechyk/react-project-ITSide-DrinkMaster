@@ -9,10 +9,14 @@ export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
   max-width: 335px;
   gap: 14px;
   margin-bottom: 14px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 400px;   
+  }
 `;
 export const DivForInput = styled.div`
   /* margin-bottom: 1rem; */
@@ -45,59 +49,53 @@ export const Input = styled.input`
 export const Field = styled(FormikField)`
   /* position: relative; */
   display: block;
+
   width: 335px;
+  width: 100%;
   height: 54px;
   padding-left: 18px;
   padding-right: 18px;
 
-  /* max-width: 335px; */
-  /* padding: 18px 24px 18px 24px; */
+ 
   color: #f3f3f3;
-  /* text-align: center; */
-  /* font-family: Manrope; */
+  
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
 
-  /* margin-top: 10px;
-  margin-bottom: 32px;
-  padding: 0.5rem;
-  font-size: 2rem; */
+  
   border: 1px solid rgba(243, 243, 243, 0.2);
   outline: transparent;
   border-radius: 200px;
-  /* transition: box-shadow 0.3s ease; */
+  
   background-color: transparent;
-  /* &:valid {
-    
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: 20px 20px;
-  } */
+
   &:hover {
     border: 1px solid rgba(243, 243, 243, 0.5);
     opacity: 0.8;
     border-radius: 200px;
-    /* outline: 5px solid green; */
-    /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
+    
   }
 
   &:focus {
     border: 1px solid rgba(243, 243, 243, 0.5);
     opacity: 0.8;
     border-radius: 200px;
-    /* outline: 5px solid green; */
-    /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
+    
   }
-  &:hover::placeholder {
-    color: rgba(243, 243, 243, 1);
+
+  @media screen and (min-width: 768px) {
+    max-width: 400px;
+    height: 56px;
+    font-size: 17px;
   }
 `;
 export const SignUpBTN = styled.button`
-  width: 372px;
+  width: 100%;
+  /* width: 335px; */
   height: auto;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 18px;
@@ -113,11 +111,12 @@ export const SignUpBTN = styled.button`
     border-radius: 42px;
     background: #161f37;
     color: #f3f3f3;
-    /* font-family: Manrope;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 18px; 112.5% */
+    
+  }
+  :focus {
+    border-radius: 42px;
+    background: #161f37;
+    color: #f3f3f3;
   }
   &:active {
     border-radius: 42px;
@@ -125,9 +124,12 @@ export const SignUpBTN = styled.button`
     background: #f3f3f3;
     color: #161f37;
   }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 export const ErrorMessage = styled(FormikErrorMessage)`
-  width: 268px;
+  width: 100%;
   color: rgba(218, 20, 20, 1);
   /* font-family: Manrope; */
   font-size: 12px;

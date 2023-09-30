@@ -24,7 +24,41 @@ export const CalendarGlobalStyles = createGlobalStyle`
   .react-datepicker__wrapper {
     position: relative;
   }
+.react-datepicker__input-container{&:hover {
+    border: 1px solid rgba(243, 243, 243, 0.5);
+    opacity: 0.8;
+    border-radius: 200px;
+    /* outline: 5px solid green; */
+    /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
+  }
 
+  &:focus {
+    border: 1px solid rgba(243, 243, 243, 0.5);
+    opacity: 0.8;
+    border-radius: 200px;
+    /* outline: 5px solid green; */
+    /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
+  }
+  }
+  .react-datepicker__input-container button{
+    
+        color: rgb(119 115 115);
+/* font-family: Manrope; */
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 156%;
+&:hover {
+    color: rgba(243, 243, 243, 1);
+  }
+&:focus {
+    color: rgba(243, 243, 243, 1);
+  }
+  @media screen and (min-width: 768px) {
+    
+    font-size: 17px;
+  }
+}
   .react-datepicker {
     position: absolute;
     left: 50%;
@@ -61,7 +95,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
-  .react-datepicker__day react-datepicker__day--018.react-datepicker__day--selected react-datepicker__day--today{
+  .react-datepicker__day .react-datepicker__day--018.react-datepicker__day--selected .react-datepicker__day--today{
     outline: none;
     border: none;
 }
@@ -268,7 +302,8 @@ visibility:hidden;
 `;
 
 export const TitleWrapper = styled.button`
-  width: 372px;
+  /* width: 335px; */
+  width: 100%;
   height: 54px;
   /* max-width: 335px; */
   border: 1px solid rgba(243, 243, 243, 0.2);

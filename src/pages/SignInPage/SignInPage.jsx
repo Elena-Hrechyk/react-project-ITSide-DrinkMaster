@@ -1,11 +1,15 @@
+// import { Container } from '../../components/GlobalStyled/container.styled';
 import { SignInForm } from '../../components/SignInPageComponents/SignInForm';
-import { H2, SignInSection, RouteLink } from '../SignUpPage/SignUpPage.styled';
+import { H2,  RouteLink, FormWrapper } from '../SignUpPage/SignUpPage.styled';
+import { SignInSection } from './SignInPage.styled';
 const SignIpPage = () => {
   return (
     <SignInSection>
       <H2>Sign In</H2>
-      <SignInForm />
-      <RouteLink to="/signin">Sign Up</RouteLink>
+      <FormWrapper>
+        <SignInForm />
+        <RouteLink to="/signup">Sign Up</RouteLink>
+      </FormWrapper>
     </SignInSection>
   );
 };

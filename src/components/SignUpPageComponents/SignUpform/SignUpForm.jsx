@@ -50,8 +50,7 @@ const CustomInput = forwardRef(({  onClick }, ref) => {
   return (
     <TitleWrapper onClick={onClick} ref={ref}>
       {format(selectedDate, 'dd/MM/yyyy')} <AiOutlineCalendar />
-      {/* {value ?? nowDate }
-        <AiOutlineCalendar /> */}
+     
     </TitleWrapper>
   );
 });
@@ -131,9 +130,7 @@ CustomInput.displayName = 'CustomInput';
 
           <DatePicker
             selected={selectedDate}
-            // onChange={(date) => {
-            //   setFieldValue(name, date);
-            // }}
+           
             onChange={(date) => {
               setSelectedDate(date);
               setFieldValue('date', date);
