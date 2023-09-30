@@ -46,6 +46,20 @@ const drinksSlice = createSlice({
         state.error = null;
         state.popular.push(action.payload);
       })
+
+      // .addCase(fetchDrinksFavorite.pending, handlePending)
+      // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
+      //   console.log('clg', action.payload);
+      //   state.isLoading = false;
+      //   state.error = null;
+      //   state.items = action.payload;
+      // })
+      // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
+      //   // state.isLoading = false;
+      //   // state.error = null;
+      //   console.log(state)
+      //   state.items = action.payload;
+      // })
     //   .addCase(deleteDrinksnewDrink.pending, handlePending)
     //   .addCase(deleteDrinksnewDrink.fulfilled, (state, action) => {
     //     state.isLoading = false;

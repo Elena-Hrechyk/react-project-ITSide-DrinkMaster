@@ -1,16 +1,15 @@
 import DrinksItem from '../DrinksItem/DrinksItem';
 import { Wrap } from './Drinks_List.styled';
 
-const DrinksList = () => {
+const DrinksList = ({ items }) => {
   return (
     <Wrap>
-      <li><DrinksItem></DrinksItem></li>
-      <li><DrinksItem></DrinksItem></li>
-      <li><DrinksItem></DrinksItem></li>
-      <li><DrinksItem></DrinksItem></li>
-      <li><DrinksItem></DrinksItem></li>
-      <li><DrinksItem></DrinksItem></li>
-      <li><DrinksItem></DrinksItem></li>
+      {items &&
+        items.map(item => (
+          <li key={item._id}>
+            <DrinksItem item={item}></DrinksItem>
+          </li>
+        ))}
     </Wrap>
   );
 };
