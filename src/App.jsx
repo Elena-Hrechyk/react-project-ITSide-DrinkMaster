@@ -35,42 +35,66 @@ function App() {
         <Loader />
       ) : (
         <Routes>
-          <Route
-            path="/welcome"
-            element={<PublicRoute component={<StartPage />} />}
-          />
-          <Route
-            path="/signup"
-            element={<PublicRoute component={<SignUpPage />} />}
-          />
-          <Route
-            path="/signin"
-            element={<PublicRoute component={<SignInPage />} />}
-          />
-
-          <Route
-            path="/"
-            element={<PrivateRoute component={<SharedLayout />} />}
-          >
-            <Route index element={<PrivateRoute component={<HomePage />} />} />
-
+          <Route path="/" element={<SharedLayout />}>
             <Route
-              path="drinks"
-              element={<PrivateRoute component={<DrinksPage />} />}
+              index
+              element={
+                <PrivateRoute component={<HomePage />} redirectTo="/welcome" />
+              }
+            />
+            <Route
+              path="/welcome"
+              element={<PublicRoute component={<StartPage />} redirectTo="/" />}
+            />
+            <Route
+              path="/signup"
+              element={
+                <PublicRoute component={<SignUpPage />} redirectTo="/" />
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                <PublicRoute component={<SignInPage />} redirectTo="/" />
+              }
+            />
+            <Route
+              path="/drinks"
+              element={
+                <PrivateRoute
+                  component={<DrinksPage />}
+                  redirectTo="/welcome"
+                />
+              }
             />
 
             <Route
-              path="addDrink"
-              element={<PrivateRoute component={<AddDrinkPage />} />}
+              path="/addDrink"
+              element={
+                <PrivateRoute
+                  component={<AddDrinkPage />}
+                  redirectTo="/welcome"
+                />
+              }
             />
 
             <Route
-              path="favorites"
-              element={<PrivateRoute component={<FavoritesPage />} />}
+              path="/favorites"
+              element={
+                <PrivateRoute
+                  component={<FavoritesPage />}
+                  redirectTo="/welcome"
+                />
+              }
             />
             <Route
-              path="my"
-              element={<PrivateRoute component={<MyDrinksPage />} />}
+              path="/my"
+              element={
+                <PrivateRoute
+                  component={<MyDrinksPage />}
+                  redirectTo="/welcome"
+                />
+              }
             />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
