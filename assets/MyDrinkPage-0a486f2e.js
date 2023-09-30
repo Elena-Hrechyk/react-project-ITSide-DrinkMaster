@@ -1,4 +1,4 @@
-import{n as a,j as i}from"./index-ccf87744.js";import{P as t,D as d}from"./Drinks_List-d78afe03.js";const n=a.main`
+import{n as a,u as n,j as t}from"./index-8252574a.js";import{s as d}from"./drinksSelectors-42b0ca3e.js";import{P as p,D as r}from"./Drinks_List-e1e76538.js";const e=a.main`
   font-family: 'Manrope',Arial,sans-serif;
   max-width: 480px;
   padding-left: 20px;
@@ -26,4 +26,4 @@ import{n as a,j as i}from"./index-ccf87744.js";import{P as t,D as d}from"./Drink
     padding-right: 20px;
     padding-top: 158px;
   }
-`,o=()=>i.jsxs(n,{children:[i.jsx(t,{title:"My drinks"}),i.jsx(d,{})]});export{o as MyDrinksPage,o as default};
+`,g=()=>{const{data:i}=n(d);return t.jsxs(e,{children:[t.jsx(p,{title:"My drinks"}),t.jsx(r,{items:i})]})};export{g as MyDrinksPage,g as default};

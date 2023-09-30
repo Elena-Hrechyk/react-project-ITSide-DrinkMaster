@@ -1,4 +1,4 @@
-import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
+import{n,j as i,G as d}from"./index-8252574a.js";const a=n.h1`
   font-size: 32px;
   font-weight: 600;
   line-height: 1.188;
@@ -15,7 +15,7 @@ import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
     font-size: 64px;
     line-height: 1.063;
   }
-`,u=({title:t})=>i.jsx(i.Fragment,{children:i.jsx(o,{children:t})}),a="/react-project-ITSide-DrinkMaster/assets/berry-deadly-1ab90eb7.jpg";function d(t){return r({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"}}]})(t)}const s=e.div`
+`,H=({title:e})=>i.jsx(i.Fragment,{children:i.jsx(a,{children:e})});function x(e){return d({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"}}]})(e)}const s=n.div`
   max-width: 440px;
   
   @media screen and (min-width: 768px) {
@@ -25,16 +25,16 @@ import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
   @media screen and (min-width: 1280px) {
     max-width: 400px;
   }
-`,p=e.div`
+`,c=n.div`
 
-`,l=e.img`
+`,h=n.img`
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
   border: none;
   border-radius: 8px;
-`,x=e.h3`
+`,g=n.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.286;
@@ -48,7 +48,7 @@ import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
     margin-top: 24px;
   };
   
-`,c=e.p`
+`,l=n.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -62,7 +62,9 @@ import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
     line-height: 1.125;
   };
 
-`,h=e.p`
+`,m=n.p`
+  max-height: 93px;
+  overflow: scroll;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -75,7 +77,7 @@ import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
     line-height: 1.375;
     margin-top: 24px;
   };
-`,g=e.div`
+`,f=n.div`
   display: flex;
   align-items: center;
   margin-top: 18px;
@@ -84,7 +86,7 @@ import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
     margin-top: 24px;
   };
   
-`,m=e.button`
+`,w=n.button`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -114,7 +116,7 @@ import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
     margin-right: 8px;
     
   };
-`,f=e.button`
+`,u=n.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -131,31 +133,9 @@ import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
   }
 
   @media screen and (min-width: 768px) {
-    /* font-family: 'Manrope', Arial, sans-serif; */
-    /* width: 56px; */
-    /* height: 56px; */
-    
-    
-    /* font-style: inherit; */
-
-    /* font-weight: normal; */
     padding: 15px;
-    /* line-height: 0; */
-    /* width: 100%; */
-    /* font-size: 24px;
-    font-family: 'Manrope';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  /* display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: 2tr; */ 
   };  
-`,n=()=>i.jsxs(s,{children:[i.jsx(p,{children:i.jsx(l,{src:a,alt:""})}),i.jsx(x,{children:"Pornstar Martini"}),i.jsx(c,{children:"Alcoholic"}),i.jsxs(h,{children:["The porn star martini is a passion-fruit-flavoured cocktail made with vanilla-flavoured vodka, Passoã, passion fruit juice, and lime juice. It is traditionally accompanied by a chilled shot glass of prosecco."," "]}),i.jsxs(g,{children:[i.jsx(m,{children:"See more"}),i.jsx(f,{children:i.jsx(d,{})})]})]}),j=e.ul`
+`,j=({item:e})=>{const{drinkThumb:t,drink:o,alcoholic:r,description:p}=e;return i.jsxs(s,{children:[i.jsx(c,{children:i.jsx(h,{src:t,alt:"image"})}),i.jsx(g,{children:o}),i.jsx(l,{children:r}),i.jsx(m,{children:p}),i.jsxs(f,{children:[i.jsx(w,{children:"See more"}),i.jsx(u,{children:i.jsx(x,{})})]})]})},F=n.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -166,4 +146,4 @@ import{n as e,j as i,G as r}from"./index-ccf87744.js";const o=e.h1`
   @media screen and (min-width: 768px) {
     gap: 80px 20px;
   };
-`,b=()=>i.jsxs(j,{children:[i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})}),i.jsx("li",{children:i.jsx(n,{})})]});export{b as D,u as P};
+`,V=({items:e})=>i.jsx(F,{children:e&&e.map(t=>i.jsx("li",{children:i.jsx(j,{item:t})},t._id))});export{V as D,H as P};
