@@ -5,15 +5,15 @@ export const SignUpButtonSt = styled.button`
   background: #f3f3f3;
   color: #161f37;
   width: ${(props) => props.width || '132px'};
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 18px; /* 112.5% */
-  display: inline-flex;
-  padding: 18px 44px;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
+  line-height: 112.5%;
+  /* display: inline-flex; */
+  padding: 18px 24px;
+  
+  
+
 `;
 
 
