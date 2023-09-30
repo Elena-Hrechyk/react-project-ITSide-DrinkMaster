@@ -5,9 +5,12 @@ import DrinkDescription from '../../components/DrinkDescription/DrinkDescription
 
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 import { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchDrinksPopular, newDrink } from '../../redux/drinks/drinksOperations';
+import {
+  fetchDrinksPopular,
+  newDrink,
+} from '../../redux/drinks/drinksOperations';
 import DrinkIngredients from '../../components/DrinkIngredients/DrinkIngredients';
 import { selectDrinks } from '../../redux/drinks/drinksSelectors';
 // import { AddImageButton } from '../../components/DrinkDescription/DrinkDescription.styled';
@@ -15,28 +18,23 @@ import { selectDrinks } from '../../redux/drinks/drinksSelectors';
 import PopularDrinks from '../../components/PopularDrinks/PopularDrinks';
 import { selectUserData } from '../../redux/auth/authSelectors';
 const AddDrinkPage = () => {
-  
-  
-
   const dispatch = useDispatch();
 
-    useEffect(() => {
+  useEffect(() => {
     dispatch(fetchDrinksPopular());
-    }, []);
-  
-  const drink = useSelector(selectDrinks);
-  
-  const user = useSelector(selectUserData);
-  console.log(user.id)
+  }, [dispatch]);
 
+  const drink = useSelector(selectDrinks);
+
+  const user = useSelector(selectUserData);
+  console.log(user.id);
 
   const fileRef = useRef(null);
   const { _id } = useSelector(selectUserData);
 
   // const [popular, setPopular] = useState([])
-    // const popular = (fetchDrinksPopular()); // Call the function to fetch popular drinks
+  // const popular = (fetchDrinksPopular()); // Call the function to fetch popular drinks
   // console.log(popular)
-
 
   return (
     <AddPageSection>
@@ -49,20 +47,20 @@ const AddDrinkPage = () => {
           glass: '',
           alcoholic: '',
           description: '',
-          ingredients: []    
+          ingredients: [],
         }}
         onSubmit={(values) => {
-          values.owner= _id
-         
+          values.owner = _id;
+
           // console.log('fileRef', fileRef.current.files);
           const formData = new FormData();
           for (let value in values) {
             formData.append(value, values[value]);
           }
-          console.log("formData", formData)
+          console.log('formData', formData);
           dispatch(newDrink(values));
           console.log('state drink:', drink);
-          
+
           // console.log('formData:', formData);
           // return formData
           // resetForm()
@@ -75,9 +73,11 @@ const AddDrinkPage = () => {
           <DrinkDescription fileRef={fileRef} />
           <DrinkIngredients />
           <RecipePreparation />
-          <SignUpButton type="submit" width={"107px"} value={"Add"}>Add</SignUpButton>
+          <SignUpButton type="submit" width={'107px'} value={'Add'}>
+            Add
+          </SignUpButton>
           {/* FolofUs */}
-          <PopularDrinks/>
+          <PopularDrinks />
         </Form>
       </Formik>
     </AddPageSection>
