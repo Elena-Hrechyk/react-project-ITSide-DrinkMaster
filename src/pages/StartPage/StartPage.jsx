@@ -1,4 +1,3 @@
-
 import {
   ButtonWrapper,
   H1,
@@ -6,17 +5,14 @@ import {
   P,
   SignInButton,
   StartSection,
- 
 } from './StartPage.styled';
 import { SignUpButton } from '../../components/SignUpPageComponents/SignUpButton';
-
+import { Container } from '../../components/GlobalStyled/container.styled';
 
 const StartPage = () => {
-  
   return (
-    <>
-     
-      <StartSection>
+    <StartSection>
+      <Container>
         <H1>Welcome to the app!</H1>
         <P>
           This app offers more than just a collection of recipes - it is
@@ -31,8 +27,8 @@ const StartPage = () => {
             <SignInButton>Sign In</SignInButton>
           </NavLink>
         </ButtonWrapper>
-      </StartSection>
-    </>
+      </Container>
+    </StartSection>
   );
 };
 
