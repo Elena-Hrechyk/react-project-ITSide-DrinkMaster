@@ -1,20 +1,30 @@
-import { Wrap, Button, Wraper, PageItem, ButtonPageItem } from "./Paginator.styled";
-import {MdArrowBackIosNew, MdArrowForwardIos} from "react-icons/md";
+// import { useState } from "react";
+import { Wrap, Button, Wraper, ButtonPageItem } from "./Paginator.styled";
+import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+// import { useSelector } from 'react-redux';
+// import {selectDrinks} from '../../redux/drinks/drinksSelectors'
 
-const Paginator = () => {
+const Paginator = ({drinksPerPage, totalItems, paginate, nextPage, prevPage}) => {
+
+    const pageNumbers = [];
+
+    for (let i = 1; i <= Math.ceil(totalItems / drinksPerPage); i++){
+        pageNumbers.push(i);
+    }
+    
     return (
         <Wrap>
-            <Button type="button">
+            <Button type="button" onClick={prevPage}>
                 <MdArrowBackIosNew/>
             </Button>
             <Wraper>
-                <PageItem><ButtonPageItem>12</ButtonPageItem></PageItem>
-                <PageItem><ButtonPageItem>13</ButtonPageItem></PageItem>
-                <PageItem><ButtonPageItem>14</ButtonPageItem></PageItem>
-                <PageItem><ButtonPageItem>15</ButtonPageItem></PageItem>
-                <PageItem><ButtonPageItem>16</ButtonPageItem></PageItem>    
+                {pageNumbers.map(number => (
+                    <li key={number} >
+                        <ButtonPageItem type="button" onClick={() => paginate(number)}>{number}</ButtonPageItem>
+                    </li>
+                ))}
             </Wraper>
-            <Button type="button">
+            <Button type="button" onClick={nextPage}>
                 <MdArrowForwardIos/>
             </Button>
         </Wrap>

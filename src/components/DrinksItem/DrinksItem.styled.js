@@ -57,6 +57,8 @@ export const СocktailType = styled.p`
 `;
 
 export const СocktailRecipe = styled.p`
+  max-height: 93px;
+  overflow: scroll;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -131,28 +133,6 @@ export const ButtonDelete = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    /* font-family: 'Manrope', Arial, sans-serif; */
-    /* width: 56px; */
-    /* height: 56px; */
-    
-    
-    /* font-style: inherit; */
-
-    /* font-weight: normal; */
     padding: 15px;
-    /* line-height: 0; */
-    /* width: 100%; */
-    /* font-size: 24px;
-    font-family: 'Manrope';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  /* display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: 2tr; */ 
   };  
 `;

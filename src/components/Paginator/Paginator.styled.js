@@ -14,6 +14,7 @@ export const Wrap = styled.div`
 
     @media screen and (min-width: 768px) {
         max-width: 436px;
+        margin-top: 80px;
   };
 
 `;
@@ -26,10 +27,10 @@ export const Button = styled.button`
     color: rgba(243, 243, 243, 0.3);
     border: none;
 
-    :hover {
+    /* :hover {
         color: #161F37;
         background-color: #F3F3F3;
-  }
+  } */
 `;
 
 export const Wraper = styled.ul`
@@ -38,18 +39,18 @@ export const Wraper = styled.ul`
     justify-content: space-between;
 `;
 
-export const PageItem = styled.li`
-    
-`;
-
 export const ButtonPageItem = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     border: none;
     background-color: inherit;
     color: #F3F3F3;
-    padding: 10px;
 
     :hover {
-    background-color: #161F37;
+        background-color: #161F37;
     }
 `;

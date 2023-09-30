@@ -1,4 +1,4 @@
-import Coctaile from "../../img/drink-master/cocktail/berry-deadly.jpg"
+// import Coctaile from "../../img/drink-master/cocktail/berry-deadly.jpg"
 import {RiDeleteBinLine} from "react-icons/ri";
 import {
   Image,
@@ -12,17 +12,15 @@ import {
   ImageWrap,
 } from './DrinksItem.styled';
 
-const DrinksItem = () => {
+const DrinksItem = ({item}) => {
+  const { drinkThumb, drink, alcoholic, description } = item;
+  // const thumb = "http://res.cloudinary.com/dec1shvoo/image/upload/v1689167155/cocktails-v1/drinks/Ipamena.jpg"
   return (
     <Wrap>
-      <ImageWrap><Image src={Coctaile} alt="" /></ImageWrap>
-      <СocktailName>Pornstar Martini</СocktailName>
-      <СocktailType>Alcoholic</СocktailType>
-      <СocktailRecipe>
-        The porn star martini is a passion-fruit-flavoured cocktail made with
-        vanilla-flavoured vodka, Passoã, passion fruit juice, and lime juice. It
-        is traditionally accompanied by a chilled shot glass of prosecco.{' '}
-      </СocktailRecipe>
+      <ImageWrap><Image src={drinkThumb} alt="image" /></ImageWrap>
+      <СocktailName>{ drink }</СocktailName>
+      <СocktailType>{alcoholic}</СocktailType>
+      <СocktailRecipe>{description}</СocktailRecipe>
       <Wraper>
         <ButtonSeeMore>See more</ButtonSeeMore>
         <ButtonDelete>
