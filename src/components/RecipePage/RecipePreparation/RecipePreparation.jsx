@@ -1,11 +1,12 @@
 import css from './RecipePreparation.module.css';
-// import testIMG from '../../../img/my-drinks/recipe-preparation@2x.jpg'
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { selectDrinks } from '../../../redux/drinks/drinksSelectors';
 
-const RecipePreparation = ({data}) => {
-
-    const { description, drinkThumb, drink, instructions} = data;
+const RecipePreparation = () => {
+  const preparation = useSelector(selectDrinks);
+    const { description, drinkThumb, drink, instructions} = preparation.data;
 
     const instructionSentence = instructions.split(/(?<=[.!?])\s+/).filter(Boolean);
 
@@ -17,9 +18,9 @@ const RecipePreparation = ({data}) => {
     <div>
     <p className={css.prepDescription}>{description}</p>
     <ul>
-    {instructionSentence.map((sentence, index) => (
+    {instructionSentence.map((instructions, index) => (
     <li key={index}>
-    <ol>{sentence.trim()}</ol>
+    <ol>{instructions.trim()}</ol>
     </li>
     ))}
     </ul>

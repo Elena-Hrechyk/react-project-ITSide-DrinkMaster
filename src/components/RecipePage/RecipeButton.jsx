@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
 import css from "./RecipeButton.module.css"
+import { selectDrinks } from "../../redux/drinks/drinksSelectors";
 
-const RecipeButton = ({data}) => {
-    const {_id} = data
-    const userId = useSelector(state => state._id);
-    const isFavorite = recipe?.users.includes(userId);
+const RecipeButton = () => {
+    const userId = useSelector(selectDrinks);
+    const {_id} = userId.data;
+    const isFavorite = users.includes(userId);
 
     const favoriteButtonClick = () => {
         dispatch(_id);

@@ -1,10 +1,13 @@
 import css from "./RecipeHero.module.css"
 import RecipeButton from "./RecipeButton";
 import RecipeTitle from "./RecipeTitle";
-// import img from "../../img/my-drinks/high-angle-tasty-caipirinha-with-raspberry@2x.jpg"
-const RecipeHero = ({data}) => {
+import { useSelector } from "react-redux";
+import { selectDrinks } from "../../redux/drinks/drinksSelectors";
 
-    const { glass, drinkThumb, shortDescription, alcoholic, drink, _id} = data;
+const RecipeHero = () => {
+
+    const drinks = useSelector(selectDrinks);
+    const  { glass, drinkThumb, shortDescription, alcoholic, drink} = drinks.data;
 
     return (
     <section className={css.RecipeContainer}>
@@ -12,7 +15,7 @@ const RecipeHero = ({data}) => {
     <RecipeTitle title={drink}/>
     <p className={css.glass}>{glass}/{alcoholic}</p>
     <p className={css.RecipeDescription}>{shortDescription}</p>
-    <RecipeButton id={_id}/>
+    <RecipeButton/>
     </div>
     <img className={css.RecipeImg} src={drinkThumb} alt={drink} title={drink}/>
     </section>

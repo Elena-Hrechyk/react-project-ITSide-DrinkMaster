@@ -1,6 +1,6 @@
 import css from "./RecipeIngredients.module.css"
-// import imgTest from "../../../img/my-drinks/ingridiens/mobile/lime.png"
-// import imgTestSec from "../../../img/my-drinks/ingridiens/mobile/passion-fruit-juice.png"
+import { selectDrinks } from "../../../redux/drinks/drinksSelectors";
+import { useSelector } from "react-redux";
 
 export const RecipeIngredientsList = ({children}) => {
     return (
@@ -12,18 +12,19 @@ export const RecipeIngredientsList = ({children}) => {
 };
 
 
-export const RecipeIngredientsItems = ({data}) => {
-
-    const { ingredients } = data;
+export const RecipeIngredientsItems = () => {
+    
+    const ingredients = useSelector(selectDrinks);
+    const { ingredientId, title, measure, ingredientThumb} = ingredients.data;
 
     return (
-    <li className={css.ingredientsItem} id={ingredients.ingredientId} title={`${ingredients.title}  ${ingredients.measure ? ingredients.measure : ''}`}>
+    <li className={css.ingredientsItem} id={ingredientId} title={`${title}  ${measure ? measure : ''}`}>
     <div className={css.ingredientsContainer}>
-    <img className={css.imgIngredients} src={ingredients.ingredientThumb} alt={ingredients.title} />
+    <img className={css.imgIngredients} src={ingredientThumb} alt={title} />
     </div>
     <div className={css.ingredientsDescription}>
-    <p className={css.ingredientsTitle}>{ingredients.title}</p>
-    <p className={css.ingredientsMeasures}>{ingredients.measure}</p>
+    <p className={css.ingredientsTitle}>{title}</p>
+    <p className={css.ingredientsMeasures}>{measure}</p>
     </div>
     </li>
     )
