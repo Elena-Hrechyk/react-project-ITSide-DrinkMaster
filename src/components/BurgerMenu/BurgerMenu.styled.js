@@ -24,7 +24,7 @@ export const BurgerMenuContainer = styled.div`
 
 export const BurgerMenuBtn = styled.button`
   display: none;
-  z-index: 100;
+ 
   margin-left: 24px;
   width: 38px;
   height: 38px;

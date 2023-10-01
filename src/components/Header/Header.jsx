@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../img/svg/logo.svg';
 import {
@@ -14,6 +15,8 @@ import { UserBarMenu } from '../UserBarMenu/UserBarMenu';
 
 export const Header = () => {
   const [isOpenBurgerMenu, setisOpenBurgerMenu] = useState(false);
+
+  const location = useLocation();
 
   const toggleMenu = () => setisOpenBurgerMenu(!isOpenBurgerMenu);
 
@@ -43,7 +46,10 @@ export const Header = () => {
             <StyledLink to="favorites">Favorites</StyledLink>
           </NavigationList>
         </Navigation>
-        <UserBarMenu />
+        <UserBarMenu
+          toggleMenu={toggleMenu}
+          isOpenBurgerMenu={isOpenBurgerMenu}
+        />
 
         <BurgerMenu
           toggleMenu={toggleMenu}

@@ -1,3 +1,5 @@
+import { forwardRef } from "react";
+
 import { ReactComponent as EditSvg } from '../../../img/svg/edit-01.svg';
 import {
   ModalUserLogoPopup,
@@ -8,9 +10,10 @@ import {
   ButtonContent,
 } from './UserLogoPopup.styled';
 
-export const UserLogoPopup = ({ isOpen, onClose, openEdit, openLogout }) => {
+export const UserLogoPopup = forwardRef(({ isOpen, onClose, openEdit, openLogout }, ref) => {
   return (
     <ModalUserLogoPopup
+      ref={ref}
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Drop down modal"
@@ -27,4 +30,4 @@ export const UserLogoPopup = ({ isOpen, onClose, openEdit, openLogout }) => {
       </ModalContent>
     </ModalUserLogoPopup>
   );
-};
+});

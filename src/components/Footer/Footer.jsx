@@ -68,6 +68,7 @@ export const Footer = () => {
                   <ErrorMessage name="email" component="span" />
                 </FormLabel>
                 <Button type="submit">Subscribe</Button>
+              
               </Form>
             </Formik>
           </SubscribeBox>

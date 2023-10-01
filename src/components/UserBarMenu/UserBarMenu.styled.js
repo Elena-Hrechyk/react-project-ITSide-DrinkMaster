@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 
 export const UserBarBtn = styled.button`
@@ -24,9 +25,14 @@ export const UserBarImg = styled.img`
   background-color: white;
 `;
 
-
 export const UserBar = styled.div`
   margin-left: auto;
 `;
+
+export const GlobalStyle = createGlobalStyle`
+  body.modal-open {
+    overflow: hidden;
+  }
+`
 
 

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
+import React, { createRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { selectUserData } from '../../redux/auth/authSelectors';
@@ -9,43 +8,53 @@ import {
   UserBarName,
   UserBarImg,
   UserBar,
+  GlobalStyle,
 } from './UserBarMenu.styled';
-
-
 
 import { UserLogoPopup } from './UserLogoPopup/UserLogoPopup';
 import { UserInfoModal } from './UserInfoModal/UserInfoModal';
 import { LogOutBtnModal } from './LogoutBtn/LogoutBtn';
 
-export const UserBarMenu = () => {
+export const UserBarMenu = ({ toggleMenu, isOpenBurgerMenu }) => {
   const { name, avatarURL } = useSelector(selectUserData);
 
   const [isOpenLogoPopup, setIsOpenLogoPopup] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isLogoutModal, setIsLogoutModal] = useState(false);
 
+  const nodeRef = createRef(null);
+
   const openDropDownModal = () => {
+    if (isOpenBurgerMenu === true) {
+      toggleMenu();
+    }
     setIsOpenLogoPopup(true);
+    document.body.classList.add('modal-open');
   };
 
   const closeDropDownModal = () => {
     setIsOpenLogoPopup(false);
+    document.body.classList.remove('modal-open');
   };
 
   const openEditModal = () => {
     setIsEditModalOpen(true);
+    document.body.classList.add('modal-open');
   };
 
   const closeEditModal = () => {
     setIsEditModalOpen(false);
+    document.body.classList.remove('modal-open');
   };
 
   const openLogoutModal = () => {
     setIsLogoutModal(true);
+    document.body.classList.add('modal-open');
   };
 
   const closeLogoutModal = () => {
     setIsLogoutModal(false);
+    document.body.classList.remove('modal-open');
   };
 
   return (
@@ -56,6 +65,7 @@ export const UserBarMenu = () => {
       </UserBarBtn>
 
       <UserLogoPopup
+        ref={nodeRef}
         isOpen={isOpenLogoPopup}
         onClose={closeDropDownModal}
         openEdit={openEditModal}
@@ -63,16 +73,17 @@ export const UserBarMenu = () => {
       />
 
       <UserInfoModal
+        ref={nodeRef}
         isEditModalOpen={isEditModalOpen}
         closeEditModal={closeEditModal}
-        avatarUser={avatarURL}
-        nameUser={name}
       />
 
       <LogOutBtnModal
+        ref={nodeRef}
         isLogoutModal={isLogoutModal}
         isCloseLogoutModal={closeLogoutModal}
       />
+      <GlobalStyle />
     </UserBar>
   );
 };
