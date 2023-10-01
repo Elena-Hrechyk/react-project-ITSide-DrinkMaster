@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PublicRoute } from './PublicRoute';
@@ -23,10 +23,15 @@ const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
 function App() {
   const dispatch = useDispatch();
   const isUpdatind = useSelector(selectIsUpdating);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(currentUser());
   }, [dispatch]);
+
+  useEffect(() => {
+    navigate(JSON.parse(window.sessionStorage.getItem('lastRoute') || '{}'));
+  }, [navigate]);
 
   return (
     <AppWrapper>
@@ -64,6 +69,7 @@ function App() {
                 <PrivateRoute
                   component={<DrinksPage />}
                   redirectTo="/welcome"
+                  redirect
                 />
               }
             />
@@ -74,6 +80,7 @@ function App() {
                 <PrivateRoute
                   component={<AddDrinkPage />}
                   redirectTo="/welcome"
+                  redirect
                 />
               }
             />
@@ -84,6 +91,7 @@ function App() {
                 <PrivateRoute
                   component={<FavoritesPage />}
                   redirectTo="/welcome"
+                  redirect
                 />
               }
             />
@@ -93,6 +101,7 @@ function App() {
                 <PrivateRoute
                   component={<MyDrinksPage />}
                   redirectTo="/welcome"
+                  redirect
                 />
               }
             />
