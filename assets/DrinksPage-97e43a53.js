@@ -1,4 +1,4 @@
-import{u as z,s as R,c as Ee,j as h,r as m,t as E,F as we,d as ce,e as Ce,f as ie,a as Ie,h as ke,i as Le,k as _e,l as Se,m as je,o as Y,C as Oe}from"./index-fc177097.js";import{a as Re,s as De,c as Ne,b as Pe,d as Me,e as Fe}from"./drinksSelectors-42b0ca3e.js";import{S as de}from"./react-select.esm-184baed7.js";const ze=()=>{const e=z(Re),t=z(De),o=z(Ne),i=z(Pe),a=z(Me),c=z(Fe);return{isLoading:e,drinks:t,mainPageDrinks:o,error:i,total:a,favoriteDrinks:c}},$e=R.ul`
+import{u as z,s as R,c as Ee,j as h,r as m,t as E,F as we,d as ce,e as Ce,f as ie,a as Ie,h as ke,i as Le,k as _e,l as Se,m as je,o as Y,C as Oe}from"./index-d649708d.js";import{a as Re,s as De,c as Ne,b as Pe,d as Me,e as Fe}from"./drinksSelectors-42b0ca3e.js";import{S as de}from"./react-select.esm-a91d034d.js";const ze=()=>{const e=z(Re),t=z(De),o=z(Ne),i=z(Pe),a=z(Me),c=z(Fe);return{isLoading:e,drinks:t,mainPageDrinks:o,error:i,total:a,favoriteDrinks:c}},$e=R.ul`
    margin-bottom: 40px;
 
   display: grid;
