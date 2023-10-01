@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import { ReactComponent as Logo } from '../../img/svg/logo.svg';
 import {
   HeaderContainer,
   Navigation,
   NavigationList,
   LinkLogo,
-  UserBarBtn,
   StyledLink,
-  UserBarName,
-  UserBarImg,
   Head,
 } from './Header.styled';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { UserBarMenu } from '../UserBarMenu/UserBarMenu';
 
 export const Header = () => {
   const [isOpenBurgerMenu, setisOpenBurgerMenu] = useState(false);
+
+  const location = useLocation();
 
   const toggleMenu = () => setisOpenBurgerMenu(!isOpenBurgerMenu);
 
@@ -44,10 +46,11 @@ export const Header = () => {
             <StyledLink to="favorites">Favorites</StyledLink>
           </NavigationList>
         </Navigation>
-        <UserBarBtn type="button">
-          <UserBarImg src="" alt="User" />
-          <UserBarName>User</UserBarName>
-        </UserBarBtn>
+        <UserBarMenu
+          toggleMenu={toggleMenu}
+          isOpenBurgerMenu={isOpenBurgerMenu}
+        />
+
         <BurgerMenu
           toggleMenu={toggleMenu}
           isOpenBurgerMenu={isOpenBurgerMenu}

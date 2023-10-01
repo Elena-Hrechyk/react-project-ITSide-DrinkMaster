@@ -65,3 +65,33 @@ export const currentUser = createAsyncThunk(
     }
   },
 );
+
+export const updateUserProfile = createAsyncThunk(
+  'users/update',
+  async ({ name, avatarURL }, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistToken = state.auth.token;
+
+    if (!persistToken) {
+      return thunkAPI.rejectWithValue();
+    }
+
+    token.set(persistToken);
+
+    try {
+      const resp = await axios.patch(
+        '/users/update',
+        { name, avatarURL },
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        },
+      );
+
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  },
+);
