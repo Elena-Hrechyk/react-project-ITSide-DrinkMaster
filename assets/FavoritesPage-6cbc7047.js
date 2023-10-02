@@ -1,4 +1,4 @@
-import{n as a,u as n,j as t}from"./index-3127a999.js";import{s as d}from"./drinksSelectors-b215b829.js";import{P as p,D as r}from"./Drinks_List-223bec43.js";const e=a.main`
+import{n as m,r as c,u as l,j as t}from"./index-60eebeba.js";import{u,P as f}from"./useResize-e3e246d0.js";import{s as h}from"./drinksSelectors-b215b829.js";import{P,D as w}from"./Drinks_List-1cf527cf.js";const j=m.main`
   font-family: 'Manrope',Arial,sans-serif;
   max-width: 480px;
   padding-left: 20px;
@@ -26,4 +26,4 @@ import{n as a,u as n,j as t}from"./index-3127a999.js";import{s as d}from"./drink
     padding-right: 20px;
     padding-top: 158px;
   }
-`,g=()=>{const{data:i}=n(d);return t.jsxs(e,{children:[t.jsx(p,{title:"My drinks"}),t.jsx(r,{items:i})]})};export{g as MyDrinksPage,g as default};
+`,A=()=>{const[e,r]=c.useState(1),{width:i}=u(),a=i<1280?10:9,o=i<768?5:8,{data:n}=l(h),s=e*a,p=s-a,d=n.slice(p,s),g=x=>{r(x)};return t.jsxs(j,{children:[t.jsx(P,{title:"Favorites"}),t.jsx(w,{items:d}),t.jsx(f,{currentPage:e,paginate:o,drinksPerPage:a,totalItems:n.length,nextPage:g})]})};export{A as FavoritesPage,A as default};
