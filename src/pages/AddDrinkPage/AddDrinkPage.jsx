@@ -5,11 +5,8 @@ import DrinkDescription from '../../components/DrinkDescription/DrinkDescription
 
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 // import { useEffect } from 'react';
-import {  useSelector } from 'react-redux';
-import {
-  // fetchDrinksPopular,
-  // newDrink,
-} from '../../redux/drinks/drinksOperations';
+import {  useDispatch, useSelector } from 'react-redux';
+import { newDrink } from '../../redux/drinks/drinksOperations';
 import DrinkIngredients from '../../components/DrinkIngredients/DrinkIngredients';
 // import { selectIsLoading } from '../../redux/drinks/drinksSelectors';
 import PopularDrinks from '../../components/PopularDrinks/PopularDrinks';
@@ -31,46 +28,34 @@ const validationSchema = yup.object().shape({
 });
 
 const AddDrinkPage = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const user = useSelector(selectUserData);
 
   // const isLoading = useSelector(selectIsLoading);
   const { _id } = useSelector(selectUserData);
   const onSubmitForm = (values) => {
     values.owner = _id;
-    // values.drinkThumb = drinkThumbFile;
-    console.log('values:', values);
+    values.drinkThumb = drinkThumbFile;
+    
     const formData = new FormData();
 
+
     for (let value in values) {
-      formData.append(value, values[value]);
+      if (value === 'ingredients') {
+        formData.append(value, JSON.stringify(values[value]));
+      } else {
+        formData.append(value, values[value]);
+      }
     }
-    // formData.append('drinkThumb', values.drinkThumb)
-    // formData.append('drink', values.drink)
-    // formData.append('description', values.description)
-    // formData.append('category', values.category)
-    // formData.append('alcoholic', values.alcoholic)
-    // formData.append('glass', values.glass)
-    // formData.append('_id', values.owner)
-    // formData.append('shortDescription', values.shortDescription)
-
-    // console.log("formData",formData.get("drink"))
-    // console.log('formData', typeof(formData.get('drinkThumb')));
-    //   for (var pair of formData.entries()) {
-    //     console.log(typeof(pair[0])+ ', ' + typeof(pair[1]));
-    // }
-    // dispatch(newDrink(formData));
+    console.log('formData', formData);
+    dispatch(newDrink(formData));
   };
-  // const drink = useSelector(selectDrinks);
-  // console.log(user.id);
-  // const fileRef = useRef(null);
 
-  // let drinkThumbFile;
-  // const file = (file) => {
-  //   console.log(file);
-  //   drinkThumbFile = file;
-  //   console.log("drinkThumbFile", drinkThumbFile);
-  // };
+
+  let drinkThumbFile;
+  const file = (file) => {
+    drinkThumbFile = file;
+  };
 
   return (
     <>
@@ -96,17 +81,16 @@ const AddDrinkPage = () => {
         >
           {({ setFieldValue }) => (
             <Form style={{ margin: 'auto' }} encType="multipart/form-data">
-              <DrinkDescription
-                // fileValue={file}
+              {/* <DrinkDescription
+                fileValue={file}
                 fieldValueFormik={setFieldValue}
-              />
+              /> */}
               <DrinkIngredients />
               <RecipePreparation />
               <SendFormButton type="submit">Add</SendFormButton>
             </Form>
           )}
         </Formik>
-        {/* FolofUs */}
         <PopularDrinks />
       </AddPageSection>
       {/* </StartSection> */}
