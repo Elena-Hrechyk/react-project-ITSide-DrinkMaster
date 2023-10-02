@@ -10,13 +10,11 @@ import {
 
 const handlePending = (state) => {
   state.isLoading = true;
-  console.log('Hello handlePending');
 };
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  console.log('Hello handleRejected');
 };
 
 const drinksSlice = createSlice({
@@ -41,7 +39,6 @@ const drinksSlice = createSlice({
       .addCase(getAllDrinks.rejected, handleRejected)
       .addCase(newDrink.pending, handlePending)
       .addCase(newDrink.fulfilled, (state, action) => {
-        console.log('fulfilled');
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
@@ -63,7 +60,6 @@ const drinksSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getSearchDrink.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.isLoading = false;
         state.cocktails = action.payload.result;
         state.total = action.payload.totalHits;

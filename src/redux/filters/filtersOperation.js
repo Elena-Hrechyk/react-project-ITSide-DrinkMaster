@@ -8,7 +8,6 @@ export const getCategories = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/filters/categories');
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

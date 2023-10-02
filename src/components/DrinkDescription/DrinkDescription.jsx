@@ -13,31 +13,30 @@ import {
   RadioLabel,
   UnderlinedElement,
   AddImageButton,
-
+  ImageBackground,
 } from './DrinkDescription.styled';
 import plus from '../../img/svg/plus.svg';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCategories, selectGlasses } from '../../redux/filters/selectors';
-import { getCategories, getGlasses } from '../../redux/filters/filtersOperation';
+import {
+  getCategories,
+  getGlasses,
+} from '../../redux/filters/filtersOperation';
 
-
-
-const DrinkDescription = ({fileValue, fieldValueFormik}) => {
+const DrinkDescription = ({ fileValue }) => {
   const [drinkThumb, setDrinkThumb] = useState(null);
-  console.log(drinkThumb)
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCategories())
-    dispatch(getGlasses())
-  }, [dispatch])
-  
+    dispatch(getCategories());
+    dispatch(getGlasses());
+  }, [dispatch]);
 
   const categories = useSelector(selectCategories);
-  
+
   const glasses = useSelector(selectGlasses);
   const categoriesSelect = categories.map((item) => {
     return { label: item, value: item };
@@ -47,36 +46,57 @@ const DrinkDescription = ({fileValue, fieldValueFormik}) => {
   });
 
   const handleFileChange = (e) => {
-    const fileData = e.target.files[0];
-    // console.log(fileData)
-    setDrinkThumb(fileData);
-    // fileValue(fileData);
-    fieldValueFormik('drinkThumb', fileData )
+    const imageData = e.target.files[0];
+    
+    if (e.target.files.length > 0) {
+      setDrinkThumb({
+        picture: imageData,
+        src: URL.createObjectURL(imageData),
+      });
+    }
+    fileValue(imageData)
+    // setValue('drinkThumb', imageData);
   };
-
 
   return (
     <>
       <h2 style={{ display: 'flex', flex: 'start' }}>Add drink</h2>
       <DescriptionContainer>
         <AddImage>
-          <AddImageButton
-            style={{ backgroundColor: 'white' }}
-          >
-            <Field
-              name="drinkThumb"
-              type="file"
-              as={HiddenInput}
-              onChange={handleFileChange}
-              accept="image/*"
-            />
-            <img
-              src={plus}
-              alt="SVG Image"
-              style={{ filter: 'invert(1)', fill: 'black', marginTop: '-18px' }}
-            />
-          </AddImageButton>
-          <p>Add image</p>
+          {drinkThumb === null ? (
+            <>
+              <AddImageButton style={{ backgroundColor: 'white' }}>
+                <Field
+                  name="drinkThumb"
+                  id="drinkThumb"
+                  type="file"
+                  as={HiddenInput}
+                  onChange={handleFileChange}
+                  accept="image/*"
+                />
+
+                {/* <input
+            type=“file”
+            onChange={(event) => {
+              setFieldValue(‘drinkThumb’, event.target.files[0]);
+            }}
+          /> */}
+
+                <img
+                  src={plus}
+                  alt="SVG Image"
+                  style={{
+                    filter: 'invert(1)',
+                    fill: 'black',
+                    marginTop: '-18px',
+                  }}
+                />
+              </AddImageButton>
+              <p>Add image</p>
+            </>
+          ) : (
+            <ImageBackground src={drinkThumb.src} alt={drinkThumb.src} />
+          )}
         </AddImage>
         <InputsContainer>
           <Field
@@ -97,8 +117,17 @@ const DrinkDescription = ({fileValue, fieldValueFormik}) => {
           <UnderlinedElement />
           <div style={CategoryContainer}>
             <p style={{ color: '#f3f3f380' }}>Category</p>
-            <Field name="category">
-              {({ form }) => (
+            <Field name="category" id="category">
+              {/* {({ setValue }) => (
+                <DropDownMenu
+                  optionValue={categoriesSelect}
+                  onChange={
+                    (value) => setValue('category', value)
+                    // form.setFieldValue('category', value)
+                  }
+                />
+              )} */}
+                            {({ form }) => (
                 <DropDownMenu
                   optionValue={categoriesSelect}
                   onChange={(selectedOption) =>

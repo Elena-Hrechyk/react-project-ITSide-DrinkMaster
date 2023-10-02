@@ -26,11 +26,9 @@ const DrinkIngredients = () => {
 
   useEffect(() => {
     dispatch(getIngredients())
-    // dispatch(fetchGlasses())
   }, [dispatch])
 
   const ingredients = useSelector(selectIngredients);
-  // console.log(ingredients)
   const ingredientsSelector = ingredients.map((item) => {
     return { label: item, value: item };
   });
@@ -40,6 +38,7 @@ const DrinkIngredients = () => {
     // const removeIngredient = (arrayHelpers, index) => {
     //   arrayHelpers.remove(index);
     // };
+
     for (let i = 0; i < counter; i++) {
       containers.push(
         <IngridientsContainer key={i}>
@@ -94,6 +93,7 @@ const DrinkIngredients = () => {
         <h1 style={{ marginBottom: '0px', marginTop: '0px' }}>Ingredients</h1>
         <CountBlock>
           <CountButton
+            type="button" 
             onClick={() => {
               if (counter === 0) {
                 return;
@@ -104,7 +104,7 @@ const DrinkIngredients = () => {
             -
           </CountButton>
           <p>{counter}</p>
-          <CountButton onClick={() => setCounter(counter + 1)}>+</CountButton>
+          <CountButton type="button" onClick={() => setCounter(counter + 1)}>+</CountButton>
         </CountBlock>
       </TitleContainer>
       <FieldArray name="ingredients"

@@ -248,3 +248,11 @@ export const SendFormButton = styled.button`
   cursor: pointer;
 
 `;
+
+export const ImageBackground = styled.img`
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  border-radius: 8px;
+`;
