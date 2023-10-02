@@ -1,4 +1,4 @@
-import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
+import{n,j as i,G as r,T as x}from"./index-92ec311f.js";const s=n.h1`
   font-size: 32px;
   font-weight: 600;
   line-height: 1.188;
@@ -15,7 +15,7 @@ import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
     font-size: 64px;
     line-height: 1.063;
   }
-`,H=({title:e})=>i.jsx(i.Fragment,{children:i.jsx(a,{children:e})});function x(e){return d({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"}}]})(e)}const s=n.div`
+`,v=({title:e})=>i.jsx(i.Fragment,{children:i.jsx(s,{children:e})});function h(e){return r({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"}}]})(e)}const g=n.div`
   max-width: 440px;
   
   @media screen and (min-width: 768px) {
@@ -27,14 +27,14 @@ import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
   }
 `,c=n.div`
 
-`,h=n.img`
+`,m=n.img`
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
   border: none;
   border-radius: 8px;
-`,g=n.h3`
+`,l=n.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.286;
@@ -48,7 +48,7 @@ import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
     margin-top: 24px;
   };
   
-`,l=n.p`
+`,f=n.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -62,9 +62,9 @@ import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
     line-height: 1.125;
   };
 
-`,m=n.p`
+`,w=n.p`
   max-height: 93px;
-  overflow: scroll;
+  overflow: clip;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -77,7 +77,7 @@ import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
     line-height: 1.375;
     margin-top: 24px;
   };
-`,f=n.div`
+`,u=n.div`
   display: flex;
   align-items: center;
   margin-top: 18px;
@@ -86,7 +86,7 @@ import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
     margin-top: 24px;
   };
   
-`,w=n.button`
+`,j=n.button`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -116,7 +116,7 @@ import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
     margin-right: 8px;
     
   };
-`,u=n.button`
+`,b=n.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -135,7 +135,7 @@ import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
   @media screen and (min-width: 768px) {
     padding: 15px;
   };  
-`,j=({item:e})=>{const{drinkThumb:t,drink:o,alcoholic:r,description:p}=e;return i.jsxs(s,{children:[i.jsx(c,{children:i.jsx(h,{src:t,alt:"image"})}),i.jsx(g,{children:o}),i.jsx(l,{children:r}),i.jsx(m,{children:p}),i.jsxs(f,{children:[i.jsx(w,{children:"See more"}),i.jsx(u,{children:i.jsx(x,{})})]})]})},F=n.ul`
+`,F=({item:e})=>{const{drinkThumb:t,drink:p,alcoholic:d,description:o}=e;return i.jsxs(g,{children:[i.jsx(c,{children:i.jsx(m,{src:t,alt:"image"})}),i.jsx(l,{children:p}),i.jsx(f,{children:d}),i.jsx(w,{children:o}),i.jsxs(u,{children:[i.jsx(j,{children:"See more"}),i.jsx(b,{children:i.jsx(h,{})})]})]})},z=n.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -146,4 +146,42 @@ import{n,j as i,G as d}from"./index-60eebeba.js";const a=n.h1`
   @media screen and (min-width: 768px) {
     gap: 80px 20px;
   };
-`,V=({items:e})=>i.jsx(F,{children:e&&e.map(t=>i.jsx("li",{children:i.jsx(j,{item:t})},t._id))});export{V as D,H as P};
+`,y=({items:e})=>i.jsx(z,{children:e&&e.map(t=>i.jsx("li",{children:i.jsx(F,{item:t})},t._id))}),H=n.section`
+  max-width: 205px;
+  padding-bottom: 0;
+  padding-top: 11px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 261px;
+    padding-top: 100px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 67px;
+  }
+`,V=n.img`
+  max-width: 198px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 261px;
+  }
+`,a=n.p`
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.286;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.286;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.375;
+  }
+`,M=({error:e,message:t})=>i.jsxs(H,{children:[i.jsx(V,{src:x}),e?i.jsx(a,{children:e}):i.jsx(a,{children:t})]});export{y as D,M as N,v as P};

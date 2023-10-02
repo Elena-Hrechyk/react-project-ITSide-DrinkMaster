@@ -1,4 +1,4 @@
-import{s as i,r as m,j as e,a as b,h as I,q as D,u as f,d as p,i as T,t as V,S as A,v as z,w as P,x as R,e as E,y as $,l as B,F as M,z as U}from"./index-60eebeba.js";import{S as G,s as N,b as _,a as X}from"./react-select.esm-d0b96e66.js";import{c as O}from"./drinksSelectors-b215b829.js";const H=i.section`
+import{s as i,r as m,j as e,a as b,h as I,t as D,u as f,d as p,i as T,v as A,S as V,w as z,x as P,y as R,e as E,z as $,l as B,F as M,A as U}from"./index-92ec311f.js";import{S as G,s as N,b as _,a as X}from"./react-select.esm-6789fe88.js";import{d as O}from"./drinksSelectors-270585a3.js";const H=i.section`
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center content horizontally */
@@ -103,14 +103,14 @@ margin-top: 40px;
   @media (min-width: 1440px) {
     width: 339px;
   }
-`,q=i.div`
+`,J=i.div`
   ///// задать гнучкий розмір
   display: flex;
   flex-direction: column;
   @media (min-width: 768px) {
     padding-left: 40px;
   }
-`,y={display:"flex",alignItems:"center",justifyContent:"space-between",maxHeight:"278px"},J=i.div`
+`,y={display:"flex",alignItems:"center",justifyContent:"space-between",maxHeight:"278px"},L=i.div`
   width: 335px; ///// задать гнучкий розмір
   height: 320px;
   background-color: #161f3780;
@@ -128,7 +128,7 @@ margin-top: 40px;
     width: 400px;
     height: 400px;
   }
-`,L=i.label`
+`,q=i.label`
   background-color: white;
   width: 50px;
   height: 50px;
@@ -277,7 +277,7 @@ margin-top: 40px;
   
   cursor: pointer;
 
-`,Z="/react-project-ITSide-DrinkMaster/assets/plus-6c79836d.svg",ee=({fileValue:o,fieldValueFormik:r})=>{const[n,x]=m.useState(null);console.log(n);const c=b();m.useEffect(()=>{c(I()),c(D())},[c]);const a=f(N),t=f(_),d=a.map(s=>({label:s,value:s})),l=t.map(s=>({label:s,value:s})),g=s=>{const h=s.target.files[0];x(h),r("drinkThumb",h)};return e.jsxs(e.Fragment,{children:[e.jsx("h2",{style:{display:"flex",flex:"start"},children:"Add drink"}),e.jsxs(Y,{children:[e.jsxs(J,{children:[e.jsxs(L,{style:{backgroundColor:"white"},children:[e.jsx(p,{name:"drinkThumb",type:"file",as:Q,onChange:g,accept:"image/*"}),e.jsx("img",{src:Z,alt:"SVG Image",style:{filter:"invert(1)",fill:"black",marginTop:"-18px"}})]}),e.jsx("p",{children:"Add image"})]}),e.jsxs(q,{children:[e.jsx(p,{as:k,id:"drink",name:"drink",type:"text",placeholder:"Enter item drink"}),e.jsx(u,{}),e.jsx(p,{as:k,id:"shortDescription",name:"shortDescription",type:"text",placeholder:"Enter about recipe"}),e.jsx(u,{}),e.jsxs("div",{style:y,children:[e.jsx("p",{style:{color:"#f3f3f380"},children:"Category"}),e.jsx(p,{name:"category",children:({form:s})=>e.jsx(j,{optionValue:d,onChange:h=>s.setFieldValue("category",h)})})]}),e.jsx(u,{}),e.jsxs("div",{style:y,children:[e.jsx("p",{style:{color:"#f3f3f380"},children:"Glass"}),e.jsx(p,{name:"glass",children:({form:s})=>e.jsx(j,{optionValue:l,onChange:h=>s.setFieldValue("glass",h)})})]}),e.jsx(u,{}),e.jsxs(K,{children:[e.jsxs(v,{children:[e.jsx(p,{as:F,type:"radio",id:"radio-1",name:"alcoholic",value:"Alcoholic"}),e.jsx(C,{htmlFor:"radio-1",className:"radio-label",children:"Alcoholic"})]}),e.jsxs(v,{children:[e.jsx(p,{as:F,type:"radio",id:"radio-2",name:"alcoholic",value:"Non alcoholic"}),e.jsx(C,{htmlFor:"radio-2",className:"radio-label",children:"Non-alcoholic"})]})]})]})]})]})},ie=i.div`
+`,Z="/react-project-ITSide-DrinkMaster/assets/plus-6c79836d.svg",ee=({fileValue:o,fieldValueFormik:r})=>{const[n,x]=m.useState(null);console.log(n);const c=b();m.useEffect(()=>{c(I()),c(D())},[c]);const a=f(N),t=f(_),d=a.map(s=>({label:s,value:s})),l=t.map(s=>({label:s,value:s})),g=s=>{const h=s.target.files[0];x(h),r("drinkThumb",h)};return e.jsxs(e.Fragment,{children:[e.jsx("h2",{style:{display:"flex",flex:"start"},children:"Add drink"}),e.jsxs(Y,{children:[e.jsxs(L,{children:[e.jsxs(q,{style:{backgroundColor:"white"},children:[e.jsx(p,{name:"drinkThumb",type:"file",as:Q,onChange:g,accept:"image/*"}),e.jsx("img",{src:Z,alt:"SVG Image",style:{filter:"invert(1)",fill:"black",marginTop:"-18px"}})]}),e.jsx("p",{children:"Add image"})]}),e.jsxs(J,{children:[e.jsx(p,{as:k,id:"drink",name:"drink",type:"text",placeholder:"Enter item drink"}),e.jsx(u,{}),e.jsx(p,{as:k,id:"shortDescription",name:"shortDescription",type:"text",placeholder:"Enter about recipe"}),e.jsx(u,{}),e.jsxs("div",{style:y,children:[e.jsx("p",{style:{color:"#f3f3f380"},children:"Category"}),e.jsx(p,{name:"category",children:({form:s})=>e.jsx(j,{optionValue:d,onChange:h=>s.setFieldValue("category",h)})})]}),e.jsx(u,{}),e.jsxs("div",{style:y,children:[e.jsx("p",{style:{color:"#f3f3f380"},children:"Glass"}),e.jsx(p,{name:"glass",children:({form:s})=>e.jsx(j,{optionValue:l,onChange:h=>s.setFieldValue("glass",h)})})]}),e.jsx(u,{}),e.jsxs(K,{children:[e.jsxs(v,{children:[e.jsx(p,{as:F,type:"radio",id:"radio-1",name:"alcoholic",value:"Alcoholic"}),e.jsx(C,{htmlFor:"radio-1",className:"radio-label",children:"Alcoholic"})]}),e.jsxs(v,{children:[e.jsx(p,{as:F,type:"radio",id:"radio-2",name:"alcoholic",value:"Non alcoholic"}),e.jsx(C,{htmlFor:"radio-2",className:"radio-label",children:"Non-alcoholic"})]})]})]})]})]})},ie=i.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -400,7 +400,7 @@ border: none;
 `,xe=i.img`
 /* width:16px; */
 fill: white;
-`,he="/react-project-ITSide-DrinkMaster/assets/Xicon-bd8869f2.svg";let me=(o=21)=>crypto.getRandomValues(new Uint8Array(o)).reduce((r,n)=>(n&=63,n<36?r+=n.toString(36):n<62?r+=(n-26).toString(36).toUpperCase():n>62?r+="-":r+="_",r),"");const fe=()=>{const[o,r]=m.useState(0),n=b();m.useEffect(()=>{n(T())},[n]);const c=f(X).map(t=>({label:t,value:t})),a=t=>{const d=[];for(let l=0;l<o;l++)d.push(e.jsxs(se,{children:[e.jsx(de,{children:e.jsx(p,{name:`ingredients.${l}.title`,children:({form:g})=>e.jsx(j,{optionValue:c,onChange:s=>{g.setFieldValue(`ingredients.${l}.ingredient`,s),g.setFieldValue(`ingredients.${l}.ingredientId`,me())}})})}),e.jsx(le,{width:"150px",children:e.jsx(p,{name:`ingredients.${l}.measure`,as:pe,placeholder:"Measure",marginBottom:"0"})}),e.jsx(ce,{type:"button",onClick:()=>t.remove(l),children:e.jsx(xe,{src:he,alt:`Xicon-${l}`})})]},l));return d};return e.jsxs(re,{children:[e.jsxs(ae,{children:[e.jsx("h1",{style:{marginBottom:"0px",marginTop:"0px"},children:"Ingredients"}),e.jsxs(oe,{children:[e.jsx(S,{onClick:()=>{o!==0&&r(o-1)},children:"-"}),e.jsx("p",{children:o}),e.jsx(S,{onClick:()=>r(o+1),children:"+"})]})]}),e.jsx(V,{name:"ingredients",render:t=>e.jsx("div",{children:a(t)})})]})},ge=i.div`
+`,he="/react-project-ITSide-DrinkMaster/assets/Xicon-bd8869f2.svg";let me=(o=21)=>crypto.getRandomValues(new Uint8Array(o)).reduce((r,n)=>(n&=63,n<36?r+=n.toString(36):n<62?r+=(n-26).toString(36).toUpperCase():n>62?r+="-":r+="_",r),"");const fe=()=>{const[o,r]=m.useState(0),n=b();m.useEffect(()=>{n(T())},[n]);const c=f(X).map(t=>({label:t,value:t})),a=t=>{const d=[];for(let l=0;l<o;l++)d.push(e.jsxs(se,{children:[e.jsx(de,{children:e.jsx(p,{name:`ingredients.${l}.title`,children:({form:g})=>e.jsx(j,{optionValue:c,onChange:s=>{g.setFieldValue(`ingredients.${l}.ingredient`,s),g.setFieldValue(`ingredients.${l}.ingredientId`,me())}})})}),e.jsx(le,{width:"150px",children:e.jsx(p,{name:`ingredients.${l}.measure`,as:pe,placeholder:"Measure",marginBottom:"0"})}),e.jsx(ce,{type:"button",onClick:()=>t.remove(l),children:e.jsx(xe,{src:he,alt:`Xicon-${l}`})})]},l));return d};return e.jsxs(re,{children:[e.jsxs(ae,{children:[e.jsx("h1",{style:{marginBottom:"0px",marginTop:"0px"},children:"Ingredients"}),e.jsxs(oe,{children:[e.jsx(S,{onClick:()=>{o!==0&&r(o-1)},children:"-"}),e.jsx("p",{children:o}),e.jsx(S,{onClick:()=>r(o+1),children:"+"})]})]}),e.jsx(A,{name:"ingredients",render:t=>e.jsx("div",{children:a(t)})})]})},ge=i.div`
   width: 164px;
   height: 44px;
   display: flex;
@@ -415,7 +415,7 @@ fill: white;
   align-items: center;
   border: 1px solid rgba(243, 243, 243, 0.2);
   border-radius: 10px;
-`,ue=()=>e.jsxs(ge,{children:[e.jsxs("a",{href:"https://www.facebook.com/goITclub/",target:"_blank",rel:"noreferrer noopener","aria-label":"link to Facebook",children:[" ",e.jsx(w,{children:e.jsx(A,{})})]}),e.jsx("a",{href:"https://www.instagram.com/goitclub/",target:"_blank",rel:"noreferrer noopener","aria-label":"link to Instagram",children:e.jsx(w,{children:e.jsx(z,{})})}),e.jsx("a",{href:"https://www.youtube.com/c/GoIT",target:"_blank",rel:"noreferrer noopener","aria-label":"link to Youtube",children:e.jsx(w,{children:e.jsx(P,{})})})]}),be=i.div`
+`,ue=()=>e.jsxs(ge,{children:[e.jsxs("a",{href:"https://www.facebook.com/goITclub/",target:"_blank",rel:"noreferrer noopener","aria-label":"link to Facebook",children:[" ",e.jsx(w,{children:e.jsx(V,{})})]}),e.jsx("a",{href:"https://www.instagram.com/goitclub/",target:"_blank",rel:"noreferrer noopener","aria-label":"link to Instagram",children:e.jsx(w,{children:e.jsx(z,{})})}),e.jsx("a",{href:"https://www.youtube.com/c/GoIT",target:"_blank",rel:"noreferrer noopener","aria-label":"link to Youtube",children:e.jsx(w,{children:e.jsx(P,{})})})]}),be=i.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
