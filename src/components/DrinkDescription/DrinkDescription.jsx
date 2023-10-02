@@ -17,16 +17,16 @@ import {
 } from './DrinkDescription.styled';
 import plus from '../../img/svg/plus.svg';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCategories, selectGlasses } from '../../redux/filters/selectors';
 import { getCategories, getGlasses } from '../../redux/filters/filtersOperation';
-// import { useState } from 'react';
 
 
-const DrinkDescription = () => {
-  // const [drinkThumb, setDrinkThumb] = useState(null);
-  // console.log(drinkThumb)
+
+const DrinkDescription = ({fileValue, fieldValueFormik}) => {
+  const [drinkThumb, setDrinkThumb] = useState(null);
+  console.log(drinkThumb)
 
   const dispatch = useDispatch()
 
@@ -48,10 +48,10 @@ const DrinkDescription = () => {
 
   const handleFileChange = (e) => {
     const fileData = e.target.files[0];
-    console.log(fileData)
-    // setDrinkThumb(fileData);
+    // console.log(fileData)
+    setDrinkThumb(fileData);
     // fileValue(fileData);
-    // fieldValueFormik('drinkThumb', fileData )
+    fieldValueFormik('drinkThumb', fileData )
   };
 
 
