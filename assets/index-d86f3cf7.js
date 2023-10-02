@@ -685,38 +685,8 @@ color: #F3F3F3;
   font-weight: 500;
   line-height: 22.4px;
 `,w7=()=>_.jsx(v7,{children:_.jsxs(y7,{children:[_.jsx(ku,{to:"/drinks",children:"Drinks"}),_.jsx(ku,{to:"add",children:"Add drink"}),_.jsx(ku,{to:"my",children:"My drinks"}),_.jsx(ku,{to:"favorites",children:"Favorites drinks"})]})}),b7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg1_footer_mob@1x-712fbce6.png",x7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg1_footer_mob@2x-b656dc46.png",S7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg1_footer_tab@1x-8b98b427.png",k7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg2_footer_tab@1x-e6aa7098.png",_7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg1_footer_tab@2x-d2996e3f.png",E7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg2_footer_tab@2x-24aebf0a.png",C7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg1_footer_desk@1x-d8e5c43f.png",O7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg2_footer_desk@1x-7c082248.png",T7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg1_footer_desk@2x-5435b280.png",D7="/react-project-ITSide-DrinkMaster/assets/Drinks_bg2_footer_desk@2x-02979348.png",P7=L.footer`
-  border-top: 1px solid rgba(243, 243, 243, 0.2);
-`,$7=L.div`
   position: relative;
-  font-family: 'Manrope', Arial, sans-serif;
-  max-width: 480px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 60px;
-  padding-bottom: 18px;
-  margin-left: auto;
-  margin-right: auto;
-
-  color: #f3f3f3;
-
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 60px;
-
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 24px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-    padding-top: 80px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 24px;
-  }
+  border-top: 1px solid rgba(243, 243, 243, 0.2);
 
   background-image: url(${b7});
   background-size: cover;
@@ -768,6 +738,37 @@ color: #F3F3F3;
     background-position:
       center bottom,
       center bottom;
+  }
+`,$7=L.div`
+  position: relative;
+  font-family: 'Manrope', Arial, sans-serif;
+  max-width: 480px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 60px;
+  padding-bottom: 18px;
+  margin-left: auto;
+  margin-right: auto;
+
+  color: #f3f3f3;
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 60px;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 24px;
   }
 `,M7=L.div`
   display: flex;
@@ -2224,4 +2225,4 @@ visibility:hidden;
       right bottom,
       right bottom;
   }
-`,VH=()=>_.jsx(HH,{children:_.jsxs(qd,{children:[_.jsx(rT,{children:"Sign In"}),_.jsxs(nT,{children:[_.jsx(WH,{}),_.jsx(oT,{to:"/signup",children:"Sign Up"})]})]})}),qH=b.lazy(()=>Ul(()=>import("./HomePage-f499b229.js"),["assets/HomePage-f499b229.js","assets/drinksSelectors-566d8060.js"])),QH=b.lazy(()=>Ul(()=>import("./DrinksPage-dfc58e83.js"),["assets/DrinksPage-dfc58e83.js","assets/useResize-b080aa3e.js","assets/react-select.esm-453cda5e.js","assets/drinksSelectors-566d8060.js"])),KH=b.lazy(()=>Ul(()=>import("./FavoritesPage-93607082.js"),["assets/FavoritesPage-93607082.js","assets/useResize-b080aa3e.js","assets/drinksSelectors-566d8060.js","assets/Drinks_List-fdb958e3.js"])),GH=b.lazy(()=>Ul(()=>import("./MyDrinkPage-9a18b2bc.js"),["assets/MyDrinkPage-9a18b2bc.js","assets/drinksSelectors-566d8060.js","assets/Drinks_List-fdb958e3.js"])),XH=b.lazy(()=>Ul(()=>import("./AddDrinkPage-fb19faaf.js"),["assets/AddDrinkPage-fb19faaf.js","assets/react-select.esm-453cda5e.js","assets/drinksSelectors-566d8060.js"]));function ZH(){const e=Hi(),t=Po(gE),r=$l();return b.useEffect(()=>{e(Zu())},[e]),b.useEffect(()=>{r(JSON.parse(window.sessionStorage.getItem("lastRoute")||"{}"))},[r]),_.jsxs(gR,{children:[_.jsx(xA,{}),t?_.jsx(oO,{}):_.jsx(wD,{children:_.jsxs(Mr,{path:"/",element:_.jsx(xU,{}),children:[_.jsx(Mr,{index:!0,element:_.jsx(fs,{component:_.jsx(qH,{}),redirectTo:"/welcome"})}),_.jsx(Mr,{path:"/welcome",element:_.jsx(Xp,{component:_.jsx(IU,{}),redirectTo:"/"})}),_.jsx(Mr,{path:"/signup",element:_.jsx(Xp,{component:_.jsx(UH,{}),redirectTo:"/"})}),_.jsx(Mr,{path:"/signin",element:_.jsx(Xp,{component:_.jsx(VH,{}),redirectTo:"/"})}),_.jsx(Mr,{path:"/drinks",element:_.jsx(fs,{component:_.jsx(QH,{}),redirectTo:"/welcome",redirect:!0})}),_.jsx(Mr,{path:"/addDrink",element:_.jsx(fs,{component:_.jsx(XH,{}),redirectTo:"/welcome",redirect:!0})}),_.jsx(Mr,{path:"/favorites",element:_.jsx(fs,{component:_.jsx(KH,{}),redirectTo:"/welcome",redirect:!0})}),_.jsx(Mr,{path:"/my",element:_.jsx(fs,{component:_.jsx(GH,{}),redirectTo:"/welcome",redirect:!0})}),_.jsx(Mr,{path:"*",element:_.jsx(DU,{})})]})})]})}Fm.createRoot(document.getElementById("root")).render(_.jsx(T.StrictMode,{children:_.jsx(O$,{store:Z_,children:_.jsx(m_,{loading:null,persistor:wN,children:_.jsx(CD,{basename:"/react-project-ITSide-DrinkMaster",children:_.jsx(oR,{theme:sR,children:_.jsx(ZH,{})})})})})}));export{Z as A,Vc as B,qd as C,Wi as D,nV as E,Ql as F,d0 as G,SU as H,Ee as I,Ce as J,xe as K,oO as L,Se as M,Wg as N,jU as S,fB as _,Hi as a,bd as b,Ml as c,ql as d,Ad as e,ia as f,Yp as g,$d as h,tV as i,_ as j,Un as k,eV as l,oV as m,Mo as n,Bp as o,vE as p,zp as q,b as r,L as s,pE as t,Po as u,rV as v,fE as w,sw as x,qx as y,kr as z};
+`,VH=()=>_.jsx(HH,{children:_.jsxs(qd,{children:[_.jsx(rT,{children:"Sign In"}),_.jsxs(nT,{children:[_.jsx(WH,{}),_.jsx(oT,{to:"/signup",children:"Sign Up"})]})]})}),qH=b.lazy(()=>Ul(()=>import("./HomePage-692b2f33.js"),["assets/HomePage-692b2f33.js","assets/drinksSelectors-566d8060.js"])),QH=b.lazy(()=>Ul(()=>import("./DrinksPage-864d4812.js"),["assets/DrinksPage-864d4812.js","assets/useResize-9d00377d.js","assets/react-select.esm-73eea4e9.js","assets/drinksSelectors-566d8060.js"])),KH=b.lazy(()=>Ul(()=>import("./FavoritesPage-3627d27a.js"),["assets/FavoritesPage-3627d27a.js","assets/useResize-9d00377d.js","assets/drinksSelectors-566d8060.js","assets/Drinks_List-43454b38.js"])),GH=b.lazy(()=>Ul(()=>import("./MyDrinkPage-e34a507e.js"),["assets/MyDrinkPage-e34a507e.js","assets/drinksSelectors-566d8060.js","assets/Drinks_List-43454b38.js"])),XH=b.lazy(()=>Ul(()=>import("./AddDrinkPage-a3d171e8.js"),["assets/AddDrinkPage-a3d171e8.js","assets/react-select.esm-73eea4e9.js","assets/drinksSelectors-566d8060.js"]));function ZH(){const e=Hi(),t=Po(gE),r=$l();return b.useEffect(()=>{e(Zu())},[e]),b.useEffect(()=>{r(JSON.parse(window.sessionStorage.getItem("lastRoute")||"{}"))},[r]),_.jsxs(gR,{children:[_.jsx(xA,{}),t?_.jsx(oO,{}):_.jsx(wD,{children:_.jsxs(Mr,{path:"/",element:_.jsx(xU,{}),children:[_.jsx(Mr,{index:!0,element:_.jsx(fs,{component:_.jsx(qH,{}),redirectTo:"/welcome"})}),_.jsx(Mr,{path:"/welcome",element:_.jsx(Xp,{component:_.jsx(IU,{}),redirectTo:"/"})}),_.jsx(Mr,{path:"/signup",element:_.jsx(Xp,{component:_.jsx(UH,{}),redirectTo:"/"})}),_.jsx(Mr,{path:"/signin",element:_.jsx(Xp,{component:_.jsx(VH,{}),redirectTo:"/"})}),_.jsx(Mr,{path:"/drinks",element:_.jsx(fs,{component:_.jsx(QH,{}),redirectTo:"/welcome",redirect:!0})}),_.jsx(Mr,{path:"/addDrink",element:_.jsx(fs,{component:_.jsx(XH,{}),redirectTo:"/welcome",redirect:!0})}),_.jsx(Mr,{path:"/favorites",element:_.jsx(fs,{component:_.jsx(KH,{}),redirectTo:"/welcome",redirect:!0})}),_.jsx(Mr,{path:"/my",element:_.jsx(fs,{component:_.jsx(GH,{}),redirectTo:"/welcome",redirect:!0})}),_.jsx(Mr,{path:"*",element:_.jsx(DU,{})})]})})]})}Fm.createRoot(document.getElementById("root")).render(_.jsx(T.StrictMode,{children:_.jsx(O$,{store:Z_,children:_.jsx(m_,{loading:null,persistor:wN,children:_.jsx(CD,{basename:"/react-project-ITSide-DrinkMaster",children:_.jsx(oR,{theme:sR,children:_.jsx(ZH,{})})})})})}));export{Z as A,Vc as B,qd as C,Wi as D,nV as E,Ql as F,d0 as G,SU as H,Ee as I,Ce as J,xe as K,oO as L,Se as M,Wg as N,jU as S,fB as _,Hi as a,bd as b,Ml as c,ql as d,Ad as e,ia as f,Yp as g,$d as h,tV as i,_ as j,Un as k,eV as l,oV as m,Mo as n,Bp as o,vE as p,zp as q,b as r,L as s,pE as t,Po as u,rV as v,fE as w,sw as x,qx as y,kr as z};
