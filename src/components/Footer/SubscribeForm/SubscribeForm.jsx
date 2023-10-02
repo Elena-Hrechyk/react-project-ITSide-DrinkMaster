@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+
 import { subscribe } from '../../../redux/auth/authOperations';
 
 import {
@@ -11,25 +12,26 @@ import {
   Button,
   SubscribeBox,
   TextForm,
-  Field
+  Field,
 } from './SubscribeForm.styled';
 
 const EmailSchema = Yup.object().shape({
   email: Yup.string()
-    .matches(
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      'Email may be in this format: test@mail.com',
-    )
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email...')
     .required('Input email...'),
 });
 
 export const SubscribeForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = async (values) => {
-    console.log(values);
+  const [isConfirmed, setIsConfirmed] = useState(false);
+
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       await dispatch(subscribe(values));
+      resetForm();
     } catch (error) {
       console.log(error);
     }
