@@ -49,7 +49,7 @@ export const signOut = createAsyncThunk('auth/signout', async (_, thunkAPI) => {
 });
 
 export const currentUser = createAsyncThunk(
-  'users/update',
+  'users/current',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistToken = state.auth.token;
@@ -79,15 +79,11 @@ export const updateUserProfile = createAsyncThunk(
     token.set(persistToken);
 
     try {
-      const resp = await axios.patch(
-        '/users/update',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+      const resp = await axios.patch('/users/update', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
         },
-      );
+      });
 
       return resp.data;
     } catch (err) {
@@ -96,7 +92,7 @@ export const updateUserProfile = createAsyncThunk(
   },
 );
 
-export const subscribe  = createAsyncThunk(
+export const subscribe = createAsyncThunk(
   'users/subscribe',
   async ({ email }, thunkAPI) => {
     const state = thunkAPI.getState();
@@ -109,10 +105,7 @@ export const subscribe  = createAsyncThunk(
     token.set(persistToken);
 
     try {
-      const resp = await axios.post(
-        '/users/subscribe',
-        { email }
-      );
+      const resp = await axios.post('/users/subscribe', { email });
 
       return resp.data;
     } catch (err) {

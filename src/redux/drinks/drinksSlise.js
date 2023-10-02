@@ -62,9 +62,10 @@ const drinksSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getSearchDrink.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.isLoading = false;
-        state.cocktails = action.payload.data;
-        state.total = action.payload.quantityTotal;
+        state.cocktails = action.payload.result;
+        state.total = action.payload.totalHits;
       })
       .addCase(getSearchDrink.rejected, (state) => {
         state.isLoading = false;

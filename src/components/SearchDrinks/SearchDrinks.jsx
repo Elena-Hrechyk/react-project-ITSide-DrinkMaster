@@ -1,15 +1,17 @@
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 // // import { useSearchParams } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
-// import { getCategories } from '../../redux/filters/filtersOperation';
-// import { getIngredients } from '../../redux/filters/filtersOperation';
-// import { getSearchDrink } from '../../redux/drinks/drinksOperations';
-// import {
-//   selectCategories,
-//   selectIngredients,
-// } from '../../redux/filters/selectors';
-// import throttle from 'lodash.throttle';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { getSearchDrink } from '../../redux/drinks/drinksOperations';
+import {
+  getCategories,
+  getIngredients,
+} from '../../redux/filters/filtersOperation';
+
+import {
+  selectCategories,
+  selectIngredients,
+} from '../../redux/filters/selectors';
 import Select from 'react-select';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
@@ -34,12 +36,22 @@ const validationSchema = Yup.object().shape({
   ingredients: Yup.string(),
 });
 
-export const SearchDrinks = ({ value, onChange }) => {
+export const SearchDrinks = ({ value, onChange, page, limit }) => {
   // const [query, setQuery] = useState('');
-  // const [category, setCategory] = useState('');
-  // const [ingredient, setIngredient] = useState('');
+  const [category, setCategory] = useState('');
+  const [ingredient, setIngredient] = useState('');
+  const dispatch = useDispatch();
 
-  // const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCategories());
+
+    dispatch(getIngredients());
+    dispatch(getSearchDrink({ value, category, ingredient, page, limit }));
+  }, [dispatch, value, category, ingredient, page, limit]);
+
+  const categories = useSelector(selectCategories);
+
+  const ingredients = useSelector(selectIngredients);
 
   // useEffect(() => {
   //   dispatch(getCategories());
@@ -48,13 +60,11 @@ export const SearchDrinks = ({ value, onChange }) => {
   //   dispatch(getSearchDrink({ query, category, ingredient, page, limit }));
   // }, [dispatch, query, category, ingredient, page, limit]);
 
-  // const handleSubmit = (values) => {
-  //   throttle(() => setQuery(values.searchQuery), 300);
-  //   setCategory(values.categories);
-  //   setIngredient(values.ingredients);
-
-  //   setQuery('');
-  // };
+  const handleSubmit = (values) => {
+    setCategory(values.categories);
+    setIngredient(values.ingredients);
+    dispatch(getSearchDrink({ category, ingredient, page, limit }));
+  };
 
   // const handleSubmit = () => {
   // if (query.trim() === '') {
@@ -87,7 +97,7 @@ export const SearchDrinks = ({ value, onChange }) => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      // onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       {(props) => (
         <SearchDrinksForm onSubmit={props.handleSubmit}>
@@ -124,22 +134,22 @@ export const SearchDrinks = ({ value, onChange }) => {
                           ? 'border-orange-600'
                           : 'border-grey-300',
                     }}
-                    // options={categories.map((category) => ({
-                    //   value: category,
-                    //   label: category,
-                    // }))}
-                    // name={field.name}
-                    // id="categories"
-                    // {...field}
-                    // value={category ? { value: category, label: category } : ''}
-                    // onChange={(selectedOption) => {
-                    //   setCategory(selectedOption ? selectedOption.value : '');
-                    //   form.setFieldValue(
-                    //     'categories',
-                    //     selectedOption ? selectedOption.value : '',
-                    //   );
-                    // }}
-                    // handleGategory
+                    options={categories.map((category) => ({
+                      value: category,
+                      label: category,
+                    }))}
+                    name={field.name}
+                    id="categories"
+                    {...field}
+                    value={category ? { value: category, label: category } : ''}
+                    onChange={(selectedOption) => {
+                      setCategory(selectedOption ? selectedOption.value : '');
+                      form.setFieldValue(
+                        'categories',
+                        selectedOption ? selectedOption.value : '',
+                      );
+                    }}
+                    handleGategory
                     placeholder="All categories"
                   />
                 )}
@@ -160,23 +170,23 @@ export const SearchDrinks = ({ value, onChange }) => {
                           ? 'border-orange-600'
                           : 'border-grey-300',
                     }}
-                    // options={ingredients.map((ingredient) => ({
-                    //   value: ingredient.title,
-                    //   label: ingredient.title,
-                    // }))}
-                    // name={field.name}
-                    // id="ingredients"
-                    // {...field}
-                    // value={
-                    //   ingredient ? { value: ingredient, label: ingredient } : ''
-                    // }
-                    // onChange={(selectedOption) => {
-                    //   setIngredient(selectedOption ? selectedOption.value : '');
-                    //   form.setFieldValue(
-                    //     'ingredient',
-                    //     selectedOption ? selectedOption.value : '',
-                    //   );
-                    // }}
+                    options={ingredients.map((ingredient) => ({
+                      value: ingredient,
+                      label: ingredient,
+                    }))}
+                    name={field.name}
+                    id="ingredients"
+                    {...field}
+                    value={
+                      ingredient ? { value: ingredient, label: ingredient } : ''
+                    }
+                    onChange={(selectedOption) => {
+                      setIngredient(selectedOption ? selectedOption.value : '');
+                      form.setFieldValue(
+                        'ingredient',
+                        selectedOption ? selectedOption.value : '',
+                      );
+                    }}
                     placeholder="Ingredients"
                   />
                 )}

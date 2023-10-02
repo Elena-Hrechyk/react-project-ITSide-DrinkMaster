@@ -13,7 +13,6 @@ export const handleRejected = (state, action) => {
 const filterSlice = createSlice({
   name: 'filters',
   initialState: {
-    searchQuery: '',
     categories: [],
     ingredients: [],
     glasses: [],
@@ -25,8 +24,7 @@ const filterSlice = createSlice({
     builder
       .addCase(getCategories.pending, hanlePending)
       .addCase(getCategories.fulfilled, (state, action) => {
-        console.log(action.payload);
-        state.categories = action.payload;
+        state.categories = action.payload.categories;
         state.isLoading = false;
         state.error = null;
       })
@@ -40,23 +38,23 @@ const filterSlice = createSlice({
       .addCase(getIngredients.rejected, handleRejected)
       .addCase(getGlasses.pending, hanlePending)
       .addCase(getGlasses.fulfilled, (state, action) => {
-        state.drinks = action.payload;
+        state.glasses = action.payload.glasses;
         state.isLoading = false;
         state.error = null;
       })
       .addCase(getGlasses.rejected, handleRejected),
 
-  reducers: {
-    setSearchQuery: {
-      reducer: (state, action) => {
-        state.searchQuery = action.payload;
-      },
+  // reducers: {
+  //   setSearchQuery: {
+  //     reducer: (state, action) => {
+  //       state.searchQuery = action.payload;
+  //     },
 
-      prepare: (searchQuery) => {
-        return { payload: searchQuery };
-      },
-    },
-  },
+  //     prepare: (searchQuery) => {
+  //       return { payload: searchQuery };
+  //     },
+  //   },
+  // },
 });
 
 export const filtersReducer = filterSlice.reducer;
