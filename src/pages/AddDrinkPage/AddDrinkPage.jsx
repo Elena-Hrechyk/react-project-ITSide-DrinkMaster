@@ -81,10 +81,10 @@ const AddDrinkPage = () => {
         >
           {({ setFieldValue }) => (
             <Form style={{ margin: 'auto' }} encType="multipart/form-data">
-              {/* <DrinkDescription
+              <DrinkDescription
                 fileValue={file}
                 fieldValueFormik={setFieldValue}
-              /> */}
+              />
               <DrinkIngredients />
               <RecipePreparation />
               <SendFormButton type="submit">Add</SendFormButton>
