@@ -1,4 +1,4 @@
-import{n as m,r as c,u as l,j as t}from"./index-19c16160.js";import{u,P as f}from"./useResize-a834556b.js";import{s as h}from"./drinksSelectors-566d8060.js";import{P,D as w}from"./Drinks_List-70527856.js";const j=m.main`
+import{n as a,u as n,j as t}from"./index-d34c6552.js";import{s as d}from"./drinksSelectors-b215b829.js";import{P as p,D as r}from"./Drinks_List-a443d37a.js";const e=a.main`
   font-family: 'Manrope',Arial,sans-serif;
   max-width: 480px;
   padding-left: 20px;
@@ -26,4 +26,4 @@ import{n as m,r as c,u as l,j as t}from"./index-19c16160.js";import{u,P as f}fro
     padding-right: 20px;
     padding-top: 158px;
   }
-`,A=()=>{const[e,r]=c.useState(1),{width:i}=u(),a=i<1280?10:9,o=i<768?5:8,{data:n}=l(h),s=e*a,p=s-a,d=n.slice(p,s),g=x=>{r(x)};return t.jsxs(j,{children:[t.jsx(P,{title:"Favorites"}),t.jsx(w,{items:d}),t.jsx(f,{currentPage:e,paginate:o,drinksPerPage:a,totalItems:n.length,nextPage:g})]})};export{A as FavoritesPage,A as default};
+`,g=()=>{const{data:i}=n(d);return t.jsxs(e,{children:[t.jsx(p,{title:"My drinks"}),t.jsx(r,{items:i})]})};export{g as MyDrinksPage,g as default};
