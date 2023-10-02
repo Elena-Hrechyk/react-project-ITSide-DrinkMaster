@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { currentUser, signUp, signIn, signOut, updateUserProfile, subscribe } from './authOperations';
+import { currentUser, signUp, signIn, signOut, updateUserProfile, subscribe, fetchDrinksFavorite } from './authOperations';
 
 
 const initialState = {
@@ -61,6 +61,17 @@ const authSlice = createSlice({
     [subscribe.rejected](state) {
       state.isUpdating = false;
     },
+
+    [fetchDrinksFavorite.pending](state) {
+      console.log(state)
+    },
+    [fetchDrinksFavorite.fulfilled] (state, action) {
+      console.log('clg', action.payload);
+      state.isLoading = false;
+      state.error = null;
+      // state.items = action.payload;
+    },
+
   },
 });
 
