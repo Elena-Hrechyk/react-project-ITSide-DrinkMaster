@@ -14,7 +14,7 @@ export const FormLabel = styled.label`
 export const Form = styled(FormikForm)`
   width: 309px;
   height: 226px;
- 
+
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -43,6 +43,11 @@ export const Button = styled.button`
 
 export const SubscribeBox = styled.div`
   margin-left: auto;
+  @media screen and (max-width: 767.5px) {
+    position: absolute;
+    top: 250px;
+    left: 90px;
+  }
 `;
 
 export const TextForm = styled.p`
@@ -53,6 +58,10 @@ export const TextForm = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
+  @media screen and (max-width: 767.5px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 export const Field = styled(FormikField)`

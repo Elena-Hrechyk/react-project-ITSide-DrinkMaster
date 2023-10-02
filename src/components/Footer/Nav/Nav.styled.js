@@ -12,6 +12,9 @@ export const Navigation = styled.nav`
 export const NavigationList = styled.ul`
   display: grid;
   gap: 24px;
+  @media screen and (max-width: 1279.5px) {
+    gap: 16px;;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`

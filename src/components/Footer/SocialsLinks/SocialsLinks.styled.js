@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const FollowUsContainer = styled.div`
-  width: 164px;
-  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
