@@ -19,6 +19,7 @@ const DrinksPage = lazy(() => import('./pages/DrinksPage/DrinksPage'));
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
 const MyDrinksPage = lazy(() => import('./pages/MyDrinkPage/MyDrinkPage'));
 const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
+const RecipeHero = lazy(() => import('./components/RecipePage/RecipeHero'));
 
 function App() {
   const dispatch = useDispatch();
@@ -73,6 +74,15 @@ function App() {
               }
             />
 
+            <Route
+              path="/drinks/:drinkId"
+              element={
+                <PrivateRoute
+                  component={<RecipeHero />}
+                  redirectTo="/welcome"
+                />
+              }
+            />
             <Route
               path="/addDrink"
               element={
