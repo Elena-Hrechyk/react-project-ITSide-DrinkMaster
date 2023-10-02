@@ -1,4 +1,4 @@
-import{n as y,G as L,j as f,p as R,q as x,r as E}from"./index-d87c862d.js";const $=y.div`
+import{n as y,G as L,j as f,p as R,q as x,r as E}from"./index-d8473b02.js";const $=y.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
