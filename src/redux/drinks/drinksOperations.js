@@ -71,9 +71,23 @@ export const getDrinkById = createAsyncThunk(
   async (drinkId, thunkAPI) => {
     try {
       const response = await axios.get(`/drinks/${drinkId}`);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
+
+export const fetchOwnDrinks = createAsyncThunk(
+  "/drinks/fetchOwnDrinks",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/drinks/own/all");
+      return response.data.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+

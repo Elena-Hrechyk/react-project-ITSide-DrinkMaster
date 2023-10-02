@@ -1,4 +1,3 @@
-
 import {
   DrinksPageImg,
   DrinksPageList,

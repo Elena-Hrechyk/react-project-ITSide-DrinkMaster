@@ -5,6 +5,7 @@ import {
   fetchDrinksPopular,
   getDrinkById,
   getSearchDrink,
+  fetchOwnDrinks,
 } from './drinksOperations';
 
 const handlePending = (state) => {
@@ -23,6 +24,7 @@ const drinksSlice = createSlice({
     isLoading: false,
     error: null,
     popular: [],
+    ownDrinks:[],
     total: 0,
   },
 
@@ -47,7 +49,7 @@ const drinksSlice = createSlice({
       .addCase(fetchDrinksPopular.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.popular=action.payload;
+        state.popular = action.payload;
       })
       .addCase(getDrinkById.fulfilled, (state, action) => {
         state.drinks = [action.payload];
@@ -66,7 +68,37 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.cocktails = [];
         state.totalCocktails = 0;
-      });
+      })
+      .addCase(fetchOwnDrinks.pending, handlePending)
+      .addCase(fetchOwnDrinks.rejected, handleRejected)
+      .addCase(fetchOwnDrinks.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.ownDrinks = action.payload;
+      })
+    // .addCase(fetchDrinksFavorite.pending, handlePending)
+    // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
+    //   console.log('clg', action.payload);
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.items = action.payload;
+    // })
+    // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
+    //   // state.isLoading = false;
+    //   // state.error = null;
+    //   console.log(state)
+    //   state.items = action.payload;
+    // })
+    //   .addCase(deleteDrinksnewDrink.pending, handlePending)
+    //   .addCase(deleteDrinksnewDrink.fulfilled, (state, action) => {
+    //     state.isLoading = false;
+    //     state.error = null;
+    //     const index = state.items.findIndex(
+    //       item => item.id === action.payload.id
+    //     );
+    //     state.items.splice(index, 1);
+    //   })
+    //   .addCase(deleteDrinksnewDrink.rejected, handleRejected)
   },
 });
 
