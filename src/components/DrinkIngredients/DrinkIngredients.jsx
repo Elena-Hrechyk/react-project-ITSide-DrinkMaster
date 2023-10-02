@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   CountBlock,
   CountButton,
@@ -15,24 +15,26 @@ import Xicon from '../../img/svg/Xicon.svg';
 import { Field, FieldArray } from 'formik';
 import DropDownMenu from '../DropDownMenu/DropDownMenu';
 import { nanoid } from 'nanoid';
+import { useDispatch } from 'react-redux';
+import { getIngredients } from '../../redux/filters/filtersOperation';
+import { selectIngredients } from '../../redux/filters/selectors';
+import { useSelector } from 'react-redux';
 const DrinkIngredients = () => {
   const [counter, setCounter] = useState(0);
 
-  const optionValueIngrients = [
-    { label: 'Cocktail glass', value: 'Cocktail glass' },
-    { label: 'Shake', value: 'Shake' },
-    { label: 'Cocktail ', value: 'Cocktail ' },
-    { label: 'glass', value: 'glass' },
-    { label: 'Other/Unknown', value: 'Other/Unknown' },
-    { label: 'Ordinary Drink', value: 'Ordinary Drink' },
-    { label: 'Cocoa', value: 'Cocoa' },
-    { label: 'Shot', value: 'Shot' },
-    { label: 'Coffee/Tea', value: 'Coffee/Tea' },
-    { label: 'Homemade Liqueur', value: 'Homemade Liqueur' },
-    { label: 'Punch/Party Drink', value: 'Punch/Party Drink' },
-    { label: 'Beer', value: 'Beer' },
-    { label: 'Soft Drink', value: 'Soft Drink' },
-  ];
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getIngredients())
+    // dispatch(fetchGlasses())
+  }, [dispatch])
+
+  const ingredients = useSelector(selectIngredients);
+  // console.log(ingredients)
+  const ingredientsSelector = ingredients.map((item) => {
+    return { label: item, value: item };
+  });
+  
   const renderIngredientsContainers = (arrayHelpers ) => {
     const containers = [];
     // const removeIngredient = (arrayHelpers, index) => {
@@ -45,7 +47,7 @@ const DrinkIngredients = () => {
             <Field name={`ingredients.${i}.title`}>
               {({ form }) => (
                 <DropDownMenu
-                  optionValue={optionValueIngrients}
+                  optionValue={ingredientsSelector}
                   onChange={(selectedOption) => {
                     form.setFieldValue(
                       `ingredients.${i}.ingredient`,

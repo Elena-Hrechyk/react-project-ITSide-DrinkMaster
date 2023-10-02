@@ -24,6 +24,7 @@ const filterSlice = createSlice({
     builder
       .addCase(getCategories.pending, hanlePending)
       .addCase(getCategories.fulfilled, (state, action) => {
+        
         state.categories = action.payload.categories;
         state.isLoading = false;
         state.error = null;

@@ -1,9 +1,10 @@
-import { Field, useField } from 'formik';
+import { Field } from 'formik';
 import DropDownMenu from '../DropDownMenu/DropDownMenu';
 import {
   AddImage,
   CategoryContainer,
   DescriptionContainer,
+  HiddenInput,
   Input,
   InputsContainer,
   RadioComponent,
@@ -11,113 +12,70 @@ import {
   RadioInput,
   RadioLabel,
   UnderlinedElement,
-  // AddImageButton,
-  // CustomFileLabel,
-  // FieldInput,
+  AddImageButton,
+
 } from './DrinkDescription.styled';
-// import plus from '../../img/svg/plus.svg';
-// import { Custom } from '../../pages/AddDrinkPage/AddDrinkPage.styled';
+import plus from '../../img/svg/plus.svg';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCategories, selectGlasses } from '../../redux/filters/selectors';
+import { getCategories, getGlasses } from '../../redux/filters/filtersOperation';
+// import { useState } from 'react';
 
-// import { useRef } from 'react';
 
-const DrinkDescription = ({ fileRef, ...props }) => {
-  // const handleAddImageClick = () => {
-  //   // Принудительно кликнуть по input типа "file" при нажатии на AddImageButton
-  //   if (fileRef.current) {
-  //     fileRef.current.click();
-  //   }
-  // };
-  // const [field, meta] = useField(props);
+const DrinkDescription = () => {
+  // const [drinkThumb, setDrinkThumb] = useState(null);
+  // console.log(drinkThumb)
 
-  const optionValueCategory = [
-    { label: 'Cocktail glass', value: 'Cocktail glass' },
-    { label: 'Shake', value: 'Shake' },
-    { label: 'Cocktail ', value: 'Cocktail ' },
-    { label: 'Other/Unknown', value: 'Other/Unknown' },
-    { label: 'Ordinary Drink', value: 'Ordinary Drink' },
-    { label: 'Cocoa', value: 'Cocoa' },
-    { label: 'Shot', value: 'Shot' },
-    { label: 'Coffee/Tea', value: 'Coffee/Tea' },
-    { label: 'Homemade Liqueur', value: 'Homemade Liqueur' },
-    { label: 'Punch/Party Drink', value: 'Punch/Party Drink' },
-    { label: 'Beer', value: 'Beer' },
-    { label: 'Soft Drink', value: 'Soft Drink' },
-  ];
-  const glass = [
-    'Highball glass',
-    'Cocktail glass',
-    'Old-fashioned glass',
-    'Whiskey Glass',
-    'Collins glass',
-    'Pousse cafe glass',
-    'Champagne flute',
-    'Whiskey sour glass',
-    'Cordial glass',
-    'Brandy snifter',
-    'White wine glass',
-    'Nick and Nora Glass',
-    'Hurricane glass',
-    'Coffee mug',
-    'Shot glass',
-    'Jar',
-    'Irish coffee cup',
-    'Punch bowl',
-    'Pitcher',
-    'Pint glass',
-    'Copper Mug',
-    'Wine Glass',
-    'Beer mug',
-    'Margarita/Coupette glass',
-    'Beer pilsner',
-    'Beer Glass',
-    'Parfait glass',
-    'Mason jar',
-    'Margarita glass',
-    'Martini Glass',
-    'Balloon Glass',
-    'Coupe Glass',
-  ];
-  const optionValueGlass = glass.map((glass) => {
-    return { label: glass, value: glass };
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getCategories())
+    dispatch(getGlasses())
+  }, [dispatch])
+  
+
+  const categories = useSelector(selectCategories);
+  
+  const glasses = useSelector(selectGlasses);
+  const categoriesSelect = categories.map((item) => {
+    return { label: item, value: item };
   });
+  const glassesSelector = glasses.map((item) => {
+    return { label: item, value: item };
+  });
+
+  const handleFileChange = (e) => {
+    const fileData = e.target.files[0];
+    console.log(fileData)
+    // setDrinkThumb(fileData);
+    // fileValue(fileData);
+    // fieldValueFormik('drinkThumb', fileData )
+  };
+
+
   return (
     <>
       <h2 style={{ display: 'flex', flex: 'start' }}>Add drink</h2>
       <DescriptionContainer>
         <AddImage>
-          {/* <AddImageButton style={{ backgroundColor: "white" }
-          // onClick={handleAddImageClick()}
-          }> */}
-          {/* <Field as={CustomFileLabel} >
-            
-            <FieldInput
-              ref={fileRef}
-              type="file"
+          <AddImageButton
+            style={{ backgroundColor: 'white' }}
+          >
+            <Field
               name="drinkThumb"
-              multiple={true}
-              {...field}
+              type="file"
+              as={HiddenInput}
+              onChange={handleFileChange}
+              accept="image/*"
             />
-            
-            {meta.touched && meta.error ? (
-              <div style={{ color: 'red' }}>{meta.error}</div>
-            ) : null}
             <img
               src={plus}
               alt="SVG Image"
-              width={16}
-              style={{ filter: 'invert(1)', fill: 'black' }}
+              style={{ filter: 'invert(1)', fill: 'black', marginTop: '-18px' }}
             />
-            
-          </Field> */}
-              <Field
-            name="file"
-            type="file"
-            // onChange={(event) => {
-            //   setFieldValue('file', event.currentTarget.files[0]);
-            // }}
-          />
-
-          {/* </AddImageButton> */}
+          </AddImageButton>
           <p>Add image</p>
         </AddImage>
         <InputsContainer>
@@ -129,7 +87,6 @@ const DrinkDescription = ({ fileRef, ...props }) => {
             placeholder="Enter item drink"
           />
           <UnderlinedElement />
-
           <Field
             as={Input}
             id="shortDescription"
@@ -143,7 +100,7 @@ const DrinkDescription = ({ fileRef, ...props }) => {
             <Field name="category">
               {({ form }) => (
                 <DropDownMenu
-                  optionValue={optionValueCategory}
+                  optionValue={categoriesSelect}
                   onChange={(selectedOption) =>
                     form.setFieldValue('category', selectedOption)
                   }
@@ -157,22 +114,13 @@ const DrinkDescription = ({ fileRef, ...props }) => {
             <Field name="glass">
               {({ form }) => (
                 <DropDownMenu
-                  optionValue={optionValueGlass}
+                  optionValue={glassesSelector}
                   onChange={(selectedOption) =>
                     form.setFieldValue('glass', selectedOption)
                   }
                 />
               )}
             </Field>
-            {/* <Field
-              name="glass"
-              render={({ form }) => (
-                <DropDownMenu
-                optionValue={optionValueGlass}
-                  onChange={(selectedOption) => form.setFieldValue('glass', selectedOption)}
-                />
-              )}
-            /> */}
           </div>
           <UnderlinedElement />
           <RadioContainer>
