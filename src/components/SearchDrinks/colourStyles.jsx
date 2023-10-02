@@ -1,5 +1,4 @@
 export const colourStyles = {
-
   control: (styles, { isFocused }) => ({
     ...styles,
     background: '#161f37',
@@ -9,15 +8,14 @@ export const colourStyles = {
     borderStyle: 'none',
     color: '#f3f3f3',
     borderColor: isFocused ? 'orange' : 'grey',
-    "@media only screen and (min-width: 768px)": {
+    '@media only screen and (min-width: 768px)': {
       width: '199px',
       height: '56px',
-  },
-    "@media only screen and (min-width: 1440px)": {
+    },
+    '@media only screen and (min-width: 1280px)': {
       width: '199px',
       height: '56px',
-  },
-
+    },
   }),
   indicatorSeparator: (styles) => ({
     ...styles,
@@ -30,7 +28,7 @@ export const colourStyles = {
     fontWeight: '400',
     lineHeight: '1.5',
     letterSpacing: '0em',
-    textAlign: 'center',
+    // textAlign: 'center',
   }),
   input: (styles) => ({
     ...styles,

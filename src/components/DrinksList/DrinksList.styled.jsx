@@ -18,7 +18,7 @@ export const DrinksPageList = styled.ul`
     margin-bottom: 80px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(3, 1fr);
   }
 `;
@@ -32,7 +32,7 @@ export const DrinksPageItem = styled.li`
     width: 342px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 400px;
   }
 `;
@@ -54,7 +54,7 @@ export const DrinksPageImg = styled.img`
     width: 342px;
     height: 360px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 400px;
     height: 400px;
   }
@@ -68,7 +68,7 @@ margin-top: 14px;
   @media screen and (min-width: 768px) {
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
   }
 `;
 export const DrinksPageH = styled.h5`
@@ -85,7 +85,7 @@ export const DrinksPageH = styled.h5`
     line-height: 24px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
   }
 `;
 export const DrinksPageLink = styled(Link)`

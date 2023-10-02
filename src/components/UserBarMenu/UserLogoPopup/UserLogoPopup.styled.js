@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 
-export const ModalUserLogoPopup = styled(Modal)`
+export const ModalUserLogoPopup = styled(ReactModal)`
   position: fixed;
   width: 177px;
   height: 134px;
