@@ -72,10 +72,8 @@ export const Navigation = styled.nav`
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  margin-rigth: auto;
-
+  margin-right: auto; 
   
-  }
 `;
 
 export const NavigationList = styled.ul`
