@@ -9,13 +9,11 @@ import {
 
 const handlePending = (state) => {
   state.isLoading = true;
-  console.log('Hello handlePending');
 };
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  console.log('Hello handleRejected');
 };
 
 const drinksSlice = createSlice({
@@ -39,7 +37,6 @@ const drinksSlice = createSlice({
       .addCase(getAllDrinks.rejected, handleRejected)
       .addCase(newDrink.pending, handlePending)
       .addCase(newDrink.fulfilled, (state, action) => {
-        console.log('fulfilled');
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
@@ -53,7 +50,6 @@ const drinksSlice = createSlice({
         state.popular=action.payload;
       })
       .addCase(getDrinkById.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.drinks = [action.payload];
         state.isLoading = false;
         state.error = null;
@@ -62,7 +58,6 @@ const drinksSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getSearchDrink.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.isLoading = false;
         state.cocktails = action.payload.result;
         state.total = action.payload.totalHits;
@@ -72,30 +67,6 @@ const drinksSlice = createSlice({
         state.cocktails = [];
         state.totalCocktails = 0;
       });
-
-    // .addCase(fetchDrinksFavorite.pending, handlePending)
-    // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
-    //   console.log('clg', action.payload);
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.items = action.payload;
-    // })
-    // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
-    //   // state.isLoading = false;
-    //   // state.error = null;
-    //   console.log(state)
-    //   state.items = action.payload;
-    // })
-    //   .addCase(deleteDrinksnewDrink.pending, handlePending)
-    //   .addCase(deleteDrinksnewDrink.fulfilled, (state, action) => {
-    //     state.isLoading = false;
-    //     state.error = null;
-    //     const index = state.items.findIndex(
-    //       item => item.id === action.payload.id
-    //     );
-    //     state.items.splice(index, 1);
-    //   })
-    //   .addCase(deleteDrinksnewDrink.rejected, handleRejected)
   },
 });
 
