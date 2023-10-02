@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Formik, Field } from 'formik';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { subscribe } from "../../../redux/auth/authOperations";
+import { subscribe } from '../../../redux/auth/authOperations';
 
 import {
   FormLabel,
@@ -10,6 +10,8 @@ import {
   ErrorMessage,
   Button,
   SubscribeBox,
+  TextForm,
+  Field
 } from './SubscribeForm.styled';
 
 const EmailSchema = Yup.object().shape({
@@ -22,46 +24,38 @@ const EmailSchema = Yup.object().shape({
 });
 
 export const SubscribeForm = () => {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-
-	
-
-    const handleSubmit = async (values) => {
-        console.log(values)
-        try {
-            await dispatch(subscribe(values));
-        } catch (error) {
-            console.log(error)
-        }
-    };
-
-
-
-
+  const handleSubmit = async (values) => {
+    console.log(values);
+    try {
+      await dispatch(subscribe(values));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <SubscribeBox>
       <Formik
-              initialValues={{
-                email: '',
-              }}
-              validationSchema={EmailSchema}
-              onSubmit={handleSubmit}
-              
-            >
-              <Form>
-                <FormLabel name="email">
-                  <p>
-                    Subscribe up to our newsletter. Be in touch with latest news
-                    and special offers, etc
-                  </p>
-                  <Field name="email" placeholder="Enter the email" />
-                  <ErrorMessage name="email" component="span" />
-                </FormLabel>
-                <Button type="submit">Subscribe</Button>
-              </Form>
-            </Formik>
+        initialValues={{
+          email: '',
+        }}
+        validationSchema={EmailSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form>
+          <FormLabel name="email">
+            <TextForm>
+              Subscribe up to our newsletter. Be in touch with latest news and
+              special offers, etc
+            </TextForm>
+            <Field name="email" placeholder="Enter the email" />
+            <ErrorMessage name="email" component="span" />
+          </FormLabel>
+          <Button type="submit">Subscribe</Button>
+        </Form>
+      </Formik>
     </SubscribeBox>
   );
 };

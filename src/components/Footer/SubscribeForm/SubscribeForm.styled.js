@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
-import { Form as FormikForm, ErrorMessage as FormikError } from 'formik';
-
+import {
+  Form as FormikForm,
+  ErrorMessage as FormikError,
+  Field as FormikField,
+} from 'formik';
 
 export const FormLabel = styled.label`
   display: flex;
@@ -10,7 +13,8 @@ export const FormLabel = styled.label`
 
 export const Form = styled(FormikForm)`
   width: 309px;
-  padding: 8px;
+  height: 226px;
+ 
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -22,12 +26,40 @@ export const ErrorMessage = styled(FormikError)`
 
 export const Button = styled.button`
   width: 309px;
+  height: 56px;
   margin-left: auto;
   margin-right: auto;
-  color: black;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 56px;
+  border: 1px solid #f3f3f333;
+  color: #f3f3f3;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 156%;
 `;
-
 
 export const SubscribeBox = styled.div`
   margin-left: auto;
+`;
+
+export const TextForm = styled.p`
+  margin-bottom: 24px;
+  color: #f3f3f3;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+`;
+
+export const Field = styled(FormikField)`
+  width: 309px;
+  height: 56px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 56px;
+  border: 1px solid #f3f3f333;
+  padding-left: 24px;
 `;

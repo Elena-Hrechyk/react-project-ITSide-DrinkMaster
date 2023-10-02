@@ -46,6 +46,7 @@ export const UserInfoModal = forwardRef(
       formData.append('avatar', image);
 
       dispatch(updateUserProfile(formData));
+      closeEditModal()
     };
 
 
