@@ -15,40 +15,8 @@ import bg1_desk_2x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg1_footer_desk
 import bg2_desk_2x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg2_footer_desk@2x.png';
 
 export const FooterSection = styled.footer`
-  border-top: 1px solid rgba(243, 243, 243, 0.2);
-`;
-
-export const FooterContainer = styled.div`
   position: relative;
-  font-family: 'Manrope', Arial, sans-serif;
-  max-width: 480px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 60px;
-  padding-bottom: 18px;
-  margin-left: auto;
-  margin-right: auto;
-
-  color: #f3f3f3;
-
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 60px;
-
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 24px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-    padding-top: 80px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 24px;
-  }
+  border-top: 1px solid rgba(243, 243, 243, 0.2);
 
   background-image: url(${bg1_mob_1x});
   background-size: cover;
@@ -100,6 +68,39 @@ export const FooterContainer = styled.div`
     background-position:
       center bottom,
       center bottom;
+  }
+`;
+
+export const FooterContainer = styled.div`
+  position: relative;
+  font-family: 'Manrope', Arial, sans-serif;
+  max-width: 480px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 60px;
+  padding-bottom: 18px;
+  margin-left: auto;
+  margin-right: auto;
+
+  color: #f3f3f3;
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 60px;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 24px;
   }
 `;
 
