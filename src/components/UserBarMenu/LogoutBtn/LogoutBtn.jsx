@@ -40,7 +40,7 @@ export const LogOutBtnModal = forwardRef(
           <TextLogOut>Are you sure you want to log out?</TextLogOut>
         </TextContainer>
         <ButtonContienr>
-          <ButtonModal>Log out</ButtonModal>
+          <ButtonModal onClick={handlerLogoutClick}>Log out</ButtonModal>
           <ButtonModal onClick={isCloseLogoutModal}>Cancel</ButtonModal>
         </ButtonContienr>
       </ModalLodOut>
