@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getCategories, getIngredients, getGlasses } from './filtersOperation';
 
-
 export const hanlePending = (state) => {
   state.isLoading = true;
 };
@@ -11,36 +10,22 @@ export const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-
-const initialState = {
-  searchQuery: '',
-  categories: [],
-  ingredients: [],
-  glasses: [],
-  isLoading: false,
-  error: null,
-};
-
 const filterSlice = createSlice({
   name: 'filters',
-  initialState,
+  initialState: {
+    searchQuery: '',
+    categories: [],
+    ingredients: [],
+    glasses: [],
+    isLoading: false,
+    error: null,
+  },
 
   extraReducers: (builder) =>
     builder
-        //===================================================
-      // .addCase(getRequestedName.pending, hanlePending)
-      // .addCase(getRequestedName.fulfilled, (state, action) => {
-      //   state.searchQuery = action.payload;
-      //   state.isLoading = false;
-      //   state.error = null;
-      // })
-      // .addCase(getRequestedName.rejected, handleRejected)
-      //===================================================
-      // .addCase(getSearchQuery, (state, action) => {
-      //   state.searchQuery = action.payload;
-      // })
       .addCase(getCategories.pending, hanlePending)
       .addCase(getCategories.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.categories = action.payload;
         state.isLoading = false;
         state.error = null;
