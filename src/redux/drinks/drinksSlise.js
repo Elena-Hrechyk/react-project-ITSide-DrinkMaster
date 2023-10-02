@@ -50,7 +50,7 @@ const drinksSlice = createSlice({
       .addCase(fetchDrinksPopular.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.popular.push(action.payload);
+        state.popular=action.payload;
       })
       .addCase(getDrinkById.fulfilled, (state, action) => {
         console.log(action.payload);
