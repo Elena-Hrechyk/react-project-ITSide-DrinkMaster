@@ -86,6 +86,19 @@ export const getDrinkById = createAsyncThunk(
   },
 );
 
+export const fetchOwnDrinks = createAsyncThunk(
+  "/drinks/fetchOwnDrinks",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/drinks/own/all");
+      return response.data.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+
 // export const fetchDrinksFavorite = createAsyncThunk(
 //   "/auth/fetchFavorite",
 //   async (_, thunkAPI) => {

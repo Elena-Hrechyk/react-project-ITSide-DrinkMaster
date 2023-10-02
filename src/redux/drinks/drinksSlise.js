@@ -5,6 +5,7 @@ import {
   fetchDrinksPopular,
   getDrinkById,
   getSearchDrink,
+  fetchOwnDrinks,
 } from './drinksOperations';
 
 const handlePending = (state) => {
@@ -25,6 +26,7 @@ const drinksSlice = createSlice({
     isLoading: false,
     error: null,
     popular: [],
+    ownDrinks:[],
     total: 0,
   },
 
@@ -70,8 +72,14 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.cocktails = [];
         state.totalCocktails = 0;
-      });
-
+      })
+      .addCase(fetchOwnDrinks.pending, handlePending)
+      .addCase(fetchOwnDrinks.rejected, handleRejected)
+      .addCase(fetchOwnDrinks.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.ownDrinks = action.payload;
+      })
     // .addCase(fetchDrinksFavorite.pending, handlePending)
     // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
     //   console.log('clg', action.payload);

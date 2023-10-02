@@ -8,3 +8,4 @@ export const selectDrinkById = (state, drinkId) =>
   state.drinks.items.data.find((drink) => drink._id === drinkId);
 export const selectFavoriteDrinks = (state) =>
   state.auth.user.favoriteCocktails;
+export const selectOwnDrinks = (state) => state.drinks.ownDrinks;

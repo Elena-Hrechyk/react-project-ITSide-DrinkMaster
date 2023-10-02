@@ -58,7 +58,7 @@ export const СocktailType = styled.p`
 
 export const СocktailRecipe = styled.p`
   max-height: 93px;
-  overflow: scroll;
+  overflow: clip;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
