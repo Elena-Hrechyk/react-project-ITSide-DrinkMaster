@@ -28,7 +28,7 @@ const DrinksListHomePage = ({ type }) => {
             <ImgDrink src={drinkThumb} alt={drink} loading="lazy" />
             <Box>
               <TitleDrink>{drink}</TitleDrink>
-              <SeemoreLink to="/drinks">See more</SeemoreLink>
+              <SeemoreLink to={`/drinks/${_id}`}>See more</SeemoreLink>
             </Box>
           </ItemDrink>
         );
