@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const DrinksPageSection = styled.div`
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+`;
+
 export const DrinksPageTitle = styled.h1`
   margin-bottom: 60px;
   font-size: 32px;
@@ -14,26 +24,9 @@ export const DrinksPageTitle = styled.h1`
     line-height: 1.1;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 80px;
     font-size: 64px;
     line-height: 1;
-  }
-`;
-
-export const DrinksPageContainer = styled.div`
-  width: 100%;
-  margin: 0;
-  padding-top: 80px;
-  padding-bottom: 80px;
-
-  @media screen and (min-width: 768px) {
-    padding-top: 140px;
-    padding-bottom: 140px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding-top: 140px;
-    padding-bottom: 140px;
   }
 `;

@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { newDrink, getAllDrinks, fetchDrinksPopular } from './drinksOperations';
+import {
+  newDrink,
+  getAllDrinks,
+  fetchDrinksPopular,
+  getDrinkById,
+  getSearchDrink,
+} from './drinksOperations';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -18,14 +24,14 @@ const drinksSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
-    popular: []
+    popular: [],
+    total: 0,
   },
 
   extraReducers: (builder) => {
     builder
       .addCase(getAllDrinks.pending, handlePending)
       .addCase(getAllDrinks.fulfilled, (state, action) => {
-        console.log('payload', action.payload);
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
@@ -39,27 +45,46 @@ const drinksSlice = createSlice({
         state.items.push(action.payload);
       })
       .addCase(newDrink.rejected, handleRejected)
-    .addCase(fetchDrinksPopular.rejected, handleRejected)
+      .addCase(fetchDrinksPopular.rejected, handleRejected)
       .addCase(fetchDrinksPopular.pending, handlePending)
-      .addCase(fetchDrinksPopular.fulfilled,  (state, action) => {
+      .addCase(fetchDrinksPopular.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.popular.push(action.payload);
       })
+      .addCase(getDrinkById.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.drinks = [action.payload];
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(getSearchDrink.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getSearchDrink.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.cocktails = action.payload.data;
+        state.total = action.payload.quantityTotal;
+      })
+      .addCase(getSearchDrink.rejected, (state) => {
+        state.isLoading = false;
+        state.cocktails = [];
+        state.totalCocktails = 0;
+      });
 
-      // .addCase(fetchDrinksFavorite.pending, handlePending)
-      // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
-      //   console.log('clg', action.payload);
-      //   state.isLoading = false;
-      //   state.error = null;
-      //   state.items = action.payload;
-      // })
-      // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
-      //   // state.isLoading = false;
-      //   // state.error = null;
-      //   console.log(state)
-      //   state.items = action.payload;
-      // })
+    // .addCase(fetchDrinksFavorite.pending, handlePending)
+    // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
+    //   console.log('clg', action.payload);
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.items = action.payload;
+    // })
+    // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
+    //   // state.isLoading = false;
+    //   // state.error = null;
+    //   console.log(state)
+    //   state.items = action.payload;
+    // })
     //   .addCase(deleteDrinksnewDrink.pending, handlePending)
     //   .addCase(deleteDrinksnewDrink.fulfilled, (state, action) => {
     //     state.isLoading = false;

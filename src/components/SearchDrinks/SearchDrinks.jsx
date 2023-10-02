@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { getCategories } from '../../redux/filters/filtersOperation';
-import { getIngredients } from '../../redux/filters/filtersOperation';
-import { getRequestedDrink } from '../../redux/drinks/drinksOperations';
-
-import {
-  selectCategories,
-  selectIngredients,
-} from '../../redux/filters/selectors';
-import { toast } from 'react-toastify';
+// import { useEffect, useState } from 'react';
+// // import { useSearchParams } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
+// import { useSelector } from 'react-redux';
+// import { getCategories } from '../../redux/filters/filtersOperation';
+// import { getIngredients } from '../../redux/filters/filtersOperation';
+// import { getSearchDrink } from '../../redux/drinks/drinksOperations';
+// import {
+//   selectCategories,
+//   selectIngredients,
+// } from '../../redux/filters/selectors';
+// import throttle from 'lodash.throttle';
 import Select from 'react-select';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
@@ -29,66 +29,65 @@ const initialValues = {
   ingredients: '',
 };
 const validationSchema = Yup.object().shape({
-  // searchQuery: Yup.string().required('searchQuery is required!'),
-  // categories: Yup.string().required('Please select a categories'),
-  // ingredients: Yup.string().required('Please select a ingredients'),
   searchQuery: Yup.string(),
   categories: Yup.string(),
   ingredients: Yup.string(),
 });
 
-export const SearchDrinks = ({ page, limit }) => {
-  // const [searchParams, setSearchParams] = useSearchParams();
+export const SearchDrinks = ({ value, onChange }) => {
+  // const [query, setQuery] = useState('');
+  // const [category, setCategory] = useState('');
+  // const [ingredient, setIngredient] = useState('');
 
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
-  const [ingredient, setIngredient] = useState('');
+  // const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getCategories());
+  //   dispatch(getIngredients());
 
-  const categories = useSelector(selectCategories);
+  //   dispatch(getSearchDrink({ query, category, ingredient, page, limit }));
+  // }, [dispatch, query, category, ingredient, page, limit]);
 
-  const ingredients = useSelector(selectIngredients);
+  // const handleSubmit = (values) => {
+  //   throttle(() => setQuery(values.searchQuery), 300);
+  //   setCategory(values.categories);
+  //   setIngredient(values.ingredients);
 
-  const handleSubmit = (values) => {
-    if (query.trim() === '') {
-      toast('🦄 Type a name of picture.', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
-      return;
-    }
-    setQuery(values.searchQuery);
-    setCategory(values.categories);
-    setIngredient(values.ingredients);
+  //   setQuery('');
+  // };
 
-    console.log(category);
+  // const handleSubmit = () => {
+  // if (query.trim() === '') {
+  //   toast('🦄 Type a name of picture.', {
+  //     position: 'top-right',
+  //     autoClose: 5000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: 'light',
+  //   });
+  //   return;
+  // }
+  // setQuery(values.searchQuery);
+  // setCategory(values.categories);
+  // setIngredient(values.ingredients);
+  // console.log(category);
+  // setQuery('');
+  // };
 
-    setQuery('');
-  };
+  // const categories = useSelector(selectCategories);
+  // console.log(categories);
+  // const ingredients = useSelector(selectIngredients);
 
-  useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getIngredients());
-
-    dispatch(getRequestedDrink({ query, category, ingredient, page, limit }));
-  }, [dispatch, query, category, ingredient, page, limit]);
-
-  console.log(category);
-
-  const handleSearchChange = (event) => setQuery(event.target.value);
+  const handleSearchChange = (event) => onChange(event.target.value);
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
     >
       {(props) => (
         <SearchDrinksForm onSubmit={props.handleSubmit}>
@@ -96,9 +95,10 @@ export const SearchDrinks = ({ page, limit }) => {
             <FileInputWrapper>
               <label htmlFor="searchQuery">
                 <SearchDrinksInput
-                  name="searchQuery"
+                  name="searchWord"
                   type="text"
-                  // className={searchQuery ? "active" : ""}
+                  value={props.value}
+                  // className={searchWord ? 'active' : ''}
                   placeholder="Enter the text"
                   // autoCorrect="off"
                   // autoComplete="name"
@@ -124,22 +124,22 @@ export const SearchDrinks = ({ page, limit }) => {
                           ? 'border-orange-600'
                           : 'border-grey-300',
                     }}
-                    options={categories.map((category) => ({
-                      value: category,
-                      label: category,
-                    }))}
-                    name={field.name}
-                    id="categories"
-                    {...field}
-                    value={category ? { value: category, label: category } : ''}
-                    onChange={(selectedOption) => {
-                      setCategory(selectedOption ? selectedOption.value : '');
-                      form.setFieldValue(
-                        'categories',
-                        selectedOption ? selectedOption.value : '',
-                      );
-                    }}
-                    handleGategory
+                    // options={categories.map((category) => ({
+                    //   value: category,
+                    //   label: category,
+                    // }))}
+                    // name={field.name}
+                    // id="categories"
+                    // {...field}
+                    // value={category ? { value: category, label: category } : ''}
+                    // onChange={(selectedOption) => {
+                    //   setCategory(selectedOption ? selectedOption.value : '');
+                    //   form.setFieldValue(
+                    //     'categories',
+                    //     selectedOption ? selectedOption.value : '',
+                    //   );
+                    // }}
+                    // handleGategory
                     placeholder="All categories"
                   />
                 )}
@@ -160,23 +160,23 @@ export const SearchDrinks = ({ page, limit }) => {
                           ? 'border-orange-600'
                           : 'border-grey-300',
                     }}
-                    options={ingredients.map((ingredient) => ({
-                      value: ingredient.title,
-                      label: ingredient.title,
-                    }))}
-                    name={field.name}
-                    id="ingredients"
-                    {...field}
-                    value={
-                      ingredient ? { value: ingredient, label: ingredient } : ''
-                    }
-                    onChange={(selectedOption) => {
-                      setIngredient(selectedOption ? selectedOption.value : '');
-                      form.setFieldValue(
-                        'ingredient',
-                        selectedOption ? selectedOption.value : '',
-                      );
-                    }}
+                    // options={ingredients.map((ingredient) => ({
+                    //   value: ingredient.title,
+                    //   label: ingredient.title,
+                    // }))}
+                    // name={field.name}
+                    // id="ingredients"
+                    // {...field}
+                    // value={
+                    //   ingredient ? { value: ingredient, label: ingredient } : ''
+                    // }
+                    // onChange={(selectedOption) => {
+                    //   setIngredient(selectedOption ? selectedOption.value : '');
+                    //   form.setFieldValue(
+                    //     'ingredient',
+                    //     selectedOption ? selectedOption.value : '',
+                    //   );
+                    // }}
                     placeholder="Ingredients"
                   />
                 )}
