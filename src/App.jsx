@@ -69,7 +69,6 @@ function App() {
                 <PrivateRoute
                   component={<DrinksPage />}
                   redirectTo="/welcome"
-                  redirect
                 />
               }
             />

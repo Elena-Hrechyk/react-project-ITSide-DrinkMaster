@@ -31,12 +31,12 @@ export default function DrinksPage() {
 
   const total = visibleDrinks.length;
   const pageNumbersVisible = width < 768 ? 5 : 8;
-  const itemsPerPage = width < 1280 ? 10 : 9;
+  const drinksPerPage = width < 1280 ? 10 : 9;
 
-  const totalPages = Math.ceil(total / itemsPerPage);
+  const totalPages = Math.ceil(total / drinksPerPage);
 
-  const lastDrinkIndex = currentPage * itemsPerPage;
-  const firstDrinkIndex = lastDrinkIndex - itemsPerPage;
+  const lastDrinkIndex = currentPage * drinksPerPage;
+  const firstDrinkIndex = lastDrinkIndex - drinksPerPage;
   const current = visibleDrinks.slice(firstDrinkIndex, lastDrinkIndex);
 
   const onPageChange = (pageNumber) => {
@@ -52,13 +52,18 @@ export default function DrinksPage() {
     <DrinksPageSection>
       <Container>
         <DrinksPageTitle>Drinks</DrinksPageTitle>
-        <SearchDrinks value={searshQuery} onChange={updateQueryString} />
+        <SearchDrinks
+          value={searshQuery}
+          onChange={updateQueryString}
+          page={currentPage}
+          limit={drinksPerPage}
+        />
         {isLoading && <Loader />}
         <div>{total > 0 && !error && <DrinksListPage drinks={current} />}</div>
         {totalPages > 1 && (
           <Paginator
             currentPage={currentPage}
-            drinksPerPage={itemsPerPage}
+            drinksPerPage={drinksPerPage}
             totalItems={total}
             nextPage={onPageChange}
             paginate={pageNumbersVisible}
