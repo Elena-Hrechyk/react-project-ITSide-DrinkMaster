@@ -1,9 +1,10 @@
 import { Field } from 'formik';
+import { DoneMessage } from '../SignInPageComponents/SignInForm.styled';
 import { TextArea, PreparationContainer } from './RecipePreparation.styled';
 
-const RecipePreparation = () => {
-
-  return (
+const RecipePreparation = ({errors, touched}) => {
+  
+  return (<>
     <PreparationContainer>
       <h1>Recipe Preparation</h1>
       <Field
@@ -12,7 +13,12 @@ const RecipePreparation = () => {
         placeholder="Enter the recipe"
         className="text-area"
       />
+      {touched.description && errors.description ? (
+      <DoneMessage>{errors.description}</DoneMessage>
+   ) : null}  
     </PreparationContainer>
+   
+    </>
   );
 };
 

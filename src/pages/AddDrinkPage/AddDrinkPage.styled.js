@@ -26,7 +26,7 @@ export const AddPageSection = styled.section`
   align-items: center; /* Center content vertically */
   text-align: center;
   padding: 80px 0 80px 0;
-  background-color: '#0A0A11';
+  /* background-color: '#0A0A11'; */
   font-size: 14px;
 
   /* background-size: cover; */
@@ -56,21 +56,23 @@ export const AddPageSection = styled.section`
 
   /* Для экранов с разрешением 1x и шириной больше 1279.98px */
   @media (min-width: 1279.98px) {
-    padding: 224px 0 568px 0;
+    padding: 224px 0 140px 0;
     font-size: 17px;
+    
   }
 
   /* Для ретина-дисплеев с разрешением 2x и шириной больше 1279.98px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1279.98px),
     (min-resolution: 192dpi) and (min-width: 1279.98px) {
-  }
-
   background-image: url(${Drinks_bg1_mob_1x});
   background-size: contain;
 
   background-repeat: no-repeat;
   background-position:
-    left top -160px;
+  left -97px top -331px,
+    right -497px top -287px;
+  }
+
 
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
@@ -99,8 +101,8 @@ export const AddPageSection = styled.section`
     background-size: contain, contain;
     background-repeat: no-repeat, no-repeat;
     background-position:
-      left top,
-      right top;
+    left -194px top -332px,
+    right -78px top -96px;
   }
 
   /* Для экранов с разрешением 1x и шириной больше 1280px */
@@ -120,8 +122,7 @@ export const AddPageSection = styled.section`
     background-size: contain, contain;
     background-repeat: no-repeat, no-repeat;
     background-position:
-      left top,
-      right top;
+    left -27px top -180px,right -258px top -68px;
   }
 `;
 
