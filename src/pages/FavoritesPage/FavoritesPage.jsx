@@ -6,8 +6,8 @@ import { useResize } from '../../redux/hooks/useResize';
 import { fetchDrinksFavorite } from '../../redux/auth/authOperations'
 import {deleteFavorite} from '../../redux/auth/authOperations'
 import { Container } from '../../components/GlobalStyled/container.styled';
-import { getAllDrinks } from '../../redux/drinks/drinksOperations';
-import { selectDrinks } from '../../redux/drinks/drinksSelectors';
+// import { getAllDrinks } from '../../redux/drinks/drinksOperations';
+// import { selectDrinks } from '../../redux/drinks/drinksSelectors';
 
 import { selectError } from '../../redux/drinks/drinksSelectors';
 import PageTitle from '../../components/PageTitle/PageTitle';

@@ -69,7 +69,6 @@ export const StartSection = styled.section`
     right top 50%,
     left 80px top 50%;
 
-
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {

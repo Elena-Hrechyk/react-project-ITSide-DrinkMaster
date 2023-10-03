@@ -6,7 +6,10 @@ import {
   signOut,
   updateUserProfile,
   subscribe,
+  fetchDrinksFavorite,
+  deleteFavorite,
 } from './authOperations';
+
 
 const initialState = {
   user: { name: '', birthday: '', email: '', avatarURL: '' },
