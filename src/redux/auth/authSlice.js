@@ -7,9 +7,16 @@ import {
   updateUserProfile,
   subscribe,
 } from './authOperations';
+import { stat } from 'fs';
 
 const initialState = {
-  user: { name: '', birthday: '', email: '', avatarURL: '' },
+  user: {
+    name: '',
+    birthday: '',
+    email: '',
+    avatarURL: '',
+    _id: '',
+  },
   token: null,
   isLogin: false,
   isUpdating: false,
@@ -21,7 +28,12 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [signUp.fulfilled](state, action) {
-      state.user = action.payload.user;
+      // state.user = action.payload.user;
+      state.user.name = action.payload.name;
+      state.user.email = action.payload.email;
+      state.user.birthday = action.payload.birthday;
+      state.user.avatarURL = action.payload.avatarURL;
+      state.user._id = action.payload._id;
       state.token = action.payload.token;
       state.isLogin = true;
       state.error = null;
