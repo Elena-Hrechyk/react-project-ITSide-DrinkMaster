@@ -1,106 +1,106 @@
 import { Formik, Form } from 'formik';
 import { AddPageSection } from './AddDrinkPage.styled';
-import { SignUpButton } from '../../components/SignUpPageComponents/SignUpButton';
+
 import DrinkDescription from '../../components/DrinkDescription/DrinkDescription';
 
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
-import { useEffect, useRef } from 'react';
+// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import {
-  fetchDrinksPopular,
-  newDrink,
-} from '../../redux/drinks/drinksOperations';
+import { newDrink } from '../../redux/drinks/drinksOperations';
 import DrinkIngredients from '../../components/DrinkIngredients/DrinkIngredients';
-import { selectDrinks } from '../../redux/drinks/drinksSelectors';
-// import { AddImageButton } from '../../components/DrinkDescription/DrinkDescription.styled';
-// import plus from "../../img/svg/plus.svg";
+// import { selectIsLoading } from '../../redux/drinks/drinksSelectors';
 import PopularDrinks from '../../components/PopularDrinks/PopularDrinks';
 import { selectUserData } from '../../redux/auth/authSelectors';
+// import { Loader } from '../../components/Loader/Loader';
+import { SendFormButton } from '../../components/DrinkDescription/DrinkDescription.styled';
+// import {StartSection} from"../../pages/StartPage/StartPage.styled"
+import * as yup from 'yup';
+import { Container } from '../../components/GlobalStyled/container.styled';
+
+const validationSchema = yup.object().shape({
+  // drink: yup.string().trim().required('Enter a drink title'),
+  // shortDescription: yup.string().trim().required('Enter a drink recipe'),
+  // category: yup.string().required('Select drink category'),
+  // glass: yup.string().required('Select drink glass'),
+  // description: yup.string().trim().required('Tell you drink description'),
+  // ingredients: yup.array().length(1, 'At least one ingredient must be added'),
+  // .required(),
+});
+
 const AddDrinkPage = () => {
   const dispatch = useDispatch();
+  // const user = useSelector(selectUserData);
 
-  useEffect(() => {
-    dispatch(fetchDrinksPopular());
-  }, [dispatch]);
+  // const isLoading = useSelector(selectIsLoading);
 
-  const drink = useSelector(selectDrinks);
+  let drinkThumbFile;
+  const file = (file) => {
+    drinkThumbFile = file;
+  };
 
-  const user = useSelector(selectUserData);
-  console.log(user.id);
-
-  const fileRef = useRef(null);
   const { _id } = useSelector(selectUserData);
+  const onSubmitForm = (values) => {
+    values.owner = _id;
+    values.drinkThumb = drinkThumbFile;
+    const formData = new FormData();
 
-  // const [popular, setPopular] = useState([])
-  // const popular = (fetchDrinksPopular()); // Call the function to fetch popular drinks
-  // console.log(popular)
+    for (let value in values) {
+      if (value === 'ingredients') {
+        formData.append(value, JSON.stringify(values[value]));
+      } else {
+        formData.append(value, values[value]);
+      }
+    }
+
+    for (const pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+      // Вывод имени и значения каждого поля в консоль
+    }
+    // console.log('formData', formData);
+
+    dispatch(newDrink(formData));
+  };
 
   return (
-    <AddPageSection>
-      <Formik
-        initialValues={{
-          drinkThumb: '',
-          drink: '',
-          shortDescription: '',
-          category: '',
-          glass: '',
-          alcoholic: '',
-          description: '',
-          ingredients: [],
-        }}
-        onSubmit={(values) => {
-          values.owner = _id;
+    <>
+      {/* {isLoading ? (
+            <Loader />
+        ) : ( */}
 
-          // console.log('fileRef', fileRef.current.files);
-          const formData = new FormData();
-          for (let value in values) {
-            formData.append(value, values[value]);
-          }
-          console.log('formData', formData);
-          dispatch(newDrink(values));
-          console.log('state drink:', drink);
-
-          // console.log('formData:', formData);
-          // return formData
-          // resetForm()
-        }}
-      >
-        {/* encType="multipart/form-data" - дает возможность отправлять в форме текст и файлы */}
-        <Form style={{ margin: 'auto' }} encType="multipart/form-data">
-          {/* <FileUpload name="drinkThumb" fileRef={fileRef} /> */}
-
-          <DrinkDescription fileRef={fileRef} />
-          <DrinkIngredients />
-          <RecipePreparation />
-          <SignUpButton type="submit" width={'107px'} value={'Add'}>
-            Add
-          </SignUpButton>
-          {/* FolofUs */}
+      <AddPageSection>
+        <Container>
+          <Formik
+            initialValues={{
+              drinkThumb: null,
+              drink: '',
+              shortDescription: '',
+              category: '',
+              glass: '',
+              alcoholic: '',
+              description: '',
+              ingredients: [],
+              owner: '',
+            }}
+            validationSchema={validationSchema}
+            onSubmit={onSubmitForm}
+          >
+            {({ setFieldValue }) => (
+              <Form style={{ margin: 'auto' }} encType="multipart/form-data">
+                <DrinkDescription
+                  fileValue={file}
+                  // setValue={setFieldValue}
+                />
+                <DrinkIngredients />
+                <RecipePreparation />
+                <SendFormButton type="submit">Add</SendFormButton>
+              </Form>
+            )}
+          </Formik>
           <PopularDrinks />
-        </Form>
-      </Formik>
-    </AddPageSection>
+        </Container>
+      </AddPageSection>
+    </>
   );
 };
 
 export default AddDrinkPage;
-
-// const FileUpload = ({ fileRef, ...props }) => {
-//   const [field, meta] = useField(props);
-//   return (
-// <AddImageButton style={{ backgroundColor: "white" }}>
-//   <input
-//         ref={fileRef}
-//         multiple={true}
-//         type="file"
-//         {...field}
-//       />
-//       {meta.touched && meta.error ? (
-//         <div style={{ color: 'red' }}>{meta.error}</div>
-//       ) : null}
-// <img src={plus} alt="SVG Image" width={16}  style={{ filter: 'invert(1)', fill: 'black' }} />
-
-// </AddImageButton>
-//   );
-// };

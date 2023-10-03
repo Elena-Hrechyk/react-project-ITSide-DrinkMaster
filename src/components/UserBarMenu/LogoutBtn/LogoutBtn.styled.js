@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 
-export const ModalLodOut = styled(Modal)`
+export const ModalLodOut = styled(ReactModal)`
   position: fixed;
   width: 500px;
   height: 215px;
@@ -16,19 +16,18 @@ export const ModalLodOut = styled(Modal)`
 `;
 
 export const TextContainer = styled.div`
- display: flex;
- align-items: center;
+  display: flex;
+  align-items: center;
   justify-content: center;
   margin-bottom: 37px;
 `;
 
 export const ButtonContienr = styled.div`
- display: flex;
- justify-content: space-between;
- width: 400px;
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
   height: 54px;
 `;
-
 
 export const ButtonModal = styled.button`
   width: 196px;
@@ -63,6 +62,6 @@ export const TextLogOut = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  color: #F3F3F3;
+
+  color: #f3f3f3;
 `;

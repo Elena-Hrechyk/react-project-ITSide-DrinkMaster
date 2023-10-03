@@ -1,9 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { currentUser, signUp, signIn, signOut, updateUserProfile } from './authOperations';
-
+import {
+  currentUser,
+  signUp,
+  signIn,
+  signOut,
+  updateUserProfile,
+  subscribe,
+} from './authOperations';
 
 const initialState = {
-  user: { username: '', birthday: '', email: '' },
+  user: { name: '', birthday: '', email: '', avatarURL: '' },
   token: null,
   isLogin: false,
   isUpdating: false,
@@ -23,9 +29,11 @@ const authSlice = createSlice({
     [signUp.rejected](state, action) {
       state.error = action.payload;
     },
-
     [signIn.fulfilled](state, action) {
-      state.user = action.payload.user;
+      state.user.name = action.payload.name;
+      state.user.email = action.payload.email;
+      state.user.birthday = action.payload.birthday;
+      state.user.avatarURL = action.payload.avatarURL;
       state.token = action.payload.token;
       state.isLogin = true;
       state.error = null;
@@ -34,10 +42,9 @@ const authSlice = createSlice({
       state.error = action.payload;
     },
     [signOut.fulfilled](state) {
-      state.user = { username: '', birthday: '', email: '' };
+      state.user = { name: '', birthday: '', email: '', avatarURL: '' };
       state.token = null;
       state.isLogin = false;
-      
     },
     [currentUser.pending](state) {
       state.isUpdating = true;
@@ -59,6 +66,17 @@ const authSlice = createSlice({
       state.isUpdating = false;
     },
     [updateUserProfile.rejected](state) {
+      state.isUpdating = false;
+    },
+    [subscribe.pending](state) {
+      state.isUpdating = true;
+    },
+    [subscribe.fulfilled](state, action) {
+      state.user = action.payload.user;
+      state.isLogin = true;
+      state.isUpdating = false;
+    },
+    [subscribe.rejected](state) {
       state.isUpdating = false;
     },
   },

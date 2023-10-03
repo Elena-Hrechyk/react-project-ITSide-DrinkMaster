@@ -1,5 +1,3 @@
-
-
 import {
   DrinksPageImg,
   DrinksPageList,
@@ -10,8 +8,7 @@ import {
 } from './DrinksList.styled';
 
 export const DrinksListPage = ({ drinks }) => {
-
- return (
+  return (
     <>
       <DrinksPageList>
         {drinks.length > 0 ? (
@@ -20,16 +17,12 @@ export const DrinksListPage = ({ drinks }) => {
               <DrinksPageImg src={drinkThumb} />
               <DrinksPageText>
                 <DrinksPageH>{drink}</DrinksPageH>
-                <DrinksPageLink to={`/drinks/${_id}`}>
-                  See more
-                </DrinksPageLink>
+                <DrinksPageLink to={`/drinks/${_id}`}>See more</DrinksPageLink>
               </DrinksPageText>
             </DrinksPageItem>
           ))
         ) : drinks.length === 0 ? (
-          <p>
-           Sorry. There are no coctails ... 
-          </p>
+          <h3>Sorry. There are no coctails ...</h3>
         ) : null}
       </DrinksPageList>
     </>

@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
+import throttle from 'lodash.throttle';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCategories } from '../../redux/filters/filtersOperation';
-import { getIngredients } from '../../redux/filters/filtersOperation';
-import { getRequestedDrink } from '../../redux/drinks/drinksOperations';
+import { getSearchDrink } from '../../redux/drinks/drinksOperations';
+import {
+  getCategories,
+  getIngredients,
+} from '../../redux/filters/filtersOperation';
 
 import {
   selectCategories,
   selectIngredients,
 } from '../../redux/filters/selectors';
-import { toast } from 'react-toastify';
 import Select from 'react-select';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
@@ -29,60 +31,43 @@ const initialValues = {
   ingredients: '',
 };
 const validationSchema = Yup.object().shape({
-  // searchQuery: Yup.string().required('searchQuery is required!'),
-  // categories: Yup.string().required('Please select a categories'),
-  // ingredients: Yup.string().required('Please select a ingredients'),
   searchQuery: Yup.string(),
   categories: Yup.string(),
   ingredients: Yup.string(),
 });
 
 export const SearchDrinks = ({ page, limit }) => {
-  // const [searchParams, setSearchParams] = useSearchParams();
-
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
-  const [ingredient, setIngredient] = useState('');
+  const [searchWord, setSearchWord] = useState(null);
+  const [category, setCategory] = useState(null);
+  const [ingredient, setIngredient] = useState(null);
+  const categories = useSelector(selectCategories);
+  const ingredients = useSelector(selectIngredients);
 
   const dispatch = useDispatch();
 
-  const categories = useSelector(selectCategories);
-
-  const ingredients = useSelector(selectIngredients);
-
   const handleSubmit = (values) => {
-    if (query.trim() === '') {
-      toast('🦄 Type a name of picture.', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
-      return;
-    }
-    setQuery(values.searchQuery);
+    throttle(() => setSearchWord(values.searchQuery), 300);
     setCategory(values.categories);
     setIngredient(values.ingredients);
-
-    console.log(category);
-
-    setQuery('');
+    setSearchWord('');
   };
 
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getIngredients());
+  }, [dispatch]);
 
-    dispatch(getRequestedDrink({ query, category, ingredient, page, limit }));
-  }, [dispatch, query, category, ingredient, page, limit]);
+  useEffect(() => {
+    const dataQuery = { page, limit };
+    if (category) dataQuery.category = category;
+    if (ingredient) dataQuery.ingredient = ingredient;
+    if (searchWord) dataQuery.searchWord = searchWord;
+    dispatch(getSearchDrink(dataQuery));
+  }, [dispatch, searchWord, category, ingredient, page, limit]);
 
-  console.log(category);
-
-  const handleSearchChange = (event) => setQuery(event.target.value);
+  const handleSearchChange = (event) => {
+    setSearchWord(event.target.value);
+  };
 
   return (
     <Formik
@@ -98,13 +83,9 @@ export const SearchDrinks = ({ page, limit }) => {
                 <SearchDrinksInput
                   name="searchQuery"
                   type="text"
-                  // className={searchQuery ? "active" : ""}
+                  value={searchWord}
                   placeholder="Enter the text"
-                  // autoCorrect="off"
-                  // autoComplete="name"
                   onChange={handleSearchChange}
-                  // valid={touched.fullname && !errors.fullname}
-                  // error={touched.fullname && errors.fullname}
                 />
                 <EditIconWrapper></EditIconWrapper>
               </label>
@@ -161,8 +142,8 @@ export const SearchDrinks = ({ page, limit }) => {
                           : 'border-grey-300',
                     }}
                     options={ingredients.map((ingredient) => ({
-                      value: ingredient.title,
-                      label: ingredient.title,
+                      value: ingredient,
+                      label: ingredient,
                     }))}
                     name={field.name}
                     id="ingredients"

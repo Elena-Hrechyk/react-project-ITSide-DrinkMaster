@@ -1,5 +1,4 @@
 export const colourStyles = {
-
   control: (styles, { isFocused }) => ({
     ...styles,
     background: '#161f37',
@@ -7,17 +6,16 @@ export const colourStyles = {
     height: '54px',
     borderRadius: '20px',
     borderStyle: 'none',
-    color: '#f3f3f3',
+    color: isFocused ? '#F3F3F3' : '#F3F3F366',
     borderColor: isFocused ? 'orange' : 'grey',
-    "@media only screen and (min-width: 768px)": {
+    '@media only screen and (min-width: 768px)': {
       width: '199px',
       height: '56px',
-  },
-    "@media only screen and (min-width: 1440px)": {
+    },
+    '@media only screen and (min-width: 1280px)': {
       width: '199px',
       height: '56px',
-  },
-
+    },
   }),
   indicatorSeparator: (styles) => ({
     ...styles,
@@ -28,9 +26,9 @@ export const colourStyles = {
     color: '#f3f3f3',
     fontSize: '17px',
     fontWeight: '400',
-    lineHeight: '1.5',
+    lineHeight: '1.23',
     letterSpacing: '0em',
-    textAlign: 'center',
+    // textAlign: 'center',
   }),
   input: (styles) => ({
     ...styles,
@@ -38,9 +36,8 @@ export const colourStyles = {
     fontFamily: 'Manrope',
     fontSize: '17px',
     fontWeight: '400',
-    lineHeight: '1.5',
+    lineHeight: '1.23',
     letterSpacing: '0em',
-    textAlign: 'center',
   }),
   menuList: (styles) => ({
     ...styles,
@@ -52,13 +49,20 @@ export const colourStyles = {
     ...styles,
     background: isFocused ? '#161f37' : isSelected ? '#4f5f88' : undefined,
     zIndex: 1,
-    color: '#f3f3f3',
+    color: isFocused ? '#F3F3F3' : '#F3F3F366',
     fontFamily: 'Manrope',
     fontSize: '17px',
     fontWeight: '400',
-    lineHeight: '1.5',
+    lineHeight: '1.23',
     letterSpacing: '0em',
     borderRadius: '20px',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+  }),
+  singleValue: (styles) => ({
+    ...styles,
+    color: '#F3F3F3',
   }),
   menu: (base) => ({
     ...base,

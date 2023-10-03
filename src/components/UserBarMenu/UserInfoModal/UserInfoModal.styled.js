@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
+
+
 import { Form as FormikForm, Field as FormikField } from 'formik';
 import { ReactComponent as UserAddSvg } from '../../../img/svg/add-photo.svg';
 
-export const ModalUserLogoInfo = styled(Modal)`
+export const ModalUserLogoInfo = styled(ReactModal)`
   position: fixed;
   width: 500px;
   height: 426px;

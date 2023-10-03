@@ -1,31 +1,20 @@
-import { Formik, Field } from 'formik';
-import * as Yup from 'yup';
-import { FormLabel, Form, ErrorMessage, Button } from './Footer.styled';
-
-import { FollowUs } from '../FollowUsContainer/FollowUsContainer';
-
+import { SubscribeForm } from './SubscribeForm/SubscribeForm';
+import { SocialsLinks } from './SocialsLinks/SocialsLinks';
+import { Nav } from './Nav/Nav';
 import { ReactComponent as Logo } from '../../img/svg/logo.svg';
 
 import {
   LinkLogo,
   FooterContainer,
-  Navigation,
-  NavigationList,
-  StyledLink,
   SocialsBox,
   NavigationBox,
-  SubscribeBox,
   FooterBox,
   Copyright,
   CopyrightPrivasy,
+  CopyrightText,
+  CopyrigthReserved,
   FooterSection,
 } from '../Footer/Footer.styled';
-
-const EmailSchema = Yup.object().shape({
-  email: Yup.string()
-    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email...')
-    .required('Input email...'),
-});
 
 export const Footer = () => {
   return (
@@ -37,47 +26,23 @@ export const Footer = () => {
               <Logo />
               <span>Drink Master</span>
             </LinkLogo>
-            <FollowUs />
+            <SocialsLinks />
           </SocialsBox>
           <NavigationBox>
-            <Navigation>
-              <NavigationList>
-                <StyledLink to="/">Home</StyledLink>
-                <StyledLink to="/drinks">Drinks</StyledLink>
-                <StyledLink to="add">Add drink</StyledLink>
-                <StyledLink to="my">My drinks</StyledLink>
-                <StyledLink to="favorites">Favorites</StyledLink>
-              </NavigationList>
-            </Navigation>
+            <Nav />
           </NavigationBox>
-          <SubscribeBox>
-            <Formik
-              initialValues={{
-                name: '',
-              }}
-              validationSchema={EmailSchema}
-              onSubmit={({ name }, actions) => handleSubmit({ name }, actions)}
-            >
-              <Form>
-                <FormLabel>
-                  <p>
-                    Subscribe up to our newsletter. Be in touch with latest news
-                    and special offers, etc
-                  </p>
-                  <Field name="email" placeholder="Enter the email" />
-                  <ErrorMessage name="email" component="span" />
-                </FormLabel>
-                <Button type="submit">Subscribe</Button>
-              
-              </Form>
-            </Formik>
-          </SubscribeBox>
+          <SubscribeForm />
         </FooterBox>
         <Copyright>
-          <p>©2023 Drink Master. All rights reserved.</p>
+          <CopyrigthReserved>
+            <CopyrightText>
+              ©2023 Drink Master. All rights reserved.
+            </CopyrightText>
+          </CopyrigthReserved>
+
           <CopyrightPrivasy>
-            <p>Privacy Policy</p>
-            <p>Terms of Service</p>
+            <CopyrightText>Privacy Policy</CopyrightText>
+            <CopyrightText>Terms of Service</CopyrightText>
           </CopyrightPrivasy>
         </Copyright>
       </FooterContainer>

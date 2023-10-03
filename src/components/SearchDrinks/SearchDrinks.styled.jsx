@@ -4,7 +4,6 @@ import { Field, Form } from 'formik';
 
 // import ReactSelect from "react-select";
 
-
 // export const MultiSelect = styled(ReactSelect)`
 // &. control  {
 //   background-color: #161f37;
@@ -44,7 +43,7 @@ export const FileInputWrapper = styled.div`
     // margin-bottom: 38px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
   }
 `;
 
@@ -60,7 +59,7 @@ export const SearchDrinksForm = styled(Form)`
     flex-direction: row;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
   }
 `;
 
@@ -72,34 +71,26 @@ export const SearchDrinksInput = styled.input`
   width: 335px;
   height: 54px;
 
-  // padding: 15px, 68px, 15px, 24px;
+  padding: 17px 23px;
   border-radius: 200px;
   border: 1px solid #f3f3f333;
 
   color: #f3f3f3;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.23;
   letter-spacing: 0em;
-  text-align: center;
 
   ::placeholder {
-    font-family: Manrope;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: 0em;
-    text-align: center;
-
-    color: #f3f3f3;
+    line-height: 1.23; /* 128.571% */
   }
 
   @media screen and (min-width: 768px) {
     width: 264px;
     height: 56px;
+    font-size: 17px;
+    padding: 13px 23px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 264px;
     height: 56px;
   }
@@ -111,17 +102,16 @@ export const SearchDrinksField = styled(Field)`
   width: 335px;
   height: 54px;
 
-  // padding: 15px, 68px, 15px, 24px;
   border-radius: 200px;
   border: none;
 
   color: #f3f3f3;
   font-family: Manrope;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0em;
-  text-align: center;
+  line-height: 1.23;
+
+
   &.active {
     background-color: var(--brand-orange);
     color: var(--text-white);
@@ -135,8 +125,10 @@ export const SearchDrinksField = styled(Field)`
     height: 56px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 199px;
     height: 56px;
   }
 `;
+
+

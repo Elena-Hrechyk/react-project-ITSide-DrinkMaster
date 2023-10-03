@@ -32,32 +32,27 @@ export const UserInfoModal = forwardRef(
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
     const userInfoFormSubmit = (values) => {
-      if (!isButtonEnabled) {
+
+       if (!isButtonEnabled) {
         setIsButtonEnabled(false);
         // Notify.failure('No data changed');
         // return;
       }
+      
 
       const formData = new FormData();
 
-      // const formData = {
-      //   name: values.name,
-      //    avatarURL: values.image};
-
-      // formData.append('name', values.name);
-      // if (image) {
-      //   formData.append('avatarURL', image);
-      // }
-
       formData.append('name', values.name);
-
-      formData.append('avatarURL', image);
-
-      // console.log(image);
-      // console.log(formData);
-
+      formData.append('avatar', image);
+      for (const pair of formData.entries()) {
+        console.log("avatar",pair[0], pair[1]); // Вывод имени и значения каждого поля в консоль
+      }
       dispatch(updateUserProfile(formData));
+      closeEditModal()
     };
+
+
+   
 
     const onImageChange = (e) => {
       const [_file] = e.target.files;

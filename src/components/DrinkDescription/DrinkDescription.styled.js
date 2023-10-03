@@ -94,7 +94,7 @@ export const AddImageButton = styled.label`
   border: none;
   padding: 18px;
   border-radius: 6px;
-
+  margin-bottom: 18px;
   display: inline-block;
     /* padding: 6px 12px; */
     cursor: pointer;
@@ -118,10 +118,15 @@ export const RadioComponent = styled.div`
   /* margin: 0.5rem; */
   display: flex;
   align-items: center;
+
 `;
 export const RadioLabel = styled.label`
   position: relative;
   color: #f3f3f380;
+
+  &:checked{
+    color: white;
+  }
 `;
 export const RadioInput = styled.input`
   position: absolute;
@@ -149,7 +154,7 @@ export const RadioInput = styled.input`
     + .radio-label {
       &:after {
         opacity: 1;
-        background-color: #red;
+        /* background-color: #red; */
         border: 2px solid #ffffff;
         box-shadow: inset 0 0 0 4px #000000;
       }
@@ -157,7 +162,7 @@ export const RadioInput = styled.input`
   }
   &:focus {
     + .radio-label {
-      /* color: #d9d9d9; */
+      color: #d9d9d9;
       &:before {
         outline: none;
         box-shadow: inset 0 0 0 4px #000000;
@@ -175,7 +180,18 @@ export const RadioInput = styled.input`
       }
     }
   }
+  &:checked + .radio-label::before {
+    outline: none;
+        box-shadow: inset 0 0 0 4px #000000;
+        border-radius: 100%;
+        border: 2px solid #ffffff;
+        background: #ffffff;
+        color: #ffffff;
+}
 
+&:checked + .radio-label {
+   color: #d9d9d9; 
+}
   /* &:disabled {
     + .radio-label {
       &:before {
@@ -200,4 +216,43 @@ export const CustomFileLabel = styled.label`
 `;
 export const FieldInput = styled.input`
   display: none;
+
+`;
+export const HiddenInput = styled.input`
+  position: 'relative',;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+`;
+
+export const SendFormButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 42px;
+  background: #F3F3F3;
+  color: #161f37;
+  width: 107px;
+  height: 46px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  
+  padding: 18px 44px;
+  
+  cursor: pointer;
+
+`;
+
+export const ImageBackground = styled.img`
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  border-radius: 8px;
 `;

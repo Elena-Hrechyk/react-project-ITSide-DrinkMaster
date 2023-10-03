@@ -32,7 +32,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     drinks: addDrinksReducer,
-    filter: filtersReducer,
+    filters: filtersReducer,
   },
   middleware,
   // devTools: process.env.NODE_ENV === 'development',
