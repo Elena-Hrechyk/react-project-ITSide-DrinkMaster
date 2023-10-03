@@ -95,7 +95,7 @@ function App() {
             />
 
             <Route
-              path="/favorite"
+              path="/favorites"
               element={
                 <PrivateRoute
                   component={<FavoritesPage />}
