@@ -7,6 +7,7 @@ const initialState = {
   token: null,
   isLogin: false,
   isUpdating: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -17,16 +18,26 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLogin = true;
+      state.error = null;
     },
+    [signUp.rejected](state, action) {
+      state.error = action.payload;
+    },
+
     [signIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLogin = true;
+      state.error = null;
+    },
+    [signIn.rejected](state, action) {
+      state.error = action.payload;
     },
     [signOut.fulfilled](state) {
       state.user = { username: '', birthday: '', email: '' };
       state.token = null;
       state.isLogin = false;
+      
     },
     [currentUser.pending](state) {
       state.isUpdating = true;
@@ -49,7 +60,7 @@ const authSlice = createSlice({
     },
     [updateUserProfile.rejected](state) {
       state.isUpdating = false;
-    },   
+    },
   },
 });
 

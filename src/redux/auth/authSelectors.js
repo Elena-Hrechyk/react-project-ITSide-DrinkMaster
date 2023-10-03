@@ -7,3 +7,6 @@ export const selectEmail = (state) => state.auth.user.email;
 export const selectIsUpdating = (state) => state.auth.isUpdating;
 
 export const selectUserData = (state) => state.auth.user;
+
+export const selectIsError = (state) => state.auth.error;
+
