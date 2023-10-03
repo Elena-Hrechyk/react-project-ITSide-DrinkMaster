@@ -21,6 +21,15 @@ export const ModalUserLogoInfo = styled(ReactModal)`
   border-radius: 16px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 1000;
+
+  @media screen and (max-width: 767.5px) {
+    width: 335px;
+  height: 345px;
+  padding-left: 25px;
+  padding-top: 50px;
+  padding-right: 25px;
+  padding-bottom: 50px;
+  }
 `;
 
 export const ButtonClose = styled.button`
@@ -35,7 +44,13 @@ export const ButtonClose = styled.button`
   justify-content: center;
   background-color: transparent;
   border: none;
+
+  @media screen and (max-width: 767.5px) {
+  top: 11px;
+  left: 290px;
+  }
 `;
+
 
 export const Form = styled(FormikForm)`
   width: 400px;
@@ -43,6 +58,11 @@ export const Form = styled(FormikForm)`
   padding: 0;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 767.5px) {
+  width: 285px;
+  height: 260px;
+  }
 `;
 
 export const FieldEditName = styled(FormikField)`
@@ -55,6 +75,11 @@ export const FieldEditName = styled(FormikField)`
   border: 1px solid #f3f3f380;
   background-color: transparent;
   color: #f3f3f3;
+
+   @media screen and (max-width: 767.5px) {
+  width: 285px;
+  height: 54px;
+  }
 `;
 
 export const Button = styled.button`
@@ -69,6 +94,21 @@ export const Button = styled.button`
   color: #161f37;
   border: none;
   border-radius: 54px;
+
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #434D67;
+    color: #F3F3F3;
+  }
+
+   @media screen and (max-width: 767.5px) {
+  width: 285px;
+  height: 54px;
+  }
 `;
 
 export const SvgContainer = styled.div`
@@ -81,6 +121,11 @@ export const SvgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+   @media screen and (max-width: 767.5px) {
+  left: 272px;
+  top: 194px;
+  }
 `;
 
 export const EditAvatarContainer = styled.div`
@@ -90,6 +135,7 @@ export const EditAvatarContainer = styled.div`
 
 export const FieldEditAvatar = styled(FormikField)`
   display: none;
+  
 `;
 
 export const UserImg = styled.img`
@@ -99,12 +145,19 @@ export const UserImg = styled.img`
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  cursor: pointer;
 `;
 
 export const AddPhotoSvg = styled(UserAddSvg)`
   position: absolute;
   top: 84px;
   left: 184px;
+  cursor: pointer;
+
+  @media screen and (max-width: 767.5px) {
+  left: 125px;
+  top: 83px;
+  }
 `;
 
 export const LabelFileUpload = styled.label`

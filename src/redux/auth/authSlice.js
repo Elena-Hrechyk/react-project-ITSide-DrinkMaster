@@ -5,7 +5,7 @@ import {
   signIn,
   signOut,
   updateUserProfile,
-  subscribe,
+  updateSubscribe,
   fetchDrinksFavorite,
   deleteFavorite,
 } from './authOperations';
@@ -71,15 +71,15 @@ const authSlice = createSlice({
     [updateUserProfile.rejected](state) {
       state.isUpdating = false;
     },
-    [subscribe.pending](state) {
+    [updateSubscribe.pending](state) {
       state.isUpdating = true;
     },
-    [subscribe.fulfilled](state, action) {
+    [updateSubscribe.fulfilled](state, action) {
       state.user = action.payload.user;
       state.isLogin = true;
       state.isUpdating = false;
     },
-    [subscribe.rejected](state) {
+    [updateSubscribe.rejected](state) {
       state.isUpdating = false;
     },
 
@@ -104,7 +104,7 @@ const authSlice = createSlice({
       state.user.favorite = state.user.favorite.filter(item => item.id !== action.payload);
       // state.items = action.payload;
     },
-    [subscribe.rejected](state, action) {
+    [updateSubscribe.rejected](state, action) {
       state.user.error = action.payload;
     },
 

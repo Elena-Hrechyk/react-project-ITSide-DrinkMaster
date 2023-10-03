@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 
-import { subscribe } from '../../../redux/auth/authOperations';
+import { updateSubscribe } from '../../../redux/auth/authOperations';
+import { selectUserData } from '../../../redux/auth/authSelectors';
 
 import {
   FormLabel,
@@ -16,25 +18,28 @@ import {
 } from './SubscribeForm.styled';
 
 const EmailSchema = Yup.object().shape({
-  email: Yup.string()
-    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email...')
-    .required('Input email...'),
+  email: Yup.string().matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email...'),
 });
 
 export const SubscribeForm = () => {
   const dispatch = useDispatch();
 
-  const [isConfirmed, setIsConfirmed] = useState(false);
+  const [inputValue, setInputValue] = useState('');
 
-  const [status, setStatus] = useState('');
+  const { subscribe } = useSelector(selectUserData);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      await dispatch(subscribe(values));
+      await dispatch(updateSubscribe(values));
       resetForm();
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+    console.log(e);
   };
 
   return (
@@ -55,7 +60,9 @@ export const SubscribeForm = () => {
             <Field name="email" placeholder="Enter the email" />
             <ErrorMessage name="email" component="span" />
           </FormLabel>
-          <Button type="submit">Subscribe</Button>
+          <Button disabled={subscribe} type="submit">
+            {subscribe ? 'You are subscribed' : 'Subscribe'}
+          </Button>
         </Form>
       </Formik>
     </SubscribeBox>

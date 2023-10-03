@@ -21,6 +21,9 @@ export const Form = styled(FormikForm)`
 `;
 
 export const ErrorMessage = styled(FormikError)`
+  padding-left: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   color: tomato;
 `;
 
@@ -39,14 +42,29 @@ export const Button = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: 156%;
+
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #434D67;
+    color: #F3F3F3;
+  }
+
+  &:disabled {
+  background-color: #434D67;
+  cursor: inherit;
 `;
 
 export const SubscribeBox = styled.div`
   margin-left: auto;
   @media screen and (max-width: 767.5px) {
     position: absolute;
-    top: 250px;
-    left: 90px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   }
 `;
 

@@ -22,6 +22,7 @@ export const LogOutBtnModal = forwardRef(
 
     const handlerLogoutClick = () => {
       dispatch(signOut());
+      document.body.classList.remove('modal-open');
       navigate('/welcome');
     };
 

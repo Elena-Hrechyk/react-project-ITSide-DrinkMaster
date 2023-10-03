@@ -91,7 +91,7 @@ export const updateUserProfile = createAsyncThunk(
   },
 );
 
-export const subscribe = createAsyncThunk(
+export const updateSubscribe = createAsyncThunk(
   'users/subscribe',
   async ({ email }, thunkAPI) => {
     const state = thunkAPI.getState();

@@ -63,7 +63,6 @@ export const UserBarMenu = ({ toggleMenu, isOpenBurgerMenu }) => {
         <UserBarImg src={avatarURL} alt={name} />
         <UserBarName>{name}</UserBarName>
       </UserBarBtn>
-
       <UserLogoPopup
         ref={nodeRef}
         isOpen={isOpenLogoPopup}
