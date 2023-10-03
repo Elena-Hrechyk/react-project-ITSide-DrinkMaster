@@ -6,6 +6,8 @@ import {
   getDrinkById,
   getSearchDrink,
   fetchOwnDrinks,
+  addFavoriteDrink,
+  removeFavoriteDrink,
 } from './drinksOperations';
 
 const handlePending = (state) => {
@@ -24,6 +26,7 @@ const drinksSlice = createSlice({
     isLoading: false,
     error: null,
     popular: [],
+    favorite: [],
     ownDrinks: [],
     total: 0,
   },
@@ -75,7 +78,24 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.ownDrinks = action.payload;
-      });
+      })
+      .addCase(addFavoriteDrink.pending, handlePending)
+      .addCase(addFavoriteDrink.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.favorite.push(action.payload.id);
+      })
+      .addCase(addFavoriteDrink.rejected, handleRejected)
+      .addCase(removeFavoriteDrink.pending, handlePending)
+      .addCase(removeFavoriteDrink.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const index = state.favorite.findIndex(
+          (drink) => drink === action.payload,
+        );
+        state.favorite.splice(index, 1);
+      })
+      .addCase(removeFavoriteDrink.rejected, handleRejected);
     // .addCase(fetchDrinksFavorite.pending, handlePending)
     // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
     //   console.log('clg', action.payload);

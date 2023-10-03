@@ -54,9 +54,6 @@ CustomInput.displayName = 'CustomInput';
  
   //додавання контакту при сабміті
   const handleSubmit = (values, { resetForm }) => {
-    console.log('values', values);
-    console.log('Выбранная дата:', values.date);
-
      const formattedDate = values.date
        ? format(values.date, 'dd-MM-yyyy')
        : null;

@@ -22,7 +22,7 @@ const FavoritesPage = () => {
   const error = useSelector(selectError);
   const data = useSelector(selectDrinks);
   const dispatch = useDispatch();
-  console.log(data);
+
   useEffect(() => {
     dispatch(getAllDrinks());
   }, [dispatch]);

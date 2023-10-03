@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { Formik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/authOperations.js';
-import { selectIsLogin } from '../../redux/auth/authSelectors.js';
+// import { selectIsLogin } from '../../redux/auth/authSelectors.js';
 import * as yup from 'yup';
 import {
   Field,
@@ -27,7 +27,7 @@ const initialValues = {
 
 export const SignInForm = () => {
   const dispatch = useDispatch();
-  const isLogin = useSelector(selectIsLogin);
+  // const isLogin = useSelector(selectIsLogin);
   // const [field, meta] = useField();
 
   // Show inline feedback if EITHER
@@ -44,7 +44,7 @@ export const SignInForm = () => {
 
   //додавання контакту при сабміті
   const handleSubmit = (values, { resetForm }) => {
-    console.log('values', values);
+    // console.log('values', values);
 
     // виклик диспечера для відправки даних в редакс
     const reg = JSON.stringify({
@@ -63,7 +63,7 @@ export const SignInForm = () => {
     resetForm();
   };
 
-  console.log(isLogin);
+  // console.log(isLogin);
   //схема валідації
   const schema = yup.object().shape({
     email: yup.string().required().min(4),
