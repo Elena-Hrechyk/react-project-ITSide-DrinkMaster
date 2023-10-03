@@ -79,6 +79,32 @@ const authSlice = createSlice({
     [subscribe.rejected](state) {
       state.isUpdating = false;
     },
+
+    [fetchDrinksFavorite.pending](state) {
+      console.log(state)
+    },
+    [fetchDrinksFavorite.fulfilled] (state, action) {
+      console.log('clg', action.payload);
+      state.isLoading = false;
+      state.error = null;
+      // state.items = action.payload;
+    },
+    // [subscribe.rejected](state) {
+    //   state.isUpdating = false;
+    // },
+
+    // [deleteFavorite.pending](state) {
+    //   console.log(state)
+    // },
+    [deleteFavorite.fulfilled] (state, action) {
+      console.log('clg', action.payload);
+      state.user.favorite = state.user.favorite.filter(item => item.id !== action.payload);
+      // state.items = action.payload;
+    },
+    [subscribe.rejected](state, action) {
+      state.user.error = action.payload;
+    },
+
   },
 });
 
