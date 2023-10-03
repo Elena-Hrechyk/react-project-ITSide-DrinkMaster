@@ -127,3 +127,15 @@ export const fetchDrinksFavorite = createAsyncThunk(
     }
   }
 );
+
+export const deleteFavorite = createAsyncThunk(
+  'drinks/deleteFavorite',
+  async (id, thunkAPI) => {
+    try {
+      await axios.delete(`/drinks/favorite/remove/${id}`);
+      return id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);

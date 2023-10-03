@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { currentUser, signUp, signIn, signOut, updateUserProfile, subscribe, fetchDrinksFavorite } from './authOperations';
+import { currentUser, signUp, signIn, signOut, updateUserProfile, subscribe, fetchDrinksFavorite, deleteFavorite } from './authOperations';
 
 
 const initialState = {
-  user: { username: '', birthday: '', email: '' },
+  user: { username: '', birthday: '', email: '', favorite: [], error: null },
   token: null,
   isLogin: false,
   isUpdating: false,
@@ -70,6 +70,21 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       // state.items = action.payload;
+    },
+    // [subscribe.rejected](state) {
+    //   state.isUpdating = false;
+    // },
+
+    // [deleteFavorite.pending](state) {
+    //   console.log(state)
+    // },
+    [deleteFavorite.fulfilled] (state, action) {
+      console.log('clg', action.payload);
+      state.user.favorite = state.user.favorite.filter(item => item.id !== action.payload);
+      // state.items = action.payload;
+    },
+    [subscribe.rejected](state, action) {
+      state.user.error = action.payload;
     },
 
   },
