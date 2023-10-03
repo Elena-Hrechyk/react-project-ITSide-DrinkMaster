@@ -1,6 +1,6 @@
 import { Formik, Form } from 'formik';
 import { AddPageSection } from './AddDrinkPage.styled';
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import DrinkDescription from '../../components/DrinkDescription/DrinkDescription';
 
@@ -32,7 +32,7 @@ const validationSchema = yup.object().shape({
 
 const AddDrinkPage = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { _id } = useSelector(selectUserData);
   const onSubmitForm = (values, action) => {
@@ -53,10 +53,12 @@ const AddDrinkPage = () => {
     }
 
     dispatch(newDrink(formData));
-
+    navigate('/my')
     action.resetForm();
+    
+    
     // if (response.success) {
-    //   navigate("/drinks/own", { replace: true });
+    //   navigate("/drinks/own/all", { replace: true });
     // }
   };
 
