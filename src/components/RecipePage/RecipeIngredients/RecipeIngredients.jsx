@@ -1,31 +1,57 @@
-import css from "./RecipeIngredients.module.css"
-import { selectDrinks } from "../../../redux/drinks/drinksSelectors";
-import { useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-export const RecipeIngredientsList = ({children}) => {
-    return (
-    <section>
-        <p className={css.title}>Ingredients</p>
-        <ul className={css.ingredientsList}>{children}</ul>
-    </section>
-    )
-};
+import { getIngredientsAll } from '../../../redux/filters/filtersOperation';
+import { selectIngredients } from '../../../redux/filters/selectors';
+import {
+  Title,
+  ListIngredients,
+  ItemIngredient,
+  ImgIngredient,
+  BoxTitleIngredient,
+  TitleIngredient,
+  Measure,
+} from './RecipeIngredients.styled';
 
+export const RecipeIngredientsItems = ({ data }) => {
+  const arr = [];
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getIngredientsAll());
+  }, [dispatch]);
 
-export const RecipeIngredientsItems = () => {
-    
-    const ingredients = useSelector(selectDrinks);
-    const { ingredientId, title, measure, ingredientThumb} = ingredients.data;
+  const ingredients = useSelector(selectIngredients);
 
-    return (
-    <li className={css.ingredientsItem} id={ingredientId} title={`${title}  ${measure ? measure : ''}`}>
-    <div className={css.ingredientsContainer}>
-    <img className={css.imgIngredients} src={ingredientThumb} alt={title} />
-    </div>
-    <div className={css.ingredientsDescription}>
-    <p className={css.ingredientsTitle}>{title}</p>
-    <p className={css.ingredientsMeasures}>{measure}</p>
-    </div>
-    </li>
-    )
+  data.map(({ ingredientId, measure }) => {
+    ingredients.find((item) => {
+      if (ingredientId === item._id) {
+        let newItem = {
+          measure: measure,
+        };
+        arr.push({ ...item, ...newItem });
+      }
+    });
+    return arr;
+  });
+
+  return (
+    <>
+      <Title>Ingredients</Title>
+      <ListIngredients>
+        <>
+          {arr.map(({ _id, title, measure, ingredientThumb }) => {
+            return (
+              <ItemIngredient key={_id}>
+                <ImgIngredient src={ingredientThumb} alt={title} />
+                <BoxTitleIngredient>
+                  <TitleIngredient>{title}</TitleIngredient>
+                  <Measure>{measure}</Measure>
+                </BoxTitleIngredient>
+              </ItemIngredient>
+            );
+          })}
+        </>
+      </ListIngredients>
+    </>
+  );
 };
