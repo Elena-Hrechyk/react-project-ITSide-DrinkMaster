@@ -13,6 +13,7 @@ const initialState = {
   token: null,
   isLogin: false,
   isUpdating: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -22,8 +23,11 @@ const authSlice = createSlice({
     [signUp.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
-
       state.isLogin = true;
+      state.error = null;
+    },
+    [signUp.rejected](state, action) {
+      state.error = action.payload;
     },
     [signIn.fulfilled](state, action) {
       state.user.name = action.payload.name;
@@ -32,6 +36,10 @@ const authSlice = createSlice({
       state.user.avatarURL = action.payload.avatarURL;
       state.token = action.payload.token;
       state.isLogin = true;
+      state.error = null;
+    },
+    [signIn.rejected](state, action) {
+      state.error = action.payload;
     },
     [signOut.fulfilled](state) {
       state.user = { name: '', birthday: '', email: '', avatarURL: '' };

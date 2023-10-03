@@ -13,6 +13,7 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import StartPage from './pages/StartPage/StartPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SignInPage from './pages/SignInPage/SignInPage';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const DrinksPage = lazy(() => import('./pages/DrinksPage/DrinksPage'));
@@ -115,6 +116,7 @@ function App() {
           </Route>
         </Routes>
       )}
+      <Toaster position="top-center" reverseOrder={false} />
     </AppWrapper>
   );
 }

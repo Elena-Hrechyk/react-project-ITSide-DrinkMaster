@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
 import { Footer } from '../Footer/Footer';
 import { Loader } from '../Loader/Loader';
-import { Toaster } from 'react-hot-toast';
+// import { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { selectIsLogin } from '../../redux/auth/authSelectors';
 
@@ -18,7 +18,7 @@ const SharedLayout = () => {
       </Suspense>
 
       {IsLogin && <Footer />}
-      <Toaster position="top-right" reverseOrder={false} />
+     
     </>
   );
 };

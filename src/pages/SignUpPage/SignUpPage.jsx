@@ -1,15 +1,18 @@
-// import { useSelector } from 'react-redux';
-// import {selectIsLogin} from '../../redux/auth/authSelectors'
-// import toast from 'react-hot-toast';
+import { useSelector } from 'react-redux';
+import { selectIsError } from '../../redux/auth/authSelectors';
+import toast from 'react-hot-toast';
 import { SignUpForm } from '../../components/SignUpPageComponents/SignUpform/SignUpForm';
 import { Container } from '../../components/GlobalStyled/container.styled';
 import { H2, RouteLink, FormWrapper, SignUpSection } from './SignUpPage.styled';
-const SignUpPage = () => {
-  // const isLogin = useSelector(selectIsLogin);
+import { useEffect } from 'react';
 
-  // isLogin
-  //   ? toast.success('Successfully toasted!')
-  //   : toast.error('Something was wrong! Try again!');
+const SignUpPage = () => {
+  const isError = useSelector(selectIsError);
+  useEffect(() => {
+    isError && toast.error(`${isError} Something was wrong! Try again!`);
+  }, [isError]);
+
+  
   return (
     <SignUpSection>
       <Container>
