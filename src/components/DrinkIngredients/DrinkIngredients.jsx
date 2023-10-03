@@ -105,6 +105,7 @@ const DrinkIngredients = ({errors, touched}) => {
                         <Portion width="150px">
                           <Field
                             name={`ingredients.${index}.measure`}
+                            id={`ingredients.${index}.measure`}
                             as={Input}
                             placeholder="Measure"
                             marginBottom="0"
