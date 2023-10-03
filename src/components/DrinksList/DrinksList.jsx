@@ -22,7 +22,7 @@ export const DrinksListPage = ({ drinks }) => {
             </DrinksPageItem>
           ))
         ) : drinks.length === 0 ? (
-          <p>Sorry. There are no coctails ...</p>
+          <h3>Sorry. There are no coctails ...</h3>
         ) : null}
       </DrinksPageList>
     </>

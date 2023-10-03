@@ -26,7 +26,7 @@ const drinksSlice = createSlice({
     isLoading: false,
     error: null,
     popular: [],
-    ownDrinks:[],
+    ownDrinks: [],
     total: 0,
   },
 
@@ -63,15 +63,14 @@ const drinksSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getSearchDrink.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.isLoading = false;
-        state.cocktails = action.payload.result;
-        state.total = action.payload.totalHits;
+        state.items = action.payload;
+        state.total = action.payload.quantity;
       })
       .addCase(getSearchDrink.rejected, (state) => {
         state.isLoading = false;
-        state.cocktails = [];
-        state.totalCocktails = 0;
+        state.items = [];
+        state.total = 0;
       })
       .addCase(fetchOwnDrinks.pending, handlePending)
       .addCase(fetchOwnDrinks.rejected, handleRejected)
@@ -79,7 +78,7 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.ownDrinks = action.payload;
-      })
+      });
     // .addCase(fetchDrinksFavorite.pending, handlePending)
     // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
     //   console.log('clg', action.payload);
