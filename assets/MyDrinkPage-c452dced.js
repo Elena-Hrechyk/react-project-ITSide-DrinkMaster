@@ -1,4 +1,4 @@
-import{n as h,r as o,u as p,a as f,o as P,j as a}from"./index-d8473b02.js";import{u as k,P as w}from"./useResize-65056f28.js";import{c as D,b as j}from"./drinksSelectors-29c49a96.js";import{P as b,D as y,N as E}from"./NotFoundComponent-6da33558.js";const F=h.main`
+import{n as h,r as o,u as p,a as f,m as P,j as a}from"./index-03164017.js";import{u as k,P as w}from"./useResize-6289eb1a.js";import{c as D,b as j}from"./drinksSelectors-29c49a96.js";import{P as b,D as y,N as E}from"./NotFoundComponent-a7f3a3b2.js";const F=h.main`
   font-family: 'Manrope',Arial,sans-serif;
   max-width: 480px;
   padding-left: 20px;
