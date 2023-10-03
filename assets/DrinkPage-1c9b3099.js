@@ -1,4 +1,4 @@
-import{s as i,r as c,a as x,u as g,j as e,a0 as m,a1 as l,a2 as b,a3 as u,a4 as f,C as k}from"./index-290fbce3.js";import{n as w,D as j,a as _,b as v,c as D,d as z,e as I,f as y,g as $,h as T,i as F,o as R}from"./Drinks_bg3_desk@2x-86194370.js";import{a as B}from"./selectors-a7d85374.js";import{D as A,a as C}from"./Drinks_bg3_mob@2x-5e9320da.js";const h=i.button`
+import{s as i,r as c,a as x,u as g,j as e,a0 as m,a1 as l,a2 as b,a3 as u,a4 as f,C as k}from"./index-811ef06d.js";import{n as w,D as j,a as _,b as v,c as D,d as z,e as I,f as y,g as $,h as T,i as F,o as R}from"./Drinks_bg3_desk@2x-86194370.js";import{a as B}from"./selectors-a7d85374.js";import{D as A,a as C}from"./Drinks_bg3_mob@2x-5e9320da.js";const h=i.button`
   padding: 14px 40px;
   text-align: center;
   color: #161f37;
@@ -25,7 +25,7 @@ import{s as i,r as c,a as x,u as g,j as e,a0 as m,a1 as l,a2 as b,a3 as u,a4 as 
   @media screen and (min-width: 1280px) {
     margin-bottom: 198px;
   }
-`,E=({id:r})=>{const[t,n]=c.useState(!1),s=x(),o=g(w),d={_id:r};return c.useEffect(()=>{if(o.length){const a=o.find(p=>console.log(p===r));return n(a),a}},[r,t,o]),console.log("searchDrink",t),e.jsx(e.Fragment,{children:t?e.jsx(e.Fragment,{children:e.jsx(h,{type:"button",onClick:()=>s(l(r)),children:"Remove from favorite drinks"})}):e.jsx(e.Fragment,{children:e.jsx(h,{type:"button",onClick:()=>s(m(d)),children:"Add to favorite drinks"})})})},S=i.h2`
+`,S=({id:n})=>{const[r,t]=c.useState(!1),o=x(),a=g(w),d={_id:n};return a.length?(a.find(s=>{if(s===n)return t(!1)}),t(!0)):e.jsx(e.Fragment,{children:r?e.jsx(e.Fragment,{children:e.jsx(h,{type:"button",onClick:()=>o(l(n)),children:"Remove from favorite drinks"})}):e.jsx(e.Fragment,{children:e.jsx(h,{type:"button",onClick:()=>o(m(d)),children:"Add to favorite drinks"})})})},E=i.h2`
   margin-bottom: 8px;
   font-size: 32px;
   font-weight: 600;
@@ -40,7 +40,7 @@ import{s as i,r as c,a as x,u as g,j as e,a0 as m,a1 as l,a2 as b,a3 as u,a4 as 
     font-size: 62px;
     line-height: calc(68 / 64);
   }
-`,P=({title:r})=>e.jsx(S,{children:r}),L=i.h4`
+`,P=({title:n})=>e.jsx(E,{children:n}),L=i.h4`
   color: rgba(243, 243, 243, 0.5);
   font-size: 16px;
   font-weight: 500;
@@ -106,7 +106,7 @@ import{s as i,r as c,a as x,u as g,j as e,a0 as m,a1 as l,a2 as b,a3 as u,a4 as 
     font-size: 16px;
     line-height: 1.25; /* 133.333% */
   }
-`,K=({data:r})=>{const t=[],n=x();c.useEffect(()=>{n(b())},[n]);const s=g(B);return r.map(({ingredientId:o,measure:d})=>(s.find(a=>{if(o===a._id){let p={measure:d};t.push({...a,...p})}}),t)),e.jsxs(e.Fragment,{children:[e.jsx(L,{children:"Ingredients"}),e.jsx(M,{children:e.jsx(e.Fragment,{children:t.map(({_id:o,title:d,measure:a,ingredientThumb:p})=>e.jsxs(W,{children:[e.jsx(q,{src:p,alt:d}),e.jsxs(G,{children:[e.jsx(H,{children:d}),e.jsx(J,{children:a})]})]},o))})})]})},N=i.section`
+`,K=({data:n})=>{const r=[],t=x();c.useEffect(()=>{t(b())},[t]);const o=g(B);return n.map(({ingredientId:a,measure:d})=>(o.find(s=>{if(a===s._id){let p={measure:d};r.push({...s,...p})}}),r)),e.jsxs(e.Fragment,{children:[e.jsx(L,{children:"Ingredients"}),e.jsx(M,{children:e.jsx(e.Fragment,{children:r.map(({_id:a,title:d,measure:s,ingredientThumb:p})=>e.jsxs(W,{children:[e.jsx(q,{src:p,alt:d}),e.jsxs(G,{children:[e.jsx(H,{children:d}),e.jsx(J,{children:s})]})]},a))})})]})},N=i.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -303,4 +303,4 @@ import{s as i,r as c,a as x,u as g,j as e,a0 as m,a1 as l,a2 as b,a3 as u,a4 as 
     flex-direction: row-reverse;
     justify-content: space-between;
   }
-`,ne="/react-project-ITSide-DrinkMaster/assets/recipe-preparation-94babfdc.jpg",se=()=>{const r=x(),{drinkId:t}=u(),n=g(s=>R(s,t));return c.useEffect(()=>{r(f(t))},[r,t]),e.jsx(N,{children:e.jsxs(k,{children:[e.jsxs(O,{children:[e.jsxs(Q,{children:[e.jsx(P,{title:n.drink}),e.jsxs(U,{children:[n.glass," / ",n.alcoholic]}),e.jsx(V,{children:n.description}),e.jsx(E,{id:t})]}),e.jsx(X,{src:n.drinkThumb,alt:n.drink,title:n.drink})]}),e.jsx(K,{data:n.ingredients}),e.jsx(Y,{children:"Recipe Preparation"}),e.jsxs(ie,{children:[e.jsx(Z,{children:n.instructions}),e.jsx(ee,{src:ne,alt:"Cocktails"})]})]})})};export{se as default};
+`,te="/react-project-ITSide-DrinkMaster/assets/recipe-preparation-94babfdc.jpg",de=()=>{const n=x(),{drinkId:r}=u(),t=g(o=>R(o,r));return c.useEffect(()=>{n(f(r))},[n,r]),e.jsx(N,{children:e.jsxs(k,{children:[e.jsxs(O,{children:[e.jsxs(Q,{children:[e.jsx(P,{title:t.drink}),e.jsxs(U,{children:[t.glass," / ",t.alcoholic]}),e.jsx(V,{children:t.description}),e.jsx(S,{id:r})]}),e.jsx(X,{src:t.drinkThumb,alt:t.drink,title:t.drink})]}),e.jsx(K,{data:t.ingredients}),e.jsx(Y,{children:"Recipe Preparation"}),e.jsxs(ie,{children:[e.jsx(Z,{children:t.instructions}),e.jsx(ee,{src:te,alt:"Cocktails"})]})]})})};export{de as default};
