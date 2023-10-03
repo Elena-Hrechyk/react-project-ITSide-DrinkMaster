@@ -1,5 +1,3 @@
-// import { useSelector } from 'react-redux';
-// import { selectPopular } from '../../redux/drinks/drinksSelectors';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -10,6 +8,7 @@ import {
   DescriptionContainer,
   DrinksContainer,
   PopularDrinkCont,
+  StyledLink,
   Text,
 } from './PopularDrinks.styled';
 
@@ -21,14 +20,15 @@ const PopularDrinks = () => {
   const popular = useSelector(selectPopular);
 
   return (
-    <DrinksContainer>
+    <DrinksContainer >
       <h4 style={{marginBottom:"20px"}}>Follow Us</h4>
       <FollowUs/>
       <h4 style={{marginTop:"40px"}}>PopularDrinks</h4>
       <ul>
         {popular.map((item) => {
           return (
-            <PopularDrinkCont key={item._id}>
+            <PopularDrinkCont  key={item._id}>
+              <StyledLink to={`/drinks/${item._id}`}>
               <img
                 src={item.drinkThumb}
                 alt="SVG Image"
@@ -39,7 +39,8 @@ const PopularDrinks = () => {
               <DescriptionContainer>
                 <h4>{item.drink}</h4>
                 <Text style={{}}>{item.shortDescription}</Text>
-              </DescriptionContainer>
+                </DescriptionContainer>
+                </StyledLink>
             </PopularDrinkCont>
           );
         })}

@@ -44,7 +44,9 @@ export const UserInfoModal = forwardRef(
 
       formData.append('name', values.name);
       formData.append('avatar', image);
-
+      for (const pair of formData.entries()) {
+        console.log("avatar",pair[0], pair[1]); // Вывод имени и значения каждого поля в консоль
+      }
       dispatch(updateUserProfile(formData));
       closeEditModal()
     };

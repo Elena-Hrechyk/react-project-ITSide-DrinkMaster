@@ -3,21 +3,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://drinkmaster.onrender.com/api';
 
-// axios.defaults.baseURL = 'http://localhost:3000/api';
-
 export const newDrink = createAsyncThunk(
   'drinks/newDrink',
   async (newDrink, thunkAPI) => {
     try {
-      //   console.log("newDrink")
-      // const userId = currentUser()
-      // console.log("userId", userId)
       const response = await axios.post('/drinks/own/add', newDrink, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log('response', response);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -108,3 +102,4 @@ export const fetchOwnDrinks = createAsyncThunk(
 //         return thunkAPI.rejectWithValue(e.message);
 //       }
 //     })
+
