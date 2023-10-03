@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useResize } from '../../redux/hooks/useResize';
 import { Container } from '../../components/GlobalStyled/container.styled';
+import {deleteOwnDrinks} from '../../redux/drinks/drinksOperations'
+
 import { fetchOwnDrinks } from '../../redux/drinks/drinksOperations';
 import { selectError } from '../../redux/drinks/drinksSelectors';
 import { selectOwnDrinks } from '../../redux/drinks/drinksSelectors';
@@ -11,7 +13,10 @@ import DrinksList from '../../components/Drinks_List/Drinks_List';
 import NotFoundComponent from '../../components/NotFoundComponent/NotFoundComponent';
 import Paginator from '../../components/Paginator/Paginator';
 
-export const MyDrinksPage = () => {
+
+
+const MyDrinksPage = () => {
+
   const [currentPage, setCurrentPage] = useState(1);
   const { width } = useResize();
   const data = useSelector(selectOwnDrinks);
@@ -33,25 +38,20 @@ export const MyDrinksPage = () => {
 
   return (
     <Wrap>
-      <Container>
-        <PageTitle title={'My drinks'}></PageTitle>
-        {data && data.length !== 0 ? (
-          <DrinksList items={current}></DrinksList>
-        ) : (
-          <NotFoundComponent
-            error={error}
-            message={'No own cocktails'}
-          ></NotFoundComponent>
-        )}
-        {data && data.length !== 0 && (
-          <Paginator
-            currentPage={currentPage}
-            paginate={pageNumbersVisible}
-            drinksPerPage={drinksPerPage}
-            totalItems={data.length}
-            nextPage={onPageChange}
-          ></Paginator>
-        )}
+    <Container>
+      <PageTitle title={'My drinks'}></PageTitle>
+      {data && data.length !== 0 ? (<DrinksList deleteCard={deleteOwnDrinks} items={current}></DrinksList>) : (
+        <NotFoundComponent error={error} message={"No own cocktails"}></NotFoundComponent>
+      )}
+      {data && data.length !== 0 && (
+        <Paginator
+          currentPage={currentPage}
+          paginate={pageNumbersVisible}
+          drinksPerPage={drinksPerPage}
+          totalItems={data.length}
+          nextPage={onPageChange}
+        ></Paginator>
+      )}
       </Container>
     </Wrap>
   );

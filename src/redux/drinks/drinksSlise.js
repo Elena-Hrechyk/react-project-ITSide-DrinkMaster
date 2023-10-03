@@ -6,6 +6,7 @@ import {
   getDrinkById,
   getSearchDrink,
   fetchOwnDrinks,
+  deleteOwnDrinks
 } from './drinksOperations';
 
 const handlePending = (state) => {
@@ -75,6 +76,18 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.ownDrinks = action.payload;
+      })
+      .addCase(deleteOwnDrinks.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(deleteOwnDrinks.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.ownDrinks = state.ownDrinks.filter(item => item.id !== action.payload);
+      })
+      .addCase(deleteOwnDrinks.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
     // .addCase(fetchDrinksFavorite.pending, handlePending)
     // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
