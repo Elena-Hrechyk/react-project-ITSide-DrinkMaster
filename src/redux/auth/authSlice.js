@@ -9,7 +9,7 @@ import {
 } from './authOperations';
 
 const initialState = {
-  user: { username: '', birthday: '', email: '' },
+  user: { username: '', birthday: '', email: '', avatarURL: '' },
   token: null,
   isLogin: false,
   isUpdating: false,
@@ -29,11 +29,12 @@ const authSlice = createSlice({
       state.user.username = action.payload.name;
       state.user.email = action.payload.email;
       state.user.birthday = action.payload.birthday;
+      state.user.avatarURL = action.payload.avatarURL;
       state.token = action.payload.token;
       state.isLogin = true;
     },
     [signOut.fulfilled](state) {
-      state.user = { username: '', birthday: '', email: '' };
+      state.user = { username: '', birthday: '', email: '', avatarURL: '' };
       state.token = null;
       state.isLogin = false;
     },
