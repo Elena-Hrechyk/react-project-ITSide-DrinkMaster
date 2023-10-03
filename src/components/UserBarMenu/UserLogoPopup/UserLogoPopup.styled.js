@@ -15,6 +15,8 @@ export const ModalUserLogoPopup = styled(ReactModal)`
   z-index: 1000;
 `;
 
+
+
 export const ButtonModal = styled.button`
   width: 141px;
   height: 42px;
@@ -27,6 +29,16 @@ export const ButtonModal = styled.button`
   color: #161f37;
   background-color: #f3f3f3;
   border: none;
+
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #434D67;
+    color: #F3F3F3;
+  }
 `;
 
 export const ButtonEditModal = styled.button`

@@ -32,36 +32,26 @@ export const UserInfoModal = forwardRef(
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
     const userInfoFormSubmit = (values) => {
-
-       if (!isButtonEnabled) {
+      if (!isButtonEnabled) {
         setIsButtonEnabled(false);
-        // Notify.failure('No data changed');
-        // return;
       }
-      
 
       const formData = new FormData();
 
       formData.append('name', values.name);
       formData.append('avatar', image);
       for (const pair of formData.entries()) {
-        console.log("avatar",pair[0], pair[1]); // Вывод имени и значения каждого поля в консоль
+        console.log('avatar', pair[0], pair[1]);
       }
       dispatch(updateUserProfile(formData));
-      closeEditModal()
+      closeEditModal();
     };
-
-
-   
 
     const onImageChange = (e) => {
       const [_file] = e.target.files;
       setImageURL(URL.createObjectURL(_file));
       setImage(_file);
       setIsButtonEnabled(true);
-      console.log(e);
-      console.log(_file);
-      console.log(image);
     };
 
     const onNameChange = (e) => {
@@ -73,11 +63,6 @@ export const UserInfoModal = forwardRef(
         setIsButtonEnabled(false);
       }
     };
-
-    // const handleFileChange = (event) => {
-    //   const selectedFile = event.currentTarget.files[0];
-    //   console.log(selectedFile);
-    // }
 
     useEffect(() => {
       const userImage = document.getElementById('user_image');

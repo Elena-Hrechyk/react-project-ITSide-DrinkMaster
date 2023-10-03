@@ -33,6 +33,7 @@ export const Footer = () => {
           </NavigationBox>
           <SubscribeForm />
         </FooterBox>
+        
         <Copyright>
           <CopyrigthReserved>
             <CopyrightText>

@@ -16,3 +16,6 @@ export const SvgContainer = styled.div`
   border: 1px solid rgba(243, 243, 243, 0.2);
   border-radius: 10px;
 `;
+
+
+
