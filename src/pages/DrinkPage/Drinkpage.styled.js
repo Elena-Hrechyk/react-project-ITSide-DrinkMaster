@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-
 import Drinks_bg1_mob_1x from '../../img/my-drinks/BGIMG/mobBG/Drinks_bg1_mob@1x.png';
 import Drinks_bg3_mob_1x from '../../img/my-drinks/BGIMG/mobBG/Drinks_bg3_mob@1x.png';
 import Drinks_bg1_mob_2x from '../../img/my-drinks/BGIMG/mobBG/Drinks_bg1_mob@2x.png';
@@ -16,18 +14,17 @@ import Drinks_bg3_desk_1x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg3_desk
 import Drinks_bg1_desk_2x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg1_desk@2x.png';
 import Drinks_bg3_desk_2x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg3_desk@2x.png';
 
-export const HomeSection = styled.section`
-  font-family: var(--font-main);
+export const Section = styled.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 120px;
+    padding-top: 140px;
     padding-bottom: 140px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding-top: 185px;
+    padding-top: 158px;
   }
 
   /* Для экранов с разрешением 1x и шириной до 768px */
@@ -91,177 +88,144 @@ export const HomeSection = styled.section`
   }
 `;
 
-export const AddDrinkContainer = styled.div`
-  display: block;
-  margin-bottom: 112px;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 123px;
-  }
-
+export const BoxAboutDrink = styled.div`
   @media screen and (min-width: 1280px) {
     position: relative;
-    margin-bottom: 218px;
+    display: flex;
   }
 `;
 
-export const LeftSideHero = styled.div`
+export const BoxAboutDrinkText = styled.div`
   @media screen and (min-width: 1280px) {
-    width: 715px;
+    width: 593px;
   }
 `;
 
-export const Title = styled.h1`
-  margin-bottom: 16px;
-  font-size: 32px;
-  font-style: normal;
+export const TypeDrink = styled.p`
+  color: rgba(243, 243, 243, 0.5);
+  font-size: 12px;
+  line-height: 1.17; /* 116.667% */
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.25; /* 125% */
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 16px;
+  }
+`;
+
+export const Description = styled.p`
+  line-height: 1.23; /* 128.571% */
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.38;
+  }
+`;
+
+export const Button = styled.button`
+  padding: 14px 40px;
+  text-align: center;
+  color: #161f37;
   font-weight: 600;
-  line-height: 1.19;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 28px;
-    font-size: 56px;
-    line-height: 1.07;
-  }
-
-  @media screen and (min-width: 1280) {
-    margin-bottom: 28px;
-    font-size: 64px;
-    line-height: 1.06;
-  }
-`;
-
-export const Discribe = styled.p`
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.43;
-  margin-bottom: 32px;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 48px;
-    font-size: 18px;
-    line-height: 1.33;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 40px;
-  }
-`;
-
-export const LinkAddDrink = styled(NavLink)`
-  display: inline-block;
-  width: 165px;
-  margin-right: auto;
-  padding: 8px 16px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  line-height: 1.23; /* 128.571% */
   border-radius: 42px;
   background: #f3f3f3;
-  margin-bottom: 47px;
-  color: #161f37;
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.23;
-  transition: outline var(--transition-dur-and-func);
+  margin-bottom: 80px;
+  border-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: justify;
 
-  &:hover,
-  &:focus {
-    outline: 2px solid rgba(64, 112, 205, 0.5);
+  &:focus,
+  &:hover {
+    transform: scale(1.03);
   }
 
   @media screen and (min-width: 768px) {
     padding: 18px 44px;
-    margin-bottom: 54px;
     font-size: 16px;
     line-height: 1.13;
   }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 198px;
+  }
 `;
 
-export const HeroImg = styled.img`
-  display: block;
-  width: 252px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
+export const ImgDrink = styled.img`
+  width: 335px;
+  height: 400px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  background: rgba(22, 31, 55, 0.5);
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
-    width: 359px;
-    height: auto;
+    width: 704px;
+    height: 400px;
+    margin-bottom: 80px;
   }
 
   @media screen and (min-width: 1280px) {
     position: absolute;
-    top: -57px;
-    right: 36px;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 0;
   }
 `;
 
-export const CategoryDrinkList = styled.ul`
-  font-family: var(--font-main);
-  margin-bottom: 40;
-`;
-
-export const ItemCategory = styled.li`
-  font-family: var(--font-main);
+export const TitleRecipe = styled.h4`
   margin-bottom: 40px;
-
-  &:nth-child(n + 5) {
-    display: none;
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 80px;
-  }
-`;
-
-export const TitleCategory = styled.h3`
-  margin-bottom: 24px;
-  color: #f3f3f3;
-  font-family: Manrope;
   font-size: 28px;
   font-weight: 600;
-  line-height: 1.14;
+  line-height: 1.14; /* 114.286% */
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 40px;
     font-size: 40px;
-    line-height: 1.1;
-  }
-`;
-export const Wrap = styled.div`
-  @media screen and (min-width: 768px) {
-    display: flex;
-    grid-gap: 20px;
+    line-height: 1.1; /* 110% */
   }
 `;
 
-export const LinkOtherDrink = styled(NavLink)`
-  display: block;
-  width: 165px;
-  padding: 14px 40px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 42px;
-  background: #f3f3f3;
-  margin-bottom: 47px;
-  color: #161f37;
-  text-align: center;
+export const Recipe = styled.p`
+  margin-bottom: 40px;
   font-size: 14px;
-  font-weight: 600;
-  line-height: 1.23;
-  transition: outline var(--transition-dur-and-func);
-
-  &:hover,
-  &:focus {
-    outline: 2px solid rgba(64, 112, 205, 0.5);
-  }
+  line-height: 1.23; /* 128.571% */
 
   @media screen and (min-width: 768px) {
-    width: 185px;
-    padding: 18px 44px;
-    margin-bottom: 54px;
     font-size: 16px;
-    line-height: 1.13;
+    line-height: 1.38; /* 137.5% */
   }
 `;
+
+export const ImgDecor = styled.img`
+  width: 335px;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 430px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 631px;
+    height: 480px;
+  }
+`;
+
+export const Wrap = styled.div`
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    grid-gap: 60px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+`;
+

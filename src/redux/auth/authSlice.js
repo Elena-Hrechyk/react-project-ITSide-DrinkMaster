@@ -1,12 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { currentUser, signUp, signIn, signOut, updateUserProfile, subscribe, fetchDrinksFavorite, deleteFavorite } from './authOperations';
-
+import {
+  currentUser,
+  signUp,
+  signIn,
+  signOut,
+  updateUserProfile,
+  subscribe,
+} from './authOperations';
 
 const initialState = {
-  user: { username: '', birthday: '', email: '', favorite: [], error: null },
+  user: { name: '', birthday: '', email: '', avatarURL: '' },
   token: null,
   isLogin: false,
   isUpdating: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -14,17 +21,28 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [signUp.fulfilled](state, action) {
-      state.user = action.payload.user;
+      state.user = action.payload;
       state.token = action.payload.token;
       state.isLogin = true;
+      state.error = null;
+    },
+    [signUp.rejected](state, action) {
+      state.error = action.payload;
     },
     [signIn.fulfilled](state, action) {
-      state.user = action.payload.user;
+      state.user.name = action.payload.name;
+      state.user.email = action.payload.email;
+      state.user.birthday = action.payload.birthday;
+      state.user.avatarURL = action.payload.avatarURL;
       state.token = action.payload.token;
       state.isLogin = true;
+      state.error = null;
+    },
+    [signIn.rejected](state, action) {
+      state.error = action.payload;
     },
     [signOut.fulfilled](state) {
-      state.user = { username: '', birthday: '', email: '' };
+      state.user = { name: '', birthday: '', email: '', avatarURL: '' };
       state.token = null;
       state.isLogin = false;
     },

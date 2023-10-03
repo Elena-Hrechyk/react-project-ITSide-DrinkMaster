@@ -1,16 +1,18 @@
-import { useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useResize } from '../../redux/hooks/useResize';
-
+import { Container } from '../../components/GlobalStyled/container.styled';
 import {deleteOwnDrinks} from '../../redux/drinks/drinksOperations'
+
 import { fetchOwnDrinks } from '../../redux/drinks/drinksOperations';
 import { selectError } from '../../redux/drinks/drinksSelectors';
-import {selectOwnDrinks} from '../../redux/drinks/drinksSelectors'
+import { selectOwnDrinks } from '../../redux/drinks/drinksSelectors';
 import { Wrap } from './MyDrinkPage.styled';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import DrinksList from '../../components/Drinks_List/Drinks_List';
 import NotFoundComponent from '../../components/NotFoundComponent/NotFoundComponent';
 import Paginator from '../../components/Paginator/Paginator';
+
 
 
 const MyDrinksPage = () => {
@@ -20,7 +22,7 @@ const MyDrinksPage = () => {
   const data = useSelector(selectOwnDrinks);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(fetchOwnDrinks());
   }, [dispatch]);
@@ -36,6 +38,7 @@ const MyDrinksPage = () => {
 
   return (
     <Wrap>
+    <Container>
       <PageTitle title={'My drinks'}></PageTitle>
       {data && data.length !== 0 ? (<DrinksList deleteCard={deleteOwnDrinks} items={current}></DrinksList>) : (
         <NotFoundComponent error={error} message={"No own cocktails"}></NotFoundComponent>
@@ -49,6 +52,7 @@ const MyDrinksPage = () => {
           nextPage={onPageChange}
         ></Paginator>
       )}
+      </Container>
     </Wrap>
   );
 };

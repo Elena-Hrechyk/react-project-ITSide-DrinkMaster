@@ -1,24 +1,17 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { currentUser } from "../auth/authOperations";
 
 axios.defaults.baseURL = 'https://drinkmaster.onrender.com/api';
-
-// axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const newDrink = createAsyncThunk(
   'drinks/newDrink',
   async (newDrink, thunkAPI) => {
     try {
-      //   console.log("newDrink")
-      // const userId = currentUser()
-      // console.log("userId", userId)
       const response = await axios.post('/drinks/own/add', newDrink, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log('response', response);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -52,10 +45,10 @@ export const getAllDrinks = createAsyncThunk(
 
 export const getSearchDrink = createAsyncThunk(
   'drinks/search',
-  async ({ value, category, ingredient, limit, page }, thunkAPI) => {
+  async ({ searchWord, category, ingredient, limit, page }, thunkAPI) => {
     const urlParams = {
       params: {
-        value,
+        searchWord,
         category,
         ingredient,
         limit,
@@ -78,6 +71,7 @@ export const getDrinkById = createAsyncThunk(
   async (drinkId, thunkAPI) => {
     try {
       const response = await axios.get(`/drinks/${drinkId}`);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -86,17 +80,16 @@ export const getDrinkById = createAsyncThunk(
 );
 
 export const fetchOwnDrinks = createAsyncThunk(
-  "/drinks/fetchOwnDrinks",
+  '/drinks/fetchOwnDrinks',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/drinks/own/all");
+      const response = await axios.get('/drinks/own/all');
       return response.data.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
-  }
+  },
 );
-
 
 export const deleteOwnDrinks = createAsyncThunk(
   '/drinks/deleteOwnDrinks',
@@ -109,3 +102,17 @@ export const deleteOwnDrinks = createAsyncThunk(
     }
   }
 );
+
+
+// export const fetchDrinksFavorite = createAsyncThunk(
+//   "/auth/fetchFavorite",
+//   async (_, thunkAPI) => {
+//       try {
+//         const response = await axios.get("/auth/favorite");
+//         console.log(response.data)
+//         return response.data;
+//       } catch (e) {
+//         return thunkAPI.rejectWithValue(e.message);
+//       }
+//     })
+

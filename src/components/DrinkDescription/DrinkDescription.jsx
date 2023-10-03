@@ -13,31 +13,31 @@ import {
   RadioLabel,
   UnderlinedElement,
   AddImageButton,
-
+  ImageBackground,
 } from './DrinkDescription.styled';
 import plus from '../../img/svg/plus.svg';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCategories, selectGlasses } from '../../redux/filters/selectors';
-import { getCategories, getGlasses } from '../../redux/filters/filtersOperation';
+import {
+  getCategories,
+  getGlasses,
+} from '../../redux/filters/filtersOperation';
+import { DoneMessage } from '../SignInPageComponents/SignInForm.styled';
 
-
-
-const DrinkDescription = ({fileValue, fieldValueFormik}) => {
+const DrinkDescription = ({ setFieldValue, errors, touched }) => {
   const [drinkThumb, setDrinkThumb] = useState(null);
-  console.log(drinkThumb)
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCategories())
-    dispatch(getGlasses())
-  }, [dispatch])
-  
+    dispatch(getCategories());
+    dispatch(getGlasses());
+  }, [dispatch]);
 
   const categories = useSelector(selectCategories);
-  
+
   const glasses = useSelector(selectGlasses);
   const categoriesSelect = categories.map((item) => {
     return { label: item, value: item };
@@ -47,36 +47,50 @@ const DrinkDescription = ({fileValue, fieldValueFormik}) => {
   });
 
   const handleFileChange = (e) => {
-    const fileData = e.target.files[0];
-    // console.log(fileData)
-    setDrinkThumb(fileData);
-    // fileValue(fileData);
-    fieldValueFormik('drinkThumb', fileData )
+    const imageData = e.target.files[0];
+    
+    if (e.target.files.length > 0) {
+      setDrinkThumb({
+        picture: imageData,
+        src: URL.createObjectURL(imageData),
+      });
+    }
+    // fileValue(imageData)
+    setFieldValue('drinkThumb', imageData)
+    // setValue('drinkThumb', imageData);
   };
-
 
   return (
     <>
       <h2 style={{ display: 'flex', flex: 'start' }}>Add drink</h2>
       <DescriptionContainer>
         <AddImage>
-          <AddImageButton
-            style={{ backgroundColor: 'white' }}
-          >
-            <Field
-              name="drinkThumb"
-              type="file"
-              as={HiddenInput}
-              onChange={handleFileChange}
-              accept="image/*"
-            />
-            <img
-              src={plus}
-              alt="SVG Image"
-              style={{ filter: 'invert(1)', fill: 'black', marginTop: '-18px' }}
-            />
-          </AddImageButton>
-          <p>Add image</p>
+          {drinkThumb === null ? (
+            <>
+              <AddImageButton style={{ backgroundColor: 'white' }}>
+                <Field
+                  name="drinkThumb"
+                  id="drinkThumb"
+                  type="file"
+                  as={HiddenInput}
+                  onChange={handleFileChange}
+                  accept="image/*"
+                />
+                <img
+                  src={plus}
+                  alt="SVG Image"
+                  style={{
+                    filter: 'invert(1)',
+                    fill: 'black',
+                    marginTop: '-18px',
+                  }}
+                />
+              </AddImageButton>
+              <p>Add image</p>
+            </>
+          ) : (
+            <ImageBackground src={drinkThumb.src} alt={drinkThumb.src} />
+          )}
         </AddImage>
         <InputsContainer>
           <Field
@@ -86,6 +100,9 @@ const DrinkDescription = ({fileValue, fieldValueFormik}) => {
             type="text"
             placeholder="Enter item drink"
           />
+             {touched.drink && errors.drink ? (
+            <DoneMessage>{errors.drink}</DoneMessage>
+          ) : null}
           <UnderlinedElement />
           <Field
             as={Input}
@@ -94,26 +111,45 @@ const DrinkDescription = ({fileValue, fieldValueFormik}) => {
             type="text"
             placeholder="Enter about recipe"
           />
+           {touched.shortDescription && errors.shortDescription ? (
+            <DoneMessage>{errors.shortDescription}</DoneMessage>
+          ) : null}
           <UnderlinedElement />
           <div style={CategoryContainer}>
             <p style={{ color: '#f3f3f380' }}>Category</p>
-            <Field name="category">
-              {({ form }) => (
+            <Field name="category" id="category"
+            touched={touched.category}
+            error={errors.category}
+  
+            >
+              {/* {({ setValue }) => (
                 <DropDownMenu
+                  optionValue={categoriesSelect}
+                  onChange={
+                    (value) => setValue('category', value)
+                    // form.setFieldValue('category', value)
+                  }
+                />
+              )} */}
+                            {({ form }) => (
+                <DropDownMenu
+                flexDirection="row-reverse"
                   optionValue={categoriesSelect}
                   onChange={(selectedOption) =>
                     form.setFieldValue('category', selectedOption)
                   }
                 />
               )}
-            </Field>
+            </Field> 
           </div>
+         
           <UnderlinedElement />
           <div style={CategoryContainer}>
             <p style={{ color: '#f3f3f380' }}>Glass</p>
             <Field name="glass">
               {({ form }) => (
                 <DropDownMenu
+                flexDirection="row-reverse"
                   optionValue={glassesSelector}
                   onChange={(selectedOption) =>
                     form.setFieldValue('glass', selectedOption)

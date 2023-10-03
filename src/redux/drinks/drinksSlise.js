@@ -11,13 +11,11 @@ import {
 
 const handlePending = (state) => {
   state.isLoading = true;
-  console.log('Hello handlePending');
 };
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  console.log('Hello handleRejected');
 };
 
 const drinksSlice = createSlice({
@@ -27,7 +25,7 @@ const drinksSlice = createSlice({
     isLoading: false,
     error: null,
     popular: [],
-    ownDrinks:[],
+    ownDrinks: [],
     total: 0,
   },
 
@@ -42,7 +40,6 @@ const drinksSlice = createSlice({
       .addCase(getAllDrinks.rejected, handleRejected)
       .addCase(newDrink.pending, handlePending)
       .addCase(newDrink.fulfilled, (state, action) => {
-        console.log('fulfilled');
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
@@ -53,10 +50,9 @@ const drinksSlice = createSlice({
       .addCase(fetchDrinksPopular.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.popular=action.payload;
+        state.popular = action.payload;
       })
       .addCase(getDrinkById.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.drinks = [action.payload];
         state.isLoading = false;
         state.error = null;
@@ -65,15 +61,14 @@ const drinksSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getSearchDrink.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.isLoading = false;
-        state.cocktails = action.payload.result;
-        state.total = action.payload.totalHits;
+        state.items = action.payload;
+        state.total = action.payload.quantity;
       })
       .addCase(getSearchDrink.rejected, (state) => {
         state.isLoading = false;
-        state.cocktails = [];
-        state.totalCocktails = 0;
+        state.items = [];
+        state.total = 0;
       })
       .addCase(fetchOwnDrinks.pending, handlePending)
       .addCase(fetchOwnDrinks.rejected, handleRejected)
@@ -93,7 +88,7 @@ const drinksSlice = createSlice({
       .addCase(deleteOwnDrinks.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
+      });
     // .addCase(fetchDrinksFavorite.pending, handlePending)
     // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
     //   console.log('clg', action.payload);

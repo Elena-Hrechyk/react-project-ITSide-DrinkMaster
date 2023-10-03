@@ -56,6 +56,9 @@ export const colourStyles = {
     lineHeight: '1.23',
     letterSpacing: '0em',
     borderRadius: '20px',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
   }),
   singleValue: (styles) => ({
     ...styles,

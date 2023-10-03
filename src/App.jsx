@@ -13,12 +13,14 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import StartPage from './pages/StartPage/StartPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import SignInPage from './pages/SignInPage/SignInPage';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const DrinksPage = lazy(() => import('./pages/DrinksPage/DrinksPage'));
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
 const MyDrinksPage = lazy(() => import('./pages/MyDrinkPage/MyDrinkPage'));
 const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
+const DrinkPage = lazy(() => import('./pages/DrinkPage/DrinkPage'));
 
 function App() {
   const dispatch = useDispatch();
@@ -74,6 +76,12 @@ function App() {
             />
 
             <Route
+              path="/drinks/:drinkId"
+              element={
+                <PrivateRoute component={<DrinkPage />} redirectTo="/welcome" />
+              }
+            />
+            <Route
               path="/addDrink"
               element={
                 <PrivateRoute
@@ -108,6 +116,7 @@ function App() {
           </Route>
         </Routes>
       )}
+      <Toaster position="top-center" reverseOrder={false} />
     </AppWrapper>
   );
 }

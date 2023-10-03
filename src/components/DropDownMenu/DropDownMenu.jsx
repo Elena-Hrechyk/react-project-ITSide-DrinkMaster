@@ -2,12 +2,19 @@ import { useState } from 'react';
 import Select from 'react-select';
 // import styled from 'styled-components';
 
-const DropDownMenu = ({onChange, optionValue }) => {
+const DropDownMenu = ({onChange, optionValue, flexDirection }) => {
 
 
   const [isOpen, setIsOpen] = useState(false);
 
   const customStyles = {
+    valueContainer: (provided) => ({
+      ...provided,
+      display: "flex",
+      flexDirection: flexDirection,
+      paddingLeft: 18,
+    }
+    ),
     control: (provided) => ({
       ...provided,
       backgroundColor: 'transparent',
@@ -32,6 +39,7 @@ const DropDownMenu = ({onChange, optionValue }) => {
     singleValue: (provided) => ({
       ...provided,
       color: '#F3F3F3',
+      
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
