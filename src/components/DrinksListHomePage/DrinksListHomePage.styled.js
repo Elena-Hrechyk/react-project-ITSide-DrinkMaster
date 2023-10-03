@@ -35,7 +35,8 @@ export const ItemDrink = styled.li`
 `;
 
 export const ImgDrink = styled.img`
-  width: 100%;
+  width: 335px;
+  height: 360px;
   object-fit: contain;
   margin-bottom: 14px;
   border-radius: 8px;
@@ -47,6 +48,16 @@ export const ImgDrink = styled.img`
     ),
     url(<path-to-image>),
     lightgray 50% / cover no-repeat;
+
+  @media screen and (min-width: 768px) {
+    width: 342px;
+    height: 360px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 400px;
+    height: 400px;
+  }
 `;
 
 export const Box = styled.div`

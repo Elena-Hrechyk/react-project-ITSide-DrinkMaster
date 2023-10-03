@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-// // import { useSearchParams } from 'react-router-dom';
+import throttle from 'lodash.throttle';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getSearchDrink } from '../../redux/drinks/drinksOperations';
@@ -36,62 +36,38 @@ const validationSchema = Yup.object().shape({
   ingredients: Yup.string(),
 });
 
-export const SearchDrinks = ({ value, onChange, page, limit }) => {
-  // const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
-  const [ingredient, setIngredient] = useState('');
+export const SearchDrinks = ({ page, limit }) => {
+  const [searchWord, setSearchWord] = useState(null);
+  const [category, setCategory] = useState(null);
+  const [ingredient, setIngredient] = useState(null);
+  const categories = useSelector(selectCategories);
+  const ingredients = useSelector(selectIngredients);
+
   const dispatch = useDispatch();
+
+  const handleSubmit = (values) => {
+    throttle(() => setSearchWord(values.searchQuery), 300);
+    setCategory(values.categories);
+    setIngredient(values.ingredients);
+    setSearchWord('');
+  };
 
   useEffect(() => {
     dispatch(getCategories());
-
     dispatch(getIngredients());
-    dispatch(getSearchDrink({ value, category, ingredient, page, limit }));
-  }, [dispatch, value, category, ingredient, page, limit]);
+  }, [dispatch]);
 
-  const categories = useSelector(selectCategories);
+  useEffect(() => {
+    const dataQuery = { page, limit };
+    if (category) dataQuery.category = category;
+    if (ingredient) dataQuery.ingredient = ingredient;
+    if (searchWord) dataQuery.searchWord = searchWord;
+    dispatch(getSearchDrink(dataQuery));
+  }, [dispatch, searchWord, category, ingredient, page, limit]);
 
-  const ingredients = useSelector(selectIngredients);
-
-  // useEffect(() => {
-  //   dispatch(getCategories());
-  //   dispatch(getIngredients());
-
-  //   dispatch(getSearchDrink({ query, category, ingredient, page, limit }));
-  // }, [dispatch, query, category, ingredient, page, limit]);
-
-  const handleSubmit = (values) => {
-    setCategory(values.categories);
-    setIngredient(values.ingredients);
-    dispatch(getSearchDrink({ category, ingredient, page, limit }));
+  const handleSearchChange = (event) => {
+    setSearchWord(event.target.value);
   };
-
-  // const handleSubmit = () => {
-  // if (query.trim() === '') {
-  //   toast('🦄 Type a name of picture.', {
-  //     position: 'top-right',
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: 'light',
-  //   });
-  //   return;
-  // }
-  // setQuery(values.searchQuery);
-  // setCategory(values.categories);
-  // setIngredient(values.ingredients);
-  // console.log(category);
-  // setQuery('');
-  // };
-
-  // const categories = useSelector(selectCategories);
-  // console.log(categories);
-  // const ingredients = useSelector(selectIngredients);
-
-  const handleSearchChange = (event) => onChange(event.target.value);
 
   return (
     <Formik
@@ -105,16 +81,11 @@ export const SearchDrinks = ({ value, onChange, page, limit }) => {
             <FileInputWrapper>
               <label htmlFor="searchQuery">
                 <SearchDrinksInput
-                  name="searchWord"
+                  name="searchQuery"
                   type="text"
-                  value={props.value}
-                  // className={searchWord ? 'active' : ''}
+                  value={searchWord}
                   placeholder="Enter the text"
-                  // autoCorrect="off"
-                  // autoComplete="name"
                   onChange={handleSearchChange}
-                  // valid={touched.fullname && !errors.fullname}
-                  // error={touched.fullname && errors.fullname}
                 />
                 <EditIconWrapper></EditIconWrapper>
               </label>
