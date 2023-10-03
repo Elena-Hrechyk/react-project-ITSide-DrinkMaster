@@ -5,31 +5,35 @@ import {
   removeFavoriteDrink,
 } from '../../redux/drinks/drinksOperations';
 import { Button } from './RecipeButton.styled';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export const ButtonAddRemove = ({ id }) => {
   const [searchDrink, setSearchDrink] = useState(false);
   const dispatch = useDispatch();
   const favoriteList = useSelector(selectFavoriteArr);
-
   const favoritDrink = { _id: id };
 
-  //   const findFavoriteDrink = (id) => {
-  //     if (favoriteList.length) {
-  //       const searchDrink = favoriteList.find((item) => console.log(item === id));
-  //       setSearchDrink(searchDrink);
-  //       return searchDrink;
-  //     }
-  //   };
-  useEffect(() => {
-    if (favoriteList.length) {
-      const searchDrink = favoriteList.find((item) => console.log(item === id));
-      setSearchDrink(searchDrink);
-      return searchDrink;
-    }
-  }, [id, searchDrink, favoriteList]);
+  if (favoriteList.length) {
+    favoriteList.find((item) => {
+      if (item === id) {
+        return setSearchDrink(false);
+      }
+    });
+    return setSearchDrink(true);
+  }
 
-  console.log('searchDrink', searchDrink);
+  //   useEffect(() => {
+  //     if (favoriteList.length) {
+  //       favoriteList.find((item) => {
+  //         if (item === id) {
+  //           return setSearchDrink(false);
+  //         }
+  //       });
+  //       return setSearchDrink(true);
+  //     }
+  //   }, [id, searchDrink, favoriteList]);
+
+  //   console.log('searchDrink', searchDrink);
 
   return (
     <>

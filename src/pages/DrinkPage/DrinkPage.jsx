@@ -31,7 +31,6 @@ const DrinkPage = () => {
     dispatch(getDrinkById(drinkId));
   }, [dispatch, drinkId]);
 
-
   return (
     <Section>
       <Container>
