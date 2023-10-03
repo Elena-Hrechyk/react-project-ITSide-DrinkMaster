@@ -21,7 +21,11 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [signUp.fulfilled](state, action) {
+<<<<<<< Updated upstream
       state.user = action.payload.user;
+=======
+      state.user = action.payload;
+>>>>>>> Stashed changes
       state.token = action.payload.token;
       state.isLogin = true;
       state.error = null;
