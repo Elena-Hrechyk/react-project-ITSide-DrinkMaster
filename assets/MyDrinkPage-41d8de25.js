@@ -1,8 +1,9 @@
-import{n as k,r as p,u as d,a as l,g as _,j as e,C as h}from"./index-7e73ab98.js";import{u as D,P as f}from"./useResize-a390bbe0.js";import{D as v,a as w,b as $,c as P,d as j,e as z,f as C,g as E,h as N,i as F,k as I,s as S}from"./Drinks_bg3_desk@2x-7c26d4d6.js";import{P as y,D as R,N as q}from"./NotFoundComponent-056dca88.js";import{D as A,a as L}from"./Drinks_bg3_mob@2x-5e9320da.js";const T=k.main`
+import{n as b,r as s,u as p,a as l,q as _,j as t,C as h,t as D}from"./index-50c6a5f8.js";import{u as w,P as f}from"./useResize-f9cc96ae.js";import{D as v,a as $,b as P,c as j,d as z,e as C,f as E,g as N,h as y,i as I,l as O,k as S}from"./Drinks_bg3_desk@2x-7c26d4d6.js";import{D as M,a as R}from"./Drinks_bg3_mob@2x-5e9320da.js";import{P as q,D as F,N as L}from"./NotFoundComponent-291fe4e4.js";const T=b.main`
   padding-top: 80px;
   padding-bottom: 80px;
   margin-left: auto;
   margin-right: auto;
+
 
   @media screen and (min-width: 768px) {
     padding-top: 140px;
@@ -13,8 +14,9 @@ import{n as k,r as p,u as d,a as l,g as _,j as e,C as h}from"./index-7e73ab98.js
     padding-top: 158px;
   }
 
+
   /* Для экранов с разрешением 1x и шириной до 768px */
-  background-image: url(${v}), url(${A});
+  background-image: url(${v}), url(${M});
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position:
@@ -24,7 +26,7 @@ import{n as k,r as p,u as d,a as l,g as _,j as e,C as h}from"./index-7e73ab98.js
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {
-    background-image: url(${w}), url(${L});
+    background-image: url(${$}), url(${R});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position:
@@ -34,7 +36,7 @@ import{n as k,r as p,u as d,a as l,g as _,j as e,C as h}from"./index-7e73ab98.js
 
   /* Для экранов с разрешением 1x и шириной от 768px до 1280px */
   @media (min-width: 768px) {
-    background-image: url(${$}), url(${P});
+    background-image: url(${P}), url(${j});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -44,7 +46,7 @@ import{n as k,r as p,u as d,a as l,g as _,j as e,C as h}from"./index-7e73ab98.js
   /* Для ретина-дисплеев с разрешением 2x и шириной от 769px до 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px),
     (min-resolution: 192dpi) and (min-width: 768px) {
-    background-image: url(${j}), url(${z});
+    background-image: url(${z}), url(${C});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -54,7 +56,7 @@ import{n as k,r as p,u as d,a as l,g as _,j as e,C as h}from"./index-7e73ab98.js
 
   /* Для экранов с разрешением 1x и шириной больше 1280px */
   @media (min-width: 1279.98px) {
-    background-image: url(${C}), url(${E});
+    background-image: url(${E}), url(${N});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     /* background-position:
@@ -65,11 +67,11 @@ import{n as k,r as p,u as d,a as l,g as _,j as e,C as h}from"./index-7e73ab98.js
   /* Для ретина-дисплеев с разрешением 2x и шириной больше 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px),
     (min-resolution: 192dpi) and (min-width: 1280px) {
-    background-image: url(${N}), url(${F});
+    background-image: url(${y}), url(${I});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
       left top,
       right top;
   }
-`,K=()=>{const[o,g]=p.useState(1),{width:n}=D(),a=n<1280?10:9,c=n<768?5:8,x=d(I),t=d(S),i=l();console.log(t),p.useEffect(()=>{i(_())},[i]);const u=r=>{if(r){const s=o*a,b=s-a;return r.data.slice(b,s)}},m=r=>{g(r)};return e.jsx(T,{children:e.jsxs(h,{children:[e.jsx(y,{title:"Favorites"}),t&&t.length!==0?e.jsx(R,{items:u(t)}):e.jsx(q,{error:x,message:"No favorite cocktails"}),e.jsx(f,{currentPage:o,paginate:c,drinksPerPage:a,totalItems:t.quantity,nextPage:m})]})})};export{K as default};
+`,H=()=>{const[a,d]=s.useState(1),{width:n}=w(),e=p(O),g=p(S),o=l();s.useEffect(()=>{o(_())},[o]);const r=n<1280?10:9,c=n<768?5:8,i=a*r,x=i-r,u=e.slice(x,i),m=k=>{d(k)};return t.jsx(T,{children:t.jsxs(h,{children:[t.jsx(q,{title:"My drinks"}),e&&e.length!==0?t.jsx(F,{deleteCard:D,items:u}):t.jsx(L,{error:g,message:"No own cocktails"}),e&&e.length!==0&&t.jsx(f,{currentPage:a,paginate:c,drinksPerPage:r,totalItems:e.length,nextPage:m})]})})};export{H as default};
