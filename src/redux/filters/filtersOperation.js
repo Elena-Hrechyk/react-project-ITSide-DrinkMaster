@@ -33,6 +33,18 @@ export const getIngredients = createAsyncThunk(
   },
 );
 
+export const getIngredientsAll = createAsyncThunk(
+  'filters/ingredientsAll',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get('/filters/ingredients');
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
 export const getGlasses = createAsyncThunk(
   'filters/glasses',
   async (_, thunkAPI) => {

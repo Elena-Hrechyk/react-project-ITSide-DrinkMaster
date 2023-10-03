@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCategories, getIngredients, getGlasses } from './filtersOperation';
+import {
+  getCategories,
+  getIngredients,
+  getGlasses,
+  getIngredientsAll,
+} from './filtersOperation';
 
 export const hanlePending = (state) => {
   state.isLoading = true;
@@ -24,7 +29,6 @@ const filterSlice = createSlice({
     builder
       .addCase(getCategories.pending, hanlePending)
       .addCase(getCategories.fulfilled, (state, action) => {
-        
         state.categories = action.payload.categories;
         state.isLoading = false;
         state.error = null;
@@ -43,7 +47,14 @@ const filterSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(getGlasses.rejected, handleRejected),
+      .addCase(getGlasses.rejected, handleRejected)
+      .addCase(getIngredientsAll.pending, handleRejected)
+      .addCase(getIngredientsAll.fulfilled, (state, action) => {
+        state.ingredients = action.payload;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(getIngredientsAll.rejected, handleRejected),
 
   // reducers: {
   //   setSearchQuery: {
