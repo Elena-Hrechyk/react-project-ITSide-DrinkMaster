@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 
+
 export const DrinkIngredientsContainer = styled.div`
   background-color: transparent;
   margin-top: 80px;
@@ -51,12 +52,17 @@ export const TitleContainer = styled.div`
 export const IngridientsContainer = styled.div`
   display: flex;
   align-items: center;
-  
+  justify-content: space-between;
   margin-bottom: 18px;
   @media (min-width: 768px) {
     margin-bottom: 24px;
   }
 `;
+export const IngredientPortionContainer = styled.div`
+display: flex;
+
+
+`
 export const Ingridient = styled.div`
 width:200px;
 display: flex;
@@ -69,11 +75,12 @@ justify-content: flex-end;
     width:332px;
   }
    @media (min-width: 1440px) {
-    width: 540px;
+    width: 316px;
   }
 `;
 export const Portion = styled.div`
 width:101px;
+
 display: flex;
   align-items: center;
   border: 1px solid #f3f3f380;
@@ -97,7 +104,7 @@ color:white;
 `;
 
 export const XButton = styled.button`
-
+padding-right: 0px;
 /* width: 16px; */
 background-color: transparent;
 border: none;
@@ -107,3 +114,4 @@ export const XImg = styled.img`
 /* width:16px; */
 fill: white;
 `
+

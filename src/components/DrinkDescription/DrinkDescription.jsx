@@ -24,8 +24,9 @@ import {
   getCategories,
   getGlasses,
 } from '../../redux/filters/filtersOperation';
+import { DoneMessage } from '../SignInPageComponents/SignInForm.styled';
 
-const DrinkDescription = ({ fileValue }) => {
+const DrinkDescription = ({ setFieldValue, errors, touched }) => {
   const [drinkThumb, setDrinkThumb] = useState(null);
 
   const dispatch = useDispatch();
@@ -54,7 +55,8 @@ const DrinkDescription = ({ fileValue }) => {
         src: URL.createObjectURL(imageData),
       });
     }
-    fileValue(imageData)
+    // fileValue(imageData)
+    setFieldValue('drinkThumb', imageData)
     // setValue('drinkThumb', imageData);
   };
 
@@ -74,14 +76,6 @@ const DrinkDescription = ({ fileValue }) => {
                   onChange={handleFileChange}
                   accept="image/*"
                 />
-
-                {/* <input
-            type=“file”
-            onChange={(event) => {
-              setFieldValue(‘drinkThumb’, event.target.files[0]);
-            }}
-          /> */}
-
                 <img
                   src={plus}
                   alt="SVG Image"
@@ -106,6 +100,9 @@ const DrinkDescription = ({ fileValue }) => {
             type="text"
             placeholder="Enter item drink"
           />
+             {touched.drink && errors.drink ? (
+            <DoneMessage>{errors.drink}</DoneMessage>
+          ) : null}
           <UnderlinedElement />
           <Field
             as={Input}
@@ -114,10 +111,17 @@ const DrinkDescription = ({ fileValue }) => {
             type="text"
             placeholder="Enter about recipe"
           />
+           {touched.shortDescription && errors.shortDescription ? (
+            <DoneMessage>{errors.shortDescription}</DoneMessage>
+          ) : null}
           <UnderlinedElement />
           <div style={CategoryContainer}>
             <p style={{ color: '#f3f3f380' }}>Category</p>
-            <Field name="category" id="category">
+            <Field name="category" id="category"
+            touched={touched.category}
+            error={errors.category}
+  
+            >
               {/* {({ setValue }) => (
                 <DropDownMenu
                   optionValue={categoriesSelect}
@@ -129,20 +133,23 @@ const DrinkDescription = ({ fileValue }) => {
               )} */}
                             {({ form }) => (
                 <DropDownMenu
+                flexDirection="row-reverse"
                   optionValue={categoriesSelect}
                   onChange={(selectedOption) =>
                     form.setFieldValue('category', selectedOption)
                   }
                 />
               )}
-            </Field>
+            </Field> 
           </div>
+         
           <UnderlinedElement />
           <div style={CategoryContainer}>
             <p style={{ color: '#f3f3f380' }}>Glass</p>
             <Field name="glass">
               {({ form }) => (
                 <DropDownMenu
+                flexDirection="row-reverse"
                   optionValue={glassesSelector}
                   onChange={(selectedOption) =>
                     form.setFieldValue('glass', selectedOption)
