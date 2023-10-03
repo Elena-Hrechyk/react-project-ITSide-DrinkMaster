@@ -9,3 +9,4 @@ export const selectDrinkById = (state, drinkId) =>
 export const selectFavoriteDrinks = (state) =>
   state.auth.user.favoriteCocktails;
 export const selectOwnDrinks = (state) => state.drinks.ownDrinks;
+export const selectFavoriteArr = (state) => state.drinks.favorite;
