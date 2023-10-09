@@ -79,3 +79,15 @@ export const Measure = styled.p`
     line-height: 1.25; /* 133.333% */
   }
 `;
+
+
+export const Text = styled.p`
+  margin-bottom: 40px;
+  font-size: 14px;
+  line-height: 1.23;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.38;
+  }
+`;

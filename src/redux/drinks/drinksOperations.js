@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://drinkmaster.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const newDrink = createAsyncThunk(
   'drinks/newDrink',
@@ -12,7 +13,7 @@ export const newDrink = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
-      
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -104,7 +105,7 @@ export const addFavoriteDrink = createAsyncThunk(
 );
 
 export const removeFavoriteDrink = createAsyncThunk(
-  'drinks/favorite/remove/',
+  'drinks/favorite/remove',
   async (drinkId, thunkAPI) => {
     try {
       const response = await axios.delete(`/drinks/favorite/remove/${drinkId}`);
