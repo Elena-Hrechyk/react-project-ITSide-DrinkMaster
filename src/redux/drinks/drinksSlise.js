@@ -6,10 +6,7 @@ import {
   getDrinkById,
   getSearchDrink,
   fetchOwnDrinks,
-  addFavoriteDrink,
-  removeFavoriteDrink,
-  deleteOwnDrinks
-
+  deleteOwnDrinks,
 } from './drinksOperations';
 
 const handlePending = (state) => {
@@ -28,7 +25,6 @@ const drinksSlice = createSlice({
     isLoading: false,
     error: null,
     popular: [],
-    favorite: [],
     ownDrinks: [],
     total: 0,
   },
@@ -81,30 +77,15 @@ const drinksSlice = createSlice({
         state.error = null;
         state.ownDrinks = action.payload;
       })
-      .addCase(addFavoriteDrink.pending, handlePending)
-      .addCase(addFavoriteDrink.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.favorite.push(action.payload.id);
-      })
-      .addCase(addFavoriteDrink.rejected, handleRejected)
-      .addCase(removeFavoriteDrink.pending, handlePending)
-      .addCase(removeFavoriteDrink.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        const index = state.favorite.findIndex(
-          (drink) => drink === action.payload,
-        );
-        state.favorite.splice(index, 1);
-      })
-      .addCase(removeFavoriteDrink.rejected, handleRejected)
-       .addCase(deleteOwnDrinks.pending, state => {
+      .addCase(deleteOwnDrinks.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(deleteOwnDrinks.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.ownDrinks = state.ownDrinks.filter(item => item.id !== action.payload);
+        state.ownDrinks = state.ownDrinks.filter(
+          (item) => item.id !== action.payload,
+        );
       })
       .addCase(deleteOwnDrinks.rejected, (state, action) => {
         state.isLoading = false;

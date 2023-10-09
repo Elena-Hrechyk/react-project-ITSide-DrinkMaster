@@ -9,12 +9,16 @@ import {
   fetchDrinksFavorite,
   deleteFavorite,
 } from './authOperations';
-
+import {
+  addFavoriteDrink,
+  removeFavoriteDrink,
+} from '../drinks/drinksOperations';
 
 const initialState = {
   user: { name: '', birthday: '', email: '', avatarURL: '' },
   token: null,
   isLogin: false,
+  isLoading: false,
   isUpdating: false,
   error: null,
 };
@@ -84,9 +88,9 @@ const authSlice = createSlice({
     },
 
     [fetchDrinksFavorite.pending](state) {
-      console.log(state)
+      console.log(state);
     },
-    [fetchDrinksFavorite.fulfilled] (state, action) {
+    [fetchDrinksFavorite.fulfilled](state, action) {
       console.log('clg', action.payload);
       state.isLoading = false;
       state.error = null;
@@ -99,15 +103,43 @@ const authSlice = createSlice({
     // [deleteFavorite.pending](state) {
     //   console.log(state)
     // },
-    [deleteFavorite.fulfilled] (state, action) {
+    [deleteFavorite.fulfilled](state, action) {
       console.log('clg', action.payload);
-      state.user.favorite = state.user.favorite.filter(item => item.id !== action.payload);
+      state.user.favorite = state.user.favorite.filter(
+        (item) => item.id !== action.payload,
+      );
       // state.items = action.payload;
     },
     [updateSubscribe.rejected](state, action) {
       state.user.error = action.payload;
     },
-
+    [addFavoriteDrink.pending](state) {
+      state.isLoading = true;
+    },
+    [addFavoriteDrink.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.user.favorite = action.payload.favorite;
+    },
+    [addFavoriteDrink.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    [removeFavoriteDrink.pending](state) {
+      state.isLoading = true;
+    },
+    [removeFavoriteDrink.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.user.favorite.findIndex(
+        (drink) => drink === action.payload.id,
+      );
+      state.user.favorite.splice(index, 1);
+    },
+    [removeFavoriteDrink.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
   },
 });
 
