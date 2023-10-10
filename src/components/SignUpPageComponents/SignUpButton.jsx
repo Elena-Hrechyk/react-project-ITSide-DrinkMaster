@@ -11,9 +11,6 @@ export const SignUpButtonSt = styled.button`
   line-height: 112.5%;
   /* display: inline-flex; */
   padding: 18px 24px;
-  
-  
-
 `;
 
 
