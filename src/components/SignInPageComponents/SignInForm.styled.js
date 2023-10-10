@@ -119,10 +119,10 @@ export const Title = styled.h3`
   margin-bottom: 20px;
 `;
 
-// export const DoneMessage = styled.span`
-//   color: #3cbc81;
-//   font-size: 12px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 14px;
-// `;
+export const DoneMessage = styled.span`
+  color: #3cbc81;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+`;
