@@ -9,10 +9,10 @@ export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  margin-bottom: 14px;
   max-width: 335px;
   gap: 14px;
-  margin-bottom: 14px;
+
   @media screen and (min-width: 768px) {
     max-width: 400px;
   }
@@ -52,31 +52,23 @@ export const Field = styled(FormikField)`
   height: 54px;
   padding-left: 18px;
   padding-right: 18px;
-
   color: #f3f3f3;
-
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
-
   border: 1px solid rgba(243, 243, 243, 0.2);
   outline: transparent;
   border-radius: 200px;
-
   background-color: transparent;
 
-  &:hover {
-    border: 1px solid rgba(243, 243, 243, 0.5);
-    opacity: 0.8;
-    border-radius: 200px;
-  }
-
+  &:hover,
   &:focus {
     border: 1px solid rgba(243, 243, 243, 0.5);
     opacity: 0.8;
     border-radius: 200px;
   }
+
   &:hover::placeholder {
     color: rgba(243, 243, 243, 1);
   }
@@ -94,20 +86,14 @@ export const SignUpBTN = styled.button`
   font-weight: 600;
   line-height: 18px;
   border-radius: 42px;
-
   padding: 18px 44px;
   outline: transparent;
   background: #f3f3f3;
   color: #161f37;
   border: 1px solid rgba(243, 243, 243, 0.2);
 
-  &:hover {
-    border-radius: 42px;
-    background: #161f37;
-    color: #f3f3f3;
-  }
-
-  :focus {
+  &:hover,
+  &:focus {
     border-radius: 42px;
     background: #161f37;
     color: #f3f3f3;
@@ -123,7 +109,6 @@ export const SignUpBTN = styled.button`
 export const ErrorMessage = styled(FormikErrorMessage)`
   width: 268px;
   color: rgba(218, 20, 20, 1);
- 
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -134,12 +119,10 @@ export const Title = styled.h3`
   margin-bottom: 20px;
 `;
 
-
-export const DoneMessage = styled.span`
-  color: #3cbc81;
-
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
-`;
+// export const DoneMessage = styled.span`
+//   color: #3cbc81;
+//   font-size: 12px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 14px;
+// `;

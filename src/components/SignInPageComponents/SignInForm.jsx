@@ -4,16 +4,15 @@ import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/authOperations.js';
 // import { selectIsLogin } from '../../redux/auth/authSelectors.js';
-import * as yup from 'yup';
 import {
   Field,
   ErrorMessage,
   SignUpBTN,
   Form,
   Label,
-  DoneMessage,
 } from './SignInForm.styled.js';
 import Icon from '../SignUpPageComponents/SignUpform/SvgComponents.jsx';
+import schema from './signInSchema.js';
 
 // import * as authOperation from 'redux/auth/auth-operation';
 
@@ -51,7 +50,6 @@ export const SignInForm = () => {
       email: values.email.trim(),
       password: values.password.trim(),
     });
-    console.log('reg', reg);
 
     dispatch(
       signIn({
@@ -63,12 +61,6 @@ export const SignInForm = () => {
     resetForm();
   };
 
-  // console.log(isLogin);
-  //схема валідації
-  const schema = yup.object().shape({
-    email: yup.string().required().min(4),
-    password: yup.string().required().min(4),
-  });
   return (
     <Formik
       initialValues={initialValues}
@@ -81,26 +73,22 @@ export const SignInForm = () => {
           <Label style={{ position: 'relative' }}>
             <Field
               name="email"
-              type="text"
+              type="email"
               placeholder="Email"
               onFocus={handleFocus}
               value={values.email}
               onChange={handleChange}
             />
-            {didFocus && values.email.length > 2 ? (
-              !!errors.email && touched.email ? (
+            {didFocus &&
+              values.email.length > 2 &&
+              (errors.email && touched.email ? (
                 <Icon.SvgError />
               ) : (
                 <Icon.SvgDone />
-              )
-            ) : (
-              ''
-            )}
+              ))}
           </Label>
-          {!errors.email && values.email.length > 2 && (
-            <DoneMessage>This is an CORRECT email</DoneMessage>
-          )}
           <ErrorMessage name="email" component="div" />
+
           <Label style={{ position: 'relative' }}>
             <Field
               name="password"
@@ -111,7 +99,7 @@ export const SignInForm = () => {
             />
             <div
               type="button"
-              onClick={() => setShowPassword(!showPassword)} // Изменяем состояние showPassword при клике на кнопку
+              onClick={() => setShowPassword(!showPassword)}
               style={{
                 position: 'absolute',
                 right: '24px',
@@ -125,9 +113,6 @@ export const SignInForm = () => {
               {!showPassword ? <FiEyeOff /> : <FiEye />}
             </div>
           </Label>
-          {!errors.password && touched.password && showPassword && (
-            <DoneMessage>This is an CORRECT password</DoneMessage>
-          )}
           {showPassword && <ErrorMessage name="password" component="div" />}
           <SignUpBTN type="submit">Sign In</SignUpBTN>
         </Form>
