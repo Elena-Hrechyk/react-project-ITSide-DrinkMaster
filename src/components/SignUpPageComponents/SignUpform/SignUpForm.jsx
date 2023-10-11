@@ -18,6 +18,7 @@ import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import { CalendarGlobalStyles, TitleWrapper } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import { Calendar } from './StyledDatepicker.jsx';
 
 
 
@@ -45,7 +46,11 @@ const [selectedDate, setSelectedDate] = useState(Date.now());
 const CustomInput = forwardRef(({  onClick }, ref) => {
   
   return (
-    <TitleWrapper onClick={onClick} ref={ref}>
+    <TitleWrapper
+      
+      onClick={onClick}
+      ref={ref}
+    >
       {format(selectedDate, 'dd/MM/yyyy')} <AiOutlineCalendar />     
     </TitleWrapper>
   );
@@ -129,16 +134,26 @@ CustomInput.displayName = 'CustomInput';
               setSelectedDate(date);
               setFieldValue('date', date);
             }}
-            customInput={<CustomInput />}
+            customInput={<CustomInput/>}
             dateFormat={'dd/MM/yyyy'}
             maxDate={new Date()}
-            showYearDropdown
-            scrollableMonthYearDropdown
+            // showFullMonthYearPicker
+
             calendarStartDay={1}
             formatWeekDay={(day) => day.substr(0, 2)}
           />
           <CalendarGlobalStyles />
-         
+          <Calendar
+            // dateFormat={'dd/MM/yyyy'}
+            setFieldValue={setFieldValue}
+            // selected={selectedDate}
+            // onChange={(date) => {
+            //   setSelectedDate(date);
+            //   setFieldValue('date', date);
+            // }}
+            // onChange={setSelectedDate}
+            // formatWeekDay={(day) => day.substr(0, 2)}
+          />
 
           <Label style={{ position: 'relative' }}>
             <Field

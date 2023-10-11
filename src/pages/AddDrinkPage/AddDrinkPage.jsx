@@ -88,7 +88,7 @@ const AddDrinkPage = () => {
               <Form style={{ margin: 'auto' }} encType="multipart/form-data">
                 <DrinkDescription
                   fileValue={file}
-                  // setValue={setFieldValue}
+                  setValue={setFieldValue}
                 />
                 <DrinkIngredients />
                 <RecipePreparation />
