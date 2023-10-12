@@ -99,10 +99,12 @@ const AddDrinkPage = () => {
                 autoComplete="off" //убираем автозаполнение в инпутах
               >
                 <DrinkDescription
+
                   errors={errors}
                   touched={touched}
                   setFieldValue={setFieldValue}
                   values={values}
+
                 />
 
                 <DrinkIngredients

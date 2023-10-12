@@ -2,6 +2,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://drinkmaster.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:3000/api';
+
 
 const token = {
   set(token) {

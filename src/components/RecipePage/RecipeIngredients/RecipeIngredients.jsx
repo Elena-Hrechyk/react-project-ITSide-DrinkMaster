@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { getIngredientsAll } from '../../../redux/filters/filtersOperation';
 import { selectIngredients } from '../../../redux/filters/selectors';
 import {
@@ -11,10 +10,11 @@ import {
   BoxTitleIngredient,
   TitleIngredient,
   Measure,
+  Text,
 } from './RecipeIngredients.styled';
 
 export const RecipeIngredientsItems = ({ data }) => {
-  const arr = [];
+  const recipe = [];
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getIngredientsAll());
@@ -22,36 +22,50 @@ export const RecipeIngredientsItems = ({ data }) => {
 
   const ingredients = useSelector(selectIngredients);
 
-  data.map(({ ingredientId, measure }) => {
-    ingredients.find((item) => {
-      if (ingredientId === item._id) {
-        let newItem = {
-          measure: measure,
-        };
-        arr.push({ ...item, ...newItem });
-      }
+  if (data.length) {
+    data.map(({ ingredientId, measure }) => {
+      ingredients.find((item) => {
+        if (ingredientId === item._id) {
+          let newItem = {
+            measure: measure,
+          };
+          recipe.push({ ...item, ...newItem });
+        }
+      });
+      return recipe;
     });
-    return arr;
-  });
+  }
 
   return (
     <>
       <Title>Ingredients</Title>
-      <ListIngredients>
+      {recipe.length ? (
         <>
-          {arr.map(({ _id, title, measure, ingredientThumb }) => {
-            return (
-              <ItemIngredient key={_id}>
-                <ImgIngredient src={ingredientThumb} alt={title} />
-                <BoxTitleIngredient>
-                  <TitleIngredient>{title}</TitleIngredient>
-                  <Measure>{measure}</Measure>
-                </BoxTitleIngredient>
-              </ItemIngredient>
-            );
-          })}
+          <ListIngredients>
+            <>
+              {recipe.map((ingredient) => {
+                return (
+                  <ItemIngredient key={ingredient._id}>
+                    <ImgIngredient
+                      srcSet={`${ingredient['thumb-small']} 767w, ${ingredient['thumb-medium']} 1279w, ${ingredient.ingredientThumb} 1680w`}
+                      src={ingredient.ingredientThumb}
+                      alt={ingredient.title}
+                      loading="lazy"
+                    />
+
+                    <BoxTitleIngredient>
+                      <TitleIngredient>{ingredient.title}</TitleIngredient>
+                      <Measure>{ingredient.measure}</Measure>
+                    </BoxTitleIngredient>
+                  </ItemIngredient>
+                );
+              })}
+            </>
+          </ListIngredients>
         </>
-      </ListIngredients>
+      ) : (
+        <Text>No information on ingredients</Text>
+      )}
     </>
   );
 };

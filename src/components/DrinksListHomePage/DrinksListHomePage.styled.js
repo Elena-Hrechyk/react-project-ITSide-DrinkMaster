@@ -40,6 +40,7 @@ export const ImgDrink = styled.img`
   object-fit: contain;
   margin-bottom: 14px;
   border-radius: 8px;
+  object-fit: cover;
   background:
     linear-gradient(
       180deg,
@@ -77,3 +78,4 @@ export const SeemoreLink = styled(NavLink)`
   font-weight: 500;
   line-height: 1.23;
 `;
+
