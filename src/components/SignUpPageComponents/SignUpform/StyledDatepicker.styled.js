@@ -1,23 +1,5 @@
 import { createGlobalStyle, styled } from 'styled-components';
-// import { Field as FormikField } from 'formik';
-// export const DataBtn = styled.div`
-//   padding: 6px 12px;
-//   color: #ffffff;
-//   background: #3e85f3;
-//   border-radius: 8px;
-//   font-family: Manrope;
-//   font-weight: 700;
-//   font-size: 14px;
-//   line-height: 18px;
-//   text-align: center;
-//   text-transform: uppercase;
-//   @media screen and (min-width: 768px) {
-//     margin-top: 33px;
-//     margin-bottom: 33px;
-//     padding: 8px 12px;
-//     font-size: 16px;
-//   }
-// `;
+
 export const CalendarGlobalStyles = createGlobalStyle`
 .react-datepicker__tab-loop{
   z-index:5;
@@ -25,12 +7,10 @@ export const CalendarGlobalStyles = createGlobalStyle`
 .react-datepicker__wrapper {
      position: relative;
   }
- .react-datepicker__input-container{
-  
-   }
-   .react-datepicker__input-container button{
+
+.react-datepicker__input-container button{
     
-         color: rgb(119 115 115);
+color: rgb(119 115 115);
  /* font-family: Manrope; */
  font-size: 14px;
  font-style: normal;
@@ -50,15 +30,17 @@ export const CalendarGlobalStyles = createGlobalStyle`
    .react-datepicker {
      position: absolute;
      left: 50%;
-     top: 50%;
-     transform: translate(15%, 3%);
+     
+          
      display: flex;
      flex-direction: column;
      align-items: center;   
      padding: 14px;
      border-radius: 8px;
      background: #161F37;    
+      
    }
+   
 
    .react-datepicker__month-container {
      float: inherit;
@@ -75,8 +57,9 @@ export const CalendarGlobalStyles = createGlobalStyle`
      justify-content: space-between;
      align-items: center;
      padding: 14px 8px;
-     border-bottom: 1px solid rgba(255, 255, 255, 0.4);    
+     border-bottom: 1px solid rgba(255, 255, 255, 0.4);        
    }
+
 
    .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
      border-bottom: 0px;
@@ -104,12 +87,15 @@ export const CalendarGlobalStyles = createGlobalStyle`
    .react-datepicker__day-name {
      margin: 0;
      padding: 8px 8px;
+
+     color: rgba(243, 243, 243, 0.5); 
    
      font-size: 14px;
      font-style: normal;
      font-weight: 500;
      line-height: normal;
      letter-spacing: -0.28px;  
+     
    }
 
    .react-datepicker__navigation {
@@ -290,30 +276,31 @@ export const CalendarGlobalStyles = createGlobalStyle`
  `;
 
 export const TitleWrapper = styled.div`
-  /* width: 335px; */
-  width: 100%;
-  height: 54px;
-  /* max-width: 335px; */
-  /* border: 1px solid rgba(243, 243, 243, 0.2); */
-
-  padding-left: 18px;
-  padding-right: 18px;
-  color: #ffffff;
-  background: transparent;
-  border-radius: 200px;
-  font-weight: 700;
-  line-height: 18px;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 8px 12px;
-  font-size: 16px;
   justify-content: space-around;
   align-items: center;
 
+  width: 100%;
+  height: 54px;
+
+  padding-left: 18px;
+  padding-right: 18px;
+  background: transparent;
+  color: rgba(243, 243, 243, 0.5);
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+
   border-radius: 200px;
-  outline: 1px solid rgba(243, 243, 243, 0.2);
-  /* outline: transparent; */
-  border: none;
+
+  text-align: center;
+  /* text-transform: uppercase;
+  padding: 8px 12px; */
+  font-size: 16px;
+
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  outline: transparent;
 
   opacity: 0.8;
   display: flex;
@@ -321,18 +308,13 @@ export const TitleWrapper = styled.div`
   &:hover {
     border: 1px solid rgba(243, 243, 243, 0.5);
     opacity: 0.8;
-
-    /* border-radius: 200px; */
-    /* outline: 5px solid green; */
-    /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
+    color: rgba(243, 243, 243, 1);
   }
 
   &:focus {
-    outline: 1px solid rgba(243, 243, 243, 0.5);
+    outline: 1px solid rgba(22, 020, 20, 0.5);
     opacity: 0.8;
-    border-radius: 200px;
-    /* outline: 5px solid green; */
-    /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
+    color: rgba(243, 243, 243, 1);
   }
 `;
 
@@ -375,7 +357,36 @@ export const DatePickerWrapper = styled.div`
     border-radius: 200px;
   }
 `;
-export const HeadCont = styled.div``;
-export const Select = styled.select``;
-export const HeadBtn = styled.button``;
+export const HeadCont = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
 
+export const Select = styled.select`
+  color: rgba(243, 243, 243, 0.5);
+  border-radius: 8px;
+  background: #161f37;
+  padding: 2px;
+
+  option {
+    font-weight: 400;
+    line-height: 150%;
+  }
+`;
+export const HeadBtn = styled.button`
+  /* outline: transparent; */
+  border: 0px solid rgba(243, 243, 243, 0.2);
+  outline: none;
+  border-radius: 5px;
+
+  /* width: 20px; */
+  /* height: 20px; */
+  /* margin:auto; */
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+`;

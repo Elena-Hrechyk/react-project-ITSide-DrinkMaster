@@ -11,12 +11,12 @@ import {
   DoneMessage,
 } from './SignUpForm.styled.js';
 import Icon from './SvgComponents.jsx';
-import { useState, forwardRef } from 'react';
+import { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { AiOutlineCalendar } from 'react-icons/ai';
+
 import { format } from 'date-fns';
-import DatePicker from 'react-datepicker';
-import { CalendarGlobalStyles, TitleWrapper } from './StyledDatepicker.styled';
+
+import { CalendarGlobalStyles } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { Calendar } from './StyledDatepicker.jsx';
 
@@ -42,20 +42,7 @@ export const SignUpForm = () => {
   const handleFocus = () => setDidFocus(true);
 
 const [showPassword, setShowPassword] = useState(false);
-const [selectedDate, setSelectedDate] = useState(Date.now());
-const CustomInput = forwardRef(({  onClick }, ref) => {
-  
-  return (
-    <TitleWrapper
-      
-      onClick={onClick}
-      ref={ref}
-    >
-      {format(selectedDate, 'dd/MM/yyyy')} <AiOutlineCalendar />     
-    </TitleWrapper>
-  );
-});
-CustomInput.displayName = 'CustomInput';
+
  
   //додавання контакту при сабміті
   const handleSubmit = (values, { resetForm }) => {
@@ -65,14 +52,7 @@ CustomInput.displayName = 'CustomInput';
      const formattedDate = values.date
        ? format(values.date, 'dd-MM-yyyy')
        : null;
-   
-    // const reg = JSON.stringify({
-    //   name: values.name.trim(),
-    //   birthday: formattedDate,
-    //   email: values.email.trim(),
-    //   password: values.password.trim(),
-    // });
-    // console.log('reg', reg);
+    
 
     dispatch(
       signUp({
@@ -108,6 +88,7 @@ CustomInput.displayName = 'CustomInput';
               name="name"
               type="text"
               placeholder="Name"
+              
               value={values.name}
               onChange={handleChange}
               onFocus={handleFocus}
@@ -128,7 +109,7 @@ CustomInput.displayName = 'CustomInput';
           )}
           <ErrorMessage name="name" component="div" />
 
-          <DatePicker
+          {/* <DatePicker
             selected={selectedDate}
             onChange={(date) => {
               setSelectedDate(date);
@@ -141,7 +122,7 @@ CustomInput.displayName = 'CustomInput';
 
             calendarStartDay={1}
             formatWeekDay={(day) => day.substr(0, 2)}
-          />
+          /> */}
           <CalendarGlobalStyles />
           <Calendar
             // dateFormat={'dd/MM/yyyy'}
