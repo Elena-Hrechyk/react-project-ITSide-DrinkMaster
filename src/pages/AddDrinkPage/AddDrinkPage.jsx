@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik';
-import { AddPageSection } from './AddDrinkPage.styled';
-import { useNavigate } from "react-router-dom";
-
+import { AddPageSection, ToastStyled } from './AddDrinkPage.styled';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import DrinkDescription from '../../components/DrinkDescription/DrinkDescription';
 
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
@@ -25,7 +25,12 @@ const validationSchema = yup.object().shape({
   description: yup.string().trim().required('Tell you drink description'),
   ingredients: yup
     .array()
-    .length(1, 'At least one ingredient must be added')
+    .of(
+      yup.object().shape({
+        ingredient: yup.string().required('Select one of ingridient name'),
+        measure: yup.string().required('Required'),
+      }),
+    )
     .required(),
   alcoholic: yup.string().required('Select an alcohol type of drink'),
 });
@@ -52,14 +57,20 @@ const AddDrinkPage = () => {
       // Вывод имени и значения каждого поля в консоль
     }
 
-    dispatch(newDrink(formData));
-    navigate('/my')
+    dispatch(newDrink(formData))
+      .then(() => {
+        toast.success('New coctail was created!', {
+          duration: 4000,
+          position: 'top-center',
+          icon: '👏',
+          ...ToastStyled,
+        });
+        navigate('/my');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     action.resetForm();
-    
-    
-    // if (response.success) {
-    //   navigate("/drinks/own/all", { replace: true });
-    // }
   };
 
   return (
@@ -68,28 +79,37 @@ const AddDrinkPage = () => {
         <Container>
           <Formik
             initialValues={{
-              drinkThumb: null,
+              drinkThumb: '',
               drink: '',
               shortDescription: '',
               category: '',
               glass: '',
               alcoholic: '',
               description: '',
-              ingredients: [],
+              ingredients: [{ ingredient: '', measure: '' }],
               owner: '',
             }}
             validationSchema={validationSchema}
             onSubmit={onSubmitForm}
           >
-            {({ setFieldValue, errors, touched }) => (
-              <Form style={{ margin: 'auto' }} encType="multipart/form-data">
+            {({ setFieldValue, errors, touched, values }) => (
+              <Form
+                style={{ margin: 'auto' }}
+                encType="multipart/form-data"
+                autoComplete="off" //убираем автозаполнение в инпутах
+              >
                 <DrinkDescription
                   errors={errors}
                   touched={touched}
                   setFieldValue={setFieldValue}
+                  values={values}
                 />
 
-                <DrinkIngredients errors={errors} touched={touched} />
+                <DrinkIngredients
+                  errors={errors}
+                  touched={touched}
+                  values={values}
+                />
                 <RecipePreparation errors={errors} touched={touched} />
                 <SendFormButton type="submit">Add</SendFormButton>
               </Form>

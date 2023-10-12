@@ -26,7 +26,7 @@ import {
 } from '../../redux/filters/filtersOperation';
 import { DoneMessage } from '../SignInPageComponents/SignInForm.styled';
 
-const DrinkDescription = ({ setFieldValue, errors, touched }) => {
+const DrinkDescription = ({ setFieldValue, errors, touched, values }) => {
   const [drinkThumb, setDrinkThumb] = useState(null);
 
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ const DrinkDescription = ({ setFieldValue, errors, touched }) => {
 
   const handleFileChange = (e) => {
     const imageData = e.target.files[0];
-    
+    console.log(imageData)
     if (e.target.files.length > 0) {
       setDrinkThumb({
         picture: imageData,
@@ -56,7 +56,8 @@ const DrinkDescription = ({ setFieldValue, errors, touched }) => {
       });
     }
     // fileValue(imageData)
-    setFieldValue('drinkThumb', imageData)
+    // let altPick = 'Users/max/Documents/GitHub/react-project-ITSide-DrinkMaster/src/img/my-drinks/recipe-preparation.jpg';
+    setFieldValue('drinkThumb', imageData || "")
     // setValue('drinkThumb', imageData);
   };
 
@@ -99,6 +100,7 @@ const DrinkDescription = ({ setFieldValue, errors, touched }) => {
             name="drink"
             type="text"
             placeholder="Enter item drink"
+            value={values.drink || ''}
           />
              {touched.drink && errors.drink ? (
             <DoneMessage>{errors.drink}</DoneMessage>
@@ -110,6 +112,7 @@ const DrinkDescription = ({ setFieldValue, errors, touched }) => {
             name="shortDescription"
             type="text"
             placeholder="Enter about recipe"
+            value={values.shortDescription || ''}
           />
            {touched.shortDescription && errors.shortDescription ? (
             <DoneMessage>{errors.shortDescription}</DoneMessage>
@@ -141,7 +144,10 @@ const DrinkDescription = ({ setFieldValue, errors, touched }) => {
                 />
               )}
             </Field> 
-          </div>
+        
+          </div>    {touched.category && errors.category ? (
+            <DoneMessage>{errors.category}</DoneMessage>
+          ) : null}
          
           <UnderlinedElement />
           <div style={CategoryContainer}>
@@ -157,7 +163,9 @@ const DrinkDescription = ({ setFieldValue, errors, touched }) => {
                 />
               )}
             </Field>
-          </div>
+          </div>    {touched.glass && errors.glass ? (
+            <DoneMessage>{errors.glass}</DoneMessage>
+          ) : null}
           <UnderlinedElement />
           <RadioContainer>
             <RadioComponent>
