@@ -14,7 +14,7 @@ export const ButtonAddRemove = ({ id, title }) => {
   const favoriteList = useSelector(selectFavoriteDrinks);
 
   const favoriteDrink = { id: id };
-  // console.log(favoriteList);
+  console.log(favoriteList);
 
   const notifyAdd = () =>
     toast.success(`Great! ${title} is your favorite drink!`, {
