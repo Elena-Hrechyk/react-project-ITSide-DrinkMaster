@@ -27,6 +27,7 @@ const drinksSlice = createSlice({
     popular: [],
     ownDrinks: [],
     total: 0,
+
   },
 
   extraReducers: (builder) => {
@@ -42,7 +43,8 @@ const drinksSlice = createSlice({
       .addCase(newDrink.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items.push(action.payload);
+        state.items.push(action.payload.data);
+        
       })
       .addCase(newDrink.rejected, handleRejected)
       .addCase(fetchDrinksPopular.rejected, handleRejected)

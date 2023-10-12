@@ -13,8 +13,9 @@ export const newDrink = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
-
+      console.log(response.data)
       return response.data;
+      
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
