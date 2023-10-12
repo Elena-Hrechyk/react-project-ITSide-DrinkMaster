@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
-
 export const UserBarBtn = styled.button`
   margin-left: auto;
   width: 116px;
@@ -12,10 +11,19 @@ export const UserBarBtn = styled.button`
   display: flex;
   align-items: center;
   gap: 14px;
+
+  
 `;
 
 export const UserBarName = styled.span`
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
   color: #f3f3f3;
+  
 `;
 
 export const UserBarImg = styled.img`
@@ -33,6 +41,4 @@ export const GlobalStyle = createGlobalStyle`
   body.modal-open {
     overflow: hidden;
   }
-`
-
-
+`;

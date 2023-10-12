@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://drinkmaster.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const newDrink = createAsyncThunk(
   'drinks/newDrink',
@@ -12,6 +13,7 @@ export const newDrink = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -71,7 +73,6 @@ export const getDrinkById = createAsyncThunk(
   async (drinkId, thunkAPI) => {
     try {
       const response = await axios.get(`/drinks/${drinkId}`);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -91,6 +92,42 @@ export const fetchOwnDrinks = createAsyncThunk(
   },
 );
 
+export const addFavoriteDrink = createAsyncThunk(
+  'drinks/favorite/add',
+  async (drink, thunkAPI) => {
+    try {
+      const response = await axios.post('/drinks/favorite/add', drink);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const removeFavoriteDrink = createAsyncThunk(
+  'drinks/favorite/remove',
+  async (drinkId, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/drinks/favorite/remove/${drinkId}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const deleteOwnDrinks = createAsyncThunk(
+  '/drinks/deleteOwnDrinks',
+  async (id, thunkAPI) => {
+    try {
+      await axios.delete(`/drinks/own/remove/${id}`);
+      return id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
 // export const fetchDrinksFavorite = createAsyncThunk(
 //   "/auth/fetchFavorite",
 //   async (_, thunkAPI) => {
@@ -102,4 +139,3 @@ export const fetchOwnDrinks = createAsyncThunk(
 //         return thunkAPI.rejectWithValue(e.message);
 //       }
 //     })
-

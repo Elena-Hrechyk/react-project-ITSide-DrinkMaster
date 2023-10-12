@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getDrinkById } from '../../redux/drinks/drinksOperations';
 import { Container } from '../../components/GlobalStyled/container.styled';
-// import RecipeButton from './RecipeButton';
+import { ButtonAddRemove } from '../../components/RecipePage/RecipeButton';
 import RecipeTitle from '../../components/RecipePage/RecipeTitle';
 import { RecipeIngredientsItems } from '../../components/RecipePage/RecipeIngredients/RecipeIngredients';
 import { selectDrinkById } from '../../redux/drinks/drinksSelectors';
@@ -14,7 +14,6 @@ import {
   ImgDrink,
   BoxAboutDrink,
   BoxAboutDrinkText,
-  Button,
   TitleRecipe,
   Recipe,
   ImgDecor,
@@ -27,7 +26,6 @@ const DrinkPage = () => {
   const dispatch = useDispatch();
   const { drinkId } = useParams();
   const drink = useSelector((state) => selectDrinkById(state, drinkId));
-  console.log(drink);
 
   useEffect(() => {
     dispatch(getDrinkById(drinkId));
@@ -42,9 +40,14 @@ const DrinkPage = () => {
             <TypeDrink>
               {drink.glass} / {drink.alcoholic}
             </TypeDrink>
-            <Description>{drink.description}</Description>
-            <Button type="button">Add to favorite drinks</Button>
-            {/* <RecipeButton /> */}
+            {drink.description && drink.description.length ? (
+              <Description>{drink.description}</Description>
+            ) : (
+              <Description>
+                There is no information about the description of this cocktail!
+              </Description>
+            )}
+            <ButtonAddRemove id={drinkId} title={drink.drink} />
           </BoxAboutDrinkText>
           <ImgDrink
             src={drink.drinkThumb}
@@ -56,7 +59,13 @@ const DrinkPage = () => {
         <RecipeIngredientsItems data={drink.ingredients} />
         <TitleRecipe>Recipe Preparation</TitleRecipe>
         <Wrap>
-          <Recipe>{drink.instructions}</Recipe>
+          {drink.instructions && drink.instructions.length ? (
+            <Recipe>{drink.instructions}</Recipe>
+          ) : (
+            <Recipe>
+              There is no information about the preparation of this cocktail!
+            </Recipe>
+          )}
           <ImgDecor src={PictureDecor} alt="Cocktails" />
         </Wrap>
       </Container>

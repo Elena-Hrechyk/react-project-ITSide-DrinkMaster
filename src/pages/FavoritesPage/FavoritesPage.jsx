@@ -1,15 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useResize } from '../../redux/hooks/useResize';
-// import { fetchDrinksFavorite } from '../../redux/drinks/drinksOperations';
+
+import { fetchDrinksFavorite } from '../../redux/auth/authOperations';
+import { deleteFavorite } from '../../redux/auth/authOperations';
 import { Container } from '../../components/GlobalStyled/container.styled';
-import { getAllDrinks } from '../../redux/drinks/drinksOperations';
-import { selectDrinks } from '../../redux/drinks/drinksSelectors';
+// import { getAllDrinks } from '../../redux/drinks/drinksOperations';
+// import { selectDrinks } from '../../redux/drinks/drinksSelectors';
+
 import { selectError } from '../../redux/drinks/drinksSelectors';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Drinks_List from '../../components/Drinks_List/Drinks_List';
 import FavoritesNotFound from '../../components/NotFoundComponent/NotFoundComponent';
-// import {selectFavoriteDrinks} from '../../redux/drinks/drinksSelectors'
+import { selectFavoriteDrinks } from '../../redux/auth/authSelectors';
 import { Wrap } from './FavoritesPage.styled';
 import Paginator from '../../components/Paginator/Paginator';
 
@@ -19,20 +22,28 @@ const FavoritesPage = () => {
   const drinksPerPage = width < 1280 ? 10 : 9;
   const pageNumbersVisible = width < 768 ? 5 : 8;
 
+  // const first = useSelector(selectFavoriteDrinks);
+  // console.log('1', first)
+
   const error = useSelector(selectError);
-  const data = useSelector(selectDrinks);
+  const data = useSelector(selectFavoriteDrinks);
   const dispatch = useDispatch();
-  console.log(data);
+
+  // console.log(data)
+
   useEffect(() => {
-    dispatch(getAllDrinks());
+    // dispatch(getAllDrinks());
+    dispatch(fetchDrinksFavorite());
   }, [dispatch]);
 
   const current = (value) => {
     if (value) {
       const lastDrinkIndex = currentPage * drinksPerPage;
       const firstDrinkIndex = lastDrinkIndex - drinksPerPage;
-      const res = value.data.slice(firstDrinkIndex, lastDrinkIndex);
-      return res;
+      if (firstDrinkIndex > 0) {
+        const res = value.data.slice(firstDrinkIndex, lastDrinkIndex);
+        return res;
+      }
     }
     return;
   };
@@ -46,22 +57,25 @@ const FavoritesPage = () => {
       <Container>
         <PageTitle title={'Favorites'}></PageTitle>
         {data && data.length !== 0 ? (
-          <Drinks_List items={current(data)}></Drinks_List>
+          <Drinks_List
+            deleteCard={deleteFavorite}
+            items={current(data)}
+          ></Drinks_List>
         ) : (
           <FavoritesNotFound
             error={error}
             message={'No favorite cocktails'}
           ></FavoritesNotFound>
         )}
-        {
+        {data && data.length !== 0 && (
           <Paginator
             currentPage={currentPage}
             paginate={pageNumbersVisible}
             drinksPerPage={drinksPerPage}
-            totalItems={data.quantity}
+            totalItems={data.length}
             nextPage={onPageChange}
           ></Paginator>
-        }
+        )}
       </Container>
     </Wrap>
   );

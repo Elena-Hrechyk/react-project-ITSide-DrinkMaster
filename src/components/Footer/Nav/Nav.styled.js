@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+export const NavigationContainer = styled.nav`
+ 
+`;
+
+
 export const Navigation = styled.nav`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-rigth: auto;
+  display: block;
+  
 `;
 
 export const NavigationList = styled.ul`
   display: grid;
   gap: 24px;
   @media screen and (max-width: 1279.5px) {
-    gap: 16px;;
+    gap: 16px;
   }
 `;
 

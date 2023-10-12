@@ -2,6 +2,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://drinkmaster.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:3000/api';
+
 
 const token = {
   set(token) {
@@ -17,7 +19,6 @@ export const signUp = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       const resp = await axios.post('/auth/signup', user);
-      console.log(resp.data);
       token.set(resp.data.token);
       return resp.data;
     } catch (err) {
@@ -92,7 +93,7 @@ export const updateUserProfile = createAsyncThunk(
   },
 );
 
-export const subscribe = createAsyncThunk(
+export const updateSubscribe = createAsyncThunk(
   'users/subscribe',
   async ({ email }, thunkAPI) => {
     const state = thunkAPI.getState();
@@ -112,4 +113,30 @@ export const subscribe = createAsyncThunk(
       return thunkAPI.rejectWithValue(err.message);
     }
   },
+);
+
+export const fetchDrinksFavorite = createAsyncThunk(
+  "/drinks/fetchFavorite",
+  async (_, thunkAPI) => {
+
+    try {
+      const response = await axios.get("/drinks/favorite");
+      console.log(response)
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const deleteFavorite = createAsyncThunk(
+  'drinks/deleteFavorite',
+  async (id, thunkAPI) => {
+    try {
+      await axios.delete(`/drinks/favorite/remove/${id}`);
+      return id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
 );

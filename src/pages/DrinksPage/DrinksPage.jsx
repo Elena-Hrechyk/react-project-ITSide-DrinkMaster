@@ -27,11 +27,6 @@ export default function DrinksPage() {
 
   const totalPages = Math.ceil(total / drinksPerPage);
 
-  const lastDrinkIndex = currentPage * drinksPerPage;
-  const firstDrinkIndex = lastDrinkIndex - drinksPerPage;
-
-  const current = data.slice(firstDrinkIndex, lastDrinkIndex);
-
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -49,7 +44,7 @@ export default function DrinksPage() {
           <>
             <div>
               {total > 0 || !error ? (
-                <DrinksListPage drinks={current} />
+                <DrinksListPage drinks={data} />
               ) : (
                 <h3>Sorry. There are no cocktails...</h3>
               )}

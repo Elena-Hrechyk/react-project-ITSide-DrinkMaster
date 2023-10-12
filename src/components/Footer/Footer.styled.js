@@ -15,7 +15,6 @@ import bg1_desk_2x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg1_footer_desk
 import bg2_desk_2x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg2_footer_desk@2x.png';
 
 export const FooterSection = styled.footer`
-  position: relative;
   border-top: 1px solid rgba(243, 243, 243, 0.2);
 
   background-image: url(${bg1_mob_1x});
@@ -106,16 +105,22 @@ export const FooterContainer = styled.div`
 
 export const FooterBox = styled.div`
   display: flex;
+ 
   margin-bottom: 80px;
+  @media screen and (min-width: 768px) {
+    position: relative;
+  }
+  
 `;
 
 export const LinkLogo = styled(Link)`
   display: inline-flex;
 
+
   height: 28px;
   align-items: center;
   justify-content: center;
-  margin-right: auto;
+  
   margin-bottom: 40px;
 
   padding-top: 8px;
@@ -129,13 +134,17 @@ export const LinkLogo = styled(Link)`
 `;
 
 export const SocialsBox = styled.div`
-  margin-right: auto;
+
+@media screen and (min-width: 1279.5px) {
+    margin-right: 411px;
+  }
+  
   @media screen and (max-width: 1279.5px) {
-    margin-bottom: 200px;
+    margin-bottom: 260px;
   }
   @media screen and (max-width: 767.5px) {
     margin-bottom: 364px;
-  }
+    margin-right: auto; }
 `;
 
 export const NavigationBox = styled.div`

@@ -8,6 +8,7 @@ export const selectIsUpdating = (state) => state.auth.isUpdating;
 
 export const selectUserData = (state) => state.auth.user;
 
-export const selectIsError = (state) => state.auth.error;
+export const selectFavoriteDrinks = (state) => state.auth.user.favorite;
 
+export const selectIsError = (state) => state.auth.error;
 
