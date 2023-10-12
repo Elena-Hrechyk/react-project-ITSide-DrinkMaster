@@ -84,9 +84,11 @@ const AddDrinkPage = () => {
             {({ setFieldValue, errors, touched }) => (
               <Form style={{ margin: 'auto' }} encType="multipart/form-data">
                 <DrinkDescription
+
                   errors={errors}
                   touched={touched}
                   setFieldValue={setFieldValue}
+
                 />
 
                 <DrinkIngredients errors={errors} touched={touched} />
