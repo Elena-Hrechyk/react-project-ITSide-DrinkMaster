@@ -1,4 +1,4 @@
-import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,a6 as v,a7 as D,C as z}from"./index-f05cdd70.js";import{a as F}from"./selectors-a7d85374.js";import{D as y,a as I,b as $,c as T,d as R,e as S,f as B,g as A,h as C,i as E,n as P}from"./Drinks_bg3_desk@2x-7c26d4d6.js";import{D as L,a as M}from"./Drinks_bg3_mob@2x-5e9320da.js";const l=i.button`
+import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,a6 as v,a7 as D,C as z}from"./index-881cfd01.js";import{a as F}from"./selectors-a7d85374.js";import{D as y,a as I,b as $,c as T,d as R,e as S,f as B,g as A,h as C,i as E,n as P}from"./Drinks_bg3_desk@2x-7c26d4d6.js";import{D as L,a as M}from"./Drinks_bg3_mob@2x-5e9320da.js";const l=i.button`
   padding: 14px 40px;
   text-align: center;
   color: #161f37;
@@ -25,7 +25,7 @@ import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,
   @media screen and (min-width: 1280px) {
     margin-bottom: 198px;
   }
-`,G=({id:n,title:o})=>{const[t,a]=p.useState(!1),r=h(),s=m(k),d={id:n},c=()=>g.success(`Great! ${o} is your favorite drink!`,{duration:4e3,position:"top-center",icon:"👏",style:{fontSize:"18px",border:"1px solid #F3F3F3",borderRadius:"10px",background:"#1f263f",color:"#F3F3F3"}}),f=()=>g.success(`${o} is not your favorite drink anymore!`,{duration:4e3,position:"top-center",style:{fontSize:"18px",border:"1px solid #F3F3F3",borderRadius:"10px",background:"#1f263f",color:"#F3F3F3"},iconTheme:{primary:"#7a2371",secondary:"#F3F3F3"}});return p.useEffect(()=>{s.length&&s.find(x=>x===n?(console.log(x===n),a(x===n)):a(!1))},[s,t,n]),e.jsx(e.Fragment,{children:t?e.jsx(e.Fragment,{children:e.jsx(l,{type:"button",onClick:()=>r(j(n)).then(()=>f()),children:"Remove from favorite drinks"})}):e.jsx(e.Fragment,{children:e.jsx(l,{type:"button",onClick:()=>r(w(d)).then(()=>c()),children:"Add to favorite drinks"})})})},N=i.h2`
+`,G=({id:n,title:o})=>{const[t,a]=p.useState(!1),r=h(),s=m(k),d={id:n};console.log(s);const c=()=>g.success(`Great! ${o} is your favorite drink!`,{duration:4e3,position:"top-center",icon:"👏",style:{fontSize:"18px",border:"1px solid #F3F3F3",borderRadius:"10px",background:"#1f263f",color:"#F3F3F3"}}),f=()=>g.success(`${o} is not your favorite drink anymore!`,{duration:4e3,position:"top-center",style:{fontSize:"18px",border:"1px solid #F3F3F3",borderRadius:"10px",background:"#1f263f",color:"#F3F3F3"},iconTheme:{primary:"#7a2371",secondary:"#F3F3F3"}});return p.useEffect(()=>{s.length&&s.find(x=>x===n?(console.log(x===n),a(x===n)):a(!1))},[s,t,n]),e.jsx(e.Fragment,{children:t?e.jsx(e.Fragment,{children:e.jsx(l,{type:"button",onClick:()=>r(j(n)).then(()=>f()),children:"Remove from favorite drinks"})}):e.jsx(e.Fragment,{children:e.jsx(l,{type:"button",onClick:()=>r(w(d)).then(()=>c()),children:"Add to favorite drinks"})})})},N=i.h2`
   margin-bottom: 8px;
   font-size: 32px;
   font-weight: 600;
