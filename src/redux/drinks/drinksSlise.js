@@ -77,36 +77,18 @@ const drinksSlice = createSlice({
       .addCase(fetchOwnDrinks.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.ownDrinks = action.payload;
-      })
-      .addCase(deleteOwnDrinks.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(deleteOwnDrinks.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.ownDrinks = state.ownDrinks.filter(
-          (item) => item.id !== action.payload,
-        );
+        action.payload ?
+          state.ownDrinks = action.payload
+          : state.ownDrinks = [];
       })
       .addCase(deleteOwnDrinks.rejected, (state, action) => {
-        state.isLoading = false;
         state.error = action.payload;
-      });
-
-    // .addCase(fetchDrinksFavorite.pending, handlePending)
-    // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
-    //   console.log('clg', action.payload);
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.items = action.payload;
-    // })
-    // .addCase(fetchDrinksFavorite.fulfilled, (state, action) => {
-    //   // state.isLoading = false;
-    //   // state.error = null;
-    //   console.log(state)
-    //   state.items = action.payload;
-    // })
+      })
+      .addCase(deleteOwnDrinks.fulfilled, (state, action) => {
+        state.error = null;
+        const index = state.ownDrinks.findIndex(drink => drink === action.payload);
+        state.ownDrinks.splice(index, 1);
+      })
     //   .addCase(deleteDrinksnewDrink.pending, handlePending)
     //   .addCase(deleteDrinksnewDrink.fulfilled, (state, action) => {
     //     state.isLoading = false;
