@@ -1,4 +1,4 @@
-import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,a6 as v,a7 as D,C as z}from"./index-881cfd01.js";import{a as F}from"./selectors-a7d85374.js";import{D as y,a as I,b as $,c as T,d as R,e as S,f as B,g as A,h as C,i as E,n as P}from"./Drinks_bg3_desk@2x-7c26d4d6.js";import{D as L,a as M}from"./Drinks_bg3_mob@2x-5e9320da.js";const l=i.button`
+import{s as i,r as p,a as h,u as m,p as k,j as e,a5 as w,t as j,_ as g,a6 as _,a7 as v,a8 as D,C as z}from"./index-14f86d25.js";import{a as F}from"./selectors-a7d85374.js";import{e as y}from"./drinksSelectors-29c49a96.js";import{D as I,a as $,b as T,c as R,d as S,e as B,f as A,g as C,h as E,i as P}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{D as L,a as M}from"./Drinks_bg3_mob@2x-5e9320da.js";const l=i.button`
   padding: 14px 40px;
   text-align: center;
   color: #161f37;
@@ -129,7 +129,7 @@ import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,
   }
 
   /* Для экранов с разрешением 1x и шириной до 768px */
-  background-image: url(${y}), url(${L});
+  background-image: url(${I}), url(${L});
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position:
@@ -139,7 +139,7 @@ import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {
-    background-image: url(${I}), url(${M});
+    background-image: url(${$}), url(${M});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position:
@@ -149,7 +149,7 @@ import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,
 
   /* Для экранов с разрешением 1x и шириной от 768px до 1280px */
   @media (min-width: 768px) {
-    background-image: url(${$}), url(${T});
+    background-image: url(${T}), url(${R});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -159,7 +159,7 @@ import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,
   /* Для ретина-дисплеев с разрешением 2x и шириной от 769px до 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px),
     (min-resolution: 192dpi) and (min-width: 768px) {
-    background-image: url(${R}), url(${S});
+    background-image: url(${S}), url(${B});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -169,7 +169,7 @@ import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,
 
   /* Для экранов с разрешением 1x и шириной больше 1280px */
   @media (min-width: 1279.98px) {
-    background-image: url(${B}), url(${A});
+    background-image: url(${A}), url(${C});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     /* background-position:
@@ -180,7 +180,7 @@ import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,
   /* Для ретина-дисплеев с разрешением 2x и шириной больше 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px),
     (min-resolution: 192dpi) and (min-width: 1280px) {
-    background-image: url(${C}), url(${E});
+    background-image: url(${E}), url(${P});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -312,4 +312,4 @@ import{s as i,r as p,a as h,u as m,m as k,j as e,a3 as w,a4 as j,_ as g,a5 as _,
     flex-direction: row-reverse;
     justify-content: space-between;
   }
-`,ae="/react-project-ITSide-DrinkMaster/assets/recipe-preparation-94babfdc.jpg",xe=()=>{const n=h(),{drinkId:o}=v(),t=m(a=>P(a,o));return p.useEffect(()=>{n(D(o))},[n,o]),e.jsx(Y,{children:e.jsxs(z,{children:[e.jsxs(Z,{children:[e.jsxs(ee,{children:[e.jsx(W,{title:t.drink}),e.jsxs(ie,{children:[t.glass," / ",t.alcoholic]}),t.description&&t.description.length?e.jsx(u,{children:t.description}):e.jsx(u,{children:"There is no information about the description of this cocktail!"}),e.jsx(G,{id:o,title:t.drink})]}),e.jsx(te,{src:t.drinkThumb,alt:t.drink,title:t.drink})]}),e.jsx(X,{data:t.ingredients}),e.jsx(ne,{children:"Recipe Preparation"}),e.jsxs(oe,{children:[t.instructions&&t.instructions.length?e.jsx(b,{children:t.instructions}):e.jsx(b,{children:"There is no information about the preparation of this cocktail!"}),e.jsx(re,{src:ae,alt:"Cocktails"})]})]})})};export{xe as default};
+`,ae="/react-project-ITSide-DrinkMaster/assets/recipe-preparation-94babfdc.jpg",he=()=>{const n=h(),{drinkId:o}=v(),t=m(a=>y(a,o));return p.useEffect(()=>{n(D(o))},[n,o]),e.jsx(Y,{children:e.jsxs(z,{children:[e.jsxs(Z,{children:[e.jsxs(ee,{children:[e.jsx(W,{title:t.drink}),e.jsxs(ie,{children:[t.glass," / ",t.alcoholic]}),t.description&&t.description.length?e.jsx(u,{children:t.description}):e.jsx(u,{children:"There is no information about the description of this cocktail!"}),e.jsx(G,{id:o,title:t.drink})]}),e.jsx(te,{src:t.drinkThumb,alt:t.drink,title:t.drink})]}),e.jsx(X,{data:t.ingredients}),e.jsx(ne,{children:"Recipe Preparation"}),e.jsxs(oe,{children:[t.instructions&&t.instructions.length?e.jsx(b,{children:t.instructions}):e.jsx(b,{children:"There is no information about the preparation of this cocktail!"}),e.jsx(re,{src:ae,alt:"Cocktails"})]})]})})};export{he as default};

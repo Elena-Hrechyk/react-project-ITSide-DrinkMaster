@@ -1,4 +1,4 @@
-import{s as r,c as y,j as e,F,d as j,e as D,f as v,r as g,u as m,a as z,h as P,i as $,k as C,l as I,C as L,L as M}from"./index-881cfd01.js";import{t as W,u as E,P as Q}from"./useResize-a0133822.js";import{s as R,a as T}from"./selectors-a7d85374.js";import{S}from"./react-select.esm-ff974b7b.js";import{D as V,a as H,b as N,c as q,d as A,e as G,f as B,g as J,h as K,i as U,s as X,j as Y,k as Z}from"./Drinks_bg3_desk@2x-7c26d4d6.js";import{D as O,a as ee}from"./Drinks_bg3_mob@2x-5e9320da.js";const ie=r.ul`
+import{s as r,c as y,j as e,F,d as j,e as D,f as v,r as g,u as m,a as z,h as P,i as $,k as C,l as I,C as L,L as M}from"./index-14f86d25.js";import{t as W,u as E,P as Q}from"./useResize-b63a47c1.js";import{s as R,a as T}from"./selectors-a7d85374.js";import{S}from"./react-select.esm-8c467a28.js";import{D as V,a as H,b as N,c as q,d as A,e as G,f as B,g as J,h as K,i as U}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{D as X,a as Y}from"./Drinks_bg3_mob@2x-5e9320da.js";import{s as Z,a as O,b as ee}from"./drinksSelectors-29c49a96.js";const ie=r.ul`
    margin-bottom: 40px;
 
   display: grid;
@@ -17,7 +17,7 @@ import{s as r,c as y,j as e,F,d as j,e as D,f as v,r as g,u as m,a as z,h as P,i
   @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(3, 1fr);
   }
-`,ne=r.li`
+`,te=r.li`
  width: 335px;
   margin-left: auto;
   margin-right: auto;
@@ -29,7 +29,7 @@ import{s as r,c as y,j as e,F,d as j,e as D,f as v,r as g,u as m,a as z,h as P,i
   @media screen and (min-width: 1280px) {
     width: 400px;
   }
-`,te=r.img`
+`,ne=r.img`
  width: 335px;
   height: 360px;
   border-radius: 8px;
@@ -85,7 +85,7 @@ letter-spacing: 0em;
 text-align: right;
 color: #F3F3F380;
 
-`,se=({drinks:i})=>e.jsx(e.Fragment,{children:e.jsx(ie,{children:i.length>0?i.map(({_id:t,drink:o,drinkThumb:p})=>e.jsxs(ne,{children:[e.jsx(te,{src:p}),e.jsxs(re,{children:[e.jsx(ae,{children:o}),e.jsx(oe,{to:`/drinks/${t}`,children:"See more"})]})]},t)):i.length===0?e.jsx("h3",{children:"Sorry. There are no coctails ..."}):null})}),_={control:(i,{isFocused:t})=>({...i,background:"#161f37",width:"335px",height:"54px",borderRadius:"20px",borderStyle:"none",color:t?"#F3F3F3":"#F3F3F366",borderColor:t?"orange":"grey","@media only screen and (min-width: 768px)":{width:"199px",height:"56px"},"@media only screen and (min-width: 1280px)":{width:"199px",height:"56px"}}),indicatorSeparator:i=>({...i,background:"none"}),placeholder:i=>({...i,color:"#f3f3f3",fontSize:"17px",fontWeight:"400",lineHeight:"1.23",letterSpacing:"0em"}),input:i=>({...i,color:"#f3f3f3",fontFamily:"Manrope",fontSize:"17px",fontWeight:"400",lineHeight:"1.23",letterSpacing:"0em"}),menuList:i=>({...i,background:"#161f37",borderRadius:"20px",padding:"14px 23px"}),option:(i,{isFocused:t,isSelected:o})=>({...i,background:t?"#161f37":o?"#4f5f88":void 0,zIndex:1,color:t?"#F3F3F3":"#F3F3F366",fontFamily:"Manrope",fontSize:"17px",fontWeight:"400",lineHeight:"1.23",letterSpacing:"0em",borderRadius:"20px",whiteSpace:"nowrap",textOverflow:"ellipsis",overflow:"hidden"}),singleValue:i=>({...i,color:"#F3F3F3"}),menu:i=>({...i,zIndex:100,borderRadius:"20px"})},de=r.span`
+`,se=({drinks:i})=>(console.log(i),e.jsx(e.Fragment,{children:e.jsx(ie,{children:i&&i.length>0?i.map(({_id:n,drink:o,drinkThumb:p})=>e.jsxs(te,{children:[e.jsx(ne,{src:p}),e.jsxs(re,{children:[e.jsx(ae,{children:o}),e.jsx(oe,{to:`/drinks/${n}`,children:"See more"})]})]},n)):i.length===0?e.jsx("h3",{children:"Sorry. There are no coctails ..."}):null})})),_={control:(i,{isFocused:n})=>({...i,background:"#161f37",width:"335px",height:"54px",borderRadius:"20px",borderStyle:"none",color:n?"#F3F3F3":"#F3F3F366",borderColor:n?"orange":"grey","@media only screen and (min-width: 768px)":{width:"199px",height:"56px"},"@media only screen and (min-width: 1280px)":{width:"199px",height:"56px"}}),indicatorSeparator:i=>({...i,background:"none"}),placeholder:i=>({...i,color:"#f3f3f3",fontSize:"17px",fontWeight:"400",lineHeight:"1.23",letterSpacing:"0em"}),input:i=>({...i,color:"#f3f3f3",fontFamily:"Manrope",fontSize:"17px",fontWeight:"400",lineHeight:"1.23",letterSpacing:"0em"}),menuList:i=>({...i,background:"#161f37",borderRadius:"20px",padding:"14px 23px"}),option:(i,{isFocused:n,isSelected:o})=>({...i,background:n?"#161f37":o?"#4f5f88":void 0,zIndex:1,color:n?"#F3F3F3":"#F3F3F366",fontFamily:"Manrope",fontSize:"17px",fontWeight:"400",lineHeight:"1.23",letterSpacing:"0em",borderRadius:"20px",whiteSpace:"nowrap",textOverflow:"ellipsis",overflow:"hidden"}),singleValue:i=>({...i,color:"#F3F3F3"}),menu:i=>({...i,zIndex:100,borderRadius:"20px"})},de=r.span`
   position: absolute;
   top: 16px;
   right: 24px;
@@ -181,7 +181,7 @@ color: #F3F3F380;
     width: 199px;
     height: 56px;
   }
-`;const ge={searchQuery:"",categories:"",ingredients:""},xe=D().shape({searchQuery:v(),categories:v(),ingredients:v()}),he=({page:i,limit:t})=>{const[o,p]=g.useState(null),[s,u]=g.useState(null),[d,l]=g.useState(null),b=m(R),x=m(T),c=z(),f=a=>{W(()=>p(a.searchQuery),300),u(a.categories),l(a.ingredients),p("")};g.useEffect(()=>{c(P()),c($())},[c]),g.useEffect(()=>{const a={page:i,limit:t};s&&(a.category=s),d&&(a.ingredient=d),o&&(a.searchWord=o),c(C(a))},[c,o,s,d,i,t]);const k=a=>{p(a.target.value)};return e.jsx(I,{initialValues:ge,validationSchema:xe,onSubmit:f,children:a=>e.jsxs(ce,{onSubmit:a.handleSubmit,children:[e.jsx("div",{children:e.jsx(pe,{children:e.jsxs("label",{htmlFor:"searchQuery",children:[e.jsx(le,{name:"searchQuery",type:"text",value:o,placeholder:"Enter the text",onChange:k}),e.jsx(de,{})]})})}),e.jsx("div",{children:e.jsx("label",{htmlFor:"categories",children:e.jsx(j,{name:"categories",children:({field:h,form:w})=>e.jsx(S,{styles:_,closeMenuOnSelect:!0,isClearable:!0,classNames:{control:n=>n.isFocused?"border-orange-600":"border-grey-300"},options:b.map(n=>({value:n,label:n})),name:h.name,id:"categories",...h,value:s?{value:s,label:s}:"",onChange:n=>{u(n?n.value:""),w.setFieldValue("categories",n?n.value:"")},handleGategory:!0,placeholder:"All categories"})})})}),e.jsx("div",{children:e.jsx("label",{htmlFor:"ingredients",children:e.jsx(j,{name:"ingredients",children:({field:h,form:w})=>e.jsx(S,{styles:_,closeMenuOnSelect:!0,isClearable:!0,classNames:{control:n=>n.isFocused?"border-orange-600":"border-grey-300"},options:x.map(n=>({value:n,label:n})),name:h.name,id:"ingredients",...h,value:d?{value:d,label:d}:"",onChange:n=>{l(n?n.value:""),w.setFieldValue("ingredient",n?n.value:"")},placeholder:"Ingredients"})})})})]})})},me=r.div`
+`;const ge={searchQuery:"",categories:"",ingredients:""},xe=D().shape({searchQuery:v(),categories:v(),ingredients:v()}),he=({page:i,limit:n})=>{const[o,p]=g.useState(null),[s,u]=g.useState(null),[d,l]=g.useState(null),b=m(R),x=m(T),c=z(),f=a=>{W(()=>p(a.searchQuery),300),u(a.categories),l(a.ingredients),p("")};g.useEffect(()=>{c(P()),c($())},[c]),g.useEffect(()=>{const a={page:i,limit:n};s&&(a.category=s),d&&(a.ingredient=d),o&&(a.searchWord=o),c(C(a))},[c,o,s,d,i,n]);const k=a=>{p(a.target.value)};return e.jsx(I,{initialValues:ge,validationSchema:xe,onSubmit:f,children:a=>e.jsxs(ce,{onSubmit:a.handleSubmit,children:[e.jsx("div",{children:e.jsx(pe,{children:e.jsxs("label",{htmlFor:"searchQuery",children:[e.jsx(le,{name:"searchQuery",type:"text",value:o,placeholder:"Enter the text",onChange:k}),e.jsx(de,{})]})})}),e.jsx("div",{children:e.jsx("label",{htmlFor:"categories",children:e.jsx(j,{name:"categories",children:({field:h,form:w})=>e.jsx(S,{styles:_,closeMenuOnSelect:!0,isClearable:!0,classNames:{control:t=>t.isFocused?"border-orange-600":"border-grey-300"},options:b.map(t=>({value:t,label:t})),name:h.name,id:"categories",...h,value:s?{value:s,label:s}:"",onChange:t=>{u(t?t.value:""),w.setFieldValue("categories",t?t.value:"")},handleGategory:!0,placeholder:"All categories"})})})}),e.jsx("div",{children:e.jsx("label",{htmlFor:"ingredients",children:e.jsx(j,{name:"ingredients",children:({field:h,form:w})=>e.jsx(S,{styles:_,closeMenuOnSelect:!0,isClearable:!0,classNames:{control:t=>t.isFocused?"border-orange-600":"border-grey-300"},options:x.map(t=>({value:t,label:t})),name:h.name,id:"ingredients",...h,value:d?{value:d,label:d}:"",onChange:t=>{l(t?t.value:""),w.setFieldValue("ingredient",t?t.value:"")},placeholder:"Ingredients"})})})})]})})},me=r.div`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -191,7 +191,7 @@ color: #F3F3F380;
   }
 
   /* Для экранов с разрешением 1x и шириной до 768px */
-  background-image: url(${V}), url(${O});
+  background-image: url(${V}), url(${X});
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position:
@@ -201,7 +201,7 @@ color: #F3F3F380;
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {
-    background-image: url(${H}), url(${ee});
+    background-image: url(${H}), url(${Y});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position:
@@ -268,4 +268,4 @@ color: #F3F3F380;
     font-size: 64px;
     line-height: 1;
   }
-`;function Se(){const[i,t]=g.useState(1),{width:o}=E(),{data:p,quantity:s}=m(X),u=m(Y),d=m(Z),l=s,b=o<768?5:8,x=o<1280?10:9,c=Math.ceil(l/x),f=k=>{t(k)};return console.log(i),e.jsx(me,{children:e.jsxs(L,{children:[e.jsx(ue,{children:"Drinks"}),e.jsx(he,{page:i,limit:x}),u?e.jsx(M,{}):e.jsxs(e.Fragment,{children:[e.jsx("div",{children:l>0||!d?e.jsx(se,{drinks:p}):e.jsx("h3",{children:"Sorry. There are no cocktails..."})}),c>1&&e.jsx(Q,{currentPage:i,drinksPerPage:x,totalItems:l,nextPage:f,paginate:b})]})]})})}export{Se as default};
+`;function _e(){const[i,n]=g.useState(1),{width:o}=E(),{data:p,quantity:s}=m(Z),u=m(O),d=m(ee),l=s,b=o<768?5:8,x=o<1280?10:9,c=Math.ceil(l/x),f=k=>{n(k)};return console.log(i),e.jsx(me,{children:e.jsxs(L,{children:[e.jsx(ue,{children:"Drinks"}),e.jsx(he,{page:i,limit:x}),u?e.jsx(M,{}):e.jsxs(e.Fragment,{children:[e.jsx("div",{children:l>0||!d?e.jsx(se,{drinks:p}):e.jsx("h3",{children:"Sorry. There are no cocktails..."})}),c>1&&e.jsx(Q,{currentPage:i,drinksPerPage:x,totalItems:l,nextPage:f,paginate:b})]})]})})}export{_e as default};
