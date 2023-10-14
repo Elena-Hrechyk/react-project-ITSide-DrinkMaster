@@ -1,5 +1,5 @@
-// import Coctaile from "../../img/drink-master/cocktail/berry-deadly.jpg"
 import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 import {
@@ -14,10 +14,12 @@ import {
   ImageWrap,
 } from './DrinksItem.styled';
 
-const DrinksItem = ({item, deleteCard}) => {
+const DrinksItem = ({item, deleteDrink}) => {
   const { _id, drinkThumb, drink, alcoholic, description } = item;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const thumb = "http://res.cloudinary.com/dec1shvoo/image/upload/v1689167155/cocktails-v1/drinks/Ipamena.jpg"
+  
   return (
     <Wrap>
       <ImageWrap><Image src={drinkThumb} alt="image" /></ImageWrap>
@@ -25,8 +27,8 @@ const DrinksItem = ({item, deleteCard}) => {
       <СocktailType>{alcoholic}</СocktailType>
       <СocktailRecipe>{description}</СocktailRecipe>
       <Wraper>
-        <ButtonSeeMore to={`/drinks/${_id}`}>See more</ButtonSeeMore>
-        <ButtonDelete onClick={() => dispatch(deleteCard(_id))}>
+        <ButtonSeeMore onClick={() => navigate(`/drinks/${_id}`, { replace: true })}>See more</ButtonSeeMore>
+        <ButtonDelete onClick={() => dispatch(deleteDrink(_id))}>
           <RiDeleteBinLine />
         </ButtonDelete>
       </Wraper>

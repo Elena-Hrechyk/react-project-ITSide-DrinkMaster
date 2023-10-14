@@ -121,10 +121,9 @@ export const fetchDrinksFavorite = createAsyncThunk(
 
     try {
       const response = await axios.get("/drinks/favorite");
-      console.log(response)
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      return response.data.favorite;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

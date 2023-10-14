@@ -8,10 +8,11 @@ import {
 } from './DrinksList.styled';
 
 export const DrinksListPage = ({ drinks }) => {
+  console.log(drinks)
   return (
     <>
       <DrinksPageList>
-        {drinks.length > 0 ? (
+        {drinks && drinks.length > 0 ? (
           drinks.map(({ _id, drink, drinkThumb }) => (
             <DrinksPageItem key={_id}>
               <DrinksPageImg src={drinkThumb} />

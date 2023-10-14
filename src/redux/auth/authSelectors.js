@@ -12,3 +12,5 @@ export const selectFavoriteDrinks = (state) => state.auth.user.favorite;
 
 export const selectIsError = (state) => state.auth.error;
 
+export const selectIsLoading = (state) => state.auth.isLoading;
+

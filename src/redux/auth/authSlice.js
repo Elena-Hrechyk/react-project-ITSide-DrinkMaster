@@ -88,13 +88,18 @@ const authSlice = createSlice({
     },
 
     [fetchDrinksFavorite.pending](state) {
-      console.log(state);
+      state.isLoading = true;
     },
     [fetchDrinksFavorite.fulfilled](state, action) {
-      console.log('clg', action.payload);
       state.isLoading = false;
       state.error = null;
-      // state.items = action.payload;
+      action.payload ?
+        state.user.favorite = action.payload
+        : state.user.favorite = [];
+    },
+    [fetchDrinksFavorite.rejected](state, action) {
+      state.error = action.payload
+      state.isLoading = false;
     },
     // [subscribe.rejected](state) {
     //   state.isUpdating = false;
@@ -104,11 +109,9 @@ const authSlice = createSlice({
     //   console.log(state)
     // },
     [deleteFavorite.fulfilled](state, action) {
-      console.log('clg', action.payload);
       state.user.favorite = state.user.favorite.filter(
         (item) => item.id !== action.payload,
       );
-      // state.items = action.payload;
     },
     [updateSubscribe.rejected](state, action) {
       state.user.error = action.payload;
@@ -122,18 +125,11 @@ const authSlice = createSlice({
       state.user.favorite = action.payload.favorite;
     },
     [addFavoriteDrink.rejected](state, action) {
-      state.isLoading = false;
       state.error = action.payload;
     },
-    [removeFavoriteDrink.pending](state) {
-      state.isLoading = true;
-    },
     [removeFavoriteDrink.fulfilled](state, action) {
-      state.isLoading = false;
       state.error = null;
-      const index = state.user.favorite.findIndex(
-        (drink) => drink === action.payload.id,
-      );
+      const index = state.user.favorite.findIndex(drink => drink === action.payload.id);
       state.user.favorite.splice(index, 1);
     },
     [removeFavoriteDrink.rejected](state, action) {
