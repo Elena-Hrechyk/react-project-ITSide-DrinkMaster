@@ -51,7 +51,6 @@ export const ButtonAddRemove = ({ id, title }) => {
     if (favoriteList.length) {
       favoriteList.find((item) => {
         if (item === id) {
-          console.log(item === id);
           return setSearchDrink(item === id);
         }
         return setSearchDrink(false);

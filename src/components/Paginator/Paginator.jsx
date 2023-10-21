@@ -1,30 +1,19 @@
-// import { useState } from "react";
 import { Wrap, Button, Wraper, ButtonPageItem } from './Paginator.styled';
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
-// import { useSelector } from 'react-redux';
-// import {selectDrinks} from '../../redux/drinks/drinksSelectors'
 
-const Paginator = ({
-  drinksPerPage,
-  totalItems,
-  paginate,
-  nextPage,
-  currentPage,
-}) => {
+const Paginator = ({ totalPages, paginate, nextPage, currentPage }) => {
   const handlePageChange = (pageNumber) => {
-
     nextPage(pageNumber);
   };
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalItems / drinksPerPage); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
 
   const getVisiblePageNumbers = () => {
     const halfPageNumbersToShow = Math.floor(paginate / 2);
     const currentPageIndex = pageNumbers.indexOf(currentPage);
-
     const start = Math.max(0, currentPageIndex - halfPageNumbersToShow);
     const end = Math.min(pageNumbers.length - 1, start + paginate - 1);
 
@@ -46,7 +35,7 @@ const Paginator = ({
             <ButtonPageItem
               type="button"
               onClick={() => handlePageChange(number)}
-              className={number === currentPage ? 'active' : ''}
+              isSelected={number === currentPage}
             >
               {number}
             </ButtonPageItem>
@@ -56,7 +45,7 @@ const Paginator = ({
       <Button
         type="button"
         onClick={() => handlePageChange(currentPage + 1)}
-        disabled={currentPage === Math.ceil(totalItems / drinksPerPage)}
+        disabled={currentPage === totalPages}
       >
         <MdArrowForwardIos />
       </Button>
