@@ -40,6 +40,9 @@ export const SearchDrinks = ({ page, limit }) => {
   const [searchWord, setSearchWord] = useState(null);
   const [category, setCategory] = useState(null);
   const [ingredient, setIngredient] = useState(null);
+  const [currentCategory, setCurrentCategory] = useState(null);
+  const [currentIngredient, setCurrentIngredient] = useState(null);
+  const [currentSearchWord, setCurrentSearchWord] = useState('');
   const categories = useSelector(selectCategories);
   const ingredients = useSelector(selectIngredients);
 
@@ -59,11 +62,37 @@ export const SearchDrinks = ({ page, limit }) => {
 
   useEffect(() => {
     const dataQuery = { page, limit };
-    if (category) dataQuery.category = category;
-    if (ingredient) dataQuery.ingredient = ingredient;
-    if (searchWord) dataQuery.searchWord = searchWord;
+
+    if (category) {
+      if (category !== currentCategory) dataQuery.page = 1;
+      setCurrentCategory(category);
+      dataQuery.category = category;
+    }
+
+    if (ingredient) {
+      if (ingredient !== currentIngredient) dataQuery.page = 1;
+      setCurrentIngredient(ingredient);
+      dataQuery.ingredient = ingredient;
+    }
+
+    if (searchWord) {
+      if (searchWord !== currentSearchWord) dataQuery.page = 1;
+      setCurrentSearchWord(searchWord);
+      dataQuery.searchWord = searchWord;
+    }
+
     dispatch(getSearchDrink(dataQuery));
-  }, [dispatch, searchWord, category, ingredient, page, limit]);
+  }, [
+    dispatch,
+    searchWord,
+    category,
+    ingredient,
+    page,
+    limit,
+    currentCategory,
+    currentIngredient,
+    currentSearchWord,
+  ]);
 
   const handleSearchChange = (event) => {
     setSearchWord(event.target.value);

@@ -13,8 +13,9 @@ import {
   selectIsLoading,
 } from '../../redux/drinks/drinksSelectors';
 
-export default function DrinksPage() {
+const DrinksPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [numbers, setNumbers] = useState(0);
 
   const { width } = useResize();
   const { data, quantity } = useSelector(selectDrinks);
@@ -22,6 +23,12 @@ export default function DrinksPage() {
   const error = useSelector(selectError);
 
   const total = quantity;
+
+  if (total !== numbers) {
+    setCurrentPage(1);
+    setNumbers(total);
+  }
+
   const pageNumbersVisible = width < 768 ? 5 : 8;
   const drinksPerPage = width < 1280 ? 10 : 9;
 
@@ -30,8 +37,6 @@ export default function DrinksPage() {
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
-  console.log(currentPage);
 
   return (
     <DrinksPageSection>
@@ -52,8 +57,7 @@ export default function DrinksPage() {
             {totalPages > 1 && (
               <Paginator
                 currentPage={currentPage}
-                drinksPerPage={drinksPerPage}
-                totalItems={total}
+                totalPages={totalPages}
                 nextPage={onPageChange}
                 paginate={pageNumbersVisible}
               />
@@ -63,4 +67,6 @@ export default function DrinksPage() {
       </Container>
     </DrinksPageSection>
   );
-}
+};
+
+export default DrinksPage;

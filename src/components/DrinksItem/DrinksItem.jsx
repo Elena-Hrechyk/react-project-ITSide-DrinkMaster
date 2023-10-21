@@ -4,9 +4,9 @@ import { RiDeleteBinLine } from "react-icons/ri";
 
 import {
   Image,
-  СocktailName,
-  СocktailType,
-  СocktailRecipe,
+  CocktailType,
+  CocktailName,
+  CocktailRecipe,
   Wraper,
   ButtonSeeMore,
   ButtonDelete,
@@ -23,9 +23,9 @@ const DrinksItem = ({item, deleteDrink}) => {
   return (
     <Wrap>
       <ImageWrap><Image src={drinkThumb} alt="image" /></ImageWrap>
-      <СocktailName>{ drink }</СocktailName>
-      <СocktailType>{alcoholic}</СocktailType>
-      <СocktailRecipe>{description}</СocktailRecipe>
+      <CocktailName>{ drink }</CocktailName>
+      <CocktailType>{alcoholic}</CocktailType>
+      <CocktailRecipe>{description}</CocktailRecipe>
       <Wraper>
         <ButtonSeeMore onClick={() => navigate(`/drinks/${_id}`, { replace: true })}>See more</ButtonSeeMore>
         <ButtonDelete onClick={() => dispatch(deleteDrink(_id))}>

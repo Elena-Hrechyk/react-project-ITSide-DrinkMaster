@@ -8,7 +8,6 @@ import {
 } from './DrinksList.styled';
 
 export const DrinksListPage = ({ drinks }) => {
-  console.log(drinks)
   return (
     <>
       <DrinksPageList>

@@ -2,18 +2,16 @@ import styled from '@emotion/styled';
 
 export const Wrap = styled.div`
   max-width: 440px;
-  
+
   @media screen and (min-width: 768px) {
-    max-width: 342px;  
-  };
+    max-width: 342px;
+  }
 
   @media screen and (min-width: 1280px) {
     max-width: 400px;
   }
 `;
-export const ImageWrap = styled.div`
-
-`;
+export const ImageWrap = styled.div``;
 
 export const Image = styled.img`
   display: block;
@@ -24,7 +22,7 @@ export const Image = styled.img`
   border-radius: 8px;
 `;
 
-export const СocktailName = styled.h3`
+export const CocktailName = styled.h3`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.286;
@@ -36,11 +34,10 @@ export const СocktailName = styled.h3`
     font-size: 24px;
     line-height: 1.333;
     margin-top: 24px;
-  };
-  
+  }
 `;
 
-export const СocktailType = styled.p`
+export const CocktailType = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
@@ -48,15 +45,14 @@ export const СocktailType = styled.p`
   padding: 0px;
   margin: 0px;
   margin-top: 4px;
-  
+
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.125;
-  };
-
+  }
 `;
 
-export const СocktailRecipe = styled.p`
+export const CocktailRecipe = styled.p`
   max-height: 93px;
   overflow: clip;
   font-size: 14px;
@@ -70,7 +66,7 @@ export const СocktailRecipe = styled.p`
     font-size: 16px;
     line-height: 1.375;
     margin-top: 24px;
-  };
+  }
 `;
 
 export const Wraper = styled.div`
@@ -80,9 +76,8 @@ export const Wraper = styled.div`
 
   @media screen and (min-width: 768px) {
     margin-top: 24px;
-  };
-  
-`
+  }
+`;
 
 export const ButtonSeeMore = styled.button`
   font-size: 14px;
@@ -95,12 +90,12 @@ export const ButtonSeeMore = styled.button`
   padding-bottom: 14px;
   border: none;
   border-radius: 42px;
-  background-color: #161F37;
-  color: #F3F3F3;
+  background-color: #161f37;
+  color: #f3f3f3;
 
   :hover {
-    color: #161F37;
-    background-color: #F3F3F3;
+    color: #161f37;
+    background-color: #f3f3f3;
   }
 
   @media screen and (min-width: 768px) {
@@ -112,9 +107,8 @@ export const ButtonSeeMore = styled.button`
     padding-top: 18px;
     padding-bottom: 18px;
     margin-right: 8px;
-    
-  };
-`
+  }
+`;
 
 export const ButtonDelete = styled.button`
   display: inline-flex;
@@ -124,15 +118,15 @@ export const ButtonDelete = styled.button`
   padding: 11px;
   border: none;
   border-radius: 42px;
-  color: #F3F3F3;
-  background-color: #161F37;
+  color: #f3f3f3;
+  background-color: #161f37;
 
   :hover {
-    color: #161F37;
-    background-color: #F3F3F3;
+    color: #161f37;
+    background-color: #f3f3f3;
   }
 
   @media screen and (min-width: 768px) {
     padding: 15px;
-  };  
+  }
 `;
