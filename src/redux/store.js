@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
-import { addDrinksReducer } from './drinks/drinksSlise';
+import { drinksReducer } from './drinks/drinksSlise';
 import { filtersReducer } from './filters/filtersSlice';
 
 const middleware = [
@@ -28,10 +28,16 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const drinksPersistConfig = {
+  key: 'drinks',
+  storage,
+  whitelist: ['items'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    drinks: addDrinksReducer,
+    drinks: persistReducer(drinksPersistConfig, drinksReducer),
     filters: filtersReducer,
   },
   middleware,
