@@ -58,8 +58,8 @@ export const getSearchDrink = createAsyncThunk(
     };
 
     try {
-      const response = await axios.get('/drinks/search', urlParams);
-      return response.data;
+      const resp = await axios.get('/drinks/search', urlParams);
+      return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

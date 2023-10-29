@@ -102,4 +102,4 @@ const drinksSlice = createSlice({
   },
 });
 
-export const addDrinksReducer = drinksSlice.reducer;
+export const drinksReducer = drinksSlice.reducer;
