@@ -117,16 +117,13 @@ export const H2 = styled.h2`
 
   color: #f3f3f3;
   font-feature-settings: 'liga' off;
-  /* font-family: Manrope; */
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
-  line-height: 114.286%;
+  line-height: 1.14;
   letter-spacing: -0.56px;
 `;
 export const FormWrapper = styled.div`
-  /* display: flex;
-  flex-direction: column; */
   max-width: 335px;
 
   @media screen and (min-width: 768px) {
@@ -136,11 +133,10 @@ export const FormWrapper = styled.div`
 
 export const RouteLink = styled(Link)`
   color: #f3f3f3;
-  /* font-family: Manrope; */
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  line-height: 16px; /* 133.333% */
+  line-height: 1.33; /* 133.333% */
   text-decoration-line: underline;
   @media screen and (min-width: 768px) {
     font-size: 14px;
