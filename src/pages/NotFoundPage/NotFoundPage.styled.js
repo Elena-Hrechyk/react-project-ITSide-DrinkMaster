@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Section = styled.section`
   padding-top: 188px;
   padding-bottom: 260px;
+
+  
 `;
 
 export const ErrorContainer = styled.div`
@@ -15,13 +17,13 @@ export const ErrorContainer = styled.div`
 export const TitleLeft = styled.span`
   font-weight: 600;
   font-size: 120px;
-  color: #363535;
+  color: ${({ theme }) => theme.colorNotFound};
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-size: 150px;
   }
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     font-size: 200px;
   }
 `;
@@ -29,13 +31,13 @@ export const TitleLeft = styled.span`
 export const TitleRigth = styled.span`
   font-weight: 600;
   font-size: 120px;
-  color: #363535;
+  color: ${({ theme }) => theme.colorNotFound};
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-size: 150px;
   }
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     font-size: 200px;
   }
 `;
@@ -44,7 +46,7 @@ export const NotFoundImage = styled.img`
   width: 133px;
   padding-left: 10px;
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 158px;
   }
 `;

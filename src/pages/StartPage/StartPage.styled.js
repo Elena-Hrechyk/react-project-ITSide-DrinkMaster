@@ -25,40 +25,13 @@ import bg1desktop_2x from '../../img/start-page/BackgroundIMG/desktopBG/bg1deskt
 import bg2desktop_2x from '../../img/start-page/BackgroundIMG/desktopBG/bg2desktop@2x.png';
 import bg3desktop_2x from '../../img/start-page/BackgroundIMG/desktopBG/bg3desktop@2x.png';
 
-// export const importImgBg = {
-//   bg1mob_1x,
-//   bg2mob_1x,
-//   bg3mob_1x,
-//   bg1mob_2x,
-//   bg2mob_2x,
-//   bg3mob_2x,
-
-//   bg1Tab_1x,
-//   bg2Tab_1x,
-//   bg3Tab_1x,
-//   bg1Tab_2x,
-//   bg2Tab_2x,
-//   bg3Tab_2x,
-
-//   bg1desktop_1x,
-//   bg2desktop_1x,
-//   bg3desktop_1x,
-//   bg1desktop_2x,
-//   bg2desktop_2x,
-//   bg3desktop_2x,
-// };
-
 export const StartSection = styled.section`
-  /* position: relative; */
   display: flex;
   justify-content: center;
   text-align: center;
-  /* width: 100%; */
   height: 100vh;
   padding-top: 304px;
   padding-bottom: 304px;
-  /* padding-right: 20px;
-  padding-left: 20px; */
 
   /* Для экранов с разрешением 1x и шириной до 768px */
   background-image: url(${bg1mob_1x}), url(${bg2mob_1x}), url(${bg3mob_1x});
@@ -156,9 +129,7 @@ export const H1 = styled.h1`
   color: #fafafa;
   font-feature-settings: 'liga' off;
 
-  /* font-family: Manrope; */
   font-size: 28px;
-  /* font-style: normal; */
   font-weight: 600;
   line-height: 1.14; /* 114.286% */
   letter-spacing: -0.56px;
@@ -174,11 +145,7 @@ export const H1 = styled.h1`
 export const P = styled.p`
   color: #fafafa;
   text-align: center;
-  /* font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400; */
-  line-height: 1.23; /* 128.571% */
+  line-height: 1.29; /* 128.571% */
   letter-spacing: -0.28px;
   margin-bottom: 40px;
   @media screen and (min-width: 768px) {
@@ -206,7 +173,7 @@ export const SignUPButton = styled.button`
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.29; /* 128.571% */
   @media screen and (max-width: 374.98px) {
     font-size: 13px;
   }
@@ -222,8 +189,7 @@ export const SignInButton = styled.button`
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 18px; /* 112.5% */
-  /* display: inline-flex; */
+  line-height: 1.125; /* 112.5% */
   padding: 18px 44px;
   @media screen and (max-width: 374.98px) {
     font-size: 13px;

@@ -55,6 +55,9 @@ export const SearchDrinks = ({ page, limit, theme }) => {
 
   const dispatch = useDispatch();
 
+  const themeMode = theme === 'dark' ? DarkTheme : LightTheme;
+  console.log(themeMode);
+
   const handleSubmit = (values) => {
     throttle(() => setSearchWord(values.searchQuery), 300);
     setCategory(values.categories);
@@ -119,10 +122,9 @@ export const SearchDrinks = ({ page, limit, theme }) => {
       : setActiveColorText(LightTheme.colorText);
   }, [theme]);
 
-  console.log(listBgc);
-  console.log(listColorText);
-  console.log(activeColorText);
-  console.log(colourStyles);
+  // console.log(listBgc);
+  // console.log(listColorText);
+  // console.log(activeColorText);
 
   return (
     <Formik
@@ -151,10 +153,6 @@ export const SearchDrinks = ({ page, limit, theme }) => {
                   styles={colourStyles}
                   closeMenuOnSelect={true}
                   isClearable={true}
-                  classNames={{
-                    control: (state) =>
-                      state.isFocused ? 'border-orange-600' : 'border-grey-300',
-                  }}
                   listBgc={listBgc}
                   listColorText={listColorText}
                   activeColorText={activeColorText}
@@ -186,10 +184,6 @@ export const SearchDrinks = ({ page, limit, theme }) => {
                   styles={colourStyles}
                   closeMenuOnSelect={true}
                   isClearable={true}
-                  classNames={{
-                    control: (state) =>
-                      state.isFocused ? 'border-orange-600' : 'border-grey-300',
-                  }}
                   options={ingredients.map((ingredient) => ({
                     value: ingredient,
                     label: ingredient,

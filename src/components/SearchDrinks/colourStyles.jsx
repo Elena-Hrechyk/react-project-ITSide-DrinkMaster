@@ -42,7 +42,7 @@ export const colourStyles = {
   }),
   menuList: (styles) => ({
     ...styles,
-    background: '#161f37',
+    backgroundColor: '#161f37',
     borderRadius: '20px',
     padding: '14px 23px',
   }),
@@ -81,3 +81,5 @@ export const colourStyles = {
     borderRadius: '20px',
   }),
 };
+
+console.log(colourStyles);

@@ -11,8 +11,6 @@
     "format": "prettier --write ./src"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.5.0",

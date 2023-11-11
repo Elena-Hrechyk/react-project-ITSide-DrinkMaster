@@ -17,8 +17,8 @@ import Drinks_bg3_desk_2x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg3_desk
 export const AddPageSection = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 80px 0 80px 0;
   font-size: 14px;
@@ -55,7 +55,8 @@ export const AddPageSection = styled.section`
   /* Для ретина-дисплеев с разрешением 2x и шириной больше 1279.98px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1279.98px),
     (min-resolution: 192dpi) and (min-width: 1279.98px) {
-    background-image: url(${Drinks_bg1_mob_1x});
+    background-image: ${({ theme }) =>
+      theme.bodyBgc === '#0A0A11' ? ` url(${Drinks_bg1_mob_1x})` : null};
     background-size: contain;
 
     background-repeat: no-repeat;
@@ -67,7 +68,8 @@ export const AddPageSection = styled.section`
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {
-    background-image: url(${Drinks_bg1_mob_2x});
+    background-image: ${({ theme }) =>
+      theme.bodyBgc === '#0A0A11' ? ` url(${Drinks_bg1_mob_2x})` : null};
     background-size: contain;
 
     background-repeat: no-repeat;
@@ -76,7 +78,10 @@ export const AddPageSection = styled.section`
 
   /* Для экранов с разрешением 1x и шириной от 768px до 1280px */
   @media (min-width: 768px) {
-    background-image: url(${Drinks_bg1_tab_1x}), url(${Drinks_bg3_tab_1x});
+    background-image: ${({ theme }) =>
+      theme.bodyBgc === '#0A0A11'
+        ? `url(${Drinks_bg1_tab_1x}), url(${Drinks_bg3_tab_1x})`
+        : null};
     background-size: contain, contain;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -86,7 +91,10 @@ export const AddPageSection = styled.section`
   /* Для ретина-дисплеев с разрешением 2x и шириной от 769px до 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px),
     (min-resolution: 192dpi) and (min-width: 768px) {
-    background-image: url(${Drinks_bg1_tab_2x}), url(${Drinks_bg3_tab_2x});
+    background-image: ${({ theme }) =>
+      theme.bodyBgc === '#0A0A11'
+        ? `url(${Drinks_bg1_tab_2x}), url(${Drinks_bg3_tab_2x})`
+        : null};
     background-size: contain, contain;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -96,7 +104,10 @@ export const AddPageSection = styled.section`
 
   /* Для экранов с разрешением 1x и шириной больше 1280px */
   @media (min-width: 1279.98px) {
-    background-image: url(${Drinks_bg1_desk_1x}), url(${Drinks_bg3_desk_1x});
+    background-image: ${({ theme }) =>
+      theme.bodyBgc === '#0A0A11'
+        ? `url(${Drinks_bg1_desk_1x}), url(${Drinks_bg3_desk_1x})`
+        : null};
     background-size: contain, contain;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -107,7 +118,10 @@ export const AddPageSection = styled.section`
   /* Для ретина-дисплеев с разрешением 2x и шириной больше 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px),
     (min-resolution: 192dpi) and (min-width: 1280px) {
-    background-image: url(${Drinks_bg1_desk_2x}), url(${Drinks_bg3_desk_2x});
+    background-image: ${({ theme }) =>
+      theme.bodyBgc === '#0A0A11'
+        ? `url(${Drinks_bg1_desk_2x}), url(${Drinks_bg3_desk_2x})`
+        : null};
     background-size: contain, contain;
     background-repeat: no-repeat, no-repeat;
     background-position:
