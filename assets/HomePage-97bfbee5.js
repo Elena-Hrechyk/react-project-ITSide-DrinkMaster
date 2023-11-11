@@ -1,4 +1,4 @@
-import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C as u,T as k,c as f}from"./index-8d944318.js";import{s as w,a as y,b as v}from"./drinksSelectors-29c49a96.js";import{D,a as _,b as j,c as $,d as z,e as L,f as H,g as C,h as S,i as T}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{D as B,a as I}from"./Drinks_bg3_mob@2x-5e9320da.js";const P=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],A=n.section`
+import{s as n,N as p,L as g,u as a,j as t,a as x,b as m,r as l,g as h,C as b,T as u,c as k}from"./index-235d1527.js";import{s as f,a as w,b as y}from"./drinksSelectors-29c49a96.js";import{D as v,a as D,b as _,c as j,d as $,e as z,f as L,g as H,h as C,i as T}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{D as S,a as B}from"./Drinks_bg3_mob@2x-5e9320da.js";const I=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],P=n.section`
   font-family: var(--font-main);
   padding-top: 80px;
   padding-bottom: 80px;
@@ -13,7 +13,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
   }
 
   /* Для экранов с разрешением 1x и шириной до 768px */
-  background-image: url(${D}), url(${B});
+  background-image: url(${v}), url(${S});
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position:
@@ -23,7 +23,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {
-    background-image: url(${_}), url(${I});
+    background-image: url(${D}), url(${B});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position:
@@ -33,7 +33,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
 
   /* Для экранов с разрешением 1x и шириной от 768px до 1280px */
   @media (min-width: 768px) {
-    background-image: url(${j}), url(${$});
+    background-image: url(${_}), url(${j});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -43,7 +43,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
   /* Для ретина-дисплеев с разрешением 2x и шириной от 769px до 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px),
     (min-resolution: 192dpi) and (min-width: 768px) {
-    background-image: url(${z}), url(${L});
+    background-image: url(${$}), url(${z});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -53,7 +53,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
 
   /* Для экранов с разрешением 1x и шириной больше 1280px */
   @media (min-width: 1279.98px) {
-    background-image: url(${H}), url(${C});
+    background-image: url(${L}), url(${H});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
   }
@@ -61,14 +61,14 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
   /* Для ретина-дисплеев с разрешением 2x и шириной больше 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px),
     (min-resolution: 192dpi) and (min-width: 1280px) {
-    background-image: url(${S}), url(${T});
+    background-image: url(${C}), url(${T});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
       left top,
       right top;
   }
-`,E=n.div`
+`,A=n.div`
   display: block;
   margin-bottom: 112px;
 
@@ -80,11 +80,11 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
     position: relative;
     margin-bottom: 218px;
   }
-`,O=n.div`
+`,E=n.div`
   @media screen and (min-width: 1280px) {
     width: 715px;
   }
-`,F=n.h1`
+`,O=n.h1`
   margin-bottom: 16px;
   font-size: 32px;
   font-style: normal;
@@ -102,7 +102,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
     font-size: 64px;
     line-height: 1.06;
   }
-`,M=n.p`
+`,F=n.p`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -117,7 +117,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
   @media screen and (min-width: 1280px) {
     margin-bottom: 40px;
   }
-`,N=n(c)`
+`,M=n(p)`
   display: inline-block;
   width: 165px;
   margin-right: auto;
@@ -146,7 +146,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
     font-size: 16px;
     line-height: 1.13;
   }
-`,U=n.img`
+`,N=n.img`
   display: block;
   width: 252px;
   height: auto;
@@ -163,9 +163,9 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
     top: -57px;
     right: 36px;
   }
-`,q=n.ul`
+`,U=n.ul`
   margin-bottom: 40;
-`,R=n.li`
+`,q=n.li`
   margin-bottom: 40px;
 
   &:nth-child(n + 5) {
@@ -175,7 +175,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
   @media screen and (min-width: 768px) {
     margin-bottom: 80px;
   }
-`,W=n.h3`
+`,R=n.h3`
   margin-bottom: 24px;
   font-size: 28px;
   font-weight: 600;
@@ -186,12 +186,12 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
     font-size: 40px;
     line-height: 1.1;
   }
-`,Y=n.div`
+`,W=n.div`
   @media screen and (min-width: 768px) {
     display: flex;
     grid-gap: 20px;
   }
-`,G=n(c)`
+`,Y=n(p)`
   display: block;
   width: 165px;
   padding: 14px 40px;
@@ -221,7 +221,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
     font-size: 16px;
     line-height: 1.13;
   }
-`,J=o.li`
+`,G=n.li`
   font-family: var(--font-main);
   max-width: 335px;
 
@@ -252,7 +252,7 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
       display: none;
     }
   }
-`,K=o.img`
+`,J=n.img`
   width: 335px;
   height: 360px;
   object-fit: contain;
@@ -277,14 +277,14 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
     width: 400px;
     height: 400px;
   }
-`,Q=o.div`
+`,K=n.div`
   display: flex;
   justify-content: space-between;
-`,V=o.h4`
+`,Q=n.h4`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.13;
-`,X=o(x)`
+`,V=n(g)`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
@@ -295,4 +295,4 @@ import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C a
     font-size: 16px;
     line-height: 1.13;
   }
-`,Z=({type:i})=>{const r=d(w).data;let a=[];return r&&(a=r.filter(e=>i===e.category)),t.jsx(t.Fragment,{children:a.map(({_id:e,drink:p,drinkThumb:g})=>t.jsxs(J,{children:[t.jsx(K,{src:g,alt:p,loading:"lazy"}),t.jsxs(Q,{children:[t.jsx(V,{children:p}),t.jsx(X,{to:`/drinks/${e}`,children:"See more"})]})]},e))})},oi=()=>{const i=m(),s=d(y),r=d(l),a=d(v);return h.useEffect(()=>{i(b())},[i]),t.jsx(t.Fragment,{children:r&&t.jsx(A,{children:t.jsxs(u,{children:[t.jsxs(E,{children:[t.jsxs(O,{children:[t.jsx(F,{children:"Craft Your Perfect Drink with Drink Master"}),t.jsx(M,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the words finest beverages."}),t.jsx(N,{to:"/addDrink",children:"Add drink"})]}),t.jsx(U,{src:k,alt:"Coctail",loading:"lazy"})]}),s&&!a?t.jsx(f,{}):t.jsxs(t.Fragment,{children:[t.jsx(q,{children:P.map(e=>t.jsxs(R,{children:[t.jsx(W,{children:e.category}),t.jsx(Y,{children:t.jsx(Z,{type:e.category})})]},e.id))}),t.jsx(G,{to:"/drinks",children:"Other drinks"})]})]})})})};export{oi as default};
+`,X=({type:i})=>{const o=a(f).data;let r=[];return o&&(r=o.filter(e=>i===e.category)),t.jsx(t.Fragment,{children:r.map(({_id:e,drink:s,drinkThumb:c})=>t.jsxs(G,{children:[t.jsx(J,{src:c,alt:s,loading:"lazy"}),t.jsxs(K,{children:[t.jsx(Q,{children:s}),t.jsx(V,{to:`/drinks/${e}`,children:"See more"})]})]},e))})},ei=()=>{const i=x(),d=a(w),o=a(m),r=a(y);return l.useEffect(()=>{i(h())},[i]),t.jsx(t.Fragment,{children:o&&t.jsx(P,{children:t.jsxs(b,{children:[t.jsxs(A,{children:[t.jsxs(E,{children:[t.jsx(O,{children:"Craft Your Perfect Drink with Drink Master"}),t.jsx(F,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the words finest beverages."}),t.jsx(M,{to:"/addDrink",children:"Add drink"})]}),t.jsx(N,{src:u,alt:"Coctail",loading:"lazy"})]}),d&&!r?t.jsx(k,{}):t.jsxs(t.Fragment,{children:[t.jsx(U,{children:I.map(e=>t.jsxs(q,{children:[t.jsx(R,{children:e.category}),t.jsx(W,{children:t.jsx(X,{type:e.category})})]},e.id))}),t.jsx(Y,{to:"/drinks",children:"Other drinks"})]})]})})})};export{ei as default};

@@ -1,4 +1,4 @@
-import{s as i,r as b,j as e,a as w,f as A,B,u,m as x,E as m,h as P,H as R,I as $,S as E,J as U,K as V,M as L,L as q,O as N,c as G,d as v,e as h,P as H,A as O,Q as Y,C as J,l as K,F as Q,R as W,_ as X}from"./index-8d944318.js";import{D as Z,a as ee,b as ne,c as ie,d as te,e as re,f as oe,g as ae,h as se,i as de}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{S as le}from"./react-select.esm-0a362502.js";import{s as ce,b as pe,a as xe}from"./selectors-a7d85374.js";import{d as ge,a as he}from"./drinksSelectors-29c49a96.js";const me=i.section`
+import{s as i,r as b,j as e,a as w,f as A,A as B,u,m as x,B as m,h as P,E as R,H as $,S as E,I as U,J as V,K as L,L as q,M as N,c as G,d as v,e as h,O as H,P as O,Q as Y,C as J,l as K,F as Q,R as W,_ as X}from"./index-235d1527.js";import{D as Z,a as ee,b as ne,c as ie,d as te,e as re,f as oe,g as ae,h as se,i as de}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{S as le}from"./react-select.esm-53f0a8d7.js";import{s as ce,b as pe,a as xe}from"./selectors-a7d85374.js";import{d as ge,a as he}from"./drinksSelectors-29c49a96.js";const me=i.section`
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center content horizontally */
@@ -496,6 +496,10 @@ import{s as i,r as b,j as e,a as w,f as A,B,u,m as x,E as m,h as P,H as R,I as $
   align-items: center;
   gap: 16px;
   margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+  }
 `,j=i.a`
   width: 44px;
   height: 44px;
