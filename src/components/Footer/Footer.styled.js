@@ -21,6 +21,7 @@ export const FooterSection = styled.footer`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
+  background-color: #0a0a11;
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {

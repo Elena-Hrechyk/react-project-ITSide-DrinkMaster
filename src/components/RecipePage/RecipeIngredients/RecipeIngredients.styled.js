@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.h4`
-  color: rgba(243, 243, 243, 0.5);
+  color: ${({ theme }) => theme.linkSeeMore};
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25; /* 125% */
@@ -42,7 +42,7 @@ export const ImgIngredient = styled.img`
   height: 157px;
   padding: 25px;
   border-radius: 8px;
-  background: rgba(22, 31, 55, 0.5);
+  background-color: ${({ theme }) => theme.addDrinkImgBgc};
   margin-bottom: 8px;
   object-fit: cover;
 
@@ -60,7 +60,7 @@ export const BoxTitleIngredient = styled.div`
 export const TitleIngredient = styled.h5`
   font-size: 14px;
   font-weight: 500;
-  line-height: 1.23; /* 128.571% */
+  line-height: 1.29; /* 128.571% */
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -69,17 +69,16 @@ export const TitleIngredient = styled.h5`
 `;
 
 export const Measure = styled.p`
-  color: rgba(243, 243, 243, 0.5);
+  color: ${({ theme }) => theme.linkSeeMore};
   font-size: 14px;
   font-weight: 500;
-  line-height: 1.23; /* 128.571% */
+  line-height: 1.29; /* 128.571% */
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.25; /* 133.333% */
   }
 `;
-
 
 export const Text = styled.p`
   margin-bottom: 40px;

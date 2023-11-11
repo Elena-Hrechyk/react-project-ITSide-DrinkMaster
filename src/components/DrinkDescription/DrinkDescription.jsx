@@ -2,11 +2,13 @@ import { Field } from 'formik';
 import DropDownMenu from '../DropDownMenu/DropDownMenu';
 import {
   AddImage,
+  TitleAddImg,
   CategoryContainer,
   DescriptionContainer,
   HiddenInput,
   Input,
   InputsContainer,
+  TitleInput,
   RadioComponent,
   RadioContainer,
   RadioInput,
@@ -48,7 +50,7 @@ const DrinkDescription = ({ setFieldValue, errors, touched, values }) => {
 
   const handleFileChange = (e) => {
     const imageData = e.target.files[0];
-    console.log(imageData)
+    console.log(imageData);
     if (e.target.files.length > 0) {
       setDrinkThumb({
         picture: imageData,
@@ -57,18 +59,17 @@ const DrinkDescription = ({ setFieldValue, errors, touched, values }) => {
     }
     // fileValue(imageData)
     // let altPick = 'Users/max/Documents/GitHub/react-project-ITSide-DrinkMaster/src/img/my-drinks/recipe-preparation.jpg';
-    setFieldValue('drinkThumb', imageData || "")
+    setFieldValue('drinkThumb', imageData || '');
     // setValue('drinkThumb', imageData);
   };
 
   return (
     <>
-      <h2 style={{ display: 'flex', flex: 'start' }}>Add drink</h2>
       <DescriptionContainer>
         <AddImage>
           {drinkThumb === null ? (
             <>
-              <AddImageButton style={{ backgroundColor: 'white' }}>
+              <AddImageButton style={{ backgroundColor: '#F3F3F3' }}>
                 <Field
                   name="drinkThumb"
                   id="drinkThumb"
@@ -87,7 +88,7 @@ const DrinkDescription = ({ setFieldValue, errors, touched, values }) => {
                   }}
                 />
               </AddImageButton>
-              <p>Add image</p>
+              <TitleAddImg>Add image</TitleAddImg>
             </>
           ) : (
             <ImageBackground src={drinkThumb.src} alt={drinkThumb.src} />
@@ -102,7 +103,7 @@ const DrinkDescription = ({ setFieldValue, errors, touched, values }) => {
             placeholder="Enter item drink"
             value={values.drink || ''}
           />
-             {touched.drink && errors.drink ? (
+          {touched.drink && errors.drink ? (
             <DoneMessage>{errors.drink}</DoneMessage>
           ) : null}
           <UnderlinedElement />
@@ -114,16 +115,17 @@ const DrinkDescription = ({ setFieldValue, errors, touched, values }) => {
             placeholder="Enter about recipe"
             value={values.shortDescription || ''}
           />
-           {touched.shortDescription && errors.shortDescription ? (
+          {touched.shortDescription && errors.shortDescription ? (
             <DoneMessage>{errors.shortDescription}</DoneMessage>
           ) : null}
           <UnderlinedElement />
           <div style={CategoryContainer}>
-            <p style={{ color: '#f3f3f380' }}>Category</p>
-            <Field name="category" id="category"
-            touched={touched.category}
-            error={errors.category}
-  
+            <TitleInput>Category</TitleInput>
+            <Field
+              name="category"
+              id="category"
+              touched={touched.category}
+              error={errors.category}
             >
               {/* {({ setValue }) => (
                 <DropDownMenu
@@ -134,28 +136,27 @@ const DrinkDescription = ({ setFieldValue, errors, touched, values }) => {
                   }
                 />
               )} */}
-                            {({ form }) => (
+              {({ form }) => (
                 <DropDownMenu
-                flexDirection="row-reverse"
+                  flexDirection="row-reverse"
                   optionValue={categoriesSelect}
                   onChange={(selectedOption) =>
                     form.setFieldValue('category', selectedOption)
                   }
                 />
               )}
-            </Field> 
-        
-          </div>    {touched.category && errors.category ? (
+            </Field>
+          </div>{' '}
+          {touched.category && errors.category ? (
             <DoneMessage>{errors.category}</DoneMessage>
           ) : null}
-         
           <UnderlinedElement />
           <div style={CategoryContainer}>
-            <p style={{ color: '#f3f3f380' }}>Glass</p>
+            <TitleInput>Glass</TitleInput>
             <Field name="glass">
               {({ form }) => (
                 <DropDownMenu
-                flexDirection="row-reverse"
+                  flexDirection="row-reverse"
                   optionValue={glassesSelector}
                   onChange={(selectedOption) =>
                     form.setFieldValue('glass', selectedOption)
@@ -163,7 +164,8 @@ const DrinkDescription = ({ setFieldValue, errors, touched, values }) => {
                 />
               )}
             </Field>
-          </div>    {touched.glass && errors.glass ? (
+          </div>{' '}
+          {touched.glass && errors.glass ? (
             <DoneMessage>{errors.glass}</DoneMessage>
           ) : null}
           <UnderlinedElement />

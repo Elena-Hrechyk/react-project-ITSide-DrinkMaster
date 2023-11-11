@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const ItemDrink = styled.li`
   font-family: var(--font-main);
@@ -72,10 +72,15 @@ export const TitleDrink = styled.h4`
   line-height: 1.13;
 `;
 
-export const SeemoreLink = styled(NavLink)`
-  color: rgba(243, 243, 243, 0.5);
+export const SeemoreLink = styled(Link)`
   font-size: 14px;
   font-weight: 500;
-  line-height: 1.23;
-`;
+  line-height: 1.29;
+  text-align: right;
+  color: ${({ theme }) => theme.linkSeeMore};
 
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.13;
+  }
+`;

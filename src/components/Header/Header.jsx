@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import { useResize } from '../../redux/hooks/useResize';
 import { ReactComponent as Logo } from '../../img/svg/logo.svg';
+import { ReactComponent as LogoDark } from '../../img/svg/logoDark.svg';
+import ToggleTheme from '../ToggleTheme/ToggleTheme';
 import {
   HeaderContainer,
   Navigation,
@@ -9,14 +11,15 @@ import {
   LinkLogo,
   StyledLink,
   Head,
+  WrapToggleUser,
 } from './Header.styled';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { UserBarMenu } from '../UserBarMenu/UserBarMenu';
 
-export const Header = () => {
+export const Header = ({ theme, toggleTheme }) => {
   const [isOpenBurgerMenu, setisOpenBurgerMenu] = useState(false);
-
   const location = useLocation();
+  const { width } = useResize();
 
   const toggleMenu = () => setisOpenBurgerMenu(!isOpenBurgerMenu);
 
@@ -34,8 +37,8 @@ export const Header = () => {
     <Head>
       <HeaderContainer>
         <LinkLogo to={'/'}>
-          <Logo />
-          <span>Drink Master</span>
+          {theme === 'dark' ? <Logo /> : <LogoDark />}
+          Drink Master
         </LinkLogo>
         <Navigation>
           <NavigationList>
@@ -46,14 +49,31 @@ export const Header = () => {
             <StyledLink to="favorites">Favorites</StyledLink>
           </NavigationList>
         </Navigation>
-        <UserBarMenu
-          toggleMenu={toggleMenu}
-          isOpenBurgerMenu={isOpenBurgerMenu}
-        />
+        {width >= 1280 ? (
+          <WrapToggleUser>
+            <ToggleTheme toggleTheme={toggleTheme} theme={theme} />
+            <UserBarMenu
+              toggleMenu={toggleMenu}
+              isOpenBurgerMenu={isOpenBurgerMenu}
+            />
+          </WrapToggleUser>
+        ) : (
+          <>
+            {isOpenBurgerMenu ? (
+              <ToggleTheme toggleTheme={toggleTheme} theme={theme} />
+            ) : (
+              <UserBarMenu
+                toggleMenu={toggleMenu}
+                isOpenBurgerMenu={isOpenBurgerMenu}
+              />
+            )}
+          </>
+        )}
 
         <BurgerMenu
           toggleMenu={toggleMenu}
           isOpenBurgerMenu={isOpenBurgerMenu}
+          theme={theme}
         />
       </HeaderContainer>
     </Head>

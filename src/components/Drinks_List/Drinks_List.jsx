@@ -1,16 +1,16 @@
 import DrinksItem from '../DrinksItem/DrinksItem';
-import { Wrap } from './Drinks_List.styled';
+import { WrapList, DrinkItem } from './Drinks_List.styled';
 
 const DrinksList = ({ items, deleteDrink }) => {
   return (
-    <Wrap>
+    <WrapList>
       {items &&
-        items.map(item => (
-          <li key={item._id}>
-            <DrinksItem item={item} deleteDrink={deleteDrink}></DrinksItem>
-          </li>
+        items.map((item) => (
+          <DrinkItem key={item._id}>
+            <DrinksItem item={item} deleteDrink={deleteDrink} />
+          </DrinkItem>
         ))}
-    </Wrap>
+    </WrapList>
   );
 };
 

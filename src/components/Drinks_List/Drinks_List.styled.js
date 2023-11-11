@@ -1,13 +1,22 @@
 import styled from '@emotion/styled';
 
-export const Wrap = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  margin-top: 40px;
-  gap: 40px 0px;
+export const WrapList = styled.ul`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px 20px;
+  }
+`;
+
+export const DrinkItem = styled.li`
+  width: 440px;
 
   @media screen and (min-width: 768px) {
-    gap: 80px 20px;
-  };
+    margin-bottom: 0;
+    width: 342px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 400px;
+  }
 `;

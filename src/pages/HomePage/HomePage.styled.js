@@ -74,9 +74,6 @@ export const HomeSection = styled.section`
     background-image: url(${Drinks_bg1_desk_1x}), url(${Drinks_bg3_desk_1x});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
-    /* background-position:
-      left  top,
-      right  top ; */
   }
 
   /* Для ретина-дисплеев с разрешением 2x и шириной больше 1280px */
@@ -153,21 +150,22 @@ export const LinkAddDrink = styled(NavLink)`
   width: 165px;
   margin-right: auto;
   padding: 8px 16px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
   border-radius: 42px;
-  background: #f3f3f3;
+  background-color: ${({ theme }) => theme.button.buttonBgc};
   margin-bottom: 47px;
-  color: #161f37;
+  color: ${({ theme }) => theme.button.battonText};
   text-align: center;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.23;
-  transition: outline var(--transition-dur-and-func);
+  transition: all var(--transition-dur-and-func);
 
   &:hover,
   &:focus {
-    outline: 2px solid rgba(64, 112, 205, 0.5);
+    background-color: ${({ theme }) => theme.button.buttonBgcHover};
+    color: ${({ theme }) => theme.button.buttonTextHover};
+    outline: 2px solid ${({ theme }) => theme.button.buttonBorderHover};
   }
 
   @media screen and (min-width: 768px) {
@@ -198,12 +196,10 @@ export const HeroImg = styled.img`
 `;
 
 export const CategoryDrinkList = styled.ul`
-  font-family: var(--font-main);
   margin-bottom: 40;
 `;
 
 export const ItemCategory = styled.li`
-  font-family: var(--font-main);
   margin-bottom: 40px;
 
   &:nth-child(n + 5) {
@@ -217,8 +213,6 @@ export const ItemCategory = styled.li`
 
 export const TitleCategory = styled.h3`
   margin-bottom: 24px;
-  color: #f3f3f3;
-  font-family: Manrope;
   font-size: 28px;
   font-weight: 600;
   line-height: 1.14;
@@ -243,18 +237,20 @@ export const LinkOtherDrink = styled(NavLink)`
   margin-left: auto;
   margin-right: auto;
   border-radius: 42px;
-  background: #f3f3f3;
+  background-color: ${({ theme }) => theme.button.buttonBgc};
   margin-bottom: 47px;
-  color: #161f37;
+  color: ${({ theme }) => theme.button.battonText};
   text-align: center;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.23;
-  transition: outline var(--transition-dur-and-func);
+  transition: all var(--transition-dur-and-func);
 
   &:hover,
   &:focus {
-    outline: 2px solid rgba(64, 112, 205, 0.5);
+    background-color: ${({ theme }) => theme.button.buttonBgcHover};
+    color: ${({ theme }) => theme.button.buttonTextHover};
+    outline: 2px solid ${({ theme }) => theme.button.buttonBorderHover};
   }
 
   @media screen and (min-width: 768px) {

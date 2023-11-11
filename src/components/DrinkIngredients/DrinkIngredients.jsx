@@ -9,10 +9,10 @@ import {
   Input,
   Portion,
   TitleContainer,
+  Title,
   XButton,
-  XImg,
 } from './DrinkIngredients.styled';
-import Xicon from '../../img/svg/Xicon.svg';
+import { ReactComponent as Xicon } from '../../img/svg/delete.svg';
 import { ErrorMessage, Field, FieldArray } from 'formik';
 import DropDownMenu from '../DropDownMenu/DropDownMenu';
 import { nanoid } from 'nanoid';
@@ -36,28 +36,20 @@ const DrinkIngredients = ({ values }) => {
   const ingredientsSelector = ingredient.map((item) => {
     return { label: item, value: item };
   });
-console.log(values)
+  console.log(values);
   return (
-
     <FieldArray
       name="ingredients"
-      render={({
-        remove,
-        push,
-      }) => (
+      render={({ remove, push }) => (
         <DrinkIngredientsContainer>
           <TitleContainer>
-            <h1
-            style={{ marginBottom: '0px', marginTop: '0px' }}
-            >
-              Ingredients
-            </h1>
+            <Title>Ingredients</Title>
             <CountBlock>
               <CountButton
                 type="button"
                 onClick={() => {
-                  let lastIndex = values.ingredients.length
-                  remove(lastIndex-1);
+                  let lastIndex = values.ingredients.length;
+                  remove(lastIndex - 1);
                 }}
               >
                 -
@@ -65,7 +57,6 @@ console.log(values)
               <p>{values.ingredients.length}</p>
               <CountButton
                 type="button"
-                
                 onClick={() => {
                   push();
                 }}
@@ -81,37 +72,35 @@ console.log(values)
                 return (
                   <IngridientsContainer key={index}>
                     <IngredientPortionContainer>
-                      
                       <Ingridient>
-                          <Field name={`ingredients.${index}.title`}>
-                            {({ form }) => (
-                              <DropDownMenu
-                                flexDirection="row"
-                                optionValue={ingredientsSelector}
-                                onChange={(selectedOption) => {
-                                  form.setFieldValue(
-                                    `ingredients.${index}.ingredient`,
-                                    selectedOption,
-                                  );
-                                  form.setFieldValue(
-                                    `ingredients.${index}.ingredientId`,
-                                    nanoid(),
-                                  );
-                                }}
-                              />
-                            )}
+                        <Field name={`ingredients.${index}.title`}>
+                          {({ form }) => (
+                            <DropDownMenu
+                              flexDirection="row"
+                              optionValue={ingredientsSelector}
+                              onChange={(selectedOption) => {
+                                form.setFieldValue(
+                                  `ingredients.${index}.ingredient`,
+                                  selectedOption,
+                                );
+                                form.setFieldValue(
+                                  `ingredients.${index}.ingredientId`,
+                                  nanoid(),
+                                );
+                              }}
+                            />
+                          )}
                         </Field>
                         <ErrorMessage name={`ingredients.${index}.ingredient`}>
-                        {(msg) => <DoneMessage >{msg}</DoneMessage>}
-                      </ErrorMessage>
-                        </Ingridient>
+                          {(msg) => <DoneMessage>{msg}</DoneMessage>}
+                        </ErrorMessage>
+                      </Ingridient>
                       <Portion width="150px">
                         <Field
                           name={`ingredients.${index}.measure`}
                           as={Input}
                           placeholder="Measure"
                         />
-                       
                       </Portion>
                       <ErrorMessage name={`ingredients.${index}.measure`}>
                         {(msg) => <DoneMessage>{msg}</DoneMessage>}
@@ -123,9 +112,8 @@ console.log(values)
                         remove(index);
                       }}
                     >
-                      <XImg src={Xicon} alt={`Xicon-${index}`} />
+                      <Xicon fill="currentColor" />
                     </XButton>
-                   
                   </IngridientsContainer>
                 );
               })}
@@ -134,15 +122,14 @@ console.log(values)
             <DoneMessage>{errors}</DoneMessage>
           ) : null} */}
           {/* {typeof errors === 'string' ? <DoneMessage>{errors}</DoneMessage> : null} */}
-          
         </DrinkIngredientsContainer>
       )}
     />
-  //   {touched.values.ingredient && errors.values.ingredient ? (
-  //     <DoneMessage>{errors.values.ingredient}</DoneMessage>
-  // ) : null
-  // }
-  )
+    //   {touched.values.ingredient && errors.values.ingredient ? (
+    //     <DoneMessage>{errors.values.ingredient}</DoneMessage>
+    // ) : null
+    // }
+  );
 };
 
 export default DrinkIngredients;

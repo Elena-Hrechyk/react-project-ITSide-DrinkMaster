@@ -6,21 +6,6 @@ import ManropeMedium from '../../assets/fonts/Manrope-Medium.ttf';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
-html {
-  /* dark theme */
-  &[data-theme='dark'] {
-    --background-color: #0A0A11;
-    --button-color: #F3F3F3;
-    --button-hover-color: #161F37;
-  }
-
-  /* light theme */
-  &[data-theme='light'] {
-    --background-color: #F3F3F3;
-    --button-color: #161F37;
-    --button-hover-color: #F3F3F3;
-  }
-}
 @font-face {
   font-family: 'Manrope';
   src: local('Manrope-Bold'), url(${ManropeBolt}) format('truetype');
@@ -70,12 +55,10 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
-  color: var(--color-main-darktheme);
+  color: ${({ theme }) => theme.colorText};
   width: 100%;
   height: 100vh;
-  /* background-color: var(--background-color); */
-  background-color: var(--bg-color-main-darktheme);
-  scroll-behavior: smooth;
+  background-color: ${({ theme }) => theme.bodyBgc};
 }
 
 h1,
@@ -88,19 +71,24 @@ p {
   margin-top: 0;
   margin-bottom: 0;
 }
+
 a {
+  color: ${({ theme }) => theme.linkSeeMore};
   text-decoration: none;
 }
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
+
 button {
   cursor: pointer;
   color: inherit;

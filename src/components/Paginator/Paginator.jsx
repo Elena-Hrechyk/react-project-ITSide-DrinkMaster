@@ -1,7 +1,14 @@
-import { Wrap, Button, Wraper, ButtonPageItem } from './Paginator.styled';
+import { useEffect, useState } from 'react';
+import { Wrap, ButtonArrow, Wraper, ButtonPageItem } from './Paginator.styled';
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
+import { DarkTheme, LightTheme } from '../GlobalStyled/themes';
 
-const Paginator = ({ totalPages, paginate, nextPage, currentPage }) => {
+const Paginator = ({ totalPages, paginate, nextPage, currentPage, theme }) => {
+  const [colorArrow, setCorolArrow] = useState(DarkTheme.paginatorArrowColor);
+  const [focusBgc, setFocusBgc] = useState(DarkTheme.paginatorFocusBgc);
+
+  const colorTextFocus = DarkTheme.colorText;
+  
   const handlePageChange = (pageNumber) => {
     nextPage(pageNumber);
   };
@@ -20,15 +27,24 @@ const Paginator = ({ totalPages, paginate, nextPage, currentPage }) => {
     return pageNumbers.slice(start, end + 1);
   };
 
+  useEffect(() => {
+    theme === 'dark'
+      ? setCorolArrow(DarkTheme.paginatorArrowColor)
+      : setCorolArrow(LightTheme.paginatorArrowColor);
+    theme === 'dark'
+      ? setFocusBgc(DarkTheme.paginatorFocusBgc)
+      : setFocusBgc(LightTheme.paginatorFocusBgc);
+  }, [theme]);
+
   return (
     <Wrap>
-      <Button
+      <ButtonArrow
         type="button"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        <MdArrowBackIosNew />
-      </Button>
+        <MdArrowBackIosNew color={colorArrow} />
+      </ButtonArrow>
       <Wraper>
         {getVisiblePageNumbers().map((number) => (
           <li key={number}>
@@ -36,19 +52,21 @@ const Paginator = ({ totalPages, paginate, nextPage, currentPage }) => {
               type="button"
               onClick={() => handlePageChange(number)}
               isSelected={number === currentPage}
+              focusColor={focusBgc}
+              focusText={colorTextFocus}
             >
               {number}
             </ButtonPageItem>
           </li>
         ))}
       </Wraper>
-      <Button
+      <ButtonArrow
         type="button"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <MdArrowForwardIos />
-      </Button>
+        <MdArrowForwardIos color={colorArrow} />
+      </ButtonArrow>
     </Wrap>
   );
 };

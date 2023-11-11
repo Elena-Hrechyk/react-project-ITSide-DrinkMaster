@@ -4,12 +4,12 @@ export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 100;
-margin-top: 40px;
-  @media (min-width: 768px) and (max-width: 1439.98px) {
+  margin-top: 40px;
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     margin-top: 60px;
   }
-  @media (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     flex-direction: row;
     margin-top: 60px;
     width: 100%;
@@ -20,20 +20,20 @@ export const Input = styled.input`
   padding-top: 31px;
   background-color: transparent;
   border: transparent;
-  color: #fff;
+  color: ${({ theme }) => theme.colorText};
   width: 335px;
-  &:focus{
-    outline: transparent;
-  }
   &:focus {
+    outline: transparent;
     border: none;
   }
-  @media (min-width: 768px) and (max-width: 1439.98px) {
+
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     /* justify-content: space-between; */
     width: 352px;
   }
-  @media (min-width: 1440px) {
+
+  @media screen and (min-width: 1280px) {
     flex-direction: row;
     /* justify-content: space-between; */
     width: 339px;
@@ -42,13 +42,15 @@ export const Input = styled.input`
 
 /* Устанавливаем нижнее подчеркивание */
 export const UnderlinedElement = styled.div`
-  border-bottom: 0.5px solid #f3f3f380;
+  border-bottom: 0.5px solid ${({ theme }) => theme.linkSeeMore};
   padding-left: 10px;
   width: 335px;
-  @media (min-width: 768px) and (max-width: 1439.98px) {
+
+  @media screen and (min-width: 768px) {
     width: 352px;
   }
-  @media (min-width: 1440px) {
+
+  @media screen and (min-width: 1280px) {
     width: 339px;
   }
 `;
@@ -57,10 +59,17 @@ export const InputsContainer = styled.div`
   ///// задать гнучкий розмір
   display: flex;
   flex-direction: column;
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding-left: 40px;
   }
 `;
+
+export const TitleInput = styled.p`
+  color: ${({ theme }) => theme.linkSeeMore};
+  line-height: normal;
+  letter-spacing: -0.28px;
+`;
+
 export const CategoryContainer = {
   display: 'flex',
   alignItems: 'center',
@@ -68,27 +77,29 @@ export const CategoryContainer = {
   // width: '393px',
   maxHeight: '278px',
 };
+
 export const AddImage = styled.div`
   width: 335px; ///// задать гнучкий розмір
   height: 320px;
-  background-color: #161f3780;
+  background-color: ${({ theme }) => theme.addDrinkImgBgc};
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 9px;
-  @media (min-width: 768px) and (max-width: 1339.98px) {
+
+  @media screen and (min-width: 768px) {
     width: 320px;
     height: 320px;
   }
-  @media (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 400px;
     height: 400px;
   }
 `;
 export const AddImageButton = styled.label`
-  background-color: white;
+  background-color: #f3f3f3;
   width: 50px;
   height: 50px;
   border: none;
@@ -96,38 +107,39 @@ export const AddImageButton = styled.label`
   border-radius: 6px;
   margin-bottom: 18px;
   display: inline-block;
-    /* padding: 6px 12px; */
-    cursor: pointer;
-    
-    /* color: white; */
-    /* border: 1px solid #ccc; */
-    /* border-radius: 4px; */
-    text-align: center;
-
-
-
+  cursor: pointer;
+  text-align: center;
 `;
+
+export const TitleAddImg = styled.p`
+  color: #f3f3f3;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25; /* 125% */
+`;
+
 export const RadioContainer = styled.div`
   margin-top: 42px;
   display: flex;
   align-items: center;
   gap: 14px;
 `;
-RadioContainer;
+
+// RadioContainer;
 export const RadioComponent = styled.div`
-  /* margin: 0.5rem; */
   display: flex;
   align-items: center;
-
 `;
+
 export const RadioLabel = styled.label`
   position: relative;
-  color: #f3f3f380;
+  color: ${({ theme }) => theme.linkSeeMore};
 
-  &:checked{
-    color: white;
+  &:checked {
+    color: ${({ theme }) => theme.colorText};
   }
 `;
+
 export const RadioInput = styled.input`
   position: absolute;
   opacity: 0;
@@ -137,7 +149,7 @@ export const RadioInput = styled.input`
     &:before {
       content: '';
       border-radius: 100%;
-      border: 2px solid #f3f3f380;
+      border: 2px solid ${({ theme }) => theme.linkSeeMore};
       display: inline-block;
       width: 20px;
       height: 20px;
@@ -154,21 +166,20 @@ export const RadioInput = styled.input`
     + .radio-label {
       &:after {
         opacity: 1;
-        /* background-color: #red; */
-        border: 2px solid #ffffff;
-        box-shadow: inset 0 0 0 4px #000000;
+        border: ${({ theme }) => theme.colorText};
+        box-shadow: inset 0 0 0 4px ${({ theme }) => theme.bodyBgc};
       }
     }
   }
   &:focus {
     + .radio-label {
-      color: #d9d9d9;
+      color: ${({ theme }) => theme.colorText};
       &:before {
         outline: none;
-        box-shadow: inset 0 0 0 4px #000000;
+        box-shadow: inset 0 0 0 4px ${({ theme }) => theme.bodyBgc};
         border-radius: 100%;
-        border: 2px solid #ffffff;
-        background: #ffffff;
+        border: 2px solid ${({ theme }) => theme.colorText};
+        background-color: ${({ theme }) => theme.colorText};
       }
     }
   }
@@ -182,71 +193,26 @@ export const RadioInput = styled.input`
   }
   &:checked + .radio-label::before {
     outline: none;
-        box-shadow: inset 0 0 0 4px #000000;
-        border-radius: 100%;
-        border: 2px solid #ffffff;
-        background: #ffffff;
-        color: #ffffff;
-}
+    box-shadow: inset 0 0 0 4px ${({ theme }) => theme.bodyBgc};
+    border-radius: 100%;
+    border: 2px solid ${({ theme }) => theme.colorText};
+    background-color: ${({ theme }) => theme.colorText};
+    color: ${({ theme }) => theme.colorText};
+  }
 
-&:checked + .radio-label {
-   color: #d9d9d9; 
-}
-  /* &:disabled {
-    + .radio-label {
-      &:before {
-        box-shadow: inset 0 0 0 4px #f4f4f4;
-        border-color: #fc0909;
-        background: #39e61a;
-      }
-    }
-  } */
+  &:checked + .radio-label {
+    color: ${({ theme }) => theme.colorText};
+  }
 `;
 
-export const CustomFileLabel = styled.label`
-  display: inline-block;
-      background-color: white;
-  padding: 6px 12px;
-  cursor: pointer;
-  /* background-color: blue; */
-  color: red;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  text-align: center;
-`;
-export const FieldInput = styled.input`
-  display: none;
-
-`;
 export const HiddenInput = styled.input`
-  position: 'relative',;
+  position: 'relative';
   top: 0;
   left: 0;
   opacity: 0;
   width: 100%;
   height: 100%;
   cursor: pointer;
-`;
-
-export const SendFormButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 42px;
-  background: #F3F3F3;
-  color: #161f37;
-  width: 107px;
-  height: 46px;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 18px;
-  
-  padding: 18px 44px;
-  
-  cursor: pointer;
-
 `;
 
 export const ImageBackground = styled.img`
@@ -256,3 +222,19 @@ export const ImageBackground = styled.img`
   background-position: 50%;
   border-radius: 8px;
 `;
+
+// export const CustomFileLabel = styled.label`
+//   display: inline-block;
+//   background-color: white;
+//   padding: 6px 12px;
+//   cursor: pointer;
+//   color: red;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   text-align: center;
+// `;
+
+// export const FieldInput = styled.input`
+//   display: none;
+// `;
+

@@ -1,17 +1,16 @@
 import styled from '@emotion/styled';
 
 export const Wrap = styled.div`
-  max-width: 440px;
+  width: 440px;
 
   @media screen and (min-width: 768px) {
-    max-width: 342px;
+    width: 342px;
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 400px;
+    width: 400px;
   }
 `;
-export const ImageWrap = styled.div``;
 
 export const Image = styled.img`
   display: block;
@@ -20,52 +19,53 @@ export const Image = styled.img`
   object-fit: cover;
   border: none;
   border-radius: 8px;
+  margin-bottom: 18px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
 `;
 
-export const CocktailName = styled.h3`
+export const CocktailName = styled.h5`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.286;
-  padding: 0px;
-  margin: 0px;
-  margin-top: 18px;
+  margin-bottom: 4px;
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: 1.333;
-    margin-top: 24px;
   }
 `;
 
 export const CocktailType = styled.p`
-  font-size: 14px;
-  font-weight: 400;
   line-height: 1.286;
-  color: rgba(243, 243, 243, 0.5);
-  padding: 0px;
-  margin: 0px;
-  margin-top: 4px;
+  color: ${({ theme }) => theme.linkSeeMore};
+  margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.125;
+    margin-bottom: 24px;
   }
 `;
 
 export const CocktailRecipe = styled.p`
-  max-height: 93px;
+  height: 75px;
   overflow: clip;
-  font-size: 14px;
-  font-weight: 400;
   line-height: 1.286;
-  padding: 0px;
-  margin: 0px;
-  margin-top: 18px;
+  margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
+    height: 110px;
     font-size: 16px;
     line-height: 1.375;
-    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 768px) {
+    height: 96px;
+    font-size: 16px;
+    line-height: 1.375;
+    margin-bottom: 24px;
   }
 `;
 
@@ -92,8 +92,10 @@ export const ButtonSeeMore = styled.button`
   border-radius: 42px;
   background-color: #161f37;
   color: #f3f3f3;
+  transition: all var(--transition-dur-and-func);
 
-  :hover {
+  &:hover,
+  &:focus {
     color: #161f37;
     background-color: #f3f3f3;
   }
@@ -120,8 +122,10 @@ export const ButtonDelete = styled.button`
   border-radius: 42px;
   color: #f3f3f3;
   background-color: #161f37;
+  transition: all var(--transition-dur-and-func);
 
-  :hover {
+  &:hover,
+  &:focus {
     color: #161f37;
     background-color: #f3f3f3;
   }
