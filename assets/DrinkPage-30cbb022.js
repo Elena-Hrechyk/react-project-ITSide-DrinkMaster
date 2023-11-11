@@ -1,11 +1,11 @@
-import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,aa as _,ab as D,C as z}from"./index-235d1527.js";import{a as $}from"./selectors-a7d85374.js";import{e as F}from"./drinksSelectors-29c49a96.js";import{D as y,a as I,b as T,c as B,d as R,e as S,f as A,g as C,h as E,i as M}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{D as P,a as H}from"./Drinks_bg3_mob@2x-5e9320da.js";const l=n.button`
+import{s as n,r as c,a as x,u as h,q as k,j as i,a5 as w,w as j,_ as m,a6 as v,a7 as _,a8 as D,C as $}from"./index-10c3187c.js";import{a as y}from"./selectors-a7d85374.js";import{e as z}from"./drinksSelectors-29c49a96.js";import{D as F,a as I,b as A,c as T,d as B,e as R,f as S,g as C,h as E,i as M}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{D as P,a as H}from"./Drinks_bg3_mob@2x-5e9320da.js";const g=n.button`
   padding: 14px 40px;
   text-align: center;
-  color: ${({theme:i})=>i.button.battonText};
+  color: ${({theme:e})=>e.button.battonText};
   font-weight: 600;
   line-height: 1.29; /* 128.571% */
   border-radius: 42px;
-  background-color: ${({theme:i})=>i.button.buttonBgc};
+  background-color: ${({theme:e})=>e.button.buttonBgc};
   margin-bottom: 80px;
   border-color: transparent;
   transition: all 0.2s ease-in-out;
@@ -14,9 +14,9 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
 
   &:focus,
   &:hover {
-    background-color: ${({theme:i})=>i.button.buttonBgcHover};
-    color: ${({theme:i})=>i.button.buttonTextHover};
-    outline: 2px solid ${({theme:i})=>i.button.buttonBorderHover};
+    background-color: ${({theme:e})=>e.button.buttonBgcHover};
+    color: ${({theme:e})=>e.button.buttonTextHover};
+    outline: 2px solid ${({theme:e})=>e.button.buttonBorderHover};
   }
 
   @media screen and (min-width: 768px) {
@@ -28,7 +28,7 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
   @media screen and (min-width: 1280px) {
     margin-bottom: 198px;
   }
-`,L=({id:i,title:r})=>{const[t,a]=p.useState(!1),o=x(),s=h(k),d={id:i};console.log(s);const c=()=>g.success(`Great! ${r} is your favorite drink!`,{duration:4e3,position:"top-center",icon:"👏",style:{fontSize:"18px",border:"1px solid #F3F3F3",borderRadius:"10px",background:"#1f263f",color:"#F3F3F3"}}),f=()=>g.success(`${r} is not your favorite drink anymore!`,{duration:4e3,position:"top-center",style:{fontSize:"18px",border:"1px solid #F3F3F3",borderRadius:"10px",background:"#1f263f",color:"#F3F3F3"},iconTheme:{primary:"#7a2371",secondary:"#F3F3F3"}});return p.useEffect(()=>{s.length&&s.find(m=>a(m===i?m===i:!1))},[s,t,i]),e.jsx(e.Fragment,{children:t?e.jsx(e.Fragment,{children:e.jsx(l,{type:"button",onClick:()=>o(j(i)).then(()=>f()),children:"Remove from favorite drinks"})}):e.jsx(e.Fragment,{children:e.jsx(l,{type:"button",onClick:()=>o(w(d)).then(()=>c()),children:"Add to favorite drinks"})})})},G=n.h2`
+`,L=({id:e,title:r})=>{const[t,a]=c.useState(!1),o=x(),s=h(k),d={id:e};console.log(s);const p=()=>m.success(`Great! ${r} is your favorite drink!`,{duration:4e3,position:"top-center",icon:"👏",style:{fontSize:"18px",border:"1px solid #F3F3F3",borderRadius:"10px",background:"#1f263f",color:"#F3F3F3"}}),f=()=>m.success(`${r} is not your favorite drink anymore!`,{duration:4e3,position:"top-center",style:{fontSize:"18px",border:"1px solid #F3F3F3",borderRadius:"10px",background:"#1f263f",color:"#F3F3F3"},iconTheme:{primary:"#7a2371",secondary:"#F3F3F3"}});return c.useEffect(()=>{s.length&&s.find(l=>a(l===e?l===e:!1))},[s,t,e]),i.jsx(i.Fragment,{children:t?i.jsx(i.Fragment,{children:i.jsx(g,{type:"button",onClick:()=>o(j(e)).then(()=>f()),children:"Remove from favorite drinks"})}):i.jsx(i.Fragment,{children:i.jsx(g,{type:"button",onClick:()=>o(w(d)).then(()=>p()),children:"Add to favorite drinks"})})})},q=n.h2`
   margin-bottom: 8px;
   font-size: 32px;
   font-weight: 600;
@@ -43,8 +43,8 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
     font-size: 62px;
     line-height: calc(68 / 64);
   }
-`,N=({title:i})=>e.jsx(G,{children:i}),W=n.h4`
-  color: ${({theme:i})=>i.linkSeeMore};
+`,G=({title:e})=>i.jsx(q,{children:e}),N=n.h4`
+  color: ${({theme:e})=>e.linkSeeMore};
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25; /* 125% */
@@ -53,7 +53,7 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
   }
-`,q=n.ul`
+`,W=n.ul`
   display: flex;
   grid-gap: 20px;
   flex-wrap: wrap;
@@ -79,7 +79,7 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
   height: 157px;
   padding: 25px;
   border-radius: 8px;
-  background-color: ${({theme:i})=>i.addDrinkImgBgc};
+  background-color: ${({theme:e})=>e.addDrinkImgBgc};
   margin-bottom: 8px;
   object-fit: cover;
 
@@ -100,7 +100,7 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
     line-height: 1.33; /* 133.333% */
   }
 `,U=n.p`
-  color: ${({theme:i})=>i.linkSeeMore};
+  color: ${({theme:e})=>e.linkSeeMore};
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29; /* 128.571% */
@@ -118,7 +118,7 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
     font-size: 16px;
     line-height: 1.38;
   }
-`,X=({data:i})=>{const r=[],t=x();p.useEffect(()=>{t(v())},[t]);const a=h($);return i.length&&i.map(({ingredientId:o,measure:s})=>(a.find(d=>{if(o===d._id){let c={measure:s};r.push({...d,...c})}}),r)),e.jsxs(e.Fragment,{children:[e.jsx(W,{children:"Ingredients"}),r.length?e.jsx(e.Fragment,{children:e.jsx(q,{children:e.jsx(e.Fragment,{children:r.map(o=>e.jsxs(J,{children:[e.jsx(K,{srcSet:`${o["thumb-small"]} 767w, ${o["thumb-medium"]} 1279w, ${o.ingredientThumb} 1680w`,src:o.ingredientThumb,alt:o.title,loading:"lazy"}),e.jsxs(O,{children:[e.jsx(Q,{children:o.title}),e.jsx(U,{children:o.measure})]})]},o._id))})})}):e.jsx(V,{children:"No information on ingredients"})]})},Y=n.section`
+`,X=({data:e})=>{const r=[],t=x();c.useEffect(()=>{t(v())},[t]);const a=h(y);return e.length&&e.map(({ingredientId:o,measure:s})=>(a.find(d=>{if(o===d._id){let p={measure:s};r.push({...d,...p})}}),r)),i.jsxs(i.Fragment,{children:[i.jsx(N,{children:"Ingredients"}),r.length?i.jsx(i.Fragment,{children:i.jsx(W,{children:i.jsx(i.Fragment,{children:r.map(o=>i.jsxs(J,{children:[i.jsx(K,{srcSet:`${o["thumb-small"]} 767w, ${o["thumb-medium"]} 1279w, ${o.ingredientThumb} 1680w`,src:o.ingredientThumb,alt:o.title,loading:"lazy"}),i.jsxs(O,{children:[i.jsx(Q,{children:o.title}),i.jsx(U,{children:o.measure})]})]},o._id))})})}):i.jsx(V,{children:"No information on ingredients"})]})},Y=n.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -132,7 +132,7 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
   }
 
   /* Для экранов с разрешением 1x и шириной до 768px */
-  background-image: url(${y}), url(${P});
+  background-image: ${({theme:e})=>e.bodyBgc==="#0A0A11"?`url(${F}), url(${P})`:null};
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position:
@@ -142,7 +142,7 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {
-    background-image: url(${I}), url(${H});
+    background-image: ${({theme:e})=>e.bodyBgc==="#0A0A11"?`url(${I}), url(${H})`:null};
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position:
@@ -152,7 +152,7 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
 
   /* Для экранов с разрешением 1x и шириной от 768px до 1280px */
   @media (min-width: 768px) {
-    background-image: url(${T}), url(${B});
+    background-image: ${({theme:e})=>e.bodyBgc==="#0A0A11"?`url(${A}), url(${T})`:null};
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -162,7 +162,7 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
   /* Для ретина-дисплеев с разрешением 2x и шириной от 769px до 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px),
     (min-resolution: 192dpi) and (min-width: 768px) {
-    background-image: url(${R}), url(${S});
+    background-image: ${({theme:e})=>e.bodyBgc==="#0A0A11"?`url(${B}), url(${R})`:null};
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -172,18 +172,16 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
 
   /* Для экранов с разрешением 1x и шириной больше 1280px */
   @media (min-width: 1279.98px) {
-    background-image: url(${A}), url(${C});
+    background-image: ${({theme:e})=>e.bodyBgc==="#0A0A11"?`url(${S}), url(${C})`:null};
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
-    /* background-position:
-      left  top,
-      right  top ; */
   }
 
   /* Для ретина-дисплеев с разрешением 2x и шириной больше 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px),
     (min-resolution: 192dpi) and (min-width: 1280px) {
-    background-image: url(${E}), url(${M});
+    background-image: ${({theme:e})=>e.bodyBgc==="#0A0A11"?`url(${E}),
+      url(${M})`:null};
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -288,4 +286,4 @@ import{s as n,r as p,a as x,u as h,v as k,j as e,a8 as w,x as j,_ as g,a9 as v,a
     flex-direction: row-reverse;
     justify-content: space-between;
   }
-`,ae="/react-project-ITSide-DrinkMaster/assets/recipe-preparation-94babfdc.jpg",he=()=>{const i=x(),{drinkId:r}=_(),t=h(a=>F(a,r));return p.useEffect(()=>{i(D(r))},[i,r]),e.jsx(Y,{children:e.jsxs(z,{children:[e.jsxs(Z,{children:[e.jsxs(ee,{children:[e.jsx(N,{title:t.drink}),e.jsxs(ie,{children:[t.glass," / ",t.alcoholic]}),t.description&&t.description.length?e.jsx(u,{children:t.description}):e.jsx(u,{children:"There is no information about the description of this cocktail!"}),e.jsx(L,{id:r,title:t.drink})]}),e.jsx(te,{src:t.drinkThumb,alt:t.drink,title:t.drink})]}),e.jsx(X,{data:t.ingredients}),e.jsx(ne,{children:"Recipe Preparation"}),e.jsxs(re,{children:[t.instructions&&t.instructions.length?e.jsx(b,{children:t.instructions}):e.jsx(b,{children:"There is no information about the preparation of this cocktail!"}),e.jsx(oe,{src:ae,alt:"Cocktails"})]})]})})};export{he as default};
+`,ae="/react-project-ITSide-DrinkMaster/assets/recipe-preparation-94babfdc.jpg",he=()=>{const e=x(),{drinkId:r}=_(),t=h(a=>z(a,r));return c.useEffect(()=>{e(D(r))},[e,r]),i.jsx(Y,{children:i.jsxs($,{children:[i.jsxs(Z,{children:[i.jsxs(ee,{children:[i.jsx(G,{title:t.drink}),i.jsxs(ie,{children:[t.glass," / ",t.alcoholic]}),t.description&&t.description.length?i.jsx(u,{children:t.description}):i.jsx(u,{children:"There is no information about the description of this cocktail!"}),i.jsx(L,{id:r,title:t.drink})]}),i.jsx(te,{src:t.drinkThumb,alt:t.drink,title:t.drink})]}),i.jsx(X,{data:t.ingredients}),i.jsx(ne,{children:"Recipe Preparation"}),i.jsxs(re,{children:[t.instructions&&t.instructions.length?i.jsx(b,{children:t.instructions}):i.jsx(b,{children:"There is no information about the preparation of this cocktail!"}),i.jsx(oe,{src:ae,alt:"Cocktails"})]})]})})};export{he as default};
