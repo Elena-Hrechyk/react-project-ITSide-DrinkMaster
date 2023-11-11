@@ -3,54 +3,67 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Head = styled.header`
-  border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+  border-bottom: 1px solid ${({ theme }) => theme.headerBorderBottom};
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 23px;
+    padding-bottom: 23px;
+  }
 `;
 
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-family: 'Manrope', Arial, sans-serif;
-
-  max-width: 480px;
+  justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
 
   margin-left: auto;
   margin-right: auto;
-  color: #f3f3f3;
-  background-color: #0a0a11;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
-
-    margin-left: auto;
-    margin-right: auto;
   }
 
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 23px;
-    padding-bottom: 23px;
+  }
+`;
+
+export const LinkLogo = styled(Link)`
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.13; /* 112.5% */
+  padding: 8px 16px;
+  gap: 14px;
+  color: ${({ theme }) => theme.colorText};
+  text-decoration: none;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
   }
 `;
 
 export const Navigation = styled.nav`
   display: none;
-  justify-content: center;
-  align-items: center;
   margin-left: auto;
-  margin-rigth: auto;
+  margin-right: auto;
 
   @media screen and (min-width: 1280px) {
     display: flex;
-  
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -59,64 +72,29 @@ export const NavigationList = styled.ul`
   gap: 10px;
 `;
 
-export const BurgerMenuBtn = styled.button`
-  display: none;
-  margin-left: 24px;
-  width: 38px;
-  height: 38px;
-  padding: 0;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0);
-
-  @media screen and (max-width: 1279.5px) {
-    display: flex;
-  }
-`;
-
-export const UserBarBtn = styled.button`
-  margin-left: auto;
-  width: 116px;
-  height: 44px;
-  padding: 0;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-`;
-
 export const StyledLink = styled(NavLink)`
   padding: 8px 16px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid ${({ theme }) => theme.navLinkBorder};
   border-radius: 40px;
-  color: #f3f3f3;
+  color: ${({ theme }) => theme.colorText};
+  font-weight: 500;
+  line-height: 1.43;
+  transition: all var(--transition-dur-and-func);
 
-  &.active {
-    background-color: #191d34;
+  &:hover,
+  &:focus {
+    background-color: #161f37;
+    border: 1px solid #161f37;
+    color: ${({ theme }) => theme.bodyBgc === '#F3F3F3' && theme.bodyBgc};
   }
 `;
 
-export const UserBarName = styled.span`
-  color: #f3f3f3;
-`;
+export const WrapToggleUser = styled.div`
+  display: none;
 
-export const UserBarImg = styled.img`
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: white;
-`;
-
-export const LinkLogo = styled(Link)`
-  display: inline-flex;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  margin-rigth: auto;
-
-  padding: 8px 16px;
-  gap: 14px;
-  color: #f3f3f3;
-
-  text-decoration: none;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    align-items: center;
+    grid-gap: 28px;
+  }
 `;

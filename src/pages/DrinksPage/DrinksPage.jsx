@@ -13,7 +13,7 @@ import {
   selectIsLoading,
 } from '../../redux/drinks/drinksSelectors';
 
-const DrinksPage = () => {
+const DrinksPage = ({ theme }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [numbers, setNumbers] = useState(0);
 
@@ -42,7 +42,7 @@ const DrinksPage = () => {
     <DrinksPageSection>
       <Container>
         <DrinksPageTitle>Drinks</DrinksPageTitle>
-        <SearchDrinks page={currentPage} limit={drinksPerPage} />
+        <SearchDrinks page={currentPage} limit={drinksPerPage} theme={theme} />
         {isLoading ? (
           <Loader />
         ) : (
@@ -60,6 +60,7 @@ const DrinksPage = () => {
                 totalPages={totalPages}
                 nextPage={onPageChange}
                 paginate={pageNumbersVisible}
+                theme={theme}
               />
             )}
           </>

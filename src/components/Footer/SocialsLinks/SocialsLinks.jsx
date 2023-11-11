@@ -2,41 +2,38 @@ import { ReactComponent as FacebookLogoLink } from '../../../img/svg/facebook.sv
 import { ReactComponent as InstagramSvg } from '../../../img/svg/instagram.svg';
 import { ReactComponent as YoutubeSvg } from '../../../img/svg/youtube.svg';
 
-import { FollowUsContainer, SvgContainer } from './SocialsLinks.styled';
+import { FollowUsContainer, LinkContainer } from './SocialsLinks.styled';
 
 export const SocialsLinks = () => {
   return (
     <FollowUsContainer>
-      <a
+      <LinkContainer
         href="https://www.facebook.com/goITclub/"
         target="_blank"
         rel="noreferrer noopener"
         aria-label="link to Facebook"
+        title="Facebook"
       >
-        <SvgContainer>
-          <FacebookLogoLink />
-        </SvgContainer>
-      </a>
-      <a
+        <FacebookLogoLink fill="currentColor" />
+      </LinkContainer>
+      <LinkContainer
         href="https://www.instagram.com/goitclub/"
         target="_blank"
         rel="noreferrer noopener"
         aria-label="link to Instagram"
+        title='Instagram'
       >
-        <SvgContainer>
-          <InstagramSvg />
-        </SvgContainer>
-      </a>
-      <a
+        <InstagramSvg fill="currentColor" />
+      </LinkContainer>
+      <LinkContainer
         href="https://www.youtube.com/c/GoIT"
         target="_blank"
         rel="noreferrer noopener"
         aria-label="link to Youtube"
+        title='Youtube'
       >
-        <SvgContainer>
-          <YoutubeSvg />
-        </SvgContainer>
-      </a>
+        <YoutubeSvg fill="currentColor" />
+      </LinkContainer>
     </FollowUsContainer>
   );
 };

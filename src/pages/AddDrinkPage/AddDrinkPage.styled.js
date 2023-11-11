@@ -14,8 +14,6 @@ import Drinks_bg3_desk_1x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg3_desk
 import Drinks_bg1_desk_2x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg1_desk@2x.png';
 import Drinks_bg3_desk_2x from '../../img/my-drinks/BGIMG/deskBG/Drinks_bg3_desk@2x.png';
 
-export const BGWrapper = styled.div``;
-
 export const AddPageSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -23,11 +21,8 @@ export const AddPageSection = styled.section`
   align-items: center; /* Center content vertically */
   text-align: center;
   padding: 80px 0 80px 0;
-  /* background-color: '#0A0A11'; */
   font-size: 14px;
 
-  /* background-size: cover; */
-  /* background-repeat: no-repeat; */
   @media (-webkit-min-device-pixel-ratio: 1) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {
   }
@@ -45,7 +40,7 @@ export const AddPageSection = styled.section`
   }
 
   /* Для ретина-дисплеев с разрешением 2x и шириной от 769px до 1279.98px */
-  @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1339.98px),
+  @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1279.98px),
     (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1279.98px) {
     padding: 160px 0 136px 0;
     font-size: 17px;
@@ -121,18 +116,29 @@ export const AddPageSection = styled.section`
   }
 `;
 
-export const Custom = styled.label`
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-  background-color: white;
-  color: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  text-align: center;
+export const Title = styled.h2`
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.19; /* 118.75% */
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+    font-size: 56px;
+    line-height: 1.07;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 64px;
+    line-height: 1.06;
+  }
 `;
-export const CustomFileInput = styled.input`
-  display: none;
+
+export const Wrap = styled.div`
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    grid-gap: 94px;
+  }
 `;
 
 export const ToastStyled = styled.div`
@@ -141,4 +147,31 @@ export const ToastStyled = styled.div`
   border-radius: 10px;
   background: #1f263f;
   color: #f3f3f3;
+`;
+
+export const SendFormButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 107px;
+  height: 46px;
+  padding: 18px 44px;
+
+  border: none;
+  border-radius: 42px;
+  background-color: ${({ theme }) => theme.button.buttonBgc};
+  color: ${({ theme }) => theme.button.battonText};
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.125;
+
+  transition: all var(--transition-dur-and-func);
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.button.buttonBgcHover};
+    color: ${({ theme }) => theme.button.buttonTextHover};
+    outline: 2px solid ${({ theme }) => theme.button.buttonBorderHover};
+  }
 `;

@@ -1,10 +1,8 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-
 export const DrinksPageList = styled.ul`
-   margin-bottom: 40px;
-
+  margin-bottom: 40px;
   display: grid;
   grid-row-gap: 40px;
   list-style: none;
@@ -24,7 +22,7 @@ export const DrinksPageList = styled.ul`
 `;
 
 export const DrinksPageItem = styled.li`
- width: 335px;
+  width: 335px;
   margin-left: auto;
   margin-right: auto;
 
@@ -38,7 +36,7 @@ export const DrinksPageItem = styled.li`
 `;
 
 export const DrinksPageImg = styled.img`
- width: 335px;
+  width: 335px;
   height: 360px;
   border-radius: 8px;
   background:
@@ -54,6 +52,7 @@ export const DrinksPageImg = styled.img`
     width: 342px;
     height: 360px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 400px;
     height: 400px;
@@ -61,7 +60,7 @@ export const DrinksPageImg = styled.img`
 `;
 
 export const DrinksPageText = styled.div`
-margin-top: 14px;
+  margin-top: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,29 +71,26 @@ margin-top: 14px;
   }
 `;
 export const DrinksPageH = styled.h5`
- font-size: 16px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.1;
-  letter-spacing: 0em;
   text-align: left;
-  color: ${({ theme }) => theme.mainText};
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
-
     line-height: 24px;
   }
-
-  @media screen and (min-width: 1280px) {
-  }
 `;
-export const DrinksPageLink = styled(Link)`
-font-family: Manrope;
-font-size: 16px;
-font-weight: 500;
-line-height: 18px;
-letter-spacing: 0em;
-text-align: right;
-color: #F3F3F380;
 
+export const SeemoreLink = styled(Link)`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.29;
+  text-align: right;
+  color: ${({ theme }) => theme.linkSeeMore};
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.13;
+  }
 `;

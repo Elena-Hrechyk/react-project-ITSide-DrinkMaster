@@ -18,7 +18,7 @@ export const Wrap = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const ButtonArrow = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,12 +46,15 @@ export const ButtonPageItem = styled.button`
   height: 27px;
   border-radius: 50%;
   border: none;
-  background-color: ${(props) => (props.isSelected ? '#4070cd80' : 'inherit')};
+  background-color: ${(props) =>
+    props.isSelected ? props.focusColor : 'inherit'};
+  transition: all var(--transition-dur-and-func);
 
-  color: #f3f3f3;
+  color: ${(props) => (props.isSelected ? props.focusText : 'inherit')};
 
   &:hover,
   &:focus {
-    background-color: #161f37;
+    background-color: ${({ focusColor }) => focusColor};
+    color: #f3f3f3;
   }
 `;

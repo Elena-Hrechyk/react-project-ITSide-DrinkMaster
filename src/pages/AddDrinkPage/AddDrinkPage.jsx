@@ -1,5 +1,11 @@
 import { Formik, Form } from 'formik';
-import { AddPageSection, ToastStyled } from './AddDrinkPage.styled';
+import {
+  AddPageSection,
+  Title,
+  Wrap,
+  ToastStyled,
+  SendFormButton,
+} from './AddDrinkPage.styled';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import DrinkDescription from '../../components/DrinkDescription/DrinkDescription';
@@ -11,8 +17,6 @@ import DrinkIngredients from '../../components/DrinkIngredients/DrinkIngredients
 
 import PopularDrinks from '../../components/PopularDrinks/PopularDrinks';
 import { selectUserData } from '../../redux/auth/authSelectors';
-
-import { SendFormButton } from '../../components/DrinkDescription/DrinkDescription.styled';
 import * as yup from 'yup';
 import { Container } from '../../components/GlobalStyled/container.styled';
 import { newDrink } from '../../redux/drinks/drinksOperations';
@@ -77,47 +81,48 @@ const AddDrinkPage = () => {
     <>
       <AddPageSection>
         <Container>
-          <Formik
-            initialValues={{
-              drinkThumb: '',
-              drink: '',
-              shortDescription: '',
-              category: '',
-              glass: '',
-              alcoholic: '',
-              description: '',
-              ingredients: [{ ingredient: '', measure: '' }],
-              owner: '',
-            }}
-            validationSchema={validationSchema}
-            onSubmit={onSubmitForm}
-          >
-            {({ setFieldValue, errors, touched, values }) => (
-              <Form
-                style={{ margin: 'auto' }}
-                encType="multipart/form-data"
-                autoComplete="off" //убираем автозаполнение в инпутах
-              >
-                <DrinkDescription
+          <Title style={{ display: 'flex', flex: 'start' }}>Add drink</Title>
+          <Wrap>
+            <Formik
+              initialValues={{
+                drinkThumb: '',
+                drink: '',
+                shortDescription: '',
+                category: '',
+                glass: '',
+                alcoholic: '',
+                description: '',
+                ingredients: [{ ingredient: '', measure: '' }],
+                owner: '',
+              }}
+              validationSchema={validationSchema}
+              onSubmit={onSubmitForm}
+            >
+              {({ setFieldValue, errors, touched, values }) => (
+                <Form
+                  style={{ margin: 'auto' }}
+                  encType="multipart/form-data"
+                  autoComplete="off" //убираем автозаполнение в инпутах
+                >
+                  <DrinkDescription
+                    errors={errors}
+                    touched={touched}
+                    setFieldValue={setFieldValue}
+                    values={values}
+                  />
 
-                  errors={errors}
-                  touched={touched}
-                  setFieldValue={setFieldValue}
-                  values={values}
-
-                />
-
-                <DrinkIngredients
-                  errors={errors}
-                  touched={touched}
-                  values={values}
-                />
-                <RecipePreparation errors={errors} touched={touched} />
-                <SendFormButton type="submit">Add</SendFormButton>
-              </Form>
-            )}
-          </Formik>
-          <PopularDrinks />
+                  <DrinkIngredients
+                    errors={errors}
+                    touched={touched}
+                    values={values}
+                  />
+                  <RecipePreparation errors={errors} touched={touched} />
+                  <SendFormButton type="submit">Add</SendFormButton>
+                </Form>
+              )}
+            </Formik>
+            <PopularDrinks />
+          </Wrap>
         </Container>
       </AddPageSection>
     </>

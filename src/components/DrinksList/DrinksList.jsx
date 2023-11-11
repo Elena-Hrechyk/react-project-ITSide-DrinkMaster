@@ -2,7 +2,7 @@ import {
   DrinksPageImg,
   DrinksPageList,
   DrinksPageH,
-  DrinksPageLink,
+  SeemoreLink,
   DrinksPageText,
   DrinksPageItem,
 } from './DrinksList.styled';
@@ -17,7 +17,7 @@ export const DrinksListPage = ({ drinks }) => {
               <DrinksPageImg src={drinkThumb} />
               <DrinksPageText>
                 <DrinksPageH>{drink}</DrinksPageH>
-                <DrinksPageLink to={`/drinks/${_id}`}>See more</DrinksPageLink>
+                <SeemoreLink to={`/drinks/${_id}`}>See more</SeemoreLink>
               </DrinksPageText>
             </DrinksPageItem>
           ))

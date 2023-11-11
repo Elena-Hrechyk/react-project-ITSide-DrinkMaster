@@ -4,8 +4,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
 import ReactDOM from 'react-dom/client';
-import { ThemeProvider } from '@emotion/react';
-import { theme } from './theme';
 import App from './App.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,9 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter basename="/react-project-ITSide-DrinkMaster/">
-          <ThemeProvider theme={theme}>
-            <App />
-          </ThemeProvider>
+          <App />
         </BrowserRouter>
       </PersistGate>
     </Provider>
