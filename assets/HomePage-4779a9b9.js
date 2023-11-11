@@ -1,4 +1,4 @@
-import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T as f,L as k}from"./index-4751c36f.js";import{s as u,a as w,b as y}from"./drinksSelectors-29c49a96.js";import{D,a as _,b as v,c as j,d as z,e as L,f as $,g as C,h as S,i as H}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{D as I,a as T}from"./Drinks_bg3_mob@2x-5e9320da.js";const P=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],A=n.section`
+import{s as n,N as c,n as o,L as x,u as d,j as t,a as m,b as l,r as h,g as b,C as u,T as k,c as f}from"./index-8d944318.js";import{s as w,a as y,b as v}from"./drinksSelectors-29c49a96.js";import{D,a as _,b as j,c as $,d as z,e as L,f as H,g as C,h as S,i as T}from"./Drinks_bg3_desk@2x-fb48a17d.js";import{D as B,a as I}from"./Drinks_bg3_mob@2x-5e9320da.js";const P=[{id:"1",category:"Ordinary Drink"},{id:"2",category:"Cocktail"},{id:"3",category:"Shake"},{id:"4",category:"Other/Unknown"},{id:"5",category:"Cocoa"},{id:"6",category:"Shot"},{id:"7",category:"Coffee/Tea"},{id:"8",category:"Homemade Liqueur"},{id:"9",category:"Punch/Party Drink"},{id:"10",category:"Beer"},{id:"11",category:"Soft Drink"}],A=n.section`
   font-family: var(--font-main);
   padding-top: 80px;
   padding-bottom: 80px;
@@ -13,7 +13,7 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
   }
 
   /* Для экранов с разрешением 1x и шириной до 768px */
-  background-image: url(${D}), url(${I});
+  background-image: url(${D}), url(${B});
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position:
@@ -23,7 +23,7 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
   /* Для экранов с разрешением 2x и шириной до 768px */
   @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 767.98px),
     (min-resolution: 192dpi) and (max-width: 767.98px) {
-    background-image: url(${_}), url(${T});
+    background-image: url(${_}), url(${I});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position:
@@ -33,7 +33,7 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
 
   /* Для экранов с разрешением 1x и шириной от 768px до 1280px */
   @media (min-width: 768px) {
-    background-image: url(${v}), url(${j});
+    background-image: url(${j}), url(${$});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -53,18 +53,15 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
 
   /* Для экранов с разрешением 1x и шириной больше 1280px */
   @media (min-width: 1279.98px) {
-    background-image: url(${$}), url(${C});
+    background-image: url(${H}), url(${C});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
-    /* background-position:
-      left  top,
-      right  top ; */
   }
 
   /* Для ретина-дисплеев с разрешением 2x и шириной больше 1280px */
   @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px),
     (min-resolution: 192dpi) and (min-width: 1280px) {
-    background-image: url(${S}), url(${H});
+    background-image: url(${S}), url(${T});
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     background-position:
@@ -120,26 +117,27 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
   @media screen and (min-width: 1280px) {
     margin-bottom: 40px;
   }
-`,B=n(s)`
+`,N=n(c)`
   display: inline-block;
   width: 165px;
   margin-right: auto;
   padding: 8px 16px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
   border-radius: 42px;
-  background: #f3f3f3;
+  background-color: ${({theme:i})=>i.button.buttonBgc};
   margin-bottom: 47px;
-  color: #161f37;
+  color: ${({theme:i})=>i.button.battonText};
   text-align: center;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.23;
-  transition: outline var(--transition-dur-and-func);
+  transition: all var(--transition-dur-and-func);
 
   &:hover,
   &:focus {
-    outline: 2px solid rgba(64, 112, 205, 0.5);
+    background-color: ${({theme:i})=>i.button.buttonBgcHover};
+    color: ${({theme:i})=>i.button.buttonTextHover};
+    outline: 2px solid ${({theme:i})=>i.button.buttonBorderHover};
   }
 
   @media screen and (min-width: 768px) {
@@ -148,7 +146,7 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
     font-size: 16px;
     line-height: 1.13;
   }
-`,N=n.img`
+`,U=n.img`
   display: block;
   width: 252px;
   height: auto;
@@ -165,11 +163,9 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
     top: -57px;
     right: 36px;
   }
-`,U=n.ul`
-  font-family: var(--font-main);
+`,q=n.ul`
   margin-bottom: 40;
-`,q=n.li`
-  font-family: var(--font-main);
+`,R=n.li`
   margin-bottom: 40px;
 
   &:nth-child(n + 5) {
@@ -179,10 +175,8 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
   @media screen and (min-width: 768px) {
     margin-bottom: 80px;
   }
-`,R=n.h3`
+`,W=n.h3`
   margin-bottom: 24px;
-  color: #f3f3f3;
-  font-family: Manrope;
   font-size: 28px;
   font-weight: 600;
   line-height: 1.14;
@@ -192,30 +186,32 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
     font-size: 40px;
     line-height: 1.1;
   }
-`,W=n.div`
+`,Y=n.div`
   @media screen and (min-width: 768px) {
     display: flex;
     grid-gap: 20px;
   }
-`,Y=n(s)`
+`,G=n(c)`
   display: block;
   width: 165px;
   padding: 14px 40px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 42px;
-  background: #f3f3f3;
+  background-color: ${({theme:i})=>i.button.buttonBgc};
   margin-bottom: 47px;
-  color: #161f37;
+  color: ${({theme:i})=>i.button.battonText};
   text-align: center;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.23;
-  transition: outline var(--transition-dur-and-func);
+  transition: all var(--transition-dur-and-func);
 
   &:hover,
   &:focus {
-    outline: 2px solid rgba(64, 112, 205, 0.5);
+    background-color: ${({theme:i})=>i.button.buttonBgcHover};
+    color: ${({theme:i})=>i.button.buttonTextHover};
+    outline: 2px solid ${({theme:i})=>i.button.buttonBorderHover};
   }
 
   @media screen and (min-width: 768px) {
@@ -225,7 +221,7 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
     font-size: 16px;
     line-height: 1.13;
   }
-`,G=e.li`
+`,J=o.li`
   font-family: var(--font-main);
   max-width: 335px;
 
@@ -256,7 +252,7 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
       display: none;
     }
   }
-`,J=e.img`
+`,K=o.img`
   width: 335px;
   height: 360px;
   object-fit: contain;
@@ -281,16 +277,22 @@ import{s as n,N as s,n as e,u as d,j as i,a as x,b as m,r as l,g as h,C as b,T a
     width: 400px;
     height: 400px;
   }
-`,K=e.div`
+`,Q=o.div`
   display: flex;
   justify-content: space-between;
-`,Q=e.h4`
+`,V=o.h4`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.13;
-`,V=e(s)`
-  color: rgba(243, 243, 243, 0.5);
+`,X=o(x)`
   font-size: 14px;
   font-weight: 500;
-  line-height: 1.23;
-`,X=({type:o})=>{const r=d(u).data;let a=[];return r&&(a=r.filter(t=>o===t.category)),i.jsx(i.Fragment,{children:a.map(({_id:t,drink:c,drinkThumb:g})=>i.jsxs(G,{children:[i.jsx(J,{src:g,alt:c,loading:"lazy"}),i.jsxs(K,{children:[i.jsx(Q,{children:c}),i.jsx(V,{to:`/drinks/${t}`,children:"See more"})]})]},t))})},ei=()=>{const o=x(),p=d(w),r=d(m),a=d(y);return l.useEffect(()=>{o(h())},[o]),i.jsx(i.Fragment,{children:r&&i.jsx(A,{children:i.jsxs(b,{children:[i.jsxs(E,{children:[i.jsxs(O,{children:[i.jsx(F,{children:"Craft Your Perfect Drink with Drink Master"}),i.jsx(M,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the words finest beverages."}),i.jsx(B,{to:"/addDrink",children:"Add drink"})]}),i.jsx(N,{src:f,alt:"Coctail",loading:"lazy"})]}),p&&!a?i.jsx(k,{}):i.jsxs(i.Fragment,{children:[i.jsx(U,{children:P.map(t=>i.jsxs(q,{children:[i.jsx(R,{children:t.category}),i.jsx(W,{children:i.jsx(X,{type:t.category})})]},t.id))}),i.jsx(Y,{to:"/drinks",children:"Other drinks"})]})]})})})};export{ei as default};
+  line-height: 1.29;
+  text-align: right;
+  color: ${({theme:i})=>i.linkSeeMore};
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.13;
+  }
+`,Z=({type:i})=>{const r=d(w).data;let a=[];return r&&(a=r.filter(e=>i===e.category)),t.jsx(t.Fragment,{children:a.map(({_id:e,drink:p,drinkThumb:g})=>t.jsxs(J,{children:[t.jsx(K,{src:g,alt:p,loading:"lazy"}),t.jsxs(Q,{children:[t.jsx(V,{children:p}),t.jsx(X,{to:`/drinks/${e}`,children:"See more"})]})]},e))})},oi=()=>{const i=m(),s=d(y),r=d(l),a=d(v);return h.useEffect(()=>{i(b())},[i]),t.jsx(t.Fragment,{children:r&&t.jsx(A,{children:t.jsxs(u,{children:[t.jsxs(E,{children:[t.jsxs(O,{children:[t.jsx(F,{children:"Craft Your Perfect Drink with Drink Master"}),t.jsx(M,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the words finest beverages."}),t.jsx(N,{to:"/addDrink",children:"Add drink"})]}),t.jsx(U,{src:k,alt:"Coctail",loading:"lazy"})]}),s&&!a?t.jsx(f,{}):t.jsxs(t.Fragment,{children:[t.jsx(q,{children:P.map(e=>t.jsxs(R,{children:[t.jsx(W,{children:e.category}),t.jsx(Y,{children:t.jsx(Z,{type:e.category})})]},e.id))}),t.jsx(G,{to:"/drinks",children:"Other drinks"})]})]})})})};export{oi as default};
