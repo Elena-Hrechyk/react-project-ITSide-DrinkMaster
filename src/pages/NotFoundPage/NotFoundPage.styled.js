@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const Section = styled.section`
   padding-top: 188px;
@@ -46,7 +46,6 @@ export const NotFoundImage = styled.img`
 
   @media (min-width: 768px) {
     width: 158px;
-
   }
 `;
 

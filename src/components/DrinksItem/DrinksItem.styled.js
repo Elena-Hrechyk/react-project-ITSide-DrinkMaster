@@ -1,4 +1,5 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrap = styled.div`
   width: 440px;
@@ -15,13 +16,16 @@ export const Wrap = styled.div`
 export const Image = styled.img`
   display: block;
   width: 100%;
-  height: auto;
+  height: 360px;
   object-fit: cover;
   border: none;
   border-radius: 8px;
   margin-bottom: 18px;
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 400px;
   }
 `;
 
@@ -79,7 +83,7 @@ export const Wraper = styled.div`
   }
 `;
 
-export const ButtonSeeMore = styled.button`
+export const ButtonSeeMore = styled(Link)`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.286;
