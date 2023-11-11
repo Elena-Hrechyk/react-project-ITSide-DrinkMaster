@@ -8,6 +8,10 @@ export const FollowUsContainer = styled.div`
   align-items: center;
   gap: 16px;
   margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+  }
 `;
 
 export const LinkFollowUs = styled.a`

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Drinks_bg1_mob_1x from '../../img/my-drinks/BGIMG/mobBG/Drinks_bg1_mob@1x.png';
 import Drinks_bg3_mob_1x from '../../img/my-drinks/BGIMG/mobBG/Drinks_bg3_mob@1x.png';
 import Drinks_bg1_mob_2x from '../../img/my-drinks/BGIMG/mobBG/Drinks_bg1_mob@2x.png';
@@ -20,7 +20,6 @@ export const Wrap = styled.main`
   margin-left: auto;
   margin-right: auto;
 
-
   @media screen and (min-width: 768px) {
     padding-top: 140px;
     padding-bottom: 140px;
@@ -29,7 +28,6 @@ export const Wrap = styled.main`
   @media screen and (min-width: 1280px) {
     padding-top: 158px;
   }
-
 
   /* Для экранов с разрешением 1x и шириной до 768px */
   background-image: url(${Drinks_bg1_mob_1x}), url(${Drinks_bg3_mob_1x});

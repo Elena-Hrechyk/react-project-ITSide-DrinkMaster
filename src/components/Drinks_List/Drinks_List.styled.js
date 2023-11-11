@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const WrapList = styled.ul`
   @media screen and (min-width: 768px) {
