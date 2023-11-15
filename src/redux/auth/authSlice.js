@@ -93,12 +93,12 @@ const authSlice = createSlice({
     [fetchDrinksFavorite.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      action.payload ?
-        state.user.favorite = action.payload
-        : state.user.favorite = [];
+      action.payload
+        ? (state.user.favorite = action.payload)
+        : (state.user.favorite = []);
     },
     [fetchDrinksFavorite.rejected](state, action) {
-      state.error = action.payload
+      state.error = action.payload;
       state.isLoading = false;
     },
     // [subscribe.rejected](state) {
@@ -129,7 +129,9 @@ const authSlice = createSlice({
     },
     [removeFavoriteDrink.fulfilled](state, action) {
       state.error = null;
-      const index = state.user.favorite.findIndex(drink => drink === action.payload.id);
+      const index = state.user.favorite.findIndex(
+        (drink) => drink === action.payload.id,
+      );
       state.user.favorite.splice(index, 1);
     },
     [removeFavoriteDrink.rejected](state, action) {

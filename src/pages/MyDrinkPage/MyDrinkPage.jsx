@@ -15,51 +15,68 @@ import DrinksList from '../../components/Drinks_List/Drinks_List';
 import NotFoundComponent from '../../components/NotFoundComponent/NotFoundComponent';
 import Paginator from '../../components/Paginator/Paginator';
 
-
-
-const MyDrinksPage = () => {
-
+const MyDrinksPage = ({ theme }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [numbers, setNumbers] = useState(0);
+  const dispatch = useDispatch();
+
   const { width } = useResize();
   const data = useSelector(selectOwnDrinks);
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
-  const dispatch = useDispatch();
+
+  const total = data.length;
 
   useEffect(() => {
     dispatch(fetchOwnDrinks());
-  }, [dispatch]);
+    if (total !== numbers) {
+      setCurrentPage(1);
+      setNumbers(total);
+    }
+  }, [dispatch, total, numbers]);
 
   const drinksPerPage = width < 1280 ? 10 : 9;
   const pageNumbersVisible = width < 768 ? 5 : 8;
+
+  const totalPages = Math.ceil(total / drinksPerPage);
   const lastDrinkIndex = currentPage * drinksPerPage;
   const firstDrinkIndex = lastDrinkIndex - drinksPerPage;
   const current = data.slice(firstDrinkIndex, lastDrinkIndex);
+
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   return (
     <Wrap>
-    <Container>
-      <PageTitle title={'My drinks'}></PageTitle>
-        {isLoading ?
-          <Loader /> :
+      <Container>
+        <PageTitle title={'My drinks'}></PageTitle>
+        {isLoading ? (
+          <Loader />
+        ) : (
           <>
-            {current.length !== 0 ? (<DrinksList deleteDrink={deleteOwnDrinks} items={current}></DrinksList>) : (
-              <NotFoundComponent error={error} message={"No own cocktails"}></NotFoundComponent>
+            {total > 0 ? (
+              <DrinksList
+                deleteDrink={deleteOwnDrinks}
+                items={current}
+              ></DrinksList>
+            ) : (
+              <NotFoundComponent
+                error={error}
+                message={"You haven't added any own cocktails yet"}
+              ></NotFoundComponent>
             )}
-            {current.length !== 0 && (
+            {totalPages > 1 && (
               <Paginator
                 currentPage={currentPage}
-                paginate={pageNumbersVisible}
-                drinksPerPage={drinksPerPage}
-                totalItems={data.length}
+                totalPages={totalPages}
                 nextPage={onPageChange}
-              ></Paginator>
+                paginate={pageNumbersVisible}
+                theme={theme}
+              />
             )}
           </>
-        }
+        )}
       </Container>
     </Wrap>
   );

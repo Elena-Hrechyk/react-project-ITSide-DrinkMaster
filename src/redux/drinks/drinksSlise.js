@@ -84,21 +84,8 @@ const drinksSlice = createSlice({
       })
       .addCase(deleteOwnDrinks.fulfilled, (state, action) => {
         state.error = null;
-        const index = state.ownDrinks.findIndex(
-          (drink) => drink === action.payload,
-        );
-        state.ownDrinks.splice(index, 1);
+        state.ownDrinks = action.payload.data;
       });
-    //   .addCase(deleteDrinksnewDrink.pending, handlePending)
-    //   .addCase(deleteDrinksnewDrink.fulfilled, (state, action) => {
-    //     state.isLoading = false;
-    //     state.error = null;
-    //     const index = state.items.findIndex(
-    //       item => item.id === action.payload.id
-    //     );
-    //     state.items.splice(index, 1);
-    //   })
-    //   .addCase(deleteDrinksnewDrink.rejected, handleRejected)
   },
 });
 

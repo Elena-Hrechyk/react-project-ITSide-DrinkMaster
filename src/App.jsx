@@ -124,7 +124,7 @@ function App() {
                 path="/my"
                 element={
                   <PrivateRoute
-                    component={<MyDrinksPage />}
+                    component={<MyDrinksPage theme={theme} />}
                     redirectTo="/welcome"
                     redirect
                   />

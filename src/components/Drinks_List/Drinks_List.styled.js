@@ -9,7 +9,12 @@ export const WrapList = styled.ul`
 `;
 
 export const DrinkItem = styled.li`
-  width: 440px;
+  width: 335px;
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
