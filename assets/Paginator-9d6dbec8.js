@@ -1,4 +1,4 @@
-import{s,G as m,r as l,D as e,k as x,j as r}from"./index-10c3187c.js";const B=s.div`
+import{s,G as m,r as l,D as e,k as x,j as r}from"./index-c80193a8.js";const B=s.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
