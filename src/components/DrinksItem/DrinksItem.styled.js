@@ -59,17 +59,25 @@ export const CocktailRecipe = styled.p`
   line-height: 1.286;
   margin-bottom: 18px;
 
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   @media screen and (min-width: 768px) {
     height: 110px;
     font-size: 16px;
     line-height: 1.375;
     margin-bottom: 24px;
+    -webkit-line-clamp: 5;
   }
-  @media screen and (min-width: 768px) {
-    height: 96px;
+  @media screen and (min-width: 1280px) {
+    height: 90px;
     font-size: 16px;
     line-height: 1.375;
     margin-bottom: 24px;
+    -webkit-line-clamp: 4;
   }
 `;
 
@@ -102,6 +110,9 @@ export const ButtonSeeMore = styled(Link)`
   &:focus {
     color: #161f37;
     background-color: #f3f3f3;
+    outline: 1px solid
+      ${({ theme }) =>
+        theme.body === '#F3F3F3' && theme.button.buttonBorderHover};
   }
 
   @media screen and (min-width: 768px) {
@@ -132,6 +143,9 @@ export const ButtonDelete = styled.button`
   &:focus {
     color: #161f37;
     background-color: #f3f3f3;
+    outline: 1px solid
+      ${({ theme }) =>
+        theme.body === '#F3F3F3' && theme.button.buttonBorderHover};
   }
 
   @media screen and (min-width: 768px) {

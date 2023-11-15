@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://drinkmaster.onrender.com/api';
 // axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const newDrink = createAsyncThunk(
-  'drinks/newDrink',
+  'drinks/own/add',
   async (newDrink, thunkAPI) => {
     try {
       const response = await axios.post('/drinks/own/add', newDrink, {
@@ -79,7 +79,7 @@ export const getDrinkById = createAsyncThunk(
 );
 
 export const fetchOwnDrinks = createAsyncThunk(
-  '/drinks/fetchOwnDrinks',
+  '/drinks/own/all',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/drinks/own/all');
@@ -115,25 +115,13 @@ export const removeFavoriteDrink = createAsyncThunk(
 );
 
 export const deleteOwnDrinks = createAsyncThunk(
-  '/drinks/deleteOwnDrinks',
-  async (id, thunkAPI) => {
+  '/drinks/own/remove',
+  async (_id, thunkAPI) => {
     try {
-      await axios.delete('/drinks/own/remove/');
-      return id;
+      const resp = await axios.delete(`/drinks/own/remove/${_id}`);
+      return resp.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
-
-// export const fetchDrinksFavorite = createAsyncThunk(
-//   "/auth/fetchFavorite",
-//   async (_, thunkAPI) => {
-//       try {
-//         const response = await axios.get("/auth/favorite");
-//         console.log(response.data)
-//         return response.data;
-//       } catch (e) {
-//         return thunkAPI.rejectWithValue(e.message);
-//       }
-//     })
